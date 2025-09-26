@@ -8,58 +8,22 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
 
   <style>
-    /* Definindo as variáveis de cor com a paleta do GIMP */
     :root {
       --background-light: #ffffff;
       --text-light: #000000;
-      --background-dark: #2E2E2E; /* Cinza escuro GIMP */
-      --text-dark: #E0E0E0;      /* Texto claro GIMP */
-      --accent: #5E9A4B;       /* Verde GIMP */
-      --sidebar-dark: #4D4D4D;  /* Cinza médio GIMP */
+      --background-dark: #2E2E2E; 
+      --text-dark: #E0E0E0;      
+      --accent: #5E9A4B;       
+      --sidebar-dark: #4D4D4D;  
     }
-
-    body {
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .light-mode {
-      background-color: var(--background-light);
-      color: var(--text-light);
-    }
-
-    .dark-mode {
-      background-color: var(--background-dark);
-      color: var(--text-dark);
-    }
-    
-    /* Estilos para o modo escuro */
-    .dark-mode .sidebar {
-        background-color: var(--sidebar-dark);
-    }
-    .dark-mode h1, .dark-mode h2, .dark-mode h3 {
-        border-bottom-color: var(--accent);
-    }
-    .dark-mode a {
-        color: var(--accent);
-    }
-    .dark-mode .sidebar-nav .active {
-        border-right-color: var(--accent);
-    }
-
-    /* Botão de troca de tema */
-    .toggle-btn {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      z-index: 1000;
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
+    body { transition: background 0.3s, color 0.3s; }
+    .light-mode { background-color: var(--background-light); color: var(--text-light); }
+    .dark-mode { background-color: var(--background-dark); color: var(--text-dark); }
+    .dark-mode .sidebar { background-color: var(--sidebar-dark); }
+    .dark-mode h1, .dark-mode h2, .dark-mode h3 { border-bottom-color: var(--accent); }
+    .dark-mode a { color: var(--accent); }
+    .dark-mode .sidebar-nav .active { border-right-color: var(--accent); }
+    .toggle-btn { position: fixed; top: 10px; right: 20px; z-index: 1000; background-color: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 14px; }
   </style>
 </head>
 
@@ -72,8 +36,8 @@
       name: 'Projeto GIMP',
       logo: 'https://www.gimp.org/images/front/gimp-logo.png',
       loadSidebar: true,
-      homepage: 'README.md',
       subMaxLevel: 2
+      // A linha homepage: 'README.md' foi removida
     };
 
     function toggleTheme() {
@@ -83,7 +47,6 @@
       localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
     }
 
-    // Carrega o tema salvo ao iniciar a página
     window.onload = function () {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
