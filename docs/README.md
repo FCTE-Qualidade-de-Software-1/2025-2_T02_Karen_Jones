@@ -1,4 +1,4 @@
-# Bem-vindo ao Projeto GIMP - TESTE
+# Bem-vindo ao Projeto GIMP - TESTE 1
 
 Esta é a documentação central do nosso projeto de análise do software GIMP.
 
