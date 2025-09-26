@@ -1,27 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Documentação do Projeto GIMP</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Descrição do projeto">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  
-  <link rel="stylesheet" href="custom.css">
+  <meta charset="UTF-8" />
+  <title>Projeto GIMP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projeto de Análise do Software GIMP" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
 
+  <style>
+    /* Definindo as variáveis de cor com a paleta do GIMP */
+    :root {
+      --background-light: #ffffff;
+      --text-light: #000000;
+      --background-dark: #2E2E2E; /* Cinza escuro GIMP */
+      --text-dark: #E0E0E0;      /* Texto claro GIMP */
+      --accent: #5E9A4B;       /* Verde GIMP */
+      --sidebar-dark: #4D4D4D;  /* Cinza médio GIMP */
+    }
+
+    body {
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .light-mode {
+      background-color: var(--background-light);
+      color: var(--text-light);
+    }
+
+    .dark-mode {
+      background-color: var(--background-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Estilos para o modo escuro */
+    .dark-mode .sidebar {
+        background-color: var(--sidebar-dark);
+    }
+    .dark-mode h1, .dark-mode h2, .dark-mode h3 {
+        border-bottom-color: var(--accent);
+    }
+    .dark-mode a {
+        color: var(--accent);
+    }
+    .dark-mode .sidebar-nav .active {
+        border-right-color: var(--accent);
+    }
+
+    /* Botão de troca de tema */
+    .toggle-btn {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 1000;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
 </head>
-<body>
-  <div id="app"></div>
+
+<body class="dark-mode">
+  <button class="toggle-btn" onclick="toggleTheme()">🌞 / 🌙</button>
+  <div id="app">Carregando o projeto... 🎨</div>
+
   <script>
     window.$docsify = {
       name: 'Projeto GIMP',
-      loadSidebar: true, // <-- Instrução para carregar o menu
+      logo: 'https://www.gimp.org/images/front/gimp-logo.png',
+      loadSidebar: true,
       homepage: 'README.md',
-      logo: 'https://www.gimp.org/images/front/gimp-logo.png' // <-- Logo do GIMP
+      subMaxLevel: 2
+    };
+
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // Carrega o tema salvo ao iniciar a página
+    window.onload = function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      }
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
