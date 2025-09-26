@@ -1,4 +1,4 @@
-* [Home](/projeto.md)
+* [Home](/)
 * [Projeto](/projeto.md)
 * [Equipe](/equipe.md)
 
