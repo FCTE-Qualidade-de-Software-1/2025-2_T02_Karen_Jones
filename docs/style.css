@@ -1,58 +1,41 @@
-/* style.css */
+/* custom.css */
 
-/* Configurações gerais do corpo da página */
+/* Cor de fundo principal e da fonte */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #2E2E2E; /* Cinza escuro do GIMP */
-    color: #E0E0E0; /* Cor de texto clara */
+  background-color: #2E2E2E; /* Cinza escuro GIMP */
+  color: #E0E0E0;
 }
 
-/* Estilo do cabeçalho com o logo e o nome do projeto */
-header {
-    background-color: #4D4D4D; /* Cinza um pouco mais claro */
-    padding: 20px;
-    text-align: center;
-    border-bottom: 3px solid #5E9A4B; /* Verde para destaque */
+/* Cor do menu lateral e borda */
+.sidebar {
+  background-color: #4D4D4D; /* Cinza médio GIMP */
+  border-right: 1px solid #555;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
+/* Cor dos links no menu */
+.sidebar ul li a {
+  color: #E0E0E0;
 }
 
-/* Estilo da barra de navegação */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #444;
+/* Cor do link ativo no menu */
+.sidebar ul li a.active {
+  border-right: 3px solid #5E9A4B; /* Verde GIMP */
+  color: white;
+  background-color: #555;
 }
 
-nav a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
+/* Cor dos títulos principais */
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  border-bottom: 2px solid #5E9A4B;
 }
 
-/* Efeito ao passar o mouse sobre os links */
-nav a:hover {
-    background-color: #5E9A4B;
-    color: white;
+/* Cor dos links no conteúdo */
+a {
+  color: #5E9A4B;
 }
 
-/* Área principal do conteúdo */
-main {
-    padding: 20px;
-}
-
-/* Estilo do rodapé */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4D4D4D;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* Remove a cor de fundo do nome do projeto para mostrar o logo */
+.app-name .app-name-link {
+    background-color: transparent;
 }
