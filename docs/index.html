@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto GIMP - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Documentação do Projeto GIMP</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Descrição do projeto">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
-
-    <header>
-        <h1>Análise do GIMP</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="equipe.html">Equipe</a>
-        <a href="projeto.html">Projeto</a>
-        <a href="fase1.html">Fase 1</a>
-    </nav>
-
-    <main>
-        <h2>Bem-vindo ao nosso projeto!</h2>
-        <p>Este site documenta a nossa análise sobre o software de edição de imagens GIMP (GNU Image Manipulation Program).</p>
-        <p>Navegue pelas seções para conhecer a equipe, os detalhes do projeto e os resultados da Fase 1.</p>
-    </main>
-
-    <footer>
-        <p>Desenvolvido pela Equipe X para a disciplina Y.</p>
-    </footer>
-
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Projeto GIMP', // Nome que aparece no topo da sidebar
+      repo: '',             // Link para o seu repositório GitHub (opcional)
+      loadSidebar: true,    // Carregar a sidebar
+      subMaxLevel: 2        // Níveis de subtítulo no menu
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
 </body>
 </html>
