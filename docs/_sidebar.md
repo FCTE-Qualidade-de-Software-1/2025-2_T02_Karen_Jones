@@ -1,5 +1,5 @@
-* [Home](/docs/projeto.md)
-* [Projeto](docs/projeto.md)
+* [Home](/projeto.md)
+* [Projeto](/projeto.md)
 * [Equipe](/equipe.md)
 
 ---
