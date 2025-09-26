@@ -1,24 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Documentação do Projeto GIMP</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Descrição do projeto">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <meta charset="UTF-8" />
+  <title>Galáxia Conectada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projeto Galáxia Conectada - Plataforma Educacional sobre Astronomia" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+
+  <style>
+    :root {
+      --background-light: #ffffff;
+      --text-light: #000000;
+      --background-dark: #0a0f2c;
+      --text-dark: #e0e0ff;
+      --accent: #4ea1ff;
+    }
+
+    body {
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .light-mode {
+      background-color: var(--background-light);
+      color: var(--text-light);
+    }
+
+    .dark-mode {
+      background-color: var(--background-dark);
+      color: var(--text-dark);
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 1000;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
 </head>
-<body>
-  <div id="app"></div>
+
+<body class="dark-mode">
+  <button class="toggle-btn" onclick="toggleTheme()">🌞 / 🌙</button>
+  <div id="app">Carregando Galáxia Conectada... 🚀</div>
+
   <script>
     window.$docsify = {
-      name: 'Projeto GIMP',    
-      repo: '',                
-      loadSidebar: true,       
-      subMaxLevel: 2,          
-      homepage: 'README.md'    
+      name: '🌌 Galáxia Conectada',
+      repo: 'https://github.com/unbarqdsw2025-1-turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02',
+      loadSidebar: true,
+      subMaxLevel: 2
+    };
+
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // Carrega o tema salvo
+    window.onload = function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      }
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
