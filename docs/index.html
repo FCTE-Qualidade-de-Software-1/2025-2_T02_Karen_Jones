@@ -1,61 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Projeto GIMP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projeto de Análise do Software GIMP" />
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+  <meta charset="UTF-8" />
+  <title>Galáxia Conectada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projeto Galáxia Conectada - Plataforma Educacional sobre Astronomia" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
 
-  <style>
-    :root {
-      --background-light: #ffffff;
-      --text-light: #000000;
-      --background-dark: #2E2E2E; 
-      --text-dark: #E0E0E0;      
-      --accent: #5E9A4B;       
-      --sidebar-dark: #4D4D4D;  
-    }
-    body { transition: background 0.3s, color 0.3s; }
-    .light-mode { background-color: var(--background-light); color: var(--text-light); }
-    .dark-mode { background-color: var(--background-dark); color: var(--text-dark); }
-    .dark-mode .sidebar { background-color: var(--sidebar-dark); }
-    .dark-mode h1, .dark-mode h2, .dark-mode h3 { border-bottom-color: var(--accent); }
-    .dark-mode a { color: var(--accent); }
-    .dark-mode .sidebar-nav .active { border-right-color: var(--accent); }
-    .toggle-btn { position: fixed; top: 10px; right: 20px; z-index: 1000; background-color: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 14px; }
-  </style>
+  <style>
+    :root {
+      --background-light: #ffffff;
+      --text-light: #000000;
+      --background-dark: #0a0f2c;
+      --text-dark: #e0e0ff;
+      --accent: #4ea1ff;
+    }
+
+    body {
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .light-mode {
+      background-color: var(--background-light);
+      color: var(--text-light);
+    }
+
+    .dark-mode {
+      background-color: var(--background-dark);
+      color: var(--text-dark);
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 1000;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body class="dark-mode">
-  <button class="toggle-btn" onclick="toggleTheme()">🌞 / 🌙</button>
-  <div id="app">Carregando o projeto... 🎨</div>
+  <button class="toggle-btn" onclick="toggleTheme()">🌞 / 🌙</button>
+  <div id="app">Carregando Galáxia Conectada... 🚀</div>
 
-  <script>
-    window.$docsify = {
-      name: 'Projeto GIMP',
-      logo: 'https://www.gimp.org/images/front/gimp-logo.png',
-      loadSidebar: true,
-      subMaxLevel: 2
-      // A linha homepage: 'README.md' foi removida
-    };
+  <script>
+    window.$docsify = {
+      name: '🌌 Galáxia Conectada',
+      repo: 'https://github.com/unbarqdsw2025-1-turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02',
+      loadSidebar: true,
+      subMaxLevel: 2
+    };
 
-    function toggleTheme() {
-      const body = document.body;
-      body.classList.toggle('dark-mode');
-      body.classList.toggle('light-mode');
-      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
 
-    window.onload = function () {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-      }
-    }
-  </script>
+    // Carrega o tema salvo
+    window.onload = function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      }
+    }
+  </script>
 
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
