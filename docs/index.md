@@ -1,4 +1,4 @@
-# GIMP - G5
+# GIMP - Equipe Karen Jones
 
 ## Sobre o Projeto
 
