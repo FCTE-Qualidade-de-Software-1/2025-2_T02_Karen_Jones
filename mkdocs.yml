@@ -52,3 +52,5 @@ theme:
       toggle:
         icon: material/brightness-6
         name: Usar preferência do sistema
+extra_css:
+  - css/custom.css
