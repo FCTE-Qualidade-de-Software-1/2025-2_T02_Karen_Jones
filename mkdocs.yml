@@ -1,0 +1,42 @@
+site_name: Projeto GIMP
+
+# Configuração do tema Material
+theme:
+  name: material
+  language: pt
+
+  # Recursos de navegação e usabilidade
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+
+  # Paleta de cores e temas
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/weather-night
+        name: Mudar para modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-6
+        name: Usar preferência do sistema
