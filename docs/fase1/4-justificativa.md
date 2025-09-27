@@ -37,6 +37,7 @@ A descrição mais detalhada das subcaracterísticas utilizadas podem ser encont
 > GNOME. GIMP Project Repository. [2025]. Disponível em: <https://gitlab.gnome.org/GNOME/gimp>. Acesso em: 27 set. 2025.
 
 > INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. ISO/IEC 25000: Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Guide to SQuaRE. First edition. Geneva: ISO, 2005.
+
 ---
 
 ### **Histórico de Versão**
