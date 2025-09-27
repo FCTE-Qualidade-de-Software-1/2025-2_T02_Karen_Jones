@@ -1,9 +1,15 @@
 site_name: Projeto GIMP
+site_description: Trabalho de Qualidade de Software para avaliação do GIMP
+
+nav:
+  - Sobre o projeto: index.md
+  - Quem é Karen Jones: karenjones.md
+  - Fase 1: md.md
 
 # Configuração do tema Material
 theme:
   name: material
-  language: pt
+  language: pt-BR
 
   # Recursos de navegação e usabilidade
   features:
