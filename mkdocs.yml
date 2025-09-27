@@ -4,7 +4,13 @@ site_description: Trabalho de Qualidade de Software para avaliação do GIMP
 nav:
   - Sobre o projeto: index.md
   - Quem é Karen Jones: karenjones.md
-  - Fase 1: fase1/fase1.md
+  - Fase 1: 
+    - Introdução: fase1/fase1.md
+    - Propósito: fase1/1-proposito.md
+    - Requisitantes: fase1/2-requistantes.md
+    - Descrição: fase1/3-descricao.md
+    - Justificativa: fase1/4-justificativa.md
+    - Modelo: fase1/5-modelo.md
 
 # Configuração do tema Material
 theme:

@@ -1,0 +1,1 @@
+# Proposito da Avaliação e Uso Pretendido
