@@ -4,7 +4,7 @@ site_description: Trabalho de Qualidade de Software para avaliação do GIMP
 nav:
   - Sobre o projeto: index.md
   - Quem é Karen Jones: karenjones.md
-  - Fase 1: md.md
+  - Fase 1: fase1/fase1.md
 
 # Configuração do tema Material
 theme:
