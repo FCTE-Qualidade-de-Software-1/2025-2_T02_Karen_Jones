@@ -7,3 +7,10 @@ body {
 p {
     text-align: justify;
 }
+
+p.legenda {
+    text-align: center;
+    /* Centraliza o texto */
+    font-size: 0.9em;
+    /* Opcional: deixa a fonte um pouco menor */
+}
