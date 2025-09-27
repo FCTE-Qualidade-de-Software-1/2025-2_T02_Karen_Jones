@@ -10,11 +10,12 @@ Este documento tem como objetivo apresentar a justificativa e os objetivos que n
 
 A avaliação de qualidade do módulo `file-exr` do GIMP justifica-se por sua importância estratégica e pelos riscos operacionais associados ao seu funcionamento. Este módulo é o principal responsável pela manipulação de arquivos no formato OpenEXR (`.exr`), padrão da indústria para imagens de alta faixa dinâmica (HDR). Uma análise preliminar revelou a existência de diversas **[issues](https://gitlab.gnome.org/GNOME/gimp/-/issues/?sort=created_date&state=opened&search=exr&first_page_size=20)** (relatos de problemas) abertas pela comunidade, que reportam instabilidades e comportamentos inesperados, confome a Imagem 1. Este fato foi um dos principais motivos para a escolha do módulo como objeto de avaliação, tornando uma investigação formal necessária.
 
-<p class="legenda"><em>Figura 1: Screenshot do painel de Issues do GIMP relacionadas a arquivos EXR</em></p>
+
+<font size="3"><p style="text-align: center">Figura 1: Screenshot do painel de Issues do GIMP relacionadas a arquivos EXR</p></font>
 
 ![Screenshot do gitlab da GIMP, mostrando 65 Issues abertas relacionadas a problemas no EXR](../img/issues.png)
 
-<p class="legenda"><em>Fonte: <a href="https://www.enderecodosite.com.br">https://gitlab.gnome.org/GNOME/gimp</a></em></p>
+<font size="3"><p style="text-align: center">Fonte: [https://gitlab.gnome.org/GNOME/gimp](https://gitlab.gnome.org/GNOME/gimp).</p></font>
 
 Diante desse cenário, a avaliação se concentra primeiramente na **Confiabilidade**. Esta característica é vista como o pilar fundamental da experiência do usuário, pois falhas neste quesito podem levar a travamentos inesperados (*crashes*), corrupção de arquivos e, consequentemente, perda de trabalho. Um módulo que não é confiável compromete a reputação de todo o software. Em paralelo, a **Compatibilidade** surge como um fator igualmente crítico. A capacidade de interoperar com outros softwares do ecossistema gráfico não é apenas um diferencial, mas um requisito essencial. Falhas na leitura ou escrita de arquivos `.exr` quebram os fluxos de produção e limitam severamente a adoção do GIMP por profissionais.
 
