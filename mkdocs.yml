@@ -17,7 +17,6 @@ theme:
   name: material
   language: pt-BR
 
-  # Recursos de navegação e usabilidade
   features:
     - announce.dismiss
     - content.action.edit
@@ -32,25 +31,23 @@ theme:
     - search.share
     - search.suggest
 
-  # Paleta de cores e temas
+  # Paleta de cores estilo GIMP
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/weather-night
-        name: Mudar para modo claro
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue grey
+      accent: deep orange
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: Mudar para modo escuro
+
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
+      primary: grey
+      accent: deep orange
       toggle:
-        icon: material/brightness-6
-        name: Usar preferência do sistema
+        icon: material/weather-sunny
+        name: Mudar para modo claro
+
 extra_css:
   - css/custom.css
