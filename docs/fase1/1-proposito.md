@@ -10,7 +10,7 @@ Este documento estabelece os requisitos com base no propósito da Fase 1 para a 
 <div align="center">
     Figura 1:  Plugin e imagem de alta qualidade do GIMP
     <br>
-    <img src="https://i.ytimg.com/vi/4DSdTTnfyDE/maxresdefault.jpg" width="600">
+    <img src="https://shotkit.com/wp-content/uploads/2020/10/gimp-plugins-2.jpg" width="600">
     <br>
     <b>Fonte:</b> <a href="https://www.youtube.com/watch?v=4DSdTTnfyDE/">Create HDRI file by converting .EXR to .HDR in GIMP!</a>.
     <br>
