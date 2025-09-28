@@ -5,7 +5,7 @@
 
 Este documento estabelece os requisitos com base no propósito da Fase 1 para a avaliação de qualidade do software **GIMP (GNU Image Manipulation Program)**, com foco no seu desempenho geral e, especificamente, **no plug-in `file-exr`**, responsável pela manipulação de arquivos de imagem de alta faixa dinâmica (HDR). Isso porque, conforme descrito na [introdução](/fase1.md) e na [descrição](/3-descricao.md), o GIMP é um software de edição de imagens gratuito e de código aberto, amplamente utilizado por fotógrafos, designers e ilustradores como uma alternativa a ferramentas pagas.
 
-#### A avaliação será conduzida sob a ótica da norma ISO/IEC 25010 (SQuaRE), concentrando-se nas seguintes características de qualidade: **Confiabilidade**, **Compatibilidade** e **Portabilidade**.
+**A avaliação será conduzida sob a ótica da norma ISO/IEC 25010 (SQuaRE), concentrando-se nas seguintes características de qualidade: Confiabilidade, Compatibilidade e Portabilidade.**
 
 <div align="center">
     Figura 1:  Plugin e imagem de alta qualidade do GIMP
@@ -116,5 +116,6 @@ A alta prioridade atribuída à **Confiabilidade**, **Compatibilidade** e **Port
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
-| 1.0    | 27/09/2025 | Criação do documento do porpósito da avaliação | [Larissa Stéfane](https://github.com/SkywalkerSupreme)     | |
+| 1.0    | 27/09/2025 | Criação do documento do porpósito da avaliação | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Caio Venâncio](https://www.github.com/caio-venancio) |
+| 1.0.1    | 28/09/2025 | Consertando trecho do índice | [Caio Venâncio](https://www.github.com/caio-venancio) |  |
 
