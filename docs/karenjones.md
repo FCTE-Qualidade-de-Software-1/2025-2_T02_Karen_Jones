@@ -63,20 +63,19 @@ Aqui há também uma intrevista em que a Karen Jones conta um pouco da sua hist�
 
 ## Referências Bibliográficas
 
+ > 1. NAVARRO, Beatriz. *Karen Spärck Jones*. Medium, 2020. Disponível em: <https://beatriznavarro.medium.com/karen-sp%C3%A4rck-jones-4f146d8b23b>. Acesso em: 27 set. 2025.  
 
-1. NAVARRO, Beatriz. *Karen Spärck Jones*. Medium, 2020. Disponível em: <https://beatriznavarro.medium.com/karen-sp%C3%A4rck-jones-4f146d8b23b>. Acesso em: 27 set. 2025.  
+> 2. JONES, Karen Spärck. *Finding the information wood in Natural Language Trees lecture*. [S. l.: s. n.], 2007. 1 vídeo (49 min). Publicado pelo canal *Talks at Cambridge*. Disponível em: <https://www.youtube.com/watch?v=5fYeKiebpuo>. Acesso em: 27 set. 2025.  
 
-2. JONES, Karen Spärck. *Finding the information wood in Natural Language Trees lecture*. [S. l.: s. n.], 2007. 1 vídeo (49 min). Publicado pelo canal *Talks at Cambridge*. Disponível em: <https://www.youtube.com/watch?v=5fYeKiebpuo>. Acesso em: 27 set. 2025.  
+> 3. EXTREME NETWORKS. *Women Who Changed Tech – Karen Spärck Jones*. Extreme Networks, 2019. Disponível em: <https://www.extremenetworks.com/resources/blogs/women-who-changed-tech-karen-sparck-jones>. Acesso em: 27 set. 2025.  
 
-3. EXTREME NETWORKS. *Women Who Changed Tech – Karen Spärck Jones*. Extreme Networks, 2019. Disponível em: <https://www.extremenetworks.com/resources/blogs/women-who-changed-tech-karen-sparck-jones>. Acesso em: 27 set. 2025.  
-
-4. ENGINEERING AND TECHNOLOGY HISTORY WIKI. *Oral-History: Karen Spärck Jones*. ETHW, 2007. Disponível em: <https://ethw.org/Oral-History:Karen_Sp%C3%A4rck_Jones>. Acesso em: 27 set. 2025.  
-
+> 4. ENGINEERING AND TECHNOLOGY HISTORY WIKI. *Oral-History: Karen Spärck Jones*. ETHW, 2007. Disponível em: <https://ethw.org/Oral-History:Karen_Sp%C3%A4rck_Jones>. Acesso em: 27 set. 2025.  
 
 
 
-## Histórico de Versões
 
-| Versão | Alteração | Responsável | Data |
-| - | - | - | - |
-| 1.0 | Elaboração da pesquisa | Larissa Stéfane | 27/09/2025 |
+### **Histórico de Versão**
+
+| Versão | Data       | Descrição                                         | Autor          | Revisor          |
+| :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
+| 1.0    | 27/09/2025 | Apresentação da Karen Jones | [Larissa Stéfane](https://github.com/SkywalkerSupreme)     | |
