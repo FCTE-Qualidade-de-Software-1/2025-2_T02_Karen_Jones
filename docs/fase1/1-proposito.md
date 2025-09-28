@@ -82,7 +82,26 @@ Os dados coletados e as conclusões da avaliação servirão para fundamentar as
 
 
 
-## 4. Referências Bibliográficas
+## 4. Classificação e Ênfase das Características de Qualidade
+
+Para direcionar o escopo da avaliação, as características de qualidade foram selecionadas e priorizadas com base nos objetivos definidos e no cenário de uso profissional do GIMP. A análise levou em conta as necessidades de usuários que dependem de um fluxo de trabalho estável e interoperável, bem como o interesse da comunidade de desenvolvimento em aprimorar o software.
+
+A tabela a seguir apresenta a classificação das características do modelo **SQuaRE (ISO/IEC 25010)**, com a ênfase definida para cada uma em uma escala de 1 (nenhum interesse) a 5 (grande interesse).
+
+| Característica de Qualidade (SQuaRE) | Ênfase (1 a 5) | Justificativa Breve                                                                                             |
+| :----------------------------------- | :------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **Confiabilidade** | 5 – grande interesse | **Foco principal.** Falhas ou corrupção de dados durante a manipulação de arquivos impactam diretamente o trabalho profissional. |
+| **Compatibilidade** | 5 – grande interesse | **Foco principal.** A capacidade de trocar arquivos (`.exr`, `.hdr`) com outros softwares é essencial para o cenário de uso.   |
+| **Portabilidade** | 4 – largo interesse  | Sendo um software multiplataforma, é fundamental que a experiência de instalação e uso seja consistente entre sistemas.        |
+| Adequação Funcional                  | 3 – médio interesse  | O GIMP é um software maduro. Assume-se que as funções básicas operam, o foco não é nelas, mas no plug-in específico. |
+| Segurança                            | 2 – baixo interesse  | Para um software de edição de imagem offline, os riscos de segurança são considerados menos prioritários nesta avaliação.  |
+| Eficiência de Desempenho             | 2 – baixo interesse  | Embora importante, a análise de velocidade e consumo de recursos não é o foco principal desta avaliação.                  |
+| Manutenibilidade                     | 1 – nenhum interesse | A análise do código-fonte e sua facilidade de manutenção estão fora do escopo desta avaliação de produto.                 |
+| Usabilidade                          | 1 – nenhum interesse | Característica explicitamente excluída dos critérios de avaliação pela disciplina.                               |
+
+A alta prioridade atribuída à **Confiabilidade**, **Compatibilidade** e **Portabilidade** reflete diretamente as necessidades do cenário de um artista digital, que depende de um GIMP estável, capaz de se comunicar com outras ferramentas e de funcionar em diferentes ambientes de trabalho.
+
+## 5. Referências Bibliográficas
 
   > 1. HDRMAPS. *Convert .exr to .hdr in Gimp or Photoshop*. HDRMAPS Blog, 2019. Disponível em: <https://hdrmaps.com/blog/convert-exr-to-hdr-in-gimp-or-photoshop/>. Acesso em: 27 set. 2025.  
 
