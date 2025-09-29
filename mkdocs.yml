@@ -12,7 +12,7 @@ nav:
     - Descrição: fase1/3-descricao.md
     - Justificativa: fase1/4-justificativa.md
     - Modelo: fase1/5-modelo.md
-
+    - Tabela de Contribuição: fase1/6-tabela de contribuição.md
 # Configuração do tema Material
 theme:
   name: material
