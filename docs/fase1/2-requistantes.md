@@ -12,12 +12,15 @@ A metodologia adotada segue uma abordagem qualitativa e descritiva, fundamentada
 
 | Papel / Stakeholder | Necessidades Principais | Influência na Avaliação |
 |----------------------|--------------------------|--------------------------|
-| **Requisitante (Comunidade de Usuários e Desenvolvedores)** | Evolução contínua, acesso livre e gratuito, adaptação a múltiplos contextos | Pressiona pela **portabilidade** do software em múltiplas plataformas e pela **compatibilidade** com diferentes formatos de arquivos |
-| **Usuários Finais (fotógrafos, designers, ilustradores, público em geral)** | Facilidade de uso, ferramentas poderosas de edição, estabilidade | Demandam **confiabilidade** no funcionamento das ferramentas e **compatibilidade** com outros softwares/projetos |
-| **Desenvolvedores e Contribuidores** | Código limpo, facilidade de colaboração, suporte a extensões/plugins | Influenciam diretamente a **portabilidade** (código multiplataforma) e a **compatibilidade** (extensões, integrações) |
-| **Testadores e Relatores de Bugs** | Estabilidade, documentação clara, feedback rápido | Focam em garantir a **confiabilidade** do software por meio de testes contínuos e correção de falhas |
-| **Instituições (universidades, ONGs, empresas)** | Custo reduzido, confiabilidade em produção, suporte comunitário | Exigem **confiabilidade** em ambientes críticos e **compatibilidade** com fluxos de trabalho já existentes |
-| **Operadores/Distribuidores (distros Linux, repositórios de software)** | Fácil integração, atualizações regulares, compatibilidade com sistemas | Determinam a **portabilidade** entre sistemas operacionais e a **compatibilidade** com pacotes e dependências |
+### Papéis, Necessidades e Influência na Avaliação  
+
+| Papel / Stakeholder | Necessidades Principais | Influência na Avaliação |
+|----------------------|--------------------------|--------------------------|
+| **Requisitante Principal: Equipe de Avaliação (estudantes da disciplina FGA315 - Qualidade de Software)** | Aplicar conhecimentos teóricos de forma prática, aprimorar habilidades analíticas | Direciona a avaliação para aspectos de portabilidade, confiabilidade e compatibilidade de forma prática, priorizando aprendizado e aplicação metodológica |
+| **Comunidade de Desenvolvedores do GIMP** | Feedback sobre bugs, otimização do build em diferentes sistemas, melhorar compatibilidade com outros softwares | Fornece uma perspectiva externa sobre **portabilidade** e **compatibilidade**, influenciando como os resultados podem ser aplicados para melhorias no software |
+| **Usuários Finais (Designers, Fotógrafos, Artistas Digitais)** | Software estável e compatível, sem falhas em uso profissional, integração com outras ferramentas | Demandam **confiabilidade** e **compatibilidade**, impactando a priorização de testes e avaliação de funcionalidades críticas |
+| **Professora e Monitores da Disciplina** | Avaliar a aplicação estruturada de metodologias de qualidade de software | Avaliam a consistência da metodologia aplicada e sua capacidade de mapear **portabilidade, confiabilidade e compatibilidade** de maneira fundamentada |
+
 
 ## 5. Referências Bibliográficas
 
