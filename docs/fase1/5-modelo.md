@@ -9,12 +9,10 @@
 
 ## Diagrama (visão geral)
 
-  
 
-<p align="center">
-  <img src="/img/diagrama.png" width="800" />
-  <br>
-</p>
+![diagrama](../img/diagrama.png)
+
+
 > O diagrama acima representa o modelo central (ISO/IEC 25010) com as três características prioridades para a Fase 1.
 
 ---
