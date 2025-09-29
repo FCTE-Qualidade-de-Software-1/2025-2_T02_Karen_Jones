@@ -8,7 +8,7 @@ Esta página lista as contribuições dos participantes.
 | Breno Alexandre Soares Garcia          | Construção e organização do documento      | 16.66%         |
 | Caio Venâncio do Rosário               | Construção e organização do documento                      | 16.66%         |
 | Larissa Stéfane Barboza Santos         | Construção e organização do documento      | 16.66%         |
-| Pedro Everton de Paula                 |     |          |
+| Pedro Everton de Paula                 |  Construção e organização do documento   |     16.66%      |
 | Vinicius Castelo Ferreira              | Construção e organização do documento.               | 16.66%         |
 
 **Total:** 100%
