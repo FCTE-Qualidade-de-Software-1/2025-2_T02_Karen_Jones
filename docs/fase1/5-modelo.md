@@ -102,6 +102,7 @@ O modelo padrão ISO/IEC 25010 foi adaptado para priorizar os aspectos mais crí
 - Artefatos para evidência: logs de build, binários gerados, scripts de instalação e resultados dos testes por SO.
 
 **Profundidade (breve — Níveis):**
+
 - **Nível 1 (checagem documental + build simples):** revisar documentação de build, realizar uma build local em 1 SO e documentar falhas. 
 
 - **Nível 2 (builds e testes em múltiplos SOs):** compilar/instalar e executar testes básicos em 2 SOs, automatizar verificação de import/export, documentar ajustes.  
