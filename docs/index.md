@@ -6,10 +6,6 @@ Este repositório faz parte do trabalho da disciplina **Qualidade Software**, mi
 
 O objetivo central é avaliar aspectos de qualidade do sistema GIMP, propondo melhorias com base em métricas, testes, inspeções e demais práticas de garantia de qualidade em software.
 
-## Documentação
-
-Acesse a documentação completa do projeto: [Clique Aqui](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/)
-
 ## Integrantes
 
 <table align="center">

@@ -1,5 +1,6 @@
 site_name: Projeto GIMP
 site_description: Trabalho de Qualidade de Software para avaliação do GIMP
+repo_url: https://github.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones
 
 nav:
   - Sobre o projeto: index.md
