@@ -8,7 +8,8 @@ Este documento tem como objetivo apresentar a justificativa e os objetivos que n
 
 ### **2. Justificativa da Avaliação**
 
-A avaliação de qualidade do módulo `file-exr` do GIMP justifica-se por sua importância estratégica e pelos riscos operacionais associados ao seu funcionamento. Este módulo é o principal responsável pela manipulação de arquivos no formato OpenEXR (`.exr`), padrão da indústria para imagens de alta faixa dinâmica (HDR). Uma análise preliminar revelou a existência de diversas **[issues](https://gitlab.gnome.org/GNOME/gimp/-/issues/?sort=created_date&state=opened&search=exr&first_page_size=20)** (relatos de problemas) abertas pela comunidade, que reportam instabilidades e comportamentos inesperados, conforme a Figura 1. Este fato foi um dos principais motivos para a escolha do módulo como objeto de avaliação, tornando uma investigação formal necessária.
+A avaliação de qualidade do módulo `file-exr` do GIMP justifica-se por sua importância estratégica e pelos riscos operacionais associados ao seu funcionamento. Este módulo é o principal responsável pela manipulação de arquivos no formato OpenEXR (`.exr`), padrão da indústria para imagens de alta faixa dinâmica (HDR). Uma análise preliminar revelou a existência de diversas **[issues](https://gitlab.gnome.org/GNOME/gimp/-/issues/?sort=created_date&state=opened&search=exr&first_page_size=20)** (relatos de problemas) abertas pela comunidade, que reportam instabilidades e comportamentos inesperados, confome a Imagem 1. Este fato foi um dos principais motivos para a escolha do módulo como objeto de avaliação, tornando uma investigação formal necessária.
+
 
 <font size="3"><p style="text-align: center">Figura 1: Screenshot do painel de Issues do GIMP relacionadas a arquivos EXR</p></font>
 
@@ -18,12 +19,11 @@ A avaliação de qualidade do módulo `file-exr` do GIMP justifica-se por sua im
 
 Diante deste cenário, a avaliação se concentra em três características de qualidade fundamentais da norma ISO/IEC 25010, escolhidas para endereçar os principais pontos de risco do módulo.
 
-A **Confiabilidade** surge como a prioridade máxima, visando transformar os relatos de instabilidade em dados concretos. A análise vai além da simples frequência de falhas em uso normal (*maturidade*), aprofundando-se na capacidade do módulo de lidar com arquivos corrompidos de forma segura, sem travar (*tolerância a falhas*). É igualmente crucial avaliar a *recuperabilidade* do sistema, garantindo que a integridade dos dados do usuário seja preservada após um erro, e verificar a *estabilidade sob carga*, para assegurar que o software opere de forma consistente com os arquivos de grande volume comuns em ambientes profissionais.
+A **Confiabilidade** surge como a prioridade máxima, visando transformar os relatos de instabilidade em dados concretos. A análise vai além da simples frequência de falhas em uso normal (*maturidade*), aprofundando-se na capacidade do módulo de lidar com arquivos corrompidos de forma segura, sem travar (*tolerância a falhas*). É igualmente crucial avaliar a *recuperabilidade* do sistema, garantindo que a integridade dos dados do usuário seja preservada após um erro.
 
-Em seguida, a **Compatibilidade** justifica-se pela necessidade de garantir que o GIMP se integre a fluxos de trabalho profissionais. A investigação foca na *interoperabilidade* do módulo, assegurando que os arquivos `.exr` possam ser trocados com outros softwares de mercado, como Blender e Krita, sem perda de canais ou metadados. A análise também abrange a *conformidade* do módulo com as variações complexas do padrão OpenEXR, um requisito essencial para que o GIMP seja uma ferramenta viável em pipelines de produção gráfica.
+Em seguida, a Compatibilidade justifica-se pela necessidade de garantir que o GIMP se integre a fluxos de trabalho profissionais. A investigação foca na interoperabilidade do módulo, assegurando que os arquivos .exr possam ser trocados com outros softwares de mercado, como Blender e Krita, sem perda de canais ou metadados. A análise também contempla a coexistência do GIMP em ambientes compartilhados, verificando se o módulo não gera conflitos com outros plugins ou manipuladores de imagem já instalados.
 
-Por fim, a **Portabilidade** visa garantir uma experiência consistente e funcional para a vasta e diversificada base de usuários do GIMP. A avaliação verifica a *adaptabilidade* do módulo para operar de forma idêntica e previsível nos principais sistemas operacionais (Windows, macOS e Linux). Adicionalmente, analisa-se a *reprodutibilidade* de sua compilação, um fator chave para a saúde e manutenção de um projeto de código aberto, que impacta diretamente sua capacidade de evoluir e se adaptar a novas arquiteturas de hardware e tecnologias futuras.
-
+Por fim, a Portabilidade visa garantir uma experiência consistente e funcional para a vasta e diversificada base de usuários do GIMP. A avaliação verifica a adaptabilidade do módulo para operar de forma idêntica e previsível nos principais sistemas operacionais (Windows, macOS e Linux). Adicionalmente, considera-se a instalabilidade, isto é, a existência de mecanismos que facilitem instalações e builds estáveis (scripts, CI, containers). Também se analisa a substituibilidade, relacionada à facilidade de trocar dependências ou compilar para arquiteturas distintas (x86_64 e ARM) sem perda funcional.
 
 ### **3. Objetivos da Avaliação**
 
@@ -49,7 +49,8 @@ A descrição mais detalhada das subcaracterísticas utilizadas podem ser encont
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
-| 1.0    | 27/09/2025 | Criação da versão inicial do documento de avaliação, com justificativas do porquê das nossas escolhas. | [Arthur Evangelista](https://www.github.com/arthurevg)     | [Caio Venâncio](https://www.github.com/caio-venancio)|
+| 1.0    | 27/09/2025 | Criação da versão inicial do documento de avaliação. | [Arthur Evangelista](https://www.github.com/arthurevg)     | [Caio Venâncio](https://www.github.com/caio-venancio)|
 | 1.1    | 01/10/2025 | Adição das justificativas das subcaracterísticas | [Arthur Evangelista](https://www.github.com/arthurevg)     | [Larissa Stéfane](https://github.com/SkywalkerSupreme)|
+| 1.2    | 01/10/2025 | Reformulação dos textos  | [Breno Alexandre ](https://www.github.com/brenoalexandre0) | [Vinicius Castelo](https://www.github.com/Vini47)|
 
 ---
