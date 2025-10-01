@@ -31,8 +31,11 @@ Como exemplo prático, a avaliação investigará o processo de conversão de um
 <iframe width="1321" height="743" src="https://www.youtube.com/embed/4DSdTTnfyDE" title="Create HDRI file by converting .EXR to .HDR in GIMP!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Este caso de uso específico será a base para avaliar como:
+
 * A **Confiabilidade** do plug-in `file-exr` se comporta sob uso ao garantir que o software não trave ou corrompa dados durante a conversão.
+  
 * A **Compatibilidade** do GIMP assegura que o arquivo `.HDR` final seja gerado corretamente e possa ser utilizado sem falhas em outros softwares do ecossistema de design (como Unreal Engine ou Blender).
+
 * A **Portabilidade** do GIMP permite que este fluxo de trabalho seja executado de maneira consistente em diferentes sistemas operacionais, um requisito comum em estúdios e equipes de freelancers.
 
 ### 2.2. Requisitante e Partes Interessadas (Stakeholders)
