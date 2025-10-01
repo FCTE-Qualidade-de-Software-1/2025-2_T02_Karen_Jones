@@ -120,5 +120,5 @@ A alta prioridade atribuída à **Confiabilidade**, **Compatibilidade** e **Port
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 27/09/2025 | Criação do documento do porpósito da avaliação | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Caio Venâncio](https://www.github.com/caio-venancio) |
-| 1.0.1    | 28/09/2025 | Consertando trecho do índice | [Caio Venâncio](https://www.github.com/caio-venancio) |  |
+| 1.1    | 28/09/2025 | Consertando trecho do índice | [Caio Venâncio](https://www.github.com/caio-venancio) | [Breno Alexandre](https://www.github.com/brenoalexandre0) |
 
