@@ -55,7 +55,7 @@ O objetivo desta página é fornecer uma visão do software em avaliação e o s
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
-| 1.0    | 28/09/2025 | Criação da versão inicial da descrição. | [Caio Venâncio](https://www.github.com/caio-venancio)     | |
+| 1.0    | 28/09/2025 | Criação da versão inicial da descrição. | [Caio Venâncio](https://www.github.com/caio-venancio)     |[Arthur Evangelista](https://www.github.com/arthurevg) |
 
 
 ---
