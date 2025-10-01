@@ -1,13 +1,13 @@
 # Modelo de Qualidade e Escopo
 
 
-## Modelo de Qualidade e Escopo — GIMP (`file-exr`)
+## 1. Introdução
 
 **Objetivo:** representar o modelo de qualidade (ISO/IEC 25010) com foco nas três características prioritárias **Confiabilidade**, **Compatibilidade** e **Portabilidade** e definir o escopo e a profundidade de análise para cada uma.
 
 ---
 
-## Diagrama (visão geral)
+## 2. Diagrama (visão geral)
 
 
 ![diagrama](../img/diagrama.png)
@@ -17,30 +17,29 @@
 
 ---
 
-## Escopo
+## 3. Escopo
 
 A avaliação será limitada às três características para esta Fase 1 **Confiabilidade**, **Compatibilidade** e **Portabilidade** — em conformidade com a ISO/IEC 25010. As demais características do modelo (p.ex. Usabilidade, Segurança ampla, Eficiência de Desempenho, Manutenibilidade como foco principal) ficam fora do escopo.
 
 ---
-## Adaptação do Modelo
+## 4. Adaptação do Modelo
 
 O modelo padrão ISO/IEC 25010 foi adaptado para priorizar os aspectos mais críticos ao propósito desta avaliação: garantir a integridade e a intercambialidade de imagens HDR no fluxo profissional render do GIMP. A seleção das características foi guiada pelo cenário de uso (artista VFX que troca arquivos .exr entre diferentes ferramentas) e pela ideia de focar em aspectos técnicos. Foram selecionadas três características de qualidade de produto, descritas a seguir:
 
 ---
 
-### Confiabilidade
+### 4.1 Confiabilidade
 
 **Definição:** Refere-se à capacidade do módulo `file-exr` de executar leituras, gravações e conversões sem provocar falhas, corrupções ou perda de integridade dos arquivos.
 
-**Subcaracterísticas:**
+A tabela a seguir apresenta a classificação das subcaracterísticas de Confiabilidade do modelo SQuaRE (ISO/IEC 25010), com a ênfase definida para cada uma em uma escala de 1 (nenhum interesse) a 5 (grande interesse).
 
-- **Maturidade:** frequência e severidade de falhas conhecidas (ex.: número de *crashes* relatados ao abrir/extrair EXR).  
-
-- **Tolerância a falhas:** comportamento frente a entradas malformadas ou corrompidas (ex.: não travar, tratar erro e não sobrescrever o original).  
-
-- **Recuperabilidade:** manutenção de integridade após falhas (ex.: rollback, evitar arquivos parcialmente corrompidos).  
-
-- **Estabilidade sob carga:** operação com arquivos grandes e cargas contínuas sem degradação de memória ou hangs (ex.: EXR > 200 MB / ~1 GB).
+| Subcaracterística de Confiabilidade (SQuaRE) | Ênfase (1 a 5) | Justificativa Breve |
+|-----------------------------------------------|----------------|----------------------|
+| **Maturidade** | 5 – grande interesse | Avalia frequência e severidade de falhas conhecidas, como *crashes* relatados ao abrir ou extrair arquivos EXR, impactando diretamente a confiabilidade percebida pelo usuário final. |
+| **Recuperabilidade** | 5 – grande interesse | Foca na manutenção da integridade após falhas. Ex.: rollback de operações e prevenção de arquivos parcialmente corrompidos garantem que o trabalho do usuário não seja perdido. |
+| **Tolerância a falhas** | 4 – largo interesse | Observa o comportamento do sistema frente a entradas malformadas ou corrompidas. Idealmente, o GIMP não deve travar, mas tratar o erro sem sobrescrever o original. |
+| **Disponibilidade** | 3 – médio interesse | Relevante em menor grau, pois o GIMP é uma aplicação desktop offline, sem dependência de uptime contínuo como sistemas online. |
 
 **Escopo (breve):**
 - Operações cobertas: abrir `.exr`, salvar `.exr`, converter (`.exr` ↔ `.hdr`), editar camadas/metadata, operações concorrentes.  
@@ -57,17 +56,16 @@ O modelo padrão ISO/IEC 25010 foi adaptado para priorizar os aspectos mais crí
 
 ---
 
-### Compatibilidade
+### 4.2 Compatibilidade
 
 **Definição:** Refere-se à capacidade do `file-exr` de coexistir e trocar informações com outras ferramentas e formatos do ecossistema gráfico, assegurando que arquivos gerados/alterados pelo GIMP sejam corretamente interpretados por terceiros.
 
-**Subcaracterísticas:**
+A tabela a seguir apresenta a classificação das subcaracterísticas de Compatibilidade do modelo SQuaRE (ISO/IEC 25010), com a ênfase definida para cada uma em uma escala de 1 (nenhum interesse) a 5 (grande interesse).
 
-- **Interoperabilidade:** abrir/gerar `.exr` preservando canais e metadados para serem consumidos por Blender, Krita, Natron etc.  
-
-- **Coexistência:** operar no mesmo ambiente sem conflitos com outros plugins/handlers.  
-
-- **Conformidade com OpenEXR:** aderência a variantes do padrão (multilayer, tiled, deep, compressões).
+| Subcaracterística de Compatibilidade (SQuaRE) | Ênfase (1 a 5) | Justificativa Breve |
+|-----------------------------------------------|----------------|----------------------|
+| **Interoperabilidade** | 5 – grande interesse | Essencial para garantir que arquivos `.exr` abertos/gerados no GIMP preservem canais e metadados, assegurando integração com ferramentas como Blender, Krita e Natron. |
+| **Coexistência** | 4 – largo interesse | Importante para assegurar que o GIMP opere no mesmo ambiente sem conflitos com outros plugins, bibliotecas ou handlers de imagem. |
 
 **Escopo (breve):**
 - Validar round-trips: render → GIMP → export → reabrir em pelo menos dois softwares de referência (ex.: Blender e Krita).  
@@ -80,21 +78,21 @@ O modelo padrão ISO/IEC 25010 foi adaptado para priorizar os aspectos mais crí
 
 - **Nível 2 (testes automatizados):** ~50 arquivos com scripts de comparação (pixel + metadados), relatório de taxa de sucesso por software. 
 
-- **Nível 3 (conformidade/pipeline):** testes formais contra especificação OpenEXR quando possível, simulação de pipelines reais e métricas de perda de informação.
+- **Nível 3 (conformidade/pipeline):** simulação de pipelines reais e métricas de perda de informação.
 
 ---
 
-### Portabilidade
+### 4.3 Portabilidade
 
 **Definição:** Refere-se à capacidade do `file-exr` (e da integração com o GIMP) de ser compilado, instalado e executado com comportamento equivalente em diferentes sistemas operacionais e toolchains.
 
-**Subcaracterísticas:**
+A tabela a seguir apresenta a classificação das subcaracterísticas de Portabilidade do modelo SQuaRE (ISO/IEC 25010), com a ênfase definida para cada uma em uma escala de 1 (nenhum interesse) a 5 (grande interesse).
 
-- **Adaptabilidade:** esforço necessário para ajustar o plugin entre ambientes (distros Linux, Windows, macOS).  
-
-- **Instalabilidade / Reprodutibilidade do build:** existência de scripts/CI/Dockerfiles que permitam builds estáveis e reprodutíveis (ex.: libOpenEXR correta).  
-
-- **Substituibilidade:** facilidade de trocar versões de dependências ou compilar para arquiteturas distintas (x86_64 vs ARM) sem perda funcional.
+| Subcaracterística de Portabilidade (SQuaRE) | Ênfase (1 a 5) | Justificativa Breve |
+|----------------------------------------------|----------------|----------------------|
+| **Adaptabilidade** | 5 – grande interesse | Avalia o esforço necessário para ajustar o plugin entre diferentes ambientes (Linux, Windows, macOS), fator crítico para a ampla adoção. |
+| **Instalabilidade / Reprodutibilidade do build** | 5 – grande interesse | Alta relevância pela necessidade de scripts, CI ou Dockerfiles que garantam builds estáveis e consistentes, evitando erros de dependências (ex.: libOpenEXR). |
+| **Substituibilidade** | 4 – largo interesse | Importante para permitir substituição de versões de dependências ou compilação em diferentes arquiteturas (x86_64 vs ARM) sem perda de funcionalidades. |
 
 **Escopo (breve):**
 - Verificar processo de build/instalação e executar fluxos de import/export em pelo menos 2 SOs (ex.: Ubuntu 22.04 e Windows 11).  
@@ -111,8 +109,15 @@ O modelo padrão ISO/IEC 25010 foi adaptado para priorizar os aspectos mais crí
 
 ---
 
+## 5. Referências Bibliográficas
+
+  > 1. ISO/IEC 25010. Características e subcaracterísticas de qualidade. Disponível em: https://www.researchgate.net/figure/Characteristics-and-Sub-characteristics-of-the-ISO-IEC-25010-quality-model_tbl1_273476036. Acesso em: 27 set. 2025.
+  
+  > 2. GIMP. The GNU Image Manipulation Program. Disponível em: https://www.gimp.org. Acesso em: 27 set. 2025. 
+
 ## **Histórico de Versão**
 
-| ID | Descrição | Autor | Revisor | Data |
+| Versão | Descrição | Autor | Revisor | Data |
 |:--:|:---------|:------|:--------|:----:|
-| 01 | Criação do Documento | [Vinicius Castelo](https://github.com/Vini47) | [Breno Alexandre](https://github.com/brenoalexandre0) | 27/09/2025 |
+| 1.0 | Criação do Documento | [Vinicius Castelo](https://github.com/Vini47) | [Breno Alexandre](https://github.com/brenoalexandre0) | 27/09/2025 |
+| 1.1 | Reformulação das subcaracterísticas e adição das referências | [Breno Alexandre](https://github.com/brenoalexandre0) | [Vinicius Castelo](https://github.com/Vini47) | 01/10/2025 |
