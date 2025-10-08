@@ -15,6 +15,7 @@ nav:
     - Tabela de Contribuição: fase1/6-tabela de contribuição.md
 
   - Fase 2: 
+    - Introdução: fase2/fase2.md
     - Confiabilidade: fase2/1-confiabilidade.md
     - Compatibilidade: fase2/2-compatibilidade.md
     - Portabilidade: fase2/3-portabilidade.md
