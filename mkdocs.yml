@@ -13,6 +13,12 @@ nav:
     - Justificativas: fase1/4-justificativa.md
     - Modelo de Qualidade e Escopo: fase1/5-modelo.md
     - Tabela de Contribuição: fase1/6-tabela de contribuição.md
+
+  - Fase 2: 
+    - Confiabilidade: fase2/1-confiabilidade.md
+    - Compatibilidade: fase2/2-compatibilidade.md
+    - Portabilidade: fase2/3-portabilidade.md
+
 # Configuração do tema Material
 theme:
   name: material
@@ -20,8 +26,8 @@ theme:
 
   features:
     - announce.dismiss
-    - content.action.edit
-    - content.action.view
+    #- content.action.edit
+    #- content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tooltips
