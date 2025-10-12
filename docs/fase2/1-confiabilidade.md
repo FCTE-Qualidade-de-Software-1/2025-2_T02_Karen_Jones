@@ -5,18 +5,43 @@
 |        Dimensão           |                   Descrição                     |
 |---------------------------|-------------------------------------------------|
 | Objeto da análise         | GIMP (Módulo File-exr)                          |
-| Propósito                 | Estabilidade de Entrada e Saída de arquivos EXR |
+| Propósito                 | Entender a Estabilidade do módulo File-exr      |
 | Característica de análise | Confiabilidade                                  | 
 | Perspectiva de Avaliação  | Designer Gráfico                                |
 | Contexto                  | Disciplina de Qualidade de software             |
 
 ## Questões e Métricas
 
-### Q1.
+### Q1. Quanto à maturidade, o módulo File-exr opera sem falhas em uso prolongado e repetitivo?
 
-### Q2.
+- Taxa de falhas (Failure Rate) = nº de falhas / tempo de uso.
 
-> Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o Brainstorm entre possíveis perguntas e possíveis métricas
+### Q2. Quanto à disponibilidade, o GIMP mantém a opção de abrir/salvar EXR ativa durante toda a sessão de edição?
+
+- Incidência de indisponibilidade pós-carga (availability ratio) = nº eventos de indisponibilidade / horas de uso;
+
+### Q3. Quanto à disponibilidade, O módulo continua funcional mesmo após abrir arquivos de diferentes tamanhos?
+
+- Taxa de sucesso sob carga (load reliability) = operações OK com N camadas abertas / total?
+
+### Q4. Quanto à tolerância a falhas, O módulo identifica e rejeita arquivos EXR corrompidos sem comprometer o sistema?
+
+- Erro tratado sem crash  = erros de leitura tratados / erros induzidos.
+
+### Q5. Quanto à recuperabilidade, Logs ou mensagens de erro permitem identificar e reproduzir a falha?
+
+- Reprodutibilidade via logs = bugs reproduzidos a partir do log / bugs com log.
+
+### Q6. Quanto à recuperabilidade, O GIMP oferece recuperação automática de arquivos EXR não salvos após travamento?
+
+- Auto-recuperação bem-sucedida (successful recovery rate) = sessões com restauração de EXR não salvo / crashes.
+
+> Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o Brainstorm entre possíveis perguntas e possíveis métricas.
+
+## Referências Bibliográficas
+
+- 
+
 
 ## **Histórico de Versão**
 

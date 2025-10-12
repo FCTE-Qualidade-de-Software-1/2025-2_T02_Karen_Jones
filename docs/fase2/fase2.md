@@ -1,6 +1,6 @@
 # Sobre a Fase 2
 
-em desenvolvimento
+//escrever introdução
 
 ### **Histórico de Versão**
 

@@ -24,11 +24,8 @@ nav:
 theme:
   name: material
   language: pt-BR
-
   features:
     - announce.dismiss
-    #- content.action.edit
-    #- content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tooltips
@@ -56,6 +53,12 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Mudar para modo claro
+
+# Limita o nível de títulos exibidos no sumário (sidebar)
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 2
 
 extra_css:
   - css/custom.css
