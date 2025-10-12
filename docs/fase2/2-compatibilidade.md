@@ -1,8 +1,20 @@
 # Compatibilidade
 
+## Descrição do Objetivo de Medição de Compatibilidade
 
-em desenvolvimento
+|        Dimensão           |                   Descrição                     |
+|---------------------------|-------------------------------------------------|
+| Objeto da análise         | |
+| Propósito                 | |
+| Característica de análise | | 
+| Perspectiva de Avaliação  | |
+| Contexto                  | |
 
+## Questões e Métricas
+
+### Q1.
+
+### Q2.
 
 ### **Histórico de Versão**
 
