@@ -19,6 +19,7 @@ nav:
     - Confiabilidade: fase2/1-confiabilidade.md
     - Compatibilidade: fase2/2-compatibilidade.md
     - Portabilidade: fase2/3-portabilidade.md
+    - Tabela de Contribuição: fase2/4-tabela de contribuição.md
 
 # Configuração do tema Material
 theme:

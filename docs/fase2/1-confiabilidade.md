@@ -5,13 +5,17 @@
 
 <font size="3"><p style="text-align: center">Tabela 1: Descrição do Objetivo de Medição de Qualidade</p></font>
 
+<center>
+
 |        Dimensão           |                   Descrição                     |
-|---------------------------|-------------------------------------------------|
+| ------------------------- | ----------------------------------------------- |
 | Objeto da análise         | GIMP (Módulo File-exr)                          |
 | Propósito                 | Entender a Estabilidade do módulo File-exr      |
 | Característica de análise | Confiabilidade                                  | 
 | Perspectiva de Avaliação  | Designer Gráfico                                |
 | Contexto                  | Disciplina de Qualidade de software             |
+
+</center>
 
 <font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
 
