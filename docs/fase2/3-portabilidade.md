@@ -18,7 +18,7 @@ O módulo File-exr do GIMP apresenta boa adaptabilidade se o percentual de modif
 
 > Fórmula:
 >
-> $$ \text{Adaptabilidade}(\%) = \frac{\text{Linhas de código ou dependências alteradas}}{\text{Total de linhas de código ou dependências do módulo}} \times 100 $$
+> Adaptabilidade(%) = (Linhas de código ou dependências alteradas ÷ Total de linhas de código ou dependências do módulo) × 100
 >
 > Interpretação:
 >
@@ -34,7 +34,7 @@ Para esta análise utilizaremos uma métrica de Tempo Médio de Instalação (TM
 Esta métrica indicará se o processo de implantação do módulo é eficiente, simples e não requer longas esperas.
 > Fórmula:
 >
-> $$ \text{TMI (Minutos/Instalação)} = \frac{\sum (\text{Tempo de Instalação no Ambiente}_i)}{\text{Número Total de Instalações Medidas}} $$
+> TMI(Minutos/Instalação) = (Tempo de Instalação no Ambiente)i ÷ Número Total de Instalações Medidas
 >
 > O tempo de instalação é medido desde o início da execução do script/instalador até a confirmação de que o módulo está pronto para uso.
 >
@@ -51,7 +51,7 @@ Esta métrica de TFI, sendo baixa, indicará que o pacote de instalação é rob
 
 > Fórmula:
 >
-> $$ \text{TFI} (\%) = \frac{\text{Número de Instalações Mal-sucedidas}}{\text{Número Total de Tentativas de Instalação}} \times 100 $$
+> TFI(%) = (Número de Instalações Mal-sucedidas ÷ Número Total de Tentativas de Instalação) × 100
 >
 > A falha de instalação é definida como qualquer erro que impeça o módulo de ser carregado ou executado corretamente após a conclusão do processo de instalação.
 >
@@ -67,7 +67,7 @@ O módulo File-exr do GIMP apresenta boa substituibilidade se o índice for supe
 
 > Fórmula:
 >
-> $$ \text{Substituibilidade}(\%) = \frac{\text{Número de componentes substituíveis sem modificação}}{\text{Total de componentes dependentes}} \times 100 $$
+> Substituibilidade(%) = (Número de componentes substituíveis sem modificação ÷ Total de componentes dependentes) × 100
 >
 > Interpretação:
 >
@@ -87,3 +87,4 @@ O módulo File-exr do GIMP apresenta boa substituibilidade se o índice for supe
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 08/10/2025 | Criação do Documento. | [Vinicius Castelo](https://github.com/Vini47)     | [Caio Venâncio](https://www.github.com/caio-venancio), [Pedro Everton](https://github.com/pedroeverton217) |
 | 1.1    | 12/10/2025 | Adição de tabela e questões. | [Breno Alexandre](https://github.com/brenoalexandre0), [Pedro Everton](https://github.com/pedroeverton217) | |
+| 1.2    | 13/10/2025 | Conserta fórmulas. | [Breno Alexandre](https://github.com/brenoalexandre0) | |
