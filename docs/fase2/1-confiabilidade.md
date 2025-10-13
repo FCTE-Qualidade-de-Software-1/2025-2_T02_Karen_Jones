@@ -5,8 +5,6 @@
 
 <font size="3"><p style="text-align: center">Tabela 1: Descrição do Objetivo de Medição de Qualidade</p></font>
 
-<center>
-
 |        Dimensão           |                   Descrição                     |
 | ------------------------- | ----------------------------------------------- |
 | Objeto da análise         | GIMP (Módulo File-exr)                          |
@@ -14,8 +12,6 @@
 | Característica de análise | Confiabilidade                                  | 
 | Perspectiva de Avaliação  | Designer Gráfico                                |
 | Contexto                  | Disciplina de Qualidade de software             |
-
-</center>
 
 <font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
 
@@ -61,3 +57,4 @@
 | 1.0    | 08/10/2025 | Criação do Documento.                             |[Vinicius Castelo](https://github.com/Vini47)| [Caio Venâncio](https://www.github.com/caio-venancio), [Pedro Everton](https://github.com/pedroeverton217) |
 | 1.1    | 08/10/2025 | Descrição do Objetivo de Medição de Confiabilidade| [Caio Venâncio](https://www.github.com/caio-venancio) | [Arthur Evangelista](https://www.github.com/arthurevg) |
 | 1.2 | 12/10/2025 | Adição de referências e ajustes no documento| [Arthur Evangelista](https://www.github.com/arthurevg) |[Vinicius Castelo](https://github.com/Vini47)|
+| 1.3 | 13/10/2025| Conserta tabela. | [Breno Alexandre](https://github.com/brenoalexandre0) | |
