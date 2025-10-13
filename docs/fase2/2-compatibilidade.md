@@ -4,11 +4,11 @@
 
 |        Dimensão           |                   Descrição                     |
 |---------------------------|-------------------------------------------------|
-| Objeto da análise         | |
+| Objeto da análise         | GIMP (Módulo File-exr) |
 | Propósito                 | |
-| Característica de análise | | 
-| Perspectiva de Avaliação  | |
-| Contexto                  | |
+| Característica de análise | Compatibilidade | 
+| Perspectiva de Avaliação  | Designer Gráfico |
+| Contexto                  | Disciplina de Qualidade de software |
 
 ## Questões e Métricas
 
