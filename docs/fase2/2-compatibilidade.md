@@ -12,13 +12,13 @@
 
 ## Questões e Métricas
 
-### Q1. Quanto a Interoberabilidade, Qual a taxa de sucesso na abertura/escrita de arquivos EXR gerados por outras aplicações de mercado (ex: Blender, Nuke, Houdini)?
+### Q1. Quanto a Interoberabilidade, Qual a taxa de sucesso na abertura de arquivos EXR gerados por outras aplicações de mercado (ex: Blender, Nuke, Houdini)?
 
-O módulo File-exr do GIMP será considerado de **alta Interoperabilidade** se a taxa de sucesso na leitura e escrita de arquivos EXR trocados com outras aplicações padrão da indústria (TIE) for **superior a 98%**. Um TIE alto garante que o módulo está em conformidade com o padrão OpenEXR e que a troca de dados com o ecossistema externo é fluida e confiável.
+O módulo File-exr do GIMP será considerado de **alta Interoperabilidade** se a taxa de sucesso na leitura e escrita de arquivos EXR trocados com outras aplicações padrão da indústria (TIL) for **superior a 98%**. Um TIL alto garante que o módulo está em conformidade com o padrão OpenEXR e que a troca de dados com o ecossistema externo é fluida e confiável.
 
 > Fórmula:
 >
-> TIE(%) = (Número de Casos de Leitura/Escrita Bem-sucedidos ÷ Número Total de Casos de Leitura/Escrita Testados) × 100
+> TIE(%) = (Número de Casos de Leitura Bem-sucedidos ÷ Número Total de Casos de Leitura Testados) × 100
 >
 > **Nota:** Um caso de Leitura Bem-sucedida ocorre quando um arquivo EXR gerado por um software de terceiros é aberto corretamente no GIMP. Um caso de Escrita Bem-sucedida ocorre quando um arquivo EXR salvo pelo GIMP é aberto e validado por softwares de terceiros.
 >
