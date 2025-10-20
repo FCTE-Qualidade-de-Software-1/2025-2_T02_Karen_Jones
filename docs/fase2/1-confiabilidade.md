@@ -12,7 +12,54 @@
 | Perspectiva de Avaliação | Designer Gráfico |
 | Contexto | Disciplina de Qualidade de software |
 
-<p align="center"><em>Fonte: Autores. (2025)</em></p>
+<center>
+
+|        Dimensão           |                   Descrição                     |
+| ------------------------- | ----------------------------------------------- |
+| Objeto da análise         | GIMP (Módulo File-exr)                          |
+| Propósito                 | Entender a Estabilidade do módulo File-exr      |
+| Característica de análise | Confiabilidade                                  | 
+| Perspectiva de Avaliação  | Designer Gráfico                                |
+| Contexto                  | Disciplina de Qualidade de software             |
+
+</center>
+
+<font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
+
+## Questões e Métricas
+
+### Q1. Quanto à maturidade, o módulo File-exr opera sem falhas em uso prolongado e repetitivo?
+
+- Taxa de falhas (Failure Rate) = nº de falhas / tempo de uso.
+
+> O objetivo é verificar se ele mantém o funcionamento correto mesmo após várias operações de abertura e exportação de arquivos EXR, sem apresentar travamentos, vazamentos de memória ou falhas recorrentes.
+> A métrica “Taxa de falhas (Failure Rate)” indica a frequência com que ocorrem erros por unidade de tempo de uso — quanto menor, mais maduro e estável é o módulo.
+
+### Q2. Quanto à disponibilidade, o GIMP mantém a opção de abrir/salvar EXR ativa durante toda a sessão de edição?
+
+- Incidência de indisponibilidade pós-carga (availability ratio) = nº eventos de indisponibilidade / horas de uso.
+
+> Ela verifica se, após longas sessões ou múltiplas edições, o módulo continua permitindo exportar e importar arquivos EXR sem desativar menus ou gerar falhas.
+> A métrica “Incidência de indisponibilidade pós-carga (Availability Ratio)” quantifica o número de períodos em que o módulo ficou indisponível por hora de uso.
+
+### Q3. Quanto à disponibilidade, O módulo continua funcional mesmo após abrir arquivos de diferentes tamanhos?
+
+- Taxa de sucesso sob carga (load reliability) = operações OK com N camadas abertas / total.
+
+> O foco é observar se o desempenho e a estabilidade se mantêm, sem perda de responsividade nem erros de memória.
+A métrica “Taxa de sucesso sob carga (Load Reliability)” mede a proporção de operações concluídas com sucesso em relação ao total executado sob diferentes condições.
+
+### Q4. Quanto à tolerância a falhas, O módulo identifica e rejeita arquivos EXR corrompidos sem comprometer o sistema?
+
+- Erro tratado sem crash  = erros de leitura tratados / erros induzidos.
+
+### Q5. Quanto à recuperabilidade, Logs ou mensagens de erro permitem identificar e reproduzir a falha?
+
+- Reprodutibilidade via logs = bugs reproduzidos a partir do log / bugs com log.
+
+### Q6. Quanto à recuperabilidade, O GIMP oferece recuperação automática de arquivos EXR não salvos após travamento?
+
+- Auto-recuperação bem-sucedida (successful recovery rate) = sessões com restauração de EXR não salvo / crashes.
 
 ---
 

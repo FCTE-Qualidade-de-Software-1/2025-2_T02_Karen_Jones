@@ -4,11 +4,11 @@
 
 |        Dimensão           |                   Descrição                     |
 |---------------------------|-------------------------------------------------|
-| Objeto da análise         | GIMP (Módulo File-exr) |
-| Propósito                 | Entender o funcionamento do módulo em diferentes sistemas operacionais |
-| Característica de análise | Portabilidade | 
-| Perspectiva de Avaliação  | Designer Gráfico |
-| Contexto                  | Disciplina de Qualidade de software |
+| Objeto da análise         | GIMP (Módulo File-exr)                          |
+| Propósito                 | Entender                                        |
+| Característica de análise | Portabilidade                                   | 
+| Perspectiva de Avaliação  | Designer Gráfico                                |
+| Contexto                  | Disciplina de Qualidade de software             |
 
 ## Questões e Métricas
 
