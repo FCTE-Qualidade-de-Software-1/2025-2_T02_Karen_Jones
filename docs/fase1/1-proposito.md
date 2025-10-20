@@ -3,7 +3,7 @@
 
 ## 1. Introdução
 
-Este documento estabelece os requisitos com base no propósito da Fase 1 para a avaliação de qualidade do software **GIMP (GNU Image Manipulation Program)**, com foco no seu desempenho geral e, especificamente, **no plug-in `file-exr`**, responsável pela manipulação de arquivos de imagem de alta faixa dinâmica (HDR). Isso porque, conforme descrito na [introdução](/fase1.md) e na [descrição](/3-descricao.md), o GIMP é um software de edição de imagens gratuito e de código aberto, amplamente utilizado por fotógrafos, designers e ilustradores como uma alternativa a ferramentas pagas.
+Este documento estabelece os requisitos com base no propósito da Fase 1 para a avaliação de qualidade do software **GIMP (GNU Image Manipulation Program)**, com foco no seu desempenho geral e, especificamente, **no plug-in `file-exr`**, responsável pela manipulação de arquivos de imagem de alta faixa dinâmica (HDR). Isso porque, conforme descrito na [introdução](fase1.md) e na [descrição](3-descricao.md), o GIMP é um software de edição de imagens gratuito e de código aberto, amplamente utilizado por fotógrafos, designers e ilustradores como uma alternativa a ferramentas pagas.
 
 **A avaliação será conduzida sob a ótica da norma ISO/IEC 25010 (SQuaRE), concentrando-se nas seguintes características de qualidade: Confiabilidade, Compatibilidade e Portabilidade.**
 
