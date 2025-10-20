@@ -12,13 +12,13 @@
 
 ## Questões e Métricas
 
-### Q1. Quanto a Interoberabilidade, Qual a taxa de sucesso na abertura/escrita de arquivos EXR gerados por outras aplicações de mercado (ex: Blender, Nuke, Houdini)?
+### Q1. Quanto a Interoberabilidade, Qual a taxa de sucesso na abertura de arquivos EXR gerados por outras aplicações de mercado (ex: Blender, Nuke, Houdini)?
 
-O módulo File-exr do GIMP será considerado de **alta Interoperabilidade** se a taxa de sucesso na leitura e escrita de arquivos EXR trocados com outras aplicações padrão da indústria (TIE) for **superior a 98%**. Um TIE alto garante que o módulo está em conformidade com o padrão OpenEXR e que a troca de dados com o ecossistema externo é fluida e confiável.
+O módulo File-exr do GIMP será considerado de **alta Interoperabilidade** se a taxa de sucesso na leitura e escrita de arquivos EXR trocados com outras aplicações padrão da indústria (TIL) for **superior a 98%**. Um TIL alto garante que o módulo está em conformidade com o padrão OpenEXR e que a troca de dados com o ecossistema externo é fluida e confiável.
 
 > Fórmula:
 >
-> $$ \text{TIE} (\%) = \frac{\text{Número de Casos de Leitura/Escrita Bem-sucedidos}}{\text{Número Total de Casos de Leitura/Escrita Testados}} \times 100 $$
+> TIE(%) = (Número de Casos de Leitura Bem-sucedidos ÷ Número Total de Casos de Leitura Testados) × 100
 >
 > **Nota:** Um caso de Leitura Bem-sucedida ocorre quando um arquivo EXR gerado por um software de terceiros é aberto corretamente no GIMP. Um caso de Escrita Bem-sucedida ocorre quando um arquivo EXR salvo pelo GIMP é aberto e validado por softwares de terceiros.
 >
@@ -34,7 +34,7 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 
 > Fórmula:
 >
-> $$ \text{APTC} (\%) = \frac{\text{Tempo com Módulo} - \text{Tempo sem Módulo}}{\text{Tempo sem Módulo}} \times 100 $$
+> APTC(%) = ((Tempo com Módulo - Tempo sem Módulo) ÷ Tempo sem Módulo) × 100
 >
 > **Nota:** O "Tempo de Carregamento" é medido desde o início da execução do GIMP até o momento em que a interface principal está totalmente operacional e responsiva.
 >
@@ -49,4 +49,5 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 08/10/2025 | Criação do Documento. | [Vinicius Castelo](https://github.com/Vini47)     | [Caio Venâncio](https://www.github.com/caio-venancio), [Pedro Everton](https://github.com/pedroeverton217) |
-| 1.1    | 12/10/2025 | Adição de tabela e questões. |[Pedro Everton](https://github.com/pedroeverton217), [Larissa Stéfane](https://github.com/SkywalkerSupreme), [Vinicius Castelo](https://github.com/Vini47) | |
+| 1.1    | 12/10/2025 | Adição de tabela e questões. |[Pedro Everton](https://github.com/pedroeverton217) | |
+| 1.2   | 13/10/2025 | Conserto de fórmulas.  |[Breno Alexandre](https://github.com/brenoalexandre0) | |
