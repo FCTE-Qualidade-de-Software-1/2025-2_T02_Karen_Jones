@@ -1,5 +1,17 @@
 # Compatibilidade
 
+## Introdução:
+
+Conforme foi analisado na Fase 1, utilizando as normas ISO/IEC 25010 (SQuaRE) — o padrão internacional que estabelece os atributos de qualidade de software —, a Compatibilidade é um fator essencial para a aceitação de ferramentas robustas como o GIMP.
+
+A Compatibilidade refere-se à capacidade do GIMP de funcionar em diversos ambientes e de trocar dados com outras aplicações. Este fator é detalhado nas subcaracterísticas:
+
+- **Interoperabilidade**: A capacidade de trocar e utilizar informações com outros sistemas, crucial para a leitura e escrita de formatos complexos como o EXR.
+- **Coexistência:** A capacidade de realizar funções eficientemente sem causar ou sofrer interferências ao compartilhar recursos do sistema operacional.
+
+Dessa maneira, este trabalho aplica a metodologia Goal-Question-Metric (GQM) ao módulo File-exr do GIMP. O GQM estabelece que a medição deve ser estratégica, começando pelas Metas de alto nível da organização. Nossa meta é Analisar a adequação do módulo File-exr para fluxos de trabalho profissionais (Designer Gráfico), traduzindo as preocupações com Interoperabilidade e Coexistência em um conjunto de questões e métricas validadas. O resultado fornecerá insights acionáveis para a comunidade de desenvolvimento do GIMP, transformando a necessidade de qualidade em um programa de melhoria contínua.
+
+
 ## Descrição do Objetivo de Medição de Compatibilidade
 
 |        Dimensão           |                   Descrição                     |
@@ -43,6 +55,11 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 > - **0–5%** → **Alta Coexistência** (impacto mínimo na inicialização)
 > - **5–15%** → **Coexistência Moderada** (impacto perceptível, mas aceitável; otimizações recomendadas)
 > - **>15%** → **Baixa Coexistência** (atraso significativo na inicialização, indicando consumo excessivo de recursos ou carregamento ineficiente na inicialização)
+
+
+
+## Referências Bibliográficas
+
 
 ### **Histórico de Versão**
 
