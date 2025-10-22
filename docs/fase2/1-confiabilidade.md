@@ -141,7 +141,7 @@ Esta pergunta avalia a capacidade de recuperação (Recoverability) do sistema, 
 
 ## Conclusão
 
-Este Plano de Medição fornece um *framework* estruturado para a avaliação da confiabilidade do módulo `file-exr`. A estrutura GQM (H3 para Perguntas, H4 para Métricas) garante o alinhamento metodológico. Cada métrica inclui uma hipótese clara e critérios de interpretação, que guiarão a fase de testes e a elaboração do relatório final de avaliação.
+Este Plano de Medição fornece um *framework* estruturado para a avaliação da confiabilidade do módulo `file-exr`.
 
 > *OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas.*
 
