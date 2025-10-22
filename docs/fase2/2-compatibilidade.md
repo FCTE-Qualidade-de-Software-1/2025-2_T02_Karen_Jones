@@ -2,7 +2,7 @@
 
 ## Introdução:
 
-Conforme foi analisado na Fase 1, utilizando as normas ISO/IEC 25010 (SQuaRE) — o padrão internacional que estabelece os atributos de qualidade de software —, a Compatibilidade é um fator essencial para a aceitação de ferramentas robustas como o GIMP.
+Conforme foi analisado na Fase 1, ao utilizar as normas [ISO/IEC 25010 (SQuaRE)](https://blog.onedaytesting.com.br/iso-iec-25010/) — o padrão internacional que estabelece os atributos de qualidade de software —, a Compatibilidade é um fator essencial para a aceitação de ferramentas robustas como o GIMP.
 
 A Compatibilidade refere-se à capacidade do GIMP de funcionar em diversos ambientes e de trocar dados com outras aplicações. Este fator é detalhado nas subcaracterísticas:
 
@@ -60,6 +60,8 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 
 ## Referências Bibliográficas
 
+[1] ABREU, Bruno. A ISO/IEC 25010 e sua importância para a qualidade de software. One Day Testing Blog, 29 mar. 2023. Disponível em: https://blog.onedaytesting.com.br/iso-iec-25010/
+. Acesso em 20 de out. 2025.
 
 ### **Histórico de Versão**
 
