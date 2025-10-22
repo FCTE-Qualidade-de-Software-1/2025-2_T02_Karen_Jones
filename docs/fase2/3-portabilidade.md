@@ -29,41 +29,9 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 <!-- a nova pergunta: -->
 ### Q1. Quanto a Adaptabilidade, o módulo se comporta de formas diferentes em diferentes sistemas operacionais?
 
-#### Hipótese:
+#### Hipótese: O módulo se comporta exatamente da mesma forma em qualquer sistema operacional, limitando-se a diferença de desempenho.
 
 #### Métrica 1.1: Taxa de Sucesso de Execução entre Plataformas
-
-> Fórmula:
->
-> **Referência:**
->
-> Interpretação:
->
-> 
->
->
-
-#### Métrica 1.2: Desvio de Desempenho entre Plataformas
-
-> Fórmula:
->
-> **Referência:**
->
-> Interpretação:
->
-> 
->
->
-
-<!-- a pergunta antiga: -->
-<!-- ### Q2. Quanto a Instalabilidade, qual o tempo médio necessário para que o módulo seja instalado em novos ambientes de implantação? -->
-
-<!-- a nova pergunta: -->
-### Q2. Quanto a Instalabilidade, é possível instalar e desinstalar somente o módulo file-exr?
-
-#### Hipótese:
-
-#### Métrica 2.1: Taxa de Sucesso na Instalação (Installation Success Rate)
 
 > **Fórmula:**
 >
@@ -77,17 +45,56 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 > - **Baixa Adaptabilidade (Hipótese Refutada):** < 85% de execuções bem-sucedidas em todas as plataformas  
 > Esta métrica avalia a **confiabilidade do módulo em diferentes sistemas operacionais**. Quanto maior a taxa de execuções bem-sucedidas, melhor a adaptabilidade do módulo entre plataformas.
 
+#### Métrica 1.2: Desvio de Desempenho entre Plataformas
+
+> **Fórmula:**
+>
+> `|Desempenho no Sistema A - Desempenho no Sistema B| / Desempenho médio`
+>
+> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
+>
+> **Interpretação:**
+> - **Baixo Desvio de Desempenho (Hipótese Confirmada):** < 10% de variação entre plataformas
+> - **Desvio Médio de Desempenho:** 10% - 20% de variação entre plataformas
+> - **Alto Desvio de Desempenho (Hipótese Refutada):** > 20% de variação entre plataformas  
+> O desvio de desempenho mede **a diferença no tempo de execução** do módulo entre diferentes plataformas. Um baixo desvio indica que o módulo mantém uma performance consistente em diferentes sistemas, enquanto um alto desvio pode indicar problemas de adaptação.
+
+
+<!-- a pergunta antiga: -->
+<!-- ### Q2. Quanto a Instalabilidade, qual o tempo médio necessário para que o módulo seja instalado em novos ambientes de implantação? -->
+
+<!-- a nova pergunta: -->
+### Q2. Quanto a Instalabilidade, é possível instalar e desinstalar somente o módulo file-exr?
+
+#### Hipótese: Não é possível instalar e desinstalar somente o módulo file-exr, uma vez que ao retirá-lo o gimp não funciona adequadamente ou gera builds inconsistentes.
+
+#### Métrica 2.1: Taxa de Sucesso na Instalação (Installation Success Rate)
+
+> **Fórmula:**
+>
+> `Instalações bem-sucedidas / Total de tentativas de instalação`
+>
+> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
+>
+> **Interpretação:**
+> - **Alta Instalação (Hipótese Confirmada):** ≥ 95% de tentativas bem-sucedidas
+> - **Média Instalação:** 85% - 94% de tentativas bem-sucedidas
+> - **Baixa Instalação (Hipótese Refutada):** < 85% de tentativas bem-sucedidas  
+> Esta métrica avalia a **facilidade** do processo de instalação, sem complicações ou erros que possam ocorrer durante a tentativa de adicionar o módulo ao GIMP.
+
 #### Métrica 2.2: Taxa de Sucesso na Desinstalação (Uninstallation Success Rate)
 
-> Fórmula:
+> **Fórmula:**
 >
-> **Referência:**
+> `Desinstalações bem-sucedidas / Total de tentativas de desinstalação`
 >
-> Interpretação:
+> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
 >
-> 
->
->
+> **Interpretação:**
+> - **Alta Desinstalação (Hipótese Confirmada):** ≥ 95% de desinstalações bem-sucedidas
+> - **Média Desinstalação:** 85% - 94% de desinstalações bem-sucedidas
+> - **Baixa Desinstalação (Hipótese Refutada):** < 85% de desinstalações bem-sucedidas  
+> Avalia a **eficiência do processo de desinstalação**, garantindo que o módulo seja removido sem deixar resíduos ou causar falhas no GIMP.
 
 
 
@@ -99,6 +106,18 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 #### Hipótese:
 
 #### Métrica 3.1:
+
+> Fórmula:
+>
+> **Referência:**
+>
+> Interpretação:
+>
+> 
+>
+>
+
+#### Métrica 3.2:
 
 > Fórmula:
 >
@@ -130,10 +149,21 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 >
 >
 
+#### Métrica 4.3:
+
+> Fórmula:
+>
+> **Referência:**
+>
+> Interpretação:
+>
+> 
+>
+>
 
 ## Conclusões
 
-
+Com a aplicação do método GQM, foi possível compreender de forma mais clara como o módulo file-exr do GIMP se comporta em relação à portabilidade, analisando aspectos como adaptabilidade, instalabilidade e substituibilidade. As métricas definidas ajudaram a observar como o módulo reage em diferentes sistemas operacionais, quanto tempo leva e quão consistente é o processo de instalação, além de verificar o quão simples é substituir suas dependências. Essa análise trouxe uma visão prática sobre os pontos fortes e as possíveis melhorias do módulo, contribuindo para torná-lo mais flexível e fácil de manter em diversos ambientes.
 
 ## Referências Bibliográficas
 
