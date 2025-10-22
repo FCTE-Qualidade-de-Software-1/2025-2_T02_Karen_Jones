@@ -4,16 +4,6 @@
 
 <p align="center"><strong>Tabela 1: Descrição do Objetivo de Medição de Qualidade</strong></p>
 
-| Dimensão | Descrição |
-| --- | --- |
-| Objeto da análise | GIMP (Módulo File-exr) |
-| Propósito | Avaliar a confiabilidade operacional do módulo File-exr do GIMP, considerando estabilidade durante uso prolongado, disponibilidade e robustez frente a variação de carga, tolerância a arquivos corrompidos e capacidade de recuperação após falhas, do ponto de vista do Designer Gráfico. |
-| Característica de análise | Confiabilidade |
-| Perspectiva de Avaliação | Designer Gráfico |
-| Contexto | Disciplina de Qualidade de software |
-
-<center>
-
 |        Dimensão           |                   Descrição                     |
 | ------------------------- | ----------------------------------------------- |
 | Objeto da análise         | GIMP (Módulo File-exr)                          |
@@ -22,10 +12,173 @@
 | Perspectiva de Avaliação  | Designer Gráfico                                |
 | Contexto                  | Disciplina de Qualidade de software             |
 
-</center>
 
 <font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
 
+## Questões e Métricas
+
+Para detalhar o objetivo, derivamos 3 perguntas. Cada pergunta é respondida por um conjunto de métricas.
+
+### Q1. O módulo é estável durante o uso cotidiano e prolongado?
+
+Esta pergunta busca entender a maturidade e estabilidade do módulo em condições normais de uso. Para respondê-la, usaremos as seguintes métricas:
+
+#### Métrica 1.1: Taxa de Falhas (Failure Rate)
+
+> **Fórmula:**
+>
+> `Nº total de falhas / Tempo total de uso (em horas)`
+>
+> **Referência:** [[6]](#ref-6), [[9]](#ref-9)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Confiabilidade (Hipótese Confirmada):** < 0.01 falhas/hora
+> - **Média Confiabilidade:** 0.01 - 0.05 falhas/hora
+> - **Baixa Confiabilidade (Hipótese Refutada):** > 0.05 falhas/hora
+
+#### Métrica 1.2: Tempo Médio Entre Falhas (MTBF)
+
+> Espera-se que o tempo médio entre falhas seja alto.
+>
+> **Fórmula:**
+>
+> `Tempo total de uso (em horas) / Nº total de falhas`
+>
+> **Referência:** [[3]](#ref-3), [[9]](#ref-9)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Confiabilidade (Hipótese Confirmada):** > 100 horas
+> - **Média Confiabilidade:** 50 - 100 horas
+> - **Baixa Confiabilidade (Hipótese Refutada):** < 50 horas
+
+---
+
+### Q2. O módulo lida bem com condições de uso adversas ou inesperadas?
+
+Esta pergunta avalia a robustez do módulo ao ser submetido a estresse (carga) ou a entradas inválidas (tolerância a falhas).
+
+#### Métrica 2.1: Taxa de Sucesso sob Carga
+
+> **Fórmula:**
+>
+> `(Operações OK / Total de operações) * 100` (calculada por categoria de carga)
+>
+> **Referência:** [[2]](#ref-2), [[10]](#ref-10)
+>
+> **Interpretação (Critério para Carga "Grande"):**
+>
+> - **Alta Robustez (Hipótese Confirmada):** > 90%
+> - **Média Robustez:** 70% - 90%
+> - **Baixa Robustez (Hipótese Refutada):** < 70%
+
+#### Métrica 2.2: Taxa de Tratamento de Entradas Inválidas
+
+> Espera-se que o módulo identifique arquivos corrompidos e trate o erro sem travar.
+>
+> **Fórmula:**
+>
+> `(Erros tratados sem crash / Total de arquivos corrompidos testados) * 100`
+>
+> **Referência:** [[7]](#ref-7)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Tolerância (Hipótese Confirmada):** > 95%
+> - **Média Tolerância:** 80% - 95%
+> - **Baixa Tolerância (Hipótese Refutada):** < 80%
+
+---
+
+### Q3. Quão fácil é se recuperar de um erro ou falha?
+
+Esta pergunta avalia a capacidade de recuperação (Recoverability) do sistema, tanto automaticamente quanto do ponto de vista do usuário (diagnóstico e reparo).
+
+#### Métrica 3.1: Taxa de Recuperação Automática
+
+> **Fórmula:**
+>
+> `(Sessões com restauração de EXR / Total de crashes com EXR não salvo) * 100`
+>
+> **Referência:** [[8]](#ref-8)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Recuperabilidade (Hipótese Confirmada):** > 80%
+> - **Média Recuperabilidade:** 50% - 80%
+> - **Baixa Recuperabilidade (Hipótese Refutada):** < 50%
+
+#### Métrica 3.2: Tempo Médio para Reparo (MTTR)
+
+> **Fórmula:**
+>
+> `Tempo total gasto para restaurar o trabalho / Nº total de falhas`
+>
+> **Referência:** [[1]](#ref-1), [[9]](#ref-9)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Recuperabilidade (Hipótese Confirmada):** < 2 minutos
+> - **Média Recuperabilidade:** 2 - 5 minutos
+> - **Baixa Recuperabilidade (Hipótese Refutada):** > 5 minutos
+
+#### Métrica 3.3: Taxa de Diagnóstico (Logs)
+
+> **Fórmula:**
+>
+> `(Bugs reproduzidos a partir do log / Total de bugs reportados com log) * 100`
+>
+> **Referência:** [[5]](#ref-5)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Analisabilidade (Hipótese Confirmada):** > 80%
+> - **Média Analisabilidade:** 50% - 80%
+> - **Baixa Analisabilidade (Hipótese Refutada):** < 50%
+
+---
+
+## Conclusão
+
+Este Plano de Medição fornece um *framework* estruturado para a avaliação da confiabilidade do módulo `file-exr`. A estrutura GQM (H3 para Perguntas, H4 para Métricas) garante o alinhamento metodológico. Cada métrica inclui uma hipótese clara e critérios de interpretação, que guiarão a fase de testes e a elaboração do relatório final de avaliação.
+
+> *OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas.*
+
+## Referências Bibliográficas
+
+<a id="ref-1"></a>[1] CORTEX. *How to choose your software reliability metrics*. 2024. Disponível em: `https://www.cortex.io/post/how-to-choose-your-software-reliability-metrics`. Acesso em: 21 out. 2025.
+
+<a id="ref-2"></a>[2] JONES, B., et al. *Site Reliability Engineering: How Google Runs Production Systems*. (Capítulo: "Monitoring Distributed Systems"). O'Reilly Media, 2016. Disponível em: `https://sre.google/sre-book/monitoring-distributed-systems/`. Acesso em: 21 out. 2025.
+
+<a id="ref-3"></a>[3] IBM. *What Is Mean Time between Failure (MTBF)?*. 2023. Disponível em: `https://www.ibm.com/think/topics/mtbf`. Acesso em: 21 out. 2025.
+
+<a id="ref-4"></a>[4] INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. **ISO/IEC 25010**: System and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models. Geneva: ISO, 2011.
+
+<a id="ref-5"></a>[5] PERFORCE. *What Is ISO 25010? | Perforce Software*. (Referência para Analysability/Diagnosability). 2021. Disponível em: `https://www.perforce.com/blog/qac/what-is-iso-25010`. Acesso em: 21 out. 2025.
+
+<a id="ref-6"></a>[6] PRESSMAN, R. S.; MAXIM, B. R. **Software Engineering: A Practitioner's Approach**. 9. ed. McGraw-Hill Education, 2019.
+
+<a id="ref-7"></a>[7] PUBNUB. *What is Fault Tolerance? System Design & Engineering*. 2024. Disponível em: `https://www.pubnub.com/learn/glossary/fault-tolerance`. Acesso em: 21 out. 2025.
+
+<a id="ref-8"></a>[8] SERVERION. *Top 5 Backup Performance Metrics to Track*. (Referência para Backup/Recovery Success Rate). 2025. Disponível em: `https://www.serverion.com/uncategorized/top-5-backup-performance-metrics-to-track`. Acesso em: 21 out. 2025.
+
+<a id="ref-9"></a>[9] SPLUNK. *Failure Metrics & KPIs for IT Systems*. 2025. Disponível em: `https://www.splunk.com/en_us/blog/learn/failure-metrics.html`. Acesso em: 21 out. 2025.
+
+<a id="ref-10"></a>[10] VICTORONSOFTWARE. *Top 5 metrics for software load testing performance*. 2025. Disponível em: `https://victoronsoftware.com/posts/software-load-testing/`. Acesso em: 21 out. 2025.
+
+## Histórico de Versão
+
+| Versão | Data | Descrição | Autor | Revisor |
+| --- | ---: | --- | --- | --- |
+| 1.0 | 08/10/2025 | Criação do Documento. | [Vinicius Castelo](https://github.com/Vini47) | [Caio Venâncio](https://www.github.com/caio-venancio), [Pedro Everton](https://github.com/pedroeverton217) |
+| 1.1 | 08/10/2025 | Descrição do Objetivo de Medição de Confiabilidade | [Caio Venâncio](https://www.github.com/caio-venancio) | [Arthur Evangelista](https://www.github.com/arthurevg) |
+| 1.2 | 12/10/2025 | Adição de referências e ajustes no documento | [Arthur Evangelista](https://www.github.com/arthurevg) | [Vinicius Castelo](https://github.com/Vini47) |
+| 1.3 | 13/10/2025 | Conserta tabela. | [Breno Alexandre](https://github.com/brenoalexandre0) | [Vinicius Castelo](https://github.com/Vini47)|
+| 1.4 | 19/10/2025 | Modificações sujeridas em aula foram aplicadas | [Vinicius Castelo](https://github.com/Vini47) | [Arthur Evangelista](https://www.github.com/arthurevg) |
+| 1.5 | 21/10/2025 | Aplicação de modificações sugeridas em sala de aula durante o PC2| [Arthur Evangelista](https://www.github.com/arthurevg) | [Vinicius Castelo](https://github.com/Vini47) |
+
+<!-- 
 ## Questões e Métricas
 
 ### Q1. Quanto à maturidade, o módulo File-exr opera sem falhas em uso prolongado e repetitivo?
@@ -143,4 +296,4 @@ Para cada métrica reportada, siga estes passos de leitura:
 | 1.1 | 08/10/2025 | Descrição do Objetivo de Medição de Confiabilidade | [Caio Venâncio](https://www.github.com/caio-venancio) | [Arthur Evangelista](https://www.github.com/arthurevg) |
 | 1.2 | 12/10/2025 | Adição de referências e ajustes no documento | [Arthur Evangelista](https://www.github.com/arthurevg) | [Vinicius Castelo](https://github.com/Vini47) |
 | 1.3 | 13/10/2025 | Conserta tabela. | [Breno Alexandre](https://github.com/brenoalexandre0) | [Vinicius Castelo](https://github.com/Vini47)|
-| 1.4 | 19/10/2025 | Modificações sujeridas em aula foram aplicadas | [Vinicius Castelo](https://github.com/Vini47) | [Arthur Evangelista](https://www.github.com/arthurevg) |
+| 1.4 | 19/10/2025 | Modificações sujeridas em aula foram aplicadas | [Vinicius Castelo](https://github.com/Vini47) | [Arthur Evangelista](https://www.github.com/arthurevg) | -->
