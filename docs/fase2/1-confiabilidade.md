@@ -36,6 +36,8 @@ Esta pergunta busca entender a maturidade e estabilidade do módulo em condiçõ
 > - **Alta Confiabilidade (Hipótese Confirmada):** < 0.01 falhas/hora
 > - **Média Confiabilidade:** 0.01 - 0.05 falhas/hora
 > - **Baixa Confiabilidade (Hipótese Refutada):** > 0.05 falhas/hora
+> Para esta análise utilizaremos uma métrica de Tempo Médio de Instalação (TMI) (Minutos/Instalação).
+Esta métrica indicará se o processo de implantação do módulo é eficiente, simples e não requer longas esperas.
 
 #### Métrica 1.2: Tempo Médio Entre Falhas (MTBF)
 
