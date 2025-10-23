@@ -13,6 +13,10 @@ Com base nisso, este trabalho aplica a metodologia **Goal-Question-Metric (GQM)*
 
 Assim, conforme discutido em [*LANSA - Measurement Objectives*](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/), a aplicação do GQM tem como propósito **melhorar a qualidade do software** e **otimizar o processo de desenvolvimento**, o qual será utilizado para reforçar e realizar a análise da qualidade da compatibilidade.
 
+## Objetivo
+
+O principal objetivo deste documento é **estruturar e formalizar o programa de medição GQM** para o fator **Compatibilidade** do GIMP. Para tal, o foco será dado às suas subcaracterísticas que representam os pontos críticos para do software. Dessa maneira, pretende-se transformar as necessidades de informação dos *stakeholders* em um conjunto gerenciável de métricas validadas. Em última análise, o objetivo também é fornecer *insights* acionáveis para a equipe de desenvolvimento para cumprir as funções de **Análise** e **Controle** do projeto [LANSA](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/)
+
 ## Descrição do Objetivo de Medição de Compatibilidade
 
 |        Dimensão           |                   Descrição                     |
