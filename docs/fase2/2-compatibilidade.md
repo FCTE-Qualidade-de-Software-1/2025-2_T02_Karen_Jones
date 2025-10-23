@@ -17,6 +17,21 @@ Assim, conforme discutido em [*LANSA - Measurement Objectives*](https://lansa.co
 
 O principal objetivo deste documento é **estruturar e formalizar o programa de medição GQM** para o fator **Compatibilidade** do GIMP. Para tal, o foco será dado às suas subcaracterísticas que representam os pontos críticos para do software. Dessa maneira, pretende-se transformar as necessidades de informação dos *stakeholders* em um conjunto gerenciável de métricas validadas. Em última análise, o objetivo também é fornecer *insights* acionáveis para a equipe de desenvolvimento para cumprir as funções de **Análise** e **Controle** do projeto [LANSA](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/)
 
+## Metodologia
+
+A medição de *software* é um processo sistemático que, como defendido na literatura, deve compreender cinco atividades interligadas: **Formulação**, **Coleta**, **Análise**, **Interpretação** e **Feedback** [LANSA - Measurement Principles](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
+
+Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como espinha dorsal da na análise, para isso, a sua estrutura top-down alinha o projeto com modelos de maturidade como o **CMMI®** [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
+
+A análise da qualidade, portanto, será abrangente ao utilizar uma combinação de métricas do [ELITEX - Quality Metrics](https://elitex.systems/blog/software-quality):
+
+* **Métricas de Produto**: para avaliar o artefato `File-exr`;
+* **Métricas de Processo**: para avaliar as atividades de desenvolvimento);
+* **Métricas de Projeto**: para o controle de esforço).
+
+A **Interpretação**, por fim, será realizada ao confrontar os dados coletados com as hipóteses (critérios de aceitação) definidas nas questões, o que garante que a avaliação da Compatibilidade seja objetiva, baseada em dados e, crucialmente, relevante para o fluxo de trabalho do usuário de acordo com o [MoldStud - Compatibility Importance](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+
+
 ## Descrição do Objetivo de Medição de Compatibilidade
 
 |        Dimensão           |                   Descrição                     |
