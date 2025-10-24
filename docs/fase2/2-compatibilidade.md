@@ -21,7 +21,7 @@ O principal objetivo deste documento é **estruturar e formalizar o programa de 
 
 A medição de *software* é um processo sistemático que, como defendido na literatura, deve compreender cinco atividades interligadas: **Formulação**, **Coleta**, **Análise**, **Interpretação** e **Feedback** [LANSA - Measurement Principles](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
-Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como espinha dorsal da na análise, para isso, a sua estrutura top-down alinha o projeto com modelos de maturidade como o **CMMI®** [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
+Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como espinha dorsal da na análise, para isso, a sua estrutura top-down alinha o projeto com modelos de maturidade como o [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
 A análise da qualidade, portanto, será abrangente ao utilizar uma combinação de métricas do [ELITEX - Quality Metrics](https://elitex.systems/blog/software-quality):
 
@@ -38,27 +38,243 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 | -------- | --------- |
 | **Objeto da Análise** | GIMP (Módulo File-exr). |
 | **Propósito** | **Analisar** a **conformidade com o padrão OpenEXR** e a **fidelidade na troca de dados** do módulo. |
-| **Característica de Análise** | **Compatibilidade** (Interoperabilidade e Coexistência). |
-| **Perspectiva de Avaliação** | **Designer Gráfico** (Usuário final profissional que depende da troca de arquivos). |
-| **Contexto** | Avaliação formal para fins didáticos (Disciplina de Qualidade de Software), simulando um ambiente de **produção industrial de imagens**. |
+| **Característica de Análise** | Compatibilidade (Interoperabilidade e Coexistência) |
+| **Perspectiva de Avaliação** | Designer Gráfico |
+| **Contexto** | Avaliação formal para fins didáticos da Disciplina de Qualidade de Software |
 
 ## Questões e Métricas
 
-### Q1. Quanto a Interoberabilidade, Qual a taxa de sucesso na abertura de arquivos EXR gerados por outras aplicações de mercado (ex: Blender, Nuke, Houdini)?
+#### Q1. Até que ponto o módulo File-exr do GIMP é capaz de garantir o intercâmbio fiel de dados com os softwares líderes do mercado?
 
-O módulo File-exr do GIMP será considerado de **alta Interoperabilidade** se a taxa de sucesso na leitura e escrita de arquivos EXR trocados com outras aplicações padrão da indústria (TIL) for **superior a 98%**. Um TIL alto garante que o módulo está em conformidade com o padrão OpenEXR e que a troca de dados com o ecossistema externo é fluida e confiável.
+**Motivo da Pergunta:**
+-  **Analisar a Interoperabilidade** de acordo com a [ISO/IEC 25010](https://blog.onedaytesting.com.br/iso-iec-25010/), ou seja, o objetivo é conhecer a fidelidade da troca de dados do módulo com o ecossistema profissional (Blender, Nuke) ao determinar se o GIMP atende aos requisitos de produção do Designer Gráfico.
+-  **Consequência da falaha**: Uma Interoperabilidade falha gera retrabalho, perda de dados e impacta diretamente a produtividade.
 
-> Fórmula:
+**O que se deseja saber com a pergunta?**
+- Quantificar a **Taxa de Sucesso Funcional (TSF)** do módulo ao manipular arquivos EXR complexos (multi-camadas e metadados) gerados ou consumidos por *softwares* externos.
+- Saber o nível de risco associado a essa troca de dados.
+
+**Como a resposta é esperada?**
+A resposta será obtida por meio de um **Teste de Compatibilidade Funcional** (TSF) ao executar um *set* de casos de teste que simulem a importação e exportação de arquivos EXR entre o GIMP e três aplicações líderes de mercado (Amostragem). O sucesso é definido pela **ausência de erros de *crash*** e pela **preservação integral de todos os atributos críticos** (camadas, fidelidade de cor) do arquivo conforme explicado em [TENCENT CLOUD](https://www.tencentcloud.com/techpedia/105935).
+
+
+#### Métrica 1.1: Taxa de Sucesso Funcional (TSF)
+
+Esta métrica é utilizada para medir a eficácia na realização de uma tarefa [MOLDSTUD - Test Pass Rates](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance). Ela indicará a confiabilidade do módulo File-exr no fluxo de intercâmbio de dados.
+
+> **Fórmula:**
 >
-> TIE(%) = (Número de Casos de Leitura Bem-sucedidos ÷ Número Total de Casos de Leitura Testados) × 100
+> TSF (%) = (Número de Casos de Intercâmbio Sucedidos / Número Total de Casos de Intercâmbio Testados) * 100
 >
-> **Nota:** Um caso de Leitura Bem-sucedida ocorre quando um arquivo EXR gerado por um software de terceiros é aberto corretamente no GIMP. Um caso de Escrita Bem-sucedida ocorre quando um arquivo EXR salvo pelo GIMP é aberto e validado por softwares de terceiros.
+> **Referência:** [[5]](#ref-5)
 >
-> Interpretação:
+> **Interpretação (Critério):**
 >
-> - **>98%** → **Alta Interoperabilidade** (excelente compatibilidade e conformidade com o padrão)
-> - **90–98%** → **Interoperabilidade Moderada** (pequenas inconsistências com formatos externos, exigindo correções)
-> - **<90%** → **Baixa Interoperabilidade** (falhas frequentes na troca de arquivos, indicando sérios problemas de conformidade)
+> - **Alta Interoperabilidade (Hipótese Confirmada):** $\geq 95\%$
+> - **Média Interoperabilidade:** $90\% \text{ a } 95\%$
+> - **Baixa Interoperabilidade (Hipótese Refutada):** $< 90\%$
+
+#### Métrica 1.2: Densidade de Defeitos por Teste (DDT)
+
+Esta métrica quantifica a qualidade do módulo com base na relação entre defeitos encontrados e o volume de testes executados inspirados em  [MOLDSTUD - Defect Density]. Ela é um indicador de risco.
+
+> **Fórmula:**
+>
+> $$DDT = \frac{\text{Nº de Defeitos de Interoperabilidade}}{\text{Nº Total de Casos de Teste Executados}}$$
+>
+> **Referência:** [[5]](#ref-5)
+>
+> **Interpretação (Critério):**
+>
+> - **Baixo Risco (Hipótese Confirmada):** $< 0.5$ defeitos/caso de teste
+> - **Risco Moderado:** $0.5 \text{ a } 1.0$ defeitos/caso de teste
+> - **Alto Risco (Hipótese Refutada):** $> 1.0$ defeitos/caso de teste
+
+
+### Q2. Quais são os custos de recursos (tempo e memória) que o módulo File-exr impõe ao sistema GIMP em um ambiente de usuário final?
+
+**Motivo da Pergunta (Lógica GQM):**
+-  **Analisar a Coexistência** [ISO/IEC 25010](, subcaracterística da Compatibilidade. O objetivo é quantificar a eficiência de performance e o uso de recursos, garantindo que a presença do módulo não cause degradação inaceitável na experiência do usuário e nem comprometa a **performance-eficiência** do sistema [ELITEX - Performance Efficiency](https://elitex.systems/blog/software-quality).
+
+**O que se deseja saber com a pergunta?**
+Busca-se quantificar o **Aumento Percentual no Tempo de Carregamento (APTC)** e o **Aumento Percentual no Consumo de Memória (APCM)** do GIMP devido à instalação do módulo.
+
+**Como a resposta é esperada?**
+A resposta será obtida por meio de um **Teste de Performance de Coexistência**, medindo o tempo de inicialização e o consumo de memória do GIMP em três cenários: 1) GIMP sem o módulo; 2) GIMP com o módulo instalado. A diferença percentual entre os cenários indicará o impacto na Coexistência.
+
+---
+
+#### Métrica 2.1: Aumento Percentual no Tempo de Carregamento (APTC)
+
+**Significado da Sigla:** APTC significa **Aumento Percentual no Tempo de Carregamento**.
+
+**Origem e Lógica:** Esta métrica avalia o impacto na experiência do usuário ao iniciar o software. Um atraso excessivo na inicialização é um sintoma de baixa Coexistência e prejudica a produtividade do Designer Gráfico.
+
+> **Fórmula:**
+>
+> $$APTC(\%) = \frac{\text{(Tempo de Carregamento com Módulo - Tempo sem Módulo)}}{\text{Tempo sem Módulo}} \times 100$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> APTC (%) = ((Tempo de Carregamento com Módulo - Tempo sem Módulo) / Tempo sem Módulo) * 100
+>
+> **Referência:** [LANSA - Performance Metrics]
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Coexistência (Hipótese Confirmada):** $\leq 5\%$
+> - **Coexistência Moderada:** $5\% \text{ a } 15\%$
+> - **Baixa Coexistência (Hipótese Refutada):** $> 15\%$
+
+#### Métrica 2.2: Aumento Percentual no Consumo de Memória (APCM)
+
+**Significado da Sigla:** APCM significa **Aumento Percentual no Consumo de Memória**.
+
+**Origem e Lógica:** Esta métrica mede a eficiência com que o módulo utiliza a memória do sistema, sendo um indicador de **Utilização de Recursos** [ISO/IEC 25023 - Resource Utilization]. Módulos com alto consumo de memória na inicialização podem causar lentidão no sistema operacional.
+
+> **Fórmula:**
+>
+> $$APCM(\%) = \frac{\text{(Consumo de Memória com Módulo - Consumo sem Módulo)}}{\text{Consumo sem Módulo}} \times 100$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> APCM (%) = ((Consumo de Memória com Módulo - Consumo sem Módulo) / Consumo sem Módulo) * 100
+>
+> **Referência:** [ISO/IEC 25023 - Resource Utilization]
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Coexistência (Hipótese Confirmada):** $\leq 10\%$
+> - **Coexistência Moderada:** $10\% \text{ a } 20\%$
+> - **Baixa Coexistência (Hipótese Refutada):** $> 20\%$
+
+---
+
+### Q3. Quão estável e robusto é o módulo File-exr em produção, refletindo a eficácia de nosso processo de garantia de qualidade e manutenção?
+
+**Motivo da Pergunta (Lógica GQM):**
+Esta questão busca **Analisar o Processo e o Risco de Projeto** [LANSA - Risk Management]. O objetivo é quantificar a taxa de falhas que "escapam" para o ambiente do usuário (instabilidade pós-lançamento) e avaliar a eficiência do processo de manutenção para corrigi-las.
+
+**O que se deseja saber com a pergunta?**
+Busca-se quantificar a **Taxa de Falhas Pós-lançamento** e o **Tempo Médio de Resolução (TMR)** dos defeitos de compatibilidade, que são indicadores de **Qualidade e Manutenibilidade** do módulo.
+
+**Como a resposta é esperada?**
+A resposta será obtida pela **Coleta de Dados no Ambiente de Produção** (Controle), monitorando os *logs* e o *bug tracker* oficial do GIMP por um período definido. O TMR será calculado a partir dos dados do *bug tracker* [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+
+---
+
+#### Métrica 3.1: Densidade de Defeitos Pós-Lançamento (DDPL)
+
+**Significado da Sigla:** DDPL significa **Densidade de Defeitos Pós-Lançamento**.
+
+**Origem e Lógica:** Esta métrica de **Processo/Produto** mede a concentração de problemas que chegam ao usuário. Um alto DDPL indica falha na garantia da qualidade e baixa estabilidade [ELITEX - Defect Density](https://elitex.systems/blog/software-quality).
+
+> **Fórmula:**
+>
+> $$DDPL = \frac{\text{Nº de Defeitos de Compatibilidade Reportados Pós-lançamento}}{\text{Tamanho do Módulo em KLOC}}$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> DDPL = (Nº de Defeitos de Compatibilidade Reportados Pós-lançamento / Tamanho do Módulo em Kilo Linhas de Código (KLOC))
+>
+> **Referência:** [ELITEX - Defect Density](https://elitex.systems/blog/software-quality)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Estabilidade (Hipótese Confirmada):** $< 1.0$ defeito/KLOC
+> - **Estabilidade Moderada:** $1.0 \text{ a } 3.0$ defeitos/KLOC
+> - **Baixa Estabilidade (Hipótese Refutada):** $> 3.0$ defeitos/KLOC
+
+#### Métrica 3.2: Tempo Médio de Resolução (TMR)
+
+**Significado da Sigla:** TMR significa **Tempo Médio de Resolução**.
+
+**Origem e Lógica:** Esta métrica de **Processo** avalia a eficiência da equipe de manutenção na resposta a falhas. Um TMR baixo é um indicador de **Alta Manutenibilidade** e um processo eficiente [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+
+> **Fórmula:**
+>
+> $$TMR = \frac{\sum \text{Tempo de Resolução}}{\text{Nº Total de Defeitos Resolvidos}}$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> TMR = (Soma do Tempo de Resolução de todos os Defeitos / Número Total de Defeitos Resolvidos)
+>
+> **Referência:** [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Eficiência (Hipótese Confirmada):** $< 48$ horas
+> - **Eficiência Moderada:** $48 \text{ a } 96$ horas
+> - **Baixa Eficiência (Hipótese Refutada):** $> 96$ horas
+
+
+
+### Q4. Em que medida a arquitetura do módulo File-exr contribui para o aumento da complexidade de manutenção em ambientes operacionais diversificados?
+
+**Motivo da Pergunta (Lógica GQM):**
+Esta questão foca na **Portabilidade** e **Manutenibilidade** [ISO/IEC 25010], que são atributos internos críticos para o custo do projeto (Recurso). O objetivo é **Conhecer** o risco de **fragmentação do código** e a dependência de API's específicas de cada sistema operacional (Windows, macOS, Linux).
+
+**O que se deseja saber com a pergunta?**
+Busca-se quantificar o **Esforço** gasto em código que não é comum a todas as plataformas (código fragmentado) e a **Complexidade Ciclomática** das partes de interoperabilidade, que impacta a Manutenibilidade futura.
+
+**Como a resposta é esperada?**
+A resposta será obtida pela **Análise Estática do Código (Métrica de Produto)** para medir a complexidade, e pela **Coleta de Esforço (Métrica de Recurso)** para o desenvolvimento e *patches* específicos de plataforma.
+
+---
+
+#### Métrica 4.1: Índice de Esforço Não-Comum (IENC)
+
+**Significado da Sigla:** IENC significa **Índice de Esforço Não-Comum**.
+
+**Origem e Lógica:** Esta métrica de **Recurso/Projeto** indica o percentual do custo do projeto (Esforço) alocado em código que não pode ser reutilizado entre plataformas, medindo a dependência e a Portabilidade. Um IENC alto indica baixa portabilidade e alto custo de manutenção [LANSA - Project Metrics / Resource Utilization].
+
+> **Fórmula:**
+>
+> $$IENC(\%) = \frac{\text{Esforço em código específico da Plataforma}}{\text{Esforço Total do Módulo}} \times 100$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> IENC (%) = (Esforço em código específico da Plataforma / Esforço Total do Módulo) * 100
+>
+> **Referência:** [LANSA - Project Metrics / Resource Utilization]
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Portabilidade (Hipótese Confirmada):** $\leq 10\%$
+> - **Portabilidade Moderada:** $10\% \text{ a } 20\%$
+> - **Baixa Portabilidade (Hipótese Refutada):** $> 20\%$
+
+#### Métrica 4.2: Complexidade Ciclomática Média (CCM)
+
+**Significado da Sigla:** CCM significa **Complexidade Ciclomática Média**.
+
+**Origem e Lógica:** Esta métrica de **Produto** (Manutenibilidade) indica a complexidade lógica do código. Módulos com alta CCM são mais difíceis de testar e manter, violando os princípios de **Manutenibilidade** [ELITEX - Compliance with Best Design Principles](https://elitex.systems/blog/software-quality).
+
+> **Fórmula:**
+>
+> $$CCM = \frac{\sum \text{Complexidade Ciclomática das Funções de Compatibilidade}}{\text{Nº Total de Funções de Compatibilidade}}$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> CCM = (Soma da Complexidade Ciclomática das Funções de Compatibilidade / Número Total de Funções de Compatibilidade)
+>
+> **Referência:** [ELITEX - Compliance with Best Design Principles](https://elitex.systems/blog/software-quality)
+>
+> **Interpretação (Critério):**
+>
+> - **Baixa Complexidade:** $< 10$
+> - **Risco Moderado:** $10 \text{ a } 15$
+> - **Alto Risco (Hipótese Refutada):** $> 15$
+
+
+
+
+
+
+
+
+
+
 
 ### Q2. Quanto a Coexistência, Qual a variação no tempo de carregamento do GIMP quando o módulo File-exr está instalado, comparado ao tempo sem o módulo?
 
@@ -89,7 +305,7 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 
 [4] LANSA. **What Are Software Metrics? How Can I Measure These Metrics?** (2024). Disponível em: https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/. Acesso em: 22 out. 2025. (Ciclo de medição: Formulação, Coleta, Análise, Interpretação, Feedback; e objetivos de medição).
 
-[5] MOLDSTUD. **Essential Key Metrics for Measuring Success in Compatibility Testing for Quality Assurance**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Métricas de Taxa de Falha, Pass Rate e Esforço de Compatibilidade).
+<a id="ref-5"></a>[5] MOLDSTUD. **Essential Key Metrics for Measuring Success in Compatibility Testing for Quality Assurance**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Métricas de Taxa de Falha, Pass Rate e Esforço de Compatibilidade).
 
 [6] MOLDSTUD. **Key Performance Indicators (KPIs) for Compatibility Testing**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Critérios e benchmarks de compatibilidade e desempenho).
 
@@ -104,4 +320,5 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 | 1.2   | 13/10/2025 | Conserto de fórmulas.  |[Breno Alexandre](https://github.com/brenoalexandre0) |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) |
 | 1.3   | 20/10/2025 | Adição da introdução e metodologia |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 | 1.4   | 20/10/2025 | Correção das referências bibliográficas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.5   | 20/10/2025 | Reformulação e adiçãod e mais perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 
