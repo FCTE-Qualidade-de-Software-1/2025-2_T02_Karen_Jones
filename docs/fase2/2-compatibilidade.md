@@ -91,7 +91,180 @@ Esta métrica quantifica a qualidade do módulo com base na relação entre defe
 > - **Alto Risco (Hipótese Refutada):** $> 1.0$ defeitos/caso de teste
 
 
+### Q2. Quais são os custos de recursos (tempo e memória) que o módulo File-exr impõe ao sistema GIMP em um ambiente de usuário final?
 
+**Motivo da Pergunta (Lógica GQM):**
+-  **Analisar a Coexistência** [ISO/IEC 25010](, subcaracterística da Compatibilidade. O objetivo é quantificar a eficiência de performance e o uso de recursos, garantindo que a presença do módulo não cause degradação inaceitável na experiência do usuário e nem comprometa a **performance-eficiência** do sistema [ELITEX - Performance Efficiency](https://elitex.systems/blog/software-quality).
+
+**O que se deseja saber com a pergunta?**
+Busca-se quantificar o **Aumento Percentual no Tempo de Carregamento (APTC)** e o **Aumento Percentual no Consumo de Memória (APCM)** do GIMP devido à instalação do módulo.
+
+**Como a resposta é esperada?**
+A resposta será obtida por meio de um **Teste de Performance de Coexistência**, medindo o tempo de inicialização e o consumo de memória do GIMP em três cenários: 1) GIMP sem o módulo; 2) GIMP com o módulo instalado. A diferença percentual entre os cenários indicará o impacto na Coexistência.
+
+---
+
+#### Métrica 2.1: Aumento Percentual no Tempo de Carregamento (APTC)
+
+**Significado da Sigla:** APTC significa **Aumento Percentual no Tempo de Carregamento**.
+
+**Origem e Lógica:** Esta métrica avalia o impacto na experiência do usuário ao iniciar o software. Um atraso excessivo na inicialização é um sintoma de baixa Coexistência e prejudica a produtividade do Designer Gráfico.
+
+> **Fórmula:**
+>
+> $$APTC(\%) = \frac{\text{(Tempo de Carregamento com Módulo - Tempo sem Módulo)}}{\text{Tempo sem Módulo}} \times 100$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> APTC (%) = ((Tempo de Carregamento com Módulo - Tempo sem Módulo) / Tempo sem Módulo) * 100
+>
+> **Referência:** [LANSA - Performance Metrics]
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Coexistência (Hipótese Confirmada):** $\leq 5\%$
+> - **Coexistência Moderada:** $5\% \text{ a } 15\%$
+> - **Baixa Coexistência (Hipótese Refutada):** $> 15\%$
+
+#### Métrica 2.2: Aumento Percentual no Consumo de Memória (APCM)
+
+**Significado da Sigla:** APCM significa **Aumento Percentual no Consumo de Memória**.
+
+**Origem e Lógica:** Esta métrica mede a eficiência com que o módulo utiliza a memória do sistema, sendo um indicador de **Utilização de Recursos** [ISO/IEC 25023 - Resource Utilization]. Módulos com alto consumo de memória na inicialização podem causar lentidão no sistema operacional.
+
+> **Fórmula:**
+>
+> $$APCM(\%) = \frac{\text{(Consumo de Memória com Módulo - Consumo sem Módulo)}}{\text{Consumo sem Módulo}} \times 100$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> APCM (%) = ((Consumo de Memória com Módulo - Consumo sem Módulo) / Consumo sem Módulo) * 100
+>
+> **Referência:** [ISO/IEC 25023 - Resource Utilization]
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Coexistência (Hipótese Confirmada):** $\leq 10\%$
+> - **Coexistência Moderada:** $10\% \text{ a } 20\%$
+> - **Baixa Coexistência (Hipótese Refutada):** $> 20\%$
+
+---
+
+### Q3. Quão estável e robusto é o módulo File-exr em produção, refletindo a eficácia de nosso processo de garantia de qualidade e manutenção?
+
+**Motivo da Pergunta (Lógica GQM):**
+Esta questão busca **Analisar o Processo e o Risco de Projeto** [LANSA - Risk Management]. O objetivo é quantificar a taxa de falhas que "escapam" para o ambiente do usuário (instabilidade pós-lançamento) e avaliar a eficiência do processo de manutenção para corrigi-las.
+
+**O que se deseja saber com a pergunta?**
+Busca-se quantificar a **Taxa de Falhas Pós-lançamento** e o **Tempo Médio de Resolução (TMR)** dos defeitos de compatibilidade, que são indicadores de **Qualidade e Manutenibilidade** do módulo.
+
+**Como a resposta é esperada?**
+A resposta será obtida pela **Coleta de Dados no Ambiente de Produção** (Controle), monitorando os *logs* e o *bug tracker* oficial do GIMP por um período definido. O TMR será calculado a partir dos dados do *bug tracker* [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+
+---
+
+#### Métrica 3.1: Densidade de Defeitos Pós-Lançamento (DDPL)
+
+**Significado da Sigla:** DDPL significa **Densidade de Defeitos Pós-Lançamento**.
+
+**Origem e Lógica:** Esta métrica de **Processo/Produto** mede a concentração de problemas que chegam ao usuário. Um alto DDPL indica falha na garantia da qualidade e baixa estabilidade [ELITEX - Defect Density](https://elitex.systems/blog/software-quality).
+
+> **Fórmula:**
+>
+> $$DDPL = \frac{\text{Nº de Defeitos de Compatibilidade Reportados Pós-lançamento}}{\text{Tamanho do Módulo em KLOC}}$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> DDPL = (Nº de Defeitos de Compatibilidade Reportados Pós-lançamento / Tamanho do Módulo em Kilo Linhas de Código (KLOC))
+>
+> **Referência:** [ELITEX - Defect Density](https://elitex.systems/blog/software-quality)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Estabilidade (Hipótese Confirmada):** $< 1.0$ defeito/KLOC
+> - **Estabilidade Moderada:** $1.0 \text{ a } 3.0$ defeitos/KLOC
+> - **Baixa Estabilidade (Hipótese Refutada):** $> 3.0$ defeitos/KLOC
+
+#### Métrica 3.2: Tempo Médio de Resolução (TMR)
+
+**Significado da Sigla:** TMR significa **Tempo Médio de Resolução**.
+
+**Origem e Lógica:** Esta métrica de **Processo** avalia a eficiência da equipe de manutenção na resposta a falhas. Um TMR baixo é um indicador de **Alta Manutenibilidade** e um processo eficiente [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+
+> **Fórmula:**
+>
+> $$TMR = \frac{\sum \text{Tempo de Resolução}}{\text{Nº Total de Defeitos Resolvidos}}$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> TMR = (Soma do Tempo de Resolução de todos os Defeitos / Número Total de Defeitos Resolvidos)
+>
+> **Referência:** [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Eficiência (Hipótese Confirmada):** $< 48$ horas
+> - **Eficiência Moderada:** $48 \text{ a } 96$ horas
+> - **Baixa Eficiência (Hipótese Refutada):** $> 96$ horas
+
+
+
+### Q4. Em que medida a arquitetura do módulo File-exr contribui para o aumento da complexidade de manutenção em ambientes operacionais diversificados?
+
+**Motivo da Pergunta (Lógica GQM):**
+Esta questão foca na **Portabilidade** e **Manutenibilidade** [ISO/IEC 25010], que são atributos internos críticos para o custo do projeto (Recurso). O objetivo é **Conhecer** o risco de **fragmentação do código** e a dependência de API's específicas de cada sistema operacional (Windows, macOS, Linux).
+
+**O que se deseja saber com a pergunta?**
+Busca-se quantificar o **Esforço** gasto em código que não é comum a todas as plataformas (código fragmentado) e a **Complexidade Ciclomática** das partes de interoperabilidade, que impacta a Manutenibilidade futura.
+
+**Como a resposta é esperada?**
+A resposta será obtida pela **Análise Estática do Código (Métrica de Produto)** para medir a complexidade, e pela **Coleta de Esforço (Métrica de Recurso)** para o desenvolvimento e *patches* específicos de plataforma.
+
+---
+
+#### Métrica 4.1: Índice de Esforço Não-Comum (IENC)
+
+**Significado da Sigla:** IENC significa **Índice de Esforço Não-Comum**.
+
+**Origem e Lógica:** Esta métrica de **Recurso/Projeto** indica o percentual do custo do projeto (Esforço) alocado em código que não pode ser reutilizado entre plataformas, medindo a dependência e a Portabilidade. Um IENC alto indica baixa portabilidade e alto custo de manutenção [LANSA - Project Metrics / Resource Utilization].
+
+> **Fórmula:**
+>
+> $$IENC(\%) = \frac{\text{Esforço em código específico da Plataforma}}{\text{Esforço Total do Módulo}} \times 100$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> IENC (%) = (Esforço em código específico da Plataforma / Esforço Total do Módulo) * 100
+>
+> **Referência:** [LANSA - Project Metrics / Resource Utilization]
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Portabilidade (Hipótese Confirmada):** $\leq 10\%$
+> - **Portabilidade Moderada:** $10\% \text{ a } 20\%$
+> - **Baixa Portabilidade (Hipótese Refutada):** $> 20\%$
+
+#### Métrica 4.2: Complexidade Ciclomática Média (CCM)
+
+**Significado da Sigla:** CCM significa **Complexidade Ciclomática Média**.
+
+**Origem e Lógica:** Esta métrica de **Produto** (Manutenibilidade) indica a complexidade lógica do código. Módulos com alta CCM são mais difíceis de testar e manter, violando os princípios de **Manutenibilidade** [ELITEX - Compliance with Best Design Principles](https://elitex.systems/blog/software-quality).
+
+> **Fórmula:**
+>
+> $$CCM = \frac{\sum \text{Complexidade Ciclomática das Funções de Compatibilidade}}{\text{Nº Total de Funções de Compatibilidade}}$$
+>
+> **Fórmula (Texto Alternativo para Renderização):**
+>
+> CCM = (Soma da Complexidade Ciclomática das Funções de Compatibilidade / Número Total de Funções de Compatibilidade)
+>
+> **Referência:** [ELITEX - Compliance with Best Design Principles](https://elitex.systems/blog/software-quality)
+>
+> **Interpretação (Critério):**
+>
+> - **Baixa Complexidade:** $< 10$
+> - **Risco Moderado:** $10 \text{ a } 15$
+> - **Alto Risco (Hipótese Refutada):** $> 15$
 
 
 
