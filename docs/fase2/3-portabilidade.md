@@ -161,9 +161,13 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 >
 >
 
+
+
 ## Conclusões
 
 Com a aplicação do método GQM, foi possível compreender de forma mais clara como o módulo file-exr do GIMP se comporta em relação à portabilidade, analisando aspectos como adaptabilidade, instalabilidade e substituibilidade. As métricas definidas ajudaram a observar como o módulo reage em diferentes sistemas operacionais, quanto tempo leva e quão consistente é o processo de instalação, além de verificar o quão simples é substituir suas dependências. Essa análise trouxe uma visão prática sobre os pontos fortes e as possíveis melhorias do módulo, contribuindo para torná-lo mais flexível e fácil de manter em diversos ambientes.
+
+> *OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas. Também foi utilizado para auxiliar na escrita em Markdown.*
 
 ## Referências Bibliográficas
 
@@ -177,4 +181,5 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 | 1.1    | 12/10/2025 | Adição de tabela e questões. | [Breno Alexandre](https://github.com/brenoalexandre0), [Pedro Everton](https://github.com/pedroeverton217) | [Breno Alexandre](https://github.com/brenoalexandre0) |
 | 1.2    | 13/10/2025 | Conserta fórmulas. | [Breno Alexandre](https://github.com/brenoalexandre0) | [Caio Venâncio](https://www.github.com/caio-venancio) |
 | 1.3    | 19/10/2025 | Conserta perguntas.  | [Caio Venâncio](https://www.github.com/caio-venancio) | [Breno Alexandre](https://github.com/brenoalexandre0) |
-| 1.4    | 21/10/2025 | Refatora os artefatos.  | [Breno Alexandre](https://github.com/brenoalexandre0), [Caio Venâncio](https://www.github.com/caio-venancio)  | |
+| 1.4    | 21/10/2025 | Refatora os artefatos.  | [Breno Alexandre](https://github.com/brenoalexandre0), [Caio Venâncio](https://www.github.com/caio-venancio)  | [Arthur Evangelista](https://github.com/arthurevg) |
+| 1.5    | 24/10/2025 | Adição da declaração de uso de IA.  | [Arthur Evangelista](https://github.com/arthurevg)| [Caio Venâncio](https://www.github.com/caio-venancio) |
