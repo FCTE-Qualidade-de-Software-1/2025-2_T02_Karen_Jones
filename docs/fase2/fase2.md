@@ -10,17 +10,17 @@ O GQM, sigla para Goal-Question-Metric (Obhetivo-Questão-Métrica), é uma abor
 
 Conforme ilustrado na Figura 1, o GQM estabelece um fluxo hierárquico top-down (de cima para baixo), que conecta os objetivos estratégicos aos dados coletados:
 
-Nível Conceitual (Goal / Objetivo): É o nível mais alto; define o porquê da medição. Estabelece o objetivo principal que se deseja alcançar.
+- **Nível Conceitual (Goal / Objetivo)**: É o nível mais alto; define o porquê da medição. Estabelece o objetivo principal que se deseja alcançar.
 
-Nível Operacional (Question / Questão): Detalha o que precisamos saber para determinar se a meta foi atingida. As questões decompõem a meta abstrata em componentes específicos e investigáveis.
+- **Nível Operacional (Question / Questão)**: Detalha o que precisamos saber para determinar se a meta foi atingida. As questões decompõem a meta abstrata em componentes específicos e investigáveis.
 
-Nível Quantitativo (Metric / Métrica): É a base do processo; define como vamos medir. São as métricas que fornecem os dados quantitativos necessários para responder objetivamente a cada questão.
+- **Nível Quantitativo (Metric / Métrica)**: É a base do processo; define como vamos medir. São as métricas que fornecem os dados quantitativos necessários para responder objetivamente a cada questão.
 
 <font size="3"><p style="text-align: center">Figura 1: Imagem Ilustrativa da Estrutuar do GQM</p></font>
 
 ![alt text](../img/gqm.png)
 
-<font size="3"><p style="text-align: center">Fonte: Adaptado de (Wohlin et al., 2012) [[11]](#ref-99).</p></font>
+<font size="3"><p style="text-align: center">Fonte: Adaptado de (Wohlin et al., 2012) [[1]](#ref-01).</p></font>
 
 Dessa forma, o GQM cria essa cadeia de rastreabilidade: as Métricas fornecem as respostas para as Questões, e as Questões, em conjunto, validam o atingimento do Obketivo.
 
@@ -35,7 +35,7 @@ Ao longo dos arquivos, são abordados:
 
 ## Referências Bibliográficas
 
-<a id="ref-99"></a>[11] BASILI, Victor R.; CALDIERA, Gianluigi; ROMBACH, H. Dieter. **The Goal Question Metric Approach**. In: *Encyclopedia of Software Engineering*. 2. ed. New York: John Wiley & Sons, 1994. p. 528-532.
+<a id="ref-01"></a>[11] BASILI, Victor R.; CALDIERA, Gianluigi; ROMBACH, H. Dieter. **The Goal Question Metric Approach**. In: *Encyclopedia of Software Engineering*. 2. ed. New York: John Wiley & Sons, 1994. p. 528-532.
 
 ### **Histórico de Versão**
 

@@ -2,11 +2,11 @@
 
 ## Introdução
 
-Este artefato tem como objetivo aplicar o método GQM (Goal-Question-Metric) para entender o módulo `file-exr` do GIMP sob o critério de Confiabilidad. A proposta é definir metas, perguntas e métricas que permitam analisaro o módulo, identificando possíveis limitações e oportunidades de melhoria.
+Este artefato tem como objetivo aplicar o método [GQM (Goal-Question-Metric)](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/fase2/#sobre-o-gqm) para entender o módulo `file-exr` do GIMP sob o critério de Confiabilidad. A proposta é definir metas, perguntas e métricas que permitam analisaro o módulo, identificando possíveis limitações e oportunidades de melhoria.
 
 ## Metodologia
 
-A metodologia adotada neste artefato baseia-se no método GQM, que orienta a avaliação da qualidade de software de forma estruturada e orientada a objetivos. Inicialmente, é definido o objetivo de análise, neste caso, entender a **confiabilidade** do módulo `file-exr` do GIMP. Em seguida, são formuladas perguntas que permitam investigar aspectos específicos, definidos na [Fase 1](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase1/5-modelo/#4-adaptacao-do-modelo), relacionados a esse critério, como a frequência de falhas em uso contínuo ou a capacidade de lidar com arquivos corrompidos. Por fim, são estabelecidas métricas que quantifiquem os resultados observados, possibilitando uma avaliação objetiva e comparável.
+A metodologia adotada neste artefato baseia-se no método [GQM](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/fase2/#sobre-o-gqm), que orienta a avaliação da qualidade de software de forma estruturada e orientada a objetivos. Inicialmente, é definido o objetivo de análise, neste caso, entender a **confiabilidade** do módulo `file-exr` do GIMP. Em seguida, são formuladas perguntas que permitam investigar aspectos específicos, definidos na [Fase 1](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase1/5-modelo/#4-adaptacao-do-modelo), relacionados a esse critério, como a frequência de falhas em uso contínuo ou a capacidade de lidar com arquivos corrompidos. Por fim, são estabelecidas métricas que quantifiquem os resultados observados, possibilitando uma avaliação objetiva e comparável.
 
 ## Descrição do Objetivo de Medição de Confiabilidade
 
