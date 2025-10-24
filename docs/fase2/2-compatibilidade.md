@@ -34,13 +34,13 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 
 ## Descrição do Objetivo de Medição de Compatibilidade
 
-|        Dimensão           |                   Descrição                     |
-|---------------------------|-------------------------------------------------|
-| Objeto da análise         | GIMP (Módulo File-exr)                          |
-| Propósito                 | Entender a compatibilidade dos arquivos EXR gerados pelo GIMP com outros softwares da área |
-| Característica de análise | Compatibilidade                                  | 
-| Perspectiva de Avaliação  | Designer Gráfico                                |
-| Contexto                  | Disciplina de Qualidade de software             |
+| Dimensão | Descrição |
+| -------- | --------- |
+| **Objeto da Análise** | GIMP (Módulo File-exr). |
+| **Propósito** | **Analisar** a **conformidade com o padrão OpenEXR** e a **fidelidade na troca de dados** do módulo. |
+| **Característica de Análise** | **Compatibilidade** (Interoperabilidade e Coexistência). |
+| **Perspectiva de Avaliação** | **Designer Gráfico** (Usuário final profissional que depende da troca de arquivos). |
+| **Contexto** | Avaliação formal para fins didáticos (Disciplina de Qualidade de Software), simulando um ambiente de **produção industrial de imagens**. |
 
 ## Questões e Métricas
 
