@@ -11,7 +11,7 @@ Conforme a norma, a Compatibilidade se divide em duas subcaracterísticas fundam
 
 Com base nisso, este trabalho aplica a metodologia **Goal-Question-Metric (GQM)** ao módulo **File-exr** do **GIMP**. Essa abordagem segue o princípio de medição **top-down**, no qual se definem primeiro os **objetivos estratégicos** e, a partir deles, as **questões** e **métricas** necessárias à análise, como é explicado em [The mystery behind project management metrics](https://www.pmi.org/learning/library/project-management-metrics-mystery-9304)
 
-Assim, conforme discutido em [*LANSA - Measurement Objectives*](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/), a aplicação do GQM tem como propósito **melhorar a qualidade do software** e **otimizar o processo de desenvolvimento**, o qual será utilizado para reforçar e realizar a análise da qualidade da compatibilidade.
+Assim como é explicado em [*LANSA - Measurement Objectives*](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/), a aplicação do GQM tem como propósito **melhorar a qualidade do software** e **otimizar o processo de desenvolvimento**, o qual será utilizado para reforçar e realizar a análise da qualidade da compatibilidade.
 
 ## Objetivo
 
@@ -21,7 +21,7 @@ O principal objetivo deste documento é **estruturar e formalizar o programa de 
 
 A medição de *software* é um processo sistemático que, como defendido na literatura, deve compreender cinco atividades interligadas: **Formulação**, **Coleta**, **Análise**, **Interpretação** e **Feedback** [LANSA - Measurement Principles](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
-Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como espinha dorsal da na análise, para isso, a sua estrutura top-down alinha o projeto com modelos de maturidade como o [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
+Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como princípio na análise e a sua estrutura top-down alinha o projeto com modelos de maturidade como o [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
 A análise da qualidade, portanto, será abrangente ao utilizar uma combinação de métricas do [ELITEX - Quality Metrics](https://elitex.systems/blog/software-quality):
 
