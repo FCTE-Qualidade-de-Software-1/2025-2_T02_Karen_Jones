@@ -42,7 +42,7 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 | **Perspectiva de Avaliação** | Designer Gráfico |
 | **Contexto** | Avaliação formal para fins didáticos da Disciplina de Qualidade de Software |
 
-## Questões e Métricas
+
 
 
 ## Questões e Métricas
