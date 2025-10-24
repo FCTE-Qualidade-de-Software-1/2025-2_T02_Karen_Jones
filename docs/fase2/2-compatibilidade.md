@@ -146,7 +146,7 @@ Mede o impacto na experiência do usuário ao iniciar o software, isso porque um
 
 > **Fórmula:**
 >
-> APTC (%) = ((Tempo de Carregamento com Módulo - Tempo sem Módulo) / Tempo sem Módulo) * 100
+> IENC (%) = (Esforço em código específico da Plataforma / Esforço Total do Módulo) * 100
 >
 > **Referência:** [[4]](#ref-4)
 >
