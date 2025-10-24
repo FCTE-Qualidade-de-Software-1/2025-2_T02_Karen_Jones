@@ -195,8 +195,16 @@ Métrica de **Produto** que indica a complexidade lógica do código. Módulos c
 > - **Alto Risco (H4 Refutada):** $> 15$
 
 
+## Conclusão
+
+O uso do método **GQM** foi fundamental para esta análise, pois permitiu transformar o conceito abstrato de "**Compatibilidade**" em um plano de avaliação concreto para o módulo `File-exr`. Portanto, ao focar em subcaracterísticas cruciais como **Interoperabilidade** e **Coexistência**, conseguiu-se ir além do "achismo" sobre o comportamento do módulo. Além disso, as métricas definidas deram um roteiro para quantificar o comportamento do módulo em cenários reais. 
+
+Esta análise servirá de base sólida para a próxima fase. Com os dados coletados e as hipóteses testadas, poderão ser identificados os pontos fortes e as oportunidades de melhoria específicas para o `File-exr`.
 
 
+## Sobre o uso de IA
+
+Para a elaboração deste documento, a Inteligência Artificial foi utilizada como ferramenta de apoio. Desta maneira, o seu uso concentrou-se, principalmente, em auxiliar a **compreensão e o esclarecimento dos termos técnicos** presentes nas normas (ISO/IEC 25010) e nos artigos e corporativos consultados. Adicionalmente, a IA foi empregada para a **estruturação e organização das ideias** na aplicação da metodologia GQM.
 
 ## Referências Bibliográficas
 
