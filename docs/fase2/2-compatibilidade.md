@@ -44,7 +44,49 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 
 ## Questões e Métricas
 
-#### Q1. Até que ponto o módulo File-exr do GIMP é capaz de garantir o intercâmbio fiel de dados com os softwares líderes do mercado?
+## Q1. Qual o grau de fidelidade e confiança do GIMP na troca de dados com o ecossistema externo de aplicações gráficas?
+
+**Hipótese (H1):** Espera-se que o módulo apresente alta fidelidade de intercâmbio, garantindo que a Taxa de Sucesso Funcional (TSF) seja elevada e o risco de quebra no fluxo de trabalho (DDT) seja baixo.
+
+#### Métrica 1.1: Taxa de Sucesso Funcional (TSF)
+
+Esta métrica mede a eficácia na realização de uma tarefa com base no estudo do artigo [MOLDSTUD - Test Pass Rates](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+
+> **Fórmula:**
+>
+> TSF (%) = (Número de Casos de Intercâmbio Sucedidos / Número Total de Casos de Intercâmbio Testados) * 100
+>
+> **Referência:** [[5]](#ref-5)
+>
+> **Interpretação (Critério):**
+>
+> - **Alta Interoperabilidade (H1 Confirmada):** $\geq 95\%$
+> - **Média Interoperabilidade:** $90\% \text{ a } 95\%$
+> - **Baixa Interoperabilidade (H1 Refutada):** $< 90\%$
+
+#### Métrica 1.2: Densidade de Defeitos por Teste (DDT)
+
+Esta métrica quantifica a qualidade do módulo com base na relação entre defeitos encontrados e o volume de testes executados [MOLDSTUD - Defect Density]. É um indicador de risco.
+
+> **Fórmula:**
+>
+> $$DDT = \frac{\text{Nº de Defeitos de Interoperabilidade}}{\text{Nº Total de Casos de Teste Executados}}$$
+>
+> **Referência:** [[5]](#ref-5)
+>
+> **Interpretação (Critério):**
+>
+> - **Baixo Risco (H1 Confirmada):** $< 0.5$ defeitos/caso de teste
+> - **Risco Moderado:** $0.5 \text{ a } 1.0$ defeitos/caso de teste
+> - **Alto Risco (H1 Refutada):** $> 1.0$ defeitos/caso de teste
+
+
+
+
+
+
+
+#### Q1. Qual o grau de fidelidade e confiança do GIMP na troca de dados com o ecossistema externo de aplicações gráficas?
 
 **Motivo da Pergunta:**
 -  **Analisar a Interoperabilidade** de acordo com a [ISO/IEC 25010](https://blog.onedaytesting.com.br/iso-iec-25010/), ou seja, o objetivo é conhecer a fidelidade da troca de dados do módulo com o ecossistema profissional (Blender, Nuke) ao determinar se o GIMP atende aos requisitos de produção do Designer Gráfico.
@@ -61,7 +103,7 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 
 #### Métrica 1.1: Taxa de Sucesso Funcional (TSF)
 
-Esta métrica é utilizada para medir a eficácia na realização de uma tarefa [MOLDSTUD - Test Pass Rates](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance). Ela indicará a confiabilidade do módulo File-exr no fluxo de intercâmbio de dados.
+Esta métrica é utilizada para medir a eficácia na realização de uma tarefa [MOLDSTUD - Test Pass Rates](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance). Devido a isso, ela indicará a confiabilidade do módulo File-exr no fluxo de intercâmbio de dados.
 
 > **Fórmula:**
 >
@@ -77,7 +119,7 @@ Esta métrica é utilizada para medir a eficácia na realização de uma tarefa 
 
 #### Métrica 1.2: Densidade de Defeitos por Teste (DDT)
 
-Esta métrica quantifica a qualidade do módulo com base na relação entre defeitos encontrados e o volume de testes executados inspirados em  [MOLDSTUD - Defect Density]. Ela é um indicador de risco.
+Esta métrica quantifica a qualidade do módulo com base na relação entre defeitos encontrados e o volume de testes executados inspirados em  [MOLDSTUD - Defect Density](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance). Com isso, ela é um indicador de risco.
 
 > **Fórmula:**
 >
@@ -92,68 +134,56 @@ Esta métrica quantifica a qualidade do módulo com base na relação entre defe
 > - **Alto Risco (Hipótese Refutada):** $> 1.0$ defeitos/caso de teste
 
 
+
+
 ### Q2. Quais são os custos de recursos (tempo e memória) que o módulo File-exr impõe ao sistema GIMP em um ambiente de usuário final?
 
-**Motivo da Pergunta:**
--  **Analisar a Coexistência**  de acordo com o [ISO/IEC 25010](https://blog.onedaytesting.com.br/iso-iec-25010/) como umas das subcaracterísticas da Compatibilidade. Com isso, o objetivo é quantificar a eficiência de performance e o uso de recursos ao garantir que a presença do módulo não cause degradação inaceitável na experiência do usuário e nem comprometa a **performance-eficiência** do sistema como é descrito em [ELITEX - Performance Efficiency](https://elitex.systems/blog/software-quality).
-
-**O que se deseja saber com a pergunta?**
-- Busca-se quantificar o **Aumento Percentual no Tempo de Carregamento (APTC)** e o **Aumento Percentual no Consumo de Memória (APCM)** do GIMP devido à instalação do módulo.
-
-**Como a resposta é esperada?**
-- A resposta será obtida por meio de um **Teste de Performance de Coexistência** ao medir o tempo de inicialização e o consumo de memória do GIMP em três cenários:
-    - 1) GIMP sem o módulo;
-    - 2) GIMP com o módulo instalado. A diferença percentual entre os cenários indicará o impacto na Coexistência.
-
+**Hipótese (H2):** Espera-se que o módulo demonstre alta Coexistência, com baixo impacto no tempo de inicialização (APTC) e no consumo de memória (APCM).
 
 #### Métrica 2.1: Aumento Percentual no Tempo de Carregamento (APTC)
 
-Ela avalia o impacto na experiência do usuário ao iniciar o software. Um atraso excessivo na inicialização é um sintoma de baixa Coexistência e prejudica a produtividade do Designer Gráfico.
+Mede o impacto na experiência do usuário ao iniciar o software, isso porque um atraso excessivo é um sintoma de baixa Coexistência e prejudica a produtividade do Designer Gráfico.
 
 > **Fórmula:**
 >
-> IENC (%) = (Esforço em código específico da Plataforma / Esforço Total do Módulo) * 100
+> APTC (%) = ((Tempo de Carregamento com Módulo - Tempo sem Módulo) / Tempo sem Módulo) * 100
 >
 > **Referência:** [[4]](#ref-4)
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Coexistência (Hipótese Confirmada):** $\leq 5\%$
+> - **Alta Coexistência (H2 Confirmada):** $\leq 5\%$
 > - **Coexistência Moderada:** $5\% \text{ a } 15\%$
-> - **Baixa Coexistência (Hipótese Refutada):** $> 15\%$
+> - **Baixa Coexistência (H2 Refutada):** $> 15\%$
 
 #### Métrica 2.2: Aumento Percentual no Consumo de Memória (APCM)
 
-Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um indicador de **Utilização de Recursos**, isso porque, módulos com alto consumo de memória na inicialização podem causar lentidão no sistema operacional.
+Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um indicador de **Utilização de Recursos**. Módulos com alto consumo de memória na inicialização podem causar lentidão no sistema operacional.
 
 > **Fórmula:**
 >
 > APCM (%) = ((Consumo de Memória com Módulo - Consumo sem Módulo) / Consumo sem Módulo) * 100
 >
-> **Referência:** [[1]](#ref-1)
+> **Referência:** [[1]](#ref-1) (Referência genérica para métricas de recurso)
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Coexistência (Hipótese Confirmada):** $\leq 10\%$
+> - **Alta Coexistência (H2 Confirmada):** $\leq 10\%$
 > - **Coexistência Moderada:** $10\% \text{ a } 20\%$
-> - **Baixa Coexistência (Hipótese Refutada):** $> 20\%$
+> - **Baixa Coexistência (H2 Refutada):** $> 20\%$
+
+
+
 
 
 
 ### Q3. Quão estável e robusto é o módulo File-exr em produção ao refletir a eficácia de nosso processo de garantia de qualidade e manutenção?
 
-**Motivo da Pergunta:**
-- Busca **Analisar o Processo e o Risco de Projeto** como é explicado em [LANSA - Risk Management](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/). Com isso, o objetivo é quantificar a taxa de falhas que "escapam" para o ambiente do usuário (instabilidade pós-lançamento) e avaliar a eficiência do processo de manutenção para corrigi-las.
-
-**O que se deseja saber com a pergunta?**
-- Busca-se quantificar a **Taxa de Falhas Pós-lançamento** e o **Tempo Médio de Resolução (TMR)** dos defeitos de compatibilidade, que são indicadores de **Qualidade e Manutenibilidade** do módulo.
-
-**Como a resposta é esperada?**
-- A resposta será obtida pela **Coleta de Dados no Ambiente de Produção** (Controle) ao monitorar os *logs* e o *bug tracker* oficial do GIMP por um período definido. Assim, o TMR será calculado a partir dos dados do *bug tracker* [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+**Hipótese (H3):** Espera-se que o módulo seja altamente estável (baixo DDPL) e que o processo de correção seja eficiente (baixo TMR), indicando alta Manutenibilidade.
 
 #### Métrica 3.1: Densidade de Defeitos Pós-Lançamento (DDPL)
 
-- Esta métrica de **Processo/Produto** mede a concentração de problemas que chegam ao usuário. Um alto DDPL indica falha na garantia da qualidade e baixa estabilidade [ELITEX - Defect Density](https://elitex.systems/blog/software-quality).
+Mede a concentração de problemas que chegam ao usuário, sendo um indicador crucial de falha na garantia da qualidade (**QA Testing & Processes**).
 
 > **Fórmula:**
 >
@@ -163,57 +193,69 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Estabilidade (Hipótese Confirmada):** $< 1.0$ defeito/KLOC
+> - **Alta Estabilidade (H3 Confirmada):** $< 1.0$ defeito/KLOC
 > - **Estabilidade Moderada:** $1.0 \text{ a } 3.0$ defeitos/KLOC
-> - **Baixa Estabilidade (Hipótese Refutada):** $> 3.0$ defeitos/KLOC
+> - **Baixa Estabilidade (H3 Refutada):** $> 3.0$ defeitos/KLOC
 
 #### Métrica 3.2: Tempo Médio de Resolução (TMR)
 
-**Processo** para avaliar a eficiência da equipe de manutenção na resposta a falhas. Um TMR baixo é um indicador de **Alta Manutenibilidade** e um processo eficiente [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+Métrica de **Processo** para avaliar a eficiência da equipe de manutenção na resposta a falhas. Um TMR baixo é um indicador de **Alta Manutenibilidade** e um processo eficiente conforme insiprado no artigo [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
 
 > **Fórmula:**
 >
 > $$TMR = \frac{\sum \text{Tempo de Resolução}}{\text{Nº Total de Defeitos Resolvidos}}$$
 >
-> **Referência:** [[5]](#ref-5)
+> **Referência:** [[6]](#ref-6) 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Eficiência (Hipótese Confirmada):** $< 48$ horas
+> - **Alta Eficiência (H3 Confirmada):** $< 48$ horas
 > - **Eficiência Moderada:** $48 \text{ a } 96$ horas
-> - **Baixa Eficiência (Hipótese Refutada):** $> 96$ horas
+> - **Baixa Eficiência (H3 Refutada):** $> 96$ horas
 
 
 
-### Q4. Em que medida a arquitetura do módulo File-exr contribui para o aumento da complexidade de manutenção em ambientes operacionais diversificados?
 
-**Motivo da Pergunta:**
-- Esta questão foca na **Portabilidade** e **Manutenibilidade**, que são atributos internos críticos para o custo do projeto (Recurso). O objetivo é **Conhecer** o risco de **fragmentação do código** e a dependência de API's específicas de cada sistema operacional (Windows, macOS, Linux).
 
-**O que se deseja saber com a pergunta?**
-- Busca-se quantificar o **Esforço** gasto em código que não é comum a todas as plataformas (código fragmentado) e a **Complexidade Ciclomática** das partes de interoperabilidade, que impacta a Manutenibilidade futura.
 
-**Como a resposta é esperada?**
-- A resposta será obtida pela **Análise Estática do Código (Métrica de Produto)** para medir a complexidade, e pela **Coleta de Esforço (Métrica de Recurso)** para o desenvolvimento e *patches* específicos de plataforma.
 
+
+
+### Q4. De que forma a arquitetura do módulo File-exr influencia a dificuldade e o custo de manutenção em plataformas distintas?
+
+**Hipótese (H4):** Espera-se que o módulo demonstre alta Portabilidade, com um baixo Índice de Esforço Não-Comum (IENC) e baixa Complexidade Ciclomática (CCM).
 
 #### Métrica 4.1: Índice de Esforço Não-Comum (IENC)
 
- Esta métrica de **Recurso/Projeto** indica o percentual do custo do projeto (Esforço) alocado em código que não pode ser reutilizado entre plataformas, medindo a dependência e a Portabilidade. Um IENC alto indica baixa portabilidade e alto custo de manutenção.
+Métrica de **Recurso/Projeto** que indica o percentual do custo do projeto (Esforço) alocado em código que não pode ser reutilizado entre plataformas ao medir a dependência e a Portabilidade.
 
 > **Fórmula:**
 >
+> $$IENC(\%) = \frac{\text{Esforço em código específico da Plataforma}}{\text{Esforço Total do Módulo}} \times 100$$
 >
-> IENC (%) = (Esforço em código específico da Plataforma / Esforço Total do Módulo) * 100
->
-> **Referência:** [[4]](#ref-4)
+> **Referência:** [[4]](#ref-4) 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Portabilidade (Hipótese Confirmada):** $\leq 10\%$
+> - **Alta Portabilidade (H4 Confirmada):** $\leq 10\%$
 > - **Portabilidade Moderada:** $10\% \text{ a } 20\%$
-> - **Baixa Portabilidade (Hipótese Refutada):** $> 20\%$
+> - **Baixa Portabilidade (H4 Refutada):** $> 20\%$
 
+#### Métrica 4.2: Complexidade Ciclomática Média (CCM)
+
+Métrica de **Produto** (Manutenibilidade) que indica a complexidade lógica do código. Com isso, módulos com alta CCM são mais difíceis de testar e manter [ELITEX - Compliance with Best Design Principles](https://elitex.systems/blog/software-quality).
+
+> **Fórmula:**
+>
+> $$CCM = \frac{\sum \text{Complexidade Ciclomática das Funções de Compatibilidade}}{\text{Nº Total de Funções de Compatibilidade}}$$
+>
+> **Referência:** [[3]](#ref-3)
+>
+> **Interpretação (Critério):**
+>
+> - **Baixa Complexidade (H4 Confirmada):** $< 10$
+> - **Risco Moderado:** $10 \text{ a } 15$
+> - **Alto Risco (H4 Refutada):** $> 15$
 
 
 ## Referências Bibliográficas
@@ -221,7 +263,7 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 
 <a id="ref-1"></a>[1] ABREU, Bruno. **A ISO/IEC 25010 e sua importância para a qualidade de software**. One Day Testing Blog, 29 mar. 2023. Disponível em: https://blog.onedaytesting.com.br/iso-iec-25010/. Acesso em: 22 out. 2025.
 
-[2] BASILI, Victor R.; CALDIERA, Gianluigi; ROMBACH, H. Dieter. **The Goal Question Metric Approach** (1994). **In**: *Encyclopedia of Software Engineering*. (Conceito GQM e metodologia top-down).
+<a id="ref-2"></a>[2] BASILI, Victor R.; CALDIERA, Gianluigi; ROMBACH, H. Dieter. **The Goal Question Metric Approach** (1994). **In**: *Encyclopedia of Software Engineering*. (Conceito GQM e metodologia top-down).
 
 <a id="ref-3"></a>[3] ELITEX. **Software Quality Metrics: What Is This Really About?** (2024). Disponível em: https://elitex.systems/blog/software-quality. Acesso em: 22 out. 2025. (Tipos de métricas, performance, segurança, usabilidade).
 
@@ -229,9 +271,9 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 
 <a id="ref-5"></a>[5] MOLDSTUD. **Essential Key Metrics for Measuring Success in Compatibility Testing for Quality Assurance**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Métricas de Taxa de Falha, Pass Rate e Esforço de Compatibilidade).
 
-[6] MOLDSTUD. **Key Performance Indicators (KPIs) for Compatibility Testing**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Critérios e benchmarks de compatibilidade e desempenho).
+<a id="ref-6"></a>[6] MOLDSTUD. **Key Performance Indicators (KPIs) for Compatibility Testing**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Critérios e benchmarks de compatibilidade e desempenho).
 
-[7] TENCENT CLOUD. **How to measure the success of compatibility testing?** (2025). Disponível em: https://www.tencentcloud.com/techpedia/105935. Acesso em: 22 out. 2025. (Visão geral sobre sucesso em testes de compatibilidade).
+<a id="ref-7"></a>[7] TENCENT CLOUD. **How to measure the success of compatibility testing?** (2025). Disponível em: https://www.tencentcloud.com/techpedia/105935. Acesso em: 22 out. 2025. (Visão geral sobre sucesso em testes de compatibilidade).
 
 ### **Histórico de Versão**
 
