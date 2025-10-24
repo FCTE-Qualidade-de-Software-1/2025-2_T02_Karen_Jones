@@ -234,3 +234,5 @@ Para a elaboração deste documento, a Inteligência Artificial foi utilizada co
 | 1.4   | 20/10/2025 | Correção das referências bibliográficas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 | 1.5   | 24/10/2025 | Reformulação e adição de mais perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 | 1.6   | 24/10/2025 | Reorganização das métricas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.7   | 24/10/2025 | Nova reestruturação das perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.8   | 24/10/2025 | Elaboração da conclusão e da declaração |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | |
