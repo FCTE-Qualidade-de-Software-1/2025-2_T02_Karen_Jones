@@ -55,7 +55,8 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 - Saber o nível de risco associado a essa troca de dados.
 
 **Como a resposta é esperada?**
-A resposta será obtida por meio de um **Teste de Compatibilidade Funcional** (TSF) ao executar um *set* de casos de teste que simulem a importação e exportação de arquivos EXR entre o GIMP e três aplicações líderes de mercado (Amostragem). O sucesso é definido pela **ausência de erros de *crash*** e pela **preservação integral de todos os atributos críticos** (camadas, fidelidade de cor) do arquivo conforme explicado em [TENCENT CLOUD](https://www.tencentcloud.com/techpedia/105935).
+
+- A resposta será obtida por meio de um **Teste de Compatibilidade Funcional** (TSF) ao executar um *set* de casos de teste que simulem a importação e exportação de arquivos EXR entre o GIMP e três aplicações líderes de mercado (Amostragem). O sucesso é definido pela **ausência de erros de *crash*** e pela **preservação integral de todos os atributos críticos** (camadas, fidelidade de cor) do arquivo conforme explicado em [TENCENT CLOUD](https://www.tencentcloud.com/techpedia/105935).
 
 
 #### Métrica 1.1: Taxa de Sucesso Funcional (TSF)
