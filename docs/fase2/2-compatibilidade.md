@@ -4,7 +4,7 @@
 
 Conforme analisado na [**Fase 1**](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase1/fase1/), com base na norma [**ISO/IEC 25010 (SQuaRE)**](https://blog.onedaytesting.com.br/iso-iec-25010/), que define os principais atributos de qualidade de software, destaca-se a **Compatibilidade** como um critério essencial. Assim, como é descrito na norma, esse atributo representa a capacidade de um produto de **trocar informações** e **executar funções** enquanto compartilha recursos com outros sistemas. 
 
-A Compatibilidade se divide em duas subcaracterísticas fundamentais:
+Conforme a norma, a Compatibilidade se divide em duas subcaracterísticas fundamentais:
 
 - **Interoperabilidade:** diz respeito à habilidade do software de trocar e utilizar dados de forma eficiente com outros sistemas, aspecto importante no caso do formato **EXR** a qual está sendo analisado.  
 - **Coexistência:** refere-se à capacidade do software de **operar corretamente em um ambiente compartilhado**, sem causar nem sofrer interferências durante o uso de recursos.
