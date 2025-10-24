@@ -320,4 +320,5 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 | 1.2   | 13/10/2025 | Conserto de fórmulas.  |[Breno Alexandre](https://github.com/brenoalexandre0) |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) |
 | 1.3   | 20/10/2025 | Adição da introdução e metodologia |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 | 1.4   | 20/10/2025 | Correção das referências bibliográficas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.5   | 20/10/2025 | Reformulação e adiçãod e mais perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 
