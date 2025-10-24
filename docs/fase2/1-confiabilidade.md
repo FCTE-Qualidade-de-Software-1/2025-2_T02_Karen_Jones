@@ -1,5 +1,13 @@
 # Confiabilidade
 
+## Introdução
+
+Este artefato tem como objetivo aplicar o método GQM (Goal-Question-Metric) para entender o módulo `file-exr` do GIMP sob o critério de Confiabilidad. A proposta é definir metas, perguntas e métricas que permitam analisaro o módulo, identificando possíveis limitações e oportunidades de melhoria.
+
+## Metodologia
+
+A metodologia adotada neste artefato baseia-se no método GQM, que orienta a avaliação da qualidade de software de forma estruturada e orientada a objetivos. Inicialmente, é definido o objetivo de análise, neste caso, entender a **confiabilidade** do módulo `file-exr` do GIMP. Em seguida, são formuladas perguntas que permitam investigar aspectos específicos relacionados a esse critério, como a frequência de falhas em uso contínuo ou a capacidade de lidar com arquivos corrompidos. Por fim, são estabelecidas métricas que quantifiquem os resultados observados, possibilitando uma avaliação objetiva e comparável. Essa abordagem garante coerência entre os dados coletados e o propósito de avaliação, promovendo uma análise consistente e orientada à melhoria contínua da qualidade do módulo.
+
 ## Descrição do Objetivo de Medição de Confiabilidade
 
 <p align="center"><strong>Tabela 1: Descrição do Objetivo de Medição de Qualidade</strong></p>
@@ -7,7 +15,7 @@
 |        Dimensão           |                   Descrição                     |
 | ------------------------- | ----------------------------------------------- |
 | Objeto da análise         | GIMP (Módulo File-exr)                          |
-| Propósito                 | Entender a Estabilidade do módulo File-exr      |
+| Propósito                 | Entender                                        |
 | Característica de análise | Confiabilidade                                  | 
 | Perspectiva de Avaliação  | Designer Gráfico                                |
 | Contexto                  | Disciplina de Qualidade de software             |
@@ -17,11 +25,13 @@
 
 ## Questões e Métricas
 
-Para detalhar o objetivo, derivamos 3 perguntas. Cada pergunta é respondida por um conjunto de métricas.
+Para detalhar o objetivo, derivamos 3 perguntas. Para cada pergunta, formulamos uma hipótese e definimos as métricas (nível quantitativo) necessárias para testá-la.
 
 ### Q1. O módulo é estável durante o uso cotidiano e prolongado?
 
-Esta pergunta busca entender a maturidade e estabilidade do módulo em condições normais de uso. Para respondê-la, usaremos as seguintes métricas:
+**Hipótese (H1):** Espera-se que o módulo seja estável para o uso diário, apresentando poucas falhas (baixa Taxa de Falhas) e operando por longos períodos sem travar (alto MTBF).
+
+Esta hipótese será testada usando as seguintes métricas:
 
 #### Métrica 1.1: Taxa de Falhas (Failure Rate)
 
@@ -33,16 +43,12 @@ Esta pergunta busca entender a maturidade e estabilidade do módulo em condiçõ
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Confiabilidade (Hipótese Confirmada):** < 0.01 falhas/hora
+> - **Alta Confiabilidade (H1 Confirmada):** < 0.01 falhas/hora
 > - **Média Confiabilidade:** 0.01 - 0.05 falhas/hora
-> - **Baixa Confiabilidade (Hipótese Refutada):** > 0.05 falhas/hora
-> Para esta análise utilizaremos uma métrica de Tempo Médio de Instalação (TMI) (Minutos/Instalação).
-Esta métrica indicará se o processo de implantação do módulo é eficiente, simples e não requer longas esperas.
+> - **Baixa Confiabilidade (H1 Refutada):** > 0.05 falhas/hora
 
 #### Métrica 1.2: Tempo Médio Entre Falhas (MTBF)
 
-> Espera-se que o tempo médio entre falhas seja alto.
->
 > **Fórmula:**
 >
 > `Tempo total de uso (em horas) / Nº total de falhas`
@@ -51,15 +57,17 @@ Esta métrica indicará se o processo de implantação do módulo é eficiente, 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Confiabilidade (Hipótese Confirmada):** > 100 horas
+> - **Alta Confiabilidade (H1 Confirmada):** > 100 horas
 > - **Média Confiabilidade:** 50 - 100 horas
-> - **Baixa Confiabilidade (Hipótese Refutada):** < 50 horas
+> - **Baixa Confiabilidade (H1 Refutada):** < 50 horas
 
 ---
 
 ### Q2. O módulo lida bem com condições de uso adversas ou inesperadas?
 
-Esta pergunta avalia a robustez do módulo ao ser submetido a estresse (carga) ou a entradas inválidas (tolerância a falhas).
+**Hipótese (H2):** Espera-se que o módulo seja robusto, mantendo-se operacional ao lidar com arquivos grandes e tratando arquivos corrompidos de forma controlada.
+
+Esta hipótese será testada usando as seguintes métricas:
 
 #### Métrica 2.1: Taxa de Sucesso sob Carga
 
@@ -71,14 +79,12 @@ Esta pergunta avalia a robustez do módulo ao ser submetido a estresse (carga) o
 >
 > **Interpretação (Critério para Carga "Grande"):**
 >
-> - **Alta Robustez (Hipótese Confirmada):** > 90%
+> - **Alta Robustez (H2 Confirmada):** > 90%
 > - **Média Robustez:** 70% - 90%
-> - **Baixa Robustez (Hipótese Refutada):** < 70%
+> - **Baixa Robustez (H2 Refutada):** < 70%
 
 #### Métrica 2.2: Taxa de Tratamento de Entradas Inválidas
 
-> Espera-se que o módulo identifique arquivos corrompidos e trate o erro sem travar.
->
 > **Fórmula:**
 >
 > `(Erros tratados sem crash / Total de arquivos corrompidos testados) * 100`
@@ -87,15 +93,17 @@ Esta pergunta avalia a robustez do módulo ao ser submetido a estresse (carga) o
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Tolerância (Hipótese Confirmada):** > 95%
+> - **Alta Tolerância (H2 Confirmada):** > 95%
 > - **Média Tolerância:** 80% - 95%
-> - **Baixa Tolerância (Hipótese Refutada):** < 80%
+> - **Baixa Tolerância (H2 Refutada):** < 80%
 
 ---
 
 ### Q3. Quão fácil é se recuperar de um erro ou falha?
 
-Esta pergunta avalia a capacidade de recuperação (Recoverability) do sistema, tanto automaticamente quanto do ponto de vista do usuário (diagnóstico e reparo).
+**Hipótese (H3):** Espera-se que o módulo forneça bons mecanismos de recuperação, permitindo que o usuário restaure seu trabalho facilmente e que as falhas sejam fáceis de diagnosticar.
+
+Esta hipótese será testada usando as seguintes métricas:
 
 #### Métrica 3.1: Taxa de Recuperação Automática
 
@@ -107,9 +115,9 @@ Esta pergunta avalia a capacidade de recuperação (Recoverability) do sistema, 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Recuperabilidade (Hipótese Confirmada):** > 80%
+> - **Alta Recuperabilidade (H3 Confirmada):** > 80%
 > - **Média Recuperabilidade:** 50% - 80%
-> - **Baixa Recuperabilidade (Hipótese Refutada):** < 50%
+> - **Baixa Recuperabilidade (H3 Refutada):** < 50%
 
 #### Métrica 3.2: Tempo Médio para Reparo (MTTR)
 
@@ -121,9 +129,9 @@ Esta pergunta avalia a capacidade de recuperação (Recoverability) do sistema, 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Recuperabilidade (Hipótese Confirmada):** < 2 minutos
+> - **Alta Recuperabilidade (H3 Confirmada):** < 2 minutos
 > - **Média Recuperabilidade:** 2 - 5 minutos
-> - **Baixa Recuperabilidade (Hipótese Refutada):** > 5 minutos
+> - **Baixa Recuperabilidade (H3 Refutada):** > 5 minutos
 
 #### Métrica 3.3: Taxa de Diagnóstico (Logs)
 
@@ -135,17 +143,20 @@ Esta pergunta avalia a capacidade de recuperação (Recoverability) do sistema, 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Analisabilidade (Hipótese Confirmada):** > 80%
+> - **Alta Analisabilidade (H3 Confirmada):** > 80%
 > - **Média Analisabilidade:** 50% - 80%
-> - **Baixa Analisabilidade (Hipótese Refutada):** < 50%
-
+> - **Baixa Analisabilidade (H3 Refutada):** < 50%
 ---
 
 ## Conclusão
 
-Este Plano de Medição fornece um *framework* estruturado para a avaliação da confiabilidade do módulo `file-exr`.
+O uso do método GQM foi fundamental para esta análise, pois permitiu transformar o conceito abstrato de "confiabilidade" em um plano de avaliação concreto para o módulo file-exr. Ao focar em subcaracterísticas como Maturidade, Tolerância a Falhas, Disponibilidade e Recuperabilidade, conseguimos ir além do "achismo".
 
-> *OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas.*
+As métricas definidas nos deram um roteiro claro para quantificar o comportamento do módulo em cenários reais: o que acontece no uso diário, como ele reage a um arquivo corrompido e, o mais importante, se o usuário consegue recuperar seu trabalho após um travamento.
+
+Esta análise servirá de base para a próxima fase. Com os dados coletados, poderemos identificar os pontos fortes e as oportunidades de melhoria..
+
+> *OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas. Também foi utilizado para auxiliar na escrita em Markdown.*
 
 ## Referências Bibliográficas
 
@@ -179,6 +190,7 @@ Este Plano de Medição fornece um *framework* estruturado para a avaliação da
 | 1.3 | 13/10/2025 | Conserta tabela. | [Breno Alexandre](https://github.com/brenoalexandre0) | [Vinicius Castelo](https://github.com/Vini47)|
 | 1.4 | 19/10/2025 | Modificações sujeridas em aula foram aplicadas | [Vinicius Castelo](https://github.com/Vini47) | [Arthur Evangelista](https://www.github.com/arthurevg) |
 | 1.5 | 21/10/2025 | Aplicação de modificações sugeridas em sala de aula durante o PC2| [Arthur Evangelista](https://www.github.com/arthurevg) | [Vinicius Castelo](https://github.com/Vini47) |
+| 1.5 | 21/10/2025 | Correções/Adições na Introdução, Metodologia e Conclusão | [Arthur Evangelista](https://www.github.com/arthurevg) |[Pedro Everton](https://github.com/pedroeverton217) |
 
 <!-- 
 ## Questões e Métricas
