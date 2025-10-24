@@ -2,16 +2,11 @@
 
 ## Introdução
 
-Conforme analisado na [**Fase 1**](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase1/fase1/), com base na norma [**ISO/IEC 25010 (SQuaRE)**](https://blog.onedaytesting.com.br/iso-iec-25010/), que define os principais atributos de qualidade de software, destaca-se a **Compatibilidade** como um critério essencial. Assim, como é descrito na norma, esse atributo representa a capacidade de um produto de **trocar informações** e **executar funções** enquanto compartilha recursos com outros sistemas. 
+Conforme analisado na [**Fase 1**](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase1/fase1/) e com base na norma [**ISO/IEC 25010 (SQuaRE)**](https://blog.onedaytesting.com.br/iso-iec-25010/), a **Compatibilidade** destaca-se como um critério essencial de qualidade de software. Dessa maneira, este atributo representa a capacidade de um produto **trocar informações** e **executar funções** enquanto compartilha recursos com outros sistemas.
 
-Conforme a norma, a Compatibilidade se divide em duas subcaracterísticas fundamentais:
+Como é explicado na norma, a compatibilidade se divide em duas subcaracterísticas: a **Interoperabilidade**, referente à habilidade de troca de dados (vital para o formato **EXR**), e a **Coexistência**, que trata da capacidade do software de **operar corretamente em um ambiente compartilhado**.
 
-- **Interoperabilidade:** diz respeito à habilidade do software de trocar e utilizar dados de forma eficiente com outros sistemas, aspecto importante no caso do formato **EXR** a qual está sendo analisado.  
-- **Coexistência:** refere-se à capacidade do software de **operar corretamente em um ambiente compartilhado**, sem causar nem sofrer interferências durante o uso de recursos.
-
-Com base nisso, este trabalho aplica a metodologia **Goal-Question-Metric (GQM)** ao módulo **File-exr** do **GIMP**. Essa abordagem segue o princípio de medição **top-down**, no qual se definem primeiro os **objetivos estratégicos** e, a partir deles, as **questões** e **métricas** necessárias à análise, como é explicado em [The mystery behind project management metrics](https://www.pmi.org/learning/library/project-management-metrics-mystery-9304)
-
-Assim como é explicado em [*LANSA - Measurement Objectives*](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/), a aplicação do GQM tem como propósito **melhorar a qualidade do software** e **otimizar o processo de desenvolvimento**, o qual será utilizado para reforçar e realizar a análise da qualidade da compatibilidade.
+Com base nesses conceitos, este trabalho aplica a metodologia **Goal-Question-Metric (GQM)** ao módulo **File-exr** do **GIMP** e essa abordagem segue o princípio de medição **top-down**, no qual se definem primeiro os **objetivos estratégicos** para, a partir deles, formalizar as **questões** e **métricas** necessárias à análise [The mystery behind project management metrics](https://www.pmi.org/learning/library/project-management-metrics-mystery-9304). O GQM será utilizado para **melhorar a qualidade do software** e **otimizar o processo de desenvolvimento** [LANSA - Measurement Objectives](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/) ao reforçar a análise da qualidade da compatibilidade.
 
 ## Objetivo
 
@@ -19,7 +14,7 @@ O principal objetivo deste documento é **estruturar e formalizar o programa de 
 
 ## Metodologia
 
-A medição de *software* é um processo sistemático que, como defendido na literatura, deve compreender cinco atividades interligadas: **Formulação**, **Coleta**, **Análise**, **Interpretação** e **Feedback** [LANSA - Measurement Principles](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
+A medição de *software* é um processo sistemático que, como defendido na literatura em [LANSA - Measurement Principles](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/), deve compreender cinco atividades interligadas: **Formulação**, **Coleta**, **Análise**, **Interpretação** e **Feedback**.
 
 Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como princípio na análise e a sua estrutura top-down alinha o projeto com modelos de maturidade como o [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
@@ -29,7 +24,7 @@ A análise da qualidade, portanto, será abrangente ao utilizar uma combinação
 * **Métricas de Processo**: para avaliar as atividades de desenvolvimento);
 * **Métricas de Projeto**: para o controle de esforço).
 
-A **Interpretação**, por fim, será realizada ao confrontar os dados coletados com as hipóteses (critérios de aceitação) definidas nas questões, o que garante que a avaliação da Compatibilidade seja objetiva, baseada em dados e, crucialmente, relevante para o fluxo de trabalho do usuário de acordo com o [MoldStud - Compatibility Importance](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
+A **Interpretação**, por fim, será realizada ao confrontar os dados coletados com as hipóteses (critérios de aceitação) definidas nas questões.
 
 
 ## Descrição do Objetivo de Medição de Compatibilidade
