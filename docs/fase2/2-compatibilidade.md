@@ -21,7 +21,7 @@ O principal objetivo deste documento é **estruturar e formalizar o programa de 
 
 A medição de *software* é um processo sistemático que, como defendido na literatura, deve compreender cinco atividades interligadas: **Formulação**, **Coleta**, **Análise**, **Interpretação** e **Feedback** [LANSA - Measurement Principles](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
-Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como espinha dorsal da na análise, para isso, a sua estrutura top-down alinha o projeto com modelos de maturidade como o **CMMI®** [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
+Neste trabalho, o método **GQM (Goal-Question-Metric)** é empregado como espinha dorsal da na análise, para isso, a sua estrutura top-down alinha o projeto com modelos de maturidade como o [LANSA - CMMI Context](https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/).
 
 A análise da qualidade, portanto, será abrangente ao utilizar uma combinação de métricas do [ELITEX - Quality Metrics](https://elitex.systems/blog/software-quality):
 
@@ -38,27 +38,70 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 | -------- | --------- |
 | **Objeto da Análise** | GIMP (Módulo File-exr). |
 | **Propósito** | **Analisar** a **conformidade com o padrão OpenEXR** e a **fidelidade na troca de dados** do módulo. |
-| **Característica de Análise** | **Compatibilidade** (Interoperabilidade e Coexistência). |
-| **Perspectiva de Avaliação** | **Designer Gráfico** (Usuário final profissional que depende da troca de arquivos). |
-| **Contexto** | Avaliação formal para fins didáticos (Disciplina de Qualidade de Software), simulando um ambiente de **produção industrial de imagens**. |
+| **Característica de Análise** | Compatibilidade (Interoperabilidade e Coexistência) |
+| **Perspectiva de Avaliação** | Designer Gráfico |
+| **Contexto** | Avaliação formal para fins didáticos da Disciplina de Qualidade de Software |
 
 ## Questões e Métricas
 
-### Q1. Quanto a Interoberabilidade, Qual a taxa de sucesso na abertura de arquivos EXR gerados por outras aplicações de mercado (ex: Blender, Nuke, Houdini)?
+#### Q1. Até que ponto o módulo File-exr do GIMP é capaz de garantir o intercâmbio fiel de dados com os softwares líderes do mercado?
 
-O módulo File-exr do GIMP será considerado de **alta Interoperabilidade** se a taxa de sucesso na leitura e escrita de arquivos EXR trocados com outras aplicações padrão da indústria (TIL) for **superior a 98%**. Um TIL alto garante que o módulo está em conformidade com o padrão OpenEXR e que a troca de dados com o ecossistema externo é fluida e confiável.
+**Motivo da Pergunta:**
+-  **Analisar a Interoperabilidade** de acordo com a [ISO/IEC 25010](https://blog.onedaytesting.com.br/iso-iec-25010/), ou seja, o objetivo é conhecer a fidelidade da troca de dados do módulo com o ecossistema profissional (Blender, Nuke) ao determinar se o GIMP atende aos requisitos de produção do Designer Gráfico.
+-  **Consequência da falaha**: Uma Interoperabilidade falha gera retrabalho, perda de dados e impacta diretamente a produtividade.
 
-> Fórmula:
+**O que se deseja saber com a pergunta?**
+- Quantificar a **Taxa de Sucesso Funcional (TSF)** do módulo ao manipular arquivos EXR complexos (multi-camadas e metadados) gerados ou consumidos por *softwares* externos.
+- Saber o nível de risco associado a essa troca de dados.
+
+**Como a resposta é esperada?**
+A resposta será obtida por meio de um **Teste de Compatibilidade Funcional** (TSF) ao executar um *set* de casos de teste que simulem a importação e exportação de arquivos EXR entre o GIMP e três aplicações líderes de mercado (Amostragem). O sucesso é definido pela **ausência de erros de *crash*** e pela **preservação integral de todos os atributos críticos** (camadas, fidelidade de cor) do arquivo conforme explicado em [TENCENT CLOUD](https://www.tencentcloud.com/techpedia/105935).
+
+
+#### Métrica 1.1: Taxa de Sucesso Funcional (TSF)
+
+Esta métrica é utilizada para medir a eficácia na realização de uma tarefa [MOLDSTUD - Test Pass Rates](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance). Ela indicará a confiabilidade do módulo File-exr no fluxo de intercâmbio de dados.
+
+> **Fórmula:**
 >
-> TIE(%) = (Número de Casos de Leitura Bem-sucedidos ÷ Número Total de Casos de Leitura Testados) × 100
+> TSF (%) = (Número de Casos de Intercâmbio Sucedidos / Número Total de Casos de Intercâmbio Testados) * 100
 >
-> **Nota:** Um caso de Leitura Bem-sucedida ocorre quando um arquivo EXR gerado por um software de terceiros é aberto corretamente no GIMP. Um caso de Escrita Bem-sucedida ocorre quando um arquivo EXR salvo pelo GIMP é aberto e validado por softwares de terceiros.
+> **Referência:** [[5]](#ref-5)
 >
-> Interpretação:
+> **Interpretação (Critério):**
 >
-> - **>98%** → **Alta Interoperabilidade** (excelente compatibilidade e conformidade com o padrão)
-> - **90–98%** → **Interoperabilidade Moderada** (pequenas inconsistências com formatos externos, exigindo correções)
-> - **<90%** → **Baixa Interoperabilidade** (falhas frequentes na troca de arquivos, indicando sérios problemas de conformidade)
+> - **Alta Interoperabilidade (Hipótese Confirmada):** $\geq 95\%$
+> - **Média Interoperabilidade:** $90\% \text{ a } 95\%$
+> - **Baixa Interoperabilidade (Hipótese Refutada):** $< 90\%$
+
+#### Métrica 1.2: Densidade de Defeitos por Teste (DDT)
+
+Esta métrica quantifica a qualidade do módulo com base na relação entre defeitos encontrados e o volume de testes executados inspirados em  [MOLDSTUD - Defect Density]. Ela é um indicador de risco.
+
+> **Fórmula:**
+>
+> $$DDT = \frac{\text{Nº de Defeitos de Interoperabilidade}}{\text{Nº Total de Casos de Teste Executados}}$$
+>
+> **Referência:** [[5]](#ref-5)
+>
+> **Interpretação (Critério):**
+>
+> - **Baixo Risco (Hipótese Confirmada):** $< 0.5$ defeitos/caso de teste
+> - **Risco Moderado:** $0.5 \text{ a } 1.0$ defeitos/caso de teste
+> - **Alto Risco (Hipótese Refutada):** $> 1.0$ defeitos/caso de teste
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Q2. Quanto a Coexistência, Qual a variação no tempo de carregamento do GIMP quando o módulo File-exr está instalado, comparado ao tempo sem o módulo?
 
@@ -89,7 +132,7 @@ O módulo File-exr do GIMP será considerado de **alta Coexistência** se o aume
 
 [4] LANSA. **What Are Software Metrics? How Can I Measure These Metrics?** (2024). Disponível em: https://lansa.com/blog/app-development/what-are-software-metrics-how-can-i-measure-these-metrics/. Acesso em: 22 out. 2025. (Ciclo de medição: Formulação, Coleta, Análise, Interpretação, Feedback; e objetivos de medição).
 
-[5] MOLDSTUD. **Essential Key Metrics for Measuring Success in Compatibility Testing for Quality Assurance**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Métricas de Taxa de Falha, Pass Rate e Esforço de Compatibilidade).
+<a id="ref-5"></a>[5] MOLDSTUD. **Essential Key Metrics for Measuring Success in Compatibility Testing for Quality Assurance**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Métricas de Taxa de Falha, Pass Rate e Esforço de Compatibilidade).
 
 [6] MOLDSTUD. **Key Performance Indicators (KPIs) for Compatibility Testing**. (2025). Disponível em: https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance. Acesso em: 22 out. 2025. (Critérios e benchmarks de compatibilidade e desempenho).
 
