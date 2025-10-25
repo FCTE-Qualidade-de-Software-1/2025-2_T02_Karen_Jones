@@ -29,13 +29,17 @@ A **Interpretação**, por fim, será realizada ao confrontar os dados coletados
 
 ## Descrição do Objetivo de Medição de Compatibilidade
 
+<p align="center"><strong>Tabela 3: Descrição do Objetivo de Medição de Qualidade</strong></p>
+
 | Dimensão | Descrição |
 | -------- | --------- |
-| **Objeto da Análise** | GIMP (Módulo File-exr). |
-| **Propósito** | **Analisar** a **conformidade com o padrão OpenEXR** e a **fidelidade na troca de dados** do módulo. |
-| **Característica de Análise** | Compatibilidade (Interoperabilidade e Coexistência) |
-| **Perspectiva de Avaliação** | Designer Gráfico |
-| **Contexto** | Avaliação formal para fins didáticos da Disciplina de Qualidade de Software |
+| **Analisar** | GIMP (Módulo File-exr). |
+| **Para o propósito de** | **Analisar** a **conformidade com o padrão OpenEXR** e a **fidelidade na troca de dados** do módulo. |
+| **Com respeito a** | Compatibilidade (Interoperabilidade e Coexistência) |
+| **Da perspectiva do** | Designer Gráfico |
+| **No contexto de** | Avaliação formal para fins didáticos da Disciplina de Qualidade de Software |
+
+<font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
 
 
 
@@ -236,3 +240,5 @@ Para a elaboração deste documento, a Inteligência Artificial foi utilizada co
 | 1.6   | 24/10/2025 | Reorganização das métricas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 | 1.7   | 24/10/2025 | Nova reestruturação das perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
 | 1.8   | 24/10/2025 | Elaboração da conclusão e da declaração |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | |
+| 1.9 | 25/10/2025 | Consertar tabela |  [Caio Venâncio](https://www.github.com/caio-venancio) |[Breno Alexandre](https://github.com/brenoalexandre0)|
+

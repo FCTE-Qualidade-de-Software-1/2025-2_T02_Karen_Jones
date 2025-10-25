@@ -10,13 +10,18 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 
 ## Descrição do Objetivo de Medição de Portabilidade
 
+<p align="center"><strong>Tabela 3: Descrição do Objetivo de Medição de Qualidade</strong></p>
+
 |        Dimensão           |                   Descrição                     |
 |---------------------------|-------------------------------------------------|
-| Objeto da análise         | GIMP (Módulo File-exr)                          |
-| Propósito                 | Entender                                        |
-| Característica de análise | Portabilidade                                   | 
-| Perspectiva de Avaliação  | Designer Gráfico                                |
-| Contexto                  | Disciplina de Qualidade de software             |
+| Analisar                  | GIMP (Módulo File-exr)                          |
+| Para o propósito de       | Entender                                        |
+| Com respeito a            | Portabilidade                                   | 
+| Da perspectiva do         | Designer Gráfico                                |
+| No contexto de            | Disciplina de Qualidade de software             |
+
+<font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
+
 
 ## Questões e Métricas
 
@@ -211,3 +216,4 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 | 1.3    | 19/10/2025 | Conserta perguntas.  | [Caio Venâncio](https://www.github.com/caio-venancio) | [Breno Alexandre](https://github.com/brenoalexandre0) |
 | 1.4    | 21/10/2025 | Refatora os artefatos.  | [Breno Alexandre](https://github.com/brenoalexandre0), [Caio Venâncio](https://www.github.com/caio-venancio)  | [Arthur Evangelista](https://github.com/arthurevg) |
 | 1.5    | 24/10/2025 | Adição da declaração de uso de IA.  | [Arthur Evangelista](https://github.com/arthurevg)| [Caio Venâncio](https://www.github.com/caio-venancio) |
+| 1.6 | 25/10/2025 | Consertar tabela |  [Caio Venâncio](https://www.github.com/caio-venancio) |[Breno Alexandre](https://github.com/brenoalexandre0)|

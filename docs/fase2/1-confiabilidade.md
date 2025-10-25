@@ -14,11 +14,11 @@ A metodologia adotada neste artefato baseia-se no método [GQM](https://fcte-qua
 
 |        Dimensão           |                   Descrição                     |
 | ------------------------- | ----------------------------------------------- |
-| Objeto da análise         | GIMP (Módulo File-exr)                          |
-| Propósito                 | Entender                                        |
-| Característica de análise | Confiabilidade                                  | 
-| Perspectiva de Avaliação  | Designer Gráfico                                |
-| Contexto                  | Disciplina de Qualidade de software             |
+| Analisar                  | GIMP (Módulo File-exr)                          |
+| Para o propósito de       | Entender                                        |
+| Com respeito a            | Confiabilidade                                  | 
+| Da perspectiva do         | Designer Gráfico                                |
+| No contexto de            | Disciplina de Qualidade de software             |
 
 
 <font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font>
@@ -190,7 +190,8 @@ Esta análise servirá de base para a próxima fase. Com os dados coletados, pod
 | 1.3 | 13/10/2025 | Conserta tabela. | [Breno Alexandre](https://github.com/brenoalexandre0) | [Vinicius Castelo](https://github.com/Vini47)|
 | 1.4 | 19/10/2025 | Modificações sujeridas em aula foram aplicadas | [Vinicius Castelo](https://github.com/Vini47) | [Arthur Evangelista](https://www.github.com/arthurevg) |
 | 1.5 | 21/10/2025 | Aplicação de modificações sugeridas em sala de aula durante o PC2| [Arthur Evangelista](https://www.github.com/arthurevg) | [Vinicius Castelo](https://github.com/Vini47) |
-| 1.5 | 21/10/2025 | Correções/Adições na Introdução, Metodologia e Conclusão | [Arthur Evangelista](https://www.github.com/arthurevg) |[Pedro Everton](https://github.com/pedroeverton217) |
+| 1.6 | 21/10/2025 | Correções/Adições na Introdução, Metodologia e Conclusão | [Arthur Evangelista](https://www.github.com/arthurevg) |[Pedro Everton](https://github.com/pedroeverton217) |
+| 1.7 | 25/10/2025 | Consertar tabela |  [Caio Venâncio](https://www.github.com/caio-venancio) |[Breno Alexandre](https://github.com/brenoalexandre0)|
 
 <!-- 
 ## Questões e Métricas
