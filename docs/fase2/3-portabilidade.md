@@ -25,13 +25,6 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 
 ## Questões e Métricas
 
-<!-- a pergunta antiga: -->
-<!-- ### Q1. Quanto a Adaptabilidade, qual é o esforço necessário para adaptar o módulo File-exr do GIMP para funcionar corretamente em diferentes sistemas operacionais (Linux, Windows e macOS)? -->
-
-<!-- a possível nova pergunta: -->
-<!-- ### Q1. Quanto a Adaptabilidade, O módulo funciona corretamente em diferentes sistemas operacionais (Linux, Windows, macOS)? -->
-
-<!-- a nova pergunta: -->
 ### Q1. Quanto a Adaptabilidade, o módulo se comporta de formas diferentes em diferentes sistemas operacionais?
 
 #### Hipótese: O módulo se comporta exatamente da mesma forma em qualquer sistema operacional, limitando-se a diferença de desempenho.
@@ -70,11 +63,6 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 >
 > O desvio de desempenho mede **a diferença no tempo de execução** do módulo entre diferentes plataformas. Um baixo desvio indica que o módulo mantém uma performance consistente em diferentes sistemas, enquanto um alto desvio pode indicar problemas de adaptação.
 
-
-<!-- a pergunta antiga: -->
-<!-- ### Q2. Quanto a Instalabilidade, qual o tempo médio necessário para que o módulo seja instalado em novos ambientes de implantação? -->
-
-<!-- a nova pergunta: -->
 ### Q2. Quanto a Instalabilidade, é possível instalar e desinstalar somente o módulo file-exr?
 
 #### Hipótese: Não é possível instalar e desinstalar somente o módulo file-exr, uma vez que ao retirá-lo o gimp não funciona adequadamente ou gera builds inconsistentes.
@@ -99,82 +87,110 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 >
 > `Desinstalações bem-sucedidas / Total de tentativas de desinstalação`
 >
-> **Referência:** [[6]](#ref-6), [[7]](#ref-7) [[8]](#ref-8)
+> **Referência:** [[6]](#ref-6), [[7]](#ref-7), [[8]](#ref-8)
 >
 >
-> **Interpretação:**
 > **Interpretação:**
 > - **Alta taxa de sucesso (Hipótese Confirmada):** ≥ 90% de tentativas de desinstalação bem-sucedidas
 > - **Baixa taxa de sucesso (Hipótese Refutada):** < 90% de tentativas de desinstalação bem-sucedidas
 >  
 > Avalia a **eficiência do processo de desinstalação**, garantindo que o módulo seja removido sem deixar resíduos ou causar falhas no GIMP.
 
-
-
-<!-- ### Q3. Quanto a Instalabilidade, qual a taxa de falhas que ocorrem durante o processo de instalação em diferentes ambientes? -->
-
-<!-- a nova pergunta: -->
 ### Q3. Quanto a Instalabilidade, o processo de instalação do módulo costuma apresentar erros ou inconsistências em diferentes ambientes?
 
-#### Hipótese:
+#### Hipótese: O processo de instalação do módulo é consistente entre ambientes distintos (distros, versões de SO, arquiteturas), apresentando apenas variação de desempenho e sem falhas específicas por ambiente.
 
-#### Métrica 3.1:
-
-> Fórmula:
->
-> **Referência:**
->
-> Interpretação:
->
-> 
->
->
-
-#### Métrica 3.2:
+#### Métrica 3.1: Taxa de Sucesso de Instalação por Ambiente
 
 > Fórmula:
+> 
+> `Taxa de Sucesso (ambiente X) = Instalações bem‑sucedidas em X / Total de tentativas em X`
+> 
+> **Referência:** [[6]](#ref-6), [[8]](#ref-8)
 >
-> **Referência:**
+> **Interpretação:**
+> - **Hipótese Confirmada:** ≥ 95% de sucesso em cada ambiente testado
+> - **Hipótese Refutada:** < 95% em algum ambiente
+>
+> Avalia se a instalação funciona de forma confiável em cada ambiente isoladamente.
+
+#### Métrica 3.2: Desvio Relativo de Sucesso entre Ambientes
+
+> Fórmula:
+> 
+> `Desvio Relativo = |TaxaX - TaxaY| / Taxa_média_entre_ambientes
+(avaliar pares ou calcular desvio padrão relativo entre todas as taxas)`
+> 
+> **Referência:** [[3]](#ref-3), [[4]](#ref-4)
 >
 > Interpretação:
->
+> - **Consistência Alta (Hipótese Confirmada):** Desvio Relativo ≤ 5%
+> - **Inconsistência Significativa (Hipótese Refutada):** Desvio Relativo > 5%
 > 
+> Mede quão uniforme é o sucesso de instalação entre ambientes.
+
+#### Métrica 3.3: Diferença no Tempo e Tipos de Falha entre Ambientes
+
+> Fórmula:
+> 
+> `Diferença de Tempo = |Tempo médio instalação em A - Tempo médio em B| / Tempo médio geral
+Taxa de Falhas Específicas = Ocorrências de erro tipo T em ambiente X / Total de tentativas em X`
+> 
+> **Referência:** [[5]](#ref-5), [[7]](#ref-7)
 >
->
+> Interpretação:
+> - **Hipótese Confirmada:** Variação de tempo ≤ 10% e nenhuma falha tipo específica com taxa > 1% por ambiente
+> - **Hipótese Refutada:** Variação de tempo > 10% ou existência de falhas específicas > 1%
+> 
+> Detecta diferenças práticas (tempo) e presença de erros direcionados a ambientes (dependências ausentes, permissões, toolchain).
 
-
-<!-- ### Q4. Quanto a Substituibilidade, qual é o esforço necessário para substituir uma dependência principal do módulo File-exr (como a libOpenEXR) por outra versão ou biblioteca equivalente sem perda de funcionalidade? -->
-
-<!-- a nova pergunta: -->
 ### Q4. Quanto a Substituibilidade, é fácil substituir dependências dos módulo File-exr por outras bibliotecas ou versões?
 
-#### Hipótese:
+#### Hipótese: A substituição de dependências do módulo File-exr é um processo complexo que exige modificações significativas no código e pode comprometer a funcionalidade.
 
-#### Métrica 4.1:
-
-> Fórmula:
->
-> **Referência:**
->
-> Interpretação:
->
-> 
->
->
-
-#### Métrica 4.3:
+#### Métrica 4.1: Taxa de Compatibilidade com Versões Alternativas
 
 > Fórmula:
 >
-> **Referência:**
+> `Número de versões alternativas compatíveis / Total de versões testadas`
+>
+> **Referência:** [[1]](#ref-1), [[7]](#ref-7)
 >
 > Interpretação:
+> - **Alta Compatibilidade (Hipótese Refutada):** ≥ 80% das versões são compatíveis
+> - **Baixa Compatibilidade (Hipótese Confirmada):** < 80% das versões são compatíveis
 >
+> Avalia a flexibilidade do módulo em trabalhar com diferentes versões de suas dependências principais.
+
+#### Métrica 4.2: Esforço de Adaptação para Novas Dependências
+
+> Fórmula:
 > 
+> `Linhas de código modificadas / Total de linhas do módulo`
+> 
+> `Tempo médio (em horas) para adaptar uma nova dependência`
+> 
+> **Referência:** [[1]](#ref-1), [[8]](#ref-8)
 >
+> Interpretação:
+> - **Baixo Esforço (Hipótese Refutada):** ≤ 5% de modificações no código e ≤ 8 horas de adaptação
+> - **Alto Esforço (Hipótese Confirmada):** > 5% de modificações ou > 8 horas de adaptação
+> 
+> Quantifica o trabalho necessário para substituir uma dependência existente por uma alternativa.
+
+#### Métrica 4.3: Taxa de Sucesso em Testes após Substituição
+
+> Fórmula:
+> 
+> `Número de testes bem-sucedidos após substituição / Total de testes existentes`
+> 
+> **Referência:** [[7]](#ref-7)
 >
-
-
+> Interpretação:
+> - **Alta Confiabilidade (Hipótese Refutada):** ≥ 95% dos testes passam após substituição
+> - **Baixa Confiabilidade (Hipótese Confirmada):** < 95% dos testes passam após substituição
+> 
+> Mede o impacto da substituição de dependências na estabilidade do módulo através da execução da suite de testes existente.
 
 ## Conclusões
 
@@ -216,4 +232,5 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 | 1.3    | 19/10/2025 | Conserta perguntas.  | [Caio Venâncio](https://www.github.com/caio-venancio) | [Breno Alexandre](https://github.com/brenoalexandre0) |
 | 1.4    | 21/10/2025 | Refatora os artefatos.  | [Breno Alexandre](https://github.com/brenoalexandre0), [Caio Venâncio](https://www.github.com/caio-venancio)  | [Arthur Evangelista](https://github.com/arthurevg) |
 | 1.5    | 24/10/2025 | Adição da declaração de uso de IA.  | [Arthur Evangelista](https://github.com/arthurevg)| [Caio Venâncio](https://www.github.com/caio-venancio) |
-| 1.6 | 25/10/2025 | Consertar tabela |  [Caio Venâncio](https://www.github.com/caio-venancio) |[Breno Alexandre](https://github.com/brenoalexandre0)|
+| 1.6 | 25/10/2025 | Consertar tabela |  [Caio Venâncio](https://www.github.com/caio-venancio) |[Breno Alexandre](https://github.com/brenoalexandre0)
+| 1.7 | 25/10/2025 | Responder Q3 e Q4. |  [Breno Alexandre](https://github.com/brenoalexandre0) | [Caio Venâncio](https://www.github.com/caio-venancio) |
