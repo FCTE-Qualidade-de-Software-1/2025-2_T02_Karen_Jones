@@ -198,6 +198,10 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 
 > *OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas. Também foi utilizado para auxiliar na escrita em Markdown.*
 
+## Sobre o uso de IA
+
+Para a elaboração deste documento, a Inteligência Artificial foi utilizada como ferramenta de apoio. Desta maneira, o seu uso concentrou-se, principalmente, em auxiliar a **compreensão e o esclarecimento dos termos técnicos** presentes nas normas (ISO/IEC 25010) e nos artigos e corporativos consultados. Adicionalmente, a IA foi empregada para a **estruturação e organização das ideias** na aplicação da metodologia GQM.
+
 ## Referências Bibliográficas
 
 <a id="ref-1"></a>[1] FENTON, Norman; BIEMAN, James. Software Metrics: A Rigorous and Practical Approach. 3. ed. Boca Raton: CRC Press, 2015.
