@@ -184,7 +184,8 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 <a id="ref-2"></a>[2]  GOOGLE. Firebase Crashlytics: Métricas de crash-free. Disponível em: https://firebase.google.com/docs/crashlytics/crash-free-metrics?hl=pt-br
 . Acesso em: 24 out. 2025.
 
-<a id="ref-3"></a>[3] https://www.headspin.io/blog/gain-insight-into-cross-platform-performance-metrics
+<a id="ref-3"></a>[3] HEADSPIN. Gain Insight Into Cross-Platform Performance Metrics. HeadSpin Blog, 2023. Disponível em: https://www.headspin.io/blog/gain-insight-into-cross-platform-performance-metrics
+. Acesso em: 24 out. 2025.
 
 <a id="ref-4"></a>[4] B. BUMGARDNER. Benchmarking: When can I stop making measurements? Stack Overflow, 2009. Disponível em: https://stackoverflow.com/questions/1390047/benchmarking-when-can-i-stop-making-measurements
 . Acesso em: 24 out. 2025.
@@ -195,7 +196,7 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 <a id="ref-6"></a>[6] ADJUST. How to track app uninstalls: Everything you need to know. Disponível em: https://www.adjust.com/blog/how-to-track-app-installs-and-uninstalls/
 . Acesso em: 24 out. 2025.
 
-<a id="ref-7"></a>[7]
+<a id="ref-7"></a>[7] INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. ISO/IEC 25036:2011 – Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality in use measures. Geneva: ISO, 2011.
 
 <a id="ref-8"></a>[8] REPLICATED. Instance Insights: Install Success Rate. 2023. Disponível em: https://replicated.com/blog/instance-insights-install-success-rate
 . Acesso em: 24 out. 2025.
