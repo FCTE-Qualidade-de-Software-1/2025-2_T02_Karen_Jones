@@ -31,32 +31,38 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 
 #### Hipótese: O módulo se comporta exatamente da mesma forma em qualquer sistema operacional, limitando-se a diferença de desempenho.
 
-#### Métrica 1.1: Taxa de Sucesso de Execução entre Plataformas
+#### Métrica 1.1: Taxa de Sessões Livres de Falhas entre Plataformas
 
 > **Fórmula:**
 >
+> `Taxa de Sessões Livres de Falhas = 1 - Sessões com Falha/Total de Sessões`
+>
 > `Execuções bem-sucedidas em diferentes sistemas operacionais / Total de execuções em diferentes sistemas operacionais`
 >
-> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
+> **Referência:** [[2]](#ref-2)
 >
 > **Interpretação:**
-> - **Alta Adaptabilidade (Hipótese Confirmada):** ≥ 95% de execuções bem-sucedidas em todas as plataformas
-> - **Média Adaptabilidade:** 85% - 94% de execuções bem-sucedidas em todas as plataformas
-> - **Baixa Adaptabilidade (Hipótese Refutada):** < 85% de execuções bem-sucedidas em todas as plataformas  
-> Esta métrica avalia a **confiabilidade do módulo em diferentes sistemas operacionais**. Quanto maior a taxa de execuções bem-sucedidas, melhor a adaptabilidade do módulo entre plataformas.
+>
+> - **Alta semelhança de execução (Hipótese Confirmada):** ≥ 99,9% de execuções bem-sucedidas em todas as plataformas
+> - **Alta semelhança de execução (Hipótese Refutada):** < 99,9% de execuções bem-sucedidas em todas as plataformas  
+>
+> Esta métrica avalia o quão adaptado é o módulo para diferentes sistemas operacionais. Quanto maior a taxa de execuções bem-sucedidas, melhor a adaptabilidade do módulo entre plataformas. A referência [[2]](#ref-2) do Google Firebase sobre Crash em sessões e em usuários menciona como as falhas devem ser extremamente improváveis e uma única falha gera perda de credibilidade do usuário, e no nosso caso, na adaptabilidade do sistema.
 
-#### Métrica 1.2: Desvio de Desempenho entre Plataformas
+#### Métrica 1.2: Desvio de Desempenho entre diferentes plataformas
 
 > **Fórmula:**
 >
 > `|Desempenho no Sistema A - Desempenho no Sistema B| / Desempenho médio`
+> 
+> `com Desempenho sendo carga de Load Testing, Stress Testing e Volume Testing`
 >
-> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
+> **Referência:** [[3]](#ref-3), [[4]](#ref-4), [[5]](#ref-5)
 >
 > **Interpretação:**
-> - **Baixo Desvio de Desempenho (Hipótese Confirmada):** < 10% de variação entre plataformas
-> - **Desvio Médio de Desempenho:** 10% - 20% de variação entre plataformas
-> - **Alto Desvio de Desempenho (Hipótese Refutada):** > 20% de variação entre plataformas  
+>
+> - **Desvio Médio de Desempenho:** ≤ 5% de variação entre plataformas
+> - **Alto Desvio de Desempenho (Hipótese Refutada):** > 5% de variação entre plataformas  
+>
 > O desvio de desempenho mede **a diferença no tempo de execução** do módulo entre diferentes plataformas. Um baixo desvio indica que o módulo mantém uma performance consistente em diferentes sistemas, enquanto um alto desvio pode indicar problemas de adaptação.
 
 
@@ -74,12 +80,12 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 >
 > `Instalações bem-sucedidas / Total de tentativas de instalação`
 >
-> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
+> **Referência:** [[6]](#ref-6), [[8]](#ref-8)
 >
 > **Interpretação:**
-> - **Alta Instalação (Hipótese Confirmada):** ≥ 95% de tentativas bem-sucedidas
-> - **Média Instalação:** 85% - 94% de tentativas bem-sucedidas
-> - **Baixa Instalação (Hipótese Refutada):** < 85% de tentativas bem-sucedidas  
+> - **Alta taxa de sucesso (Hipótese Confirmada):** ≥ 90% de tentativas bem-sucedidas
+> - **Baixa taxa de sucesso (Hipótese Refutada):** < 90% de tentativas bem-sucedidas
+>  
 > Esta métrica avalia a **facilidade** do processo de instalação, sem complicações ou erros que possam ocorrer durante a tentativa de adicionar o módulo ao GIMP.
 
 #### Métrica 2.2: Taxa de Sucesso na Desinstalação (Uninstallation Success Rate)
@@ -88,12 +94,14 @@ A metodologia adotada neste artefato baseia-se no método GQM, que orienta a ava
 >
 > `Desinstalações bem-sucedidas / Total de tentativas de desinstalação`
 >
-> **Referência:** ISO/IEC 25023:2016, *Software product quality model*.
+> **Referência:** [[6]](#ref-6), [[7]](#ref-7) [[8]](#ref-8)
+>
 >
 > **Interpretação:**
-> - **Alta Desinstalação (Hipótese Confirmada):** ≥ 95% de desinstalações bem-sucedidas
-> - **Média Desinstalação:** 85% - 94% de desinstalações bem-sucedidas
-> - **Baixa Desinstalação (Hipótese Refutada):** < 85% de desinstalações bem-sucedidas  
+> **Interpretação:**
+> - **Alta taxa de sucesso (Hipótese Confirmada):** ≥ 90% de tentativas de desinstalação bem-sucedidas
+> - **Baixa taxa de sucesso (Hipótese Refutada):** < 90% de tentativas de desinstalação bem-sucedidas
+>  
 > Avalia a **eficiência do processo de desinstalação**, garantindo que o módulo seja removido sem deixar resíduos ou causar falhas no GIMP.
 
 
@@ -171,7 +179,26 @@ Com a aplicação do método GQM, foi possível compreender de forma mais clara 
 
 ## Referências Bibliográficas
 
-> FENTON, Norman; BIEMAN, James. Software Metrics: A Rigorous and Practical Approach. 3. ed. Boca Raton: CRC Press, 2015.
+<a id="ref-1"></a>[1] FENTON, Norman; BIEMAN, James. Software Metrics: A Rigorous and Practical Approach. 3. ed. Boca Raton: CRC Press, 2015.
+
+<a id="ref-2"></a>[2]  GOOGLE. Firebase Crashlytics: Métricas de crash-free. Disponível em: https://firebase.google.com/docs/crashlytics/crash-free-metrics?hl=pt-br
+. Acesso em: 24 out. 2025.
+
+<a id="ref-3"></a>[3] https://www.headspin.io/blog/gain-insight-into-cross-platform-performance-metrics
+
+<a id="ref-4"></a>[4] B. BUMGARDNER. Benchmarking: When can I stop making measurements? Stack Overflow, 2009. Disponível em: https://stackoverflow.com/questions/1390047/benchmarking-when-can-i-stop-making-measurements
+. Acesso em: 24 out. 2025.
+
+<a id="ref-5"></a>[5] LINKEDIN ENGINEERING. How We Identify and Stop Slow Latency Leaks at LinkedIn. 2017. Disponível em: https://www.linkedin.com/blog/engineering/optimization/fixing-the-plumbing-how-we-identify-and-stop-slow-latency-leaks
+. Acesso em: 24 out. 2025.
+
+<a id="ref-6"></a>[6] ADJUST. How to track app uninstalls: Everything you need to know. Disponível em: https://www.adjust.com/blog/how-to-track-app-installs-and-uninstalls/
+. Acesso em: 24 out. 2025.
+
+<a id="ref-7"></a>[7]
+
+<a id="ref-8"></a>[8] REPLICATED. Instance Insights: Install Success Rate. 2023. Disponível em: https://replicated.com/blog/instance-insights-install-success-rate
+. Acesso em: 24 out. 2025.
 
 ### **Histórico de Versão**
 
