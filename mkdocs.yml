@@ -21,6 +21,12 @@ nav:
     - Portabilidade: fase2/3-portabilidade.md
     - Tabela de Contribuição: fase2/4-tabela de contribuição.md
 
+  - Fase 3:
+    - Introdução: fase3/fase3.md
+
+  - Fase 4:
+    - Introdução: fase4/fase4.md
+
 # Configuração do tema Material
 theme:
   name: material
