@@ -1,7 +1,16 @@
-<!-- Projetar plano de avaliação -->
-# Sobre a Fase 3
+# Plano de Avaliação - Quanto à Portabilidade
 
-## Introdução
+## Métricas a Serem Implementadas
+
+## Ferramentas e Métodos de Coleta
+
+### Ambiente de teste
+
+### Instrumentos de medição
+
+### Passo a Passo de Coleta
+
+## Localização dos Dados de Avaliação
 
 ### **Histórico de Versão**
 

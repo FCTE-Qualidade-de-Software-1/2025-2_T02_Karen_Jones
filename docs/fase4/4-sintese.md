@@ -1,7 +1,4 @@
-<!-- Projetar plano de avaliação -->
-# Sobre a Fase 3
-
-## Introdução
+<!-- Colocar tópicos da síntese -->
 
 ### **Histórico de Versão**
 

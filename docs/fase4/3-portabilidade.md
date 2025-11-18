@@ -1,7 +1,6 @@
-<!-- Projetar plano de avaliação -->
-# Sobre a Fase 3
+# Execução do Plano de Avaliação - Quanto à Portabilidade
 
-## Introdução
+<!-- procedimento, medição, análise dos resultados -->
 
 ### **Histórico de Versão**
 

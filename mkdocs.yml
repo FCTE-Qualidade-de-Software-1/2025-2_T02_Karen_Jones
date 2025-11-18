@@ -23,9 +23,17 @@ nav:
 
   - Fase 3:
     - Introdução: fase3/fase3.md
+    - Confiabilidade: fase3/1-confiabilidade.md
+    - Compatibilidade: fase3/2-compatibilidade.md
+    - Portabilidade: fase3/3-portabilidade.md
 
   - Fase 4:
     - Introdução: fase4/fase4.md
+    - Confiabilidade: fase4/1-confiabilidade.md
+    - Compatibilidade: fase4/2-compatibilidade.md
+    - Portabilidade: fase4/3-portabilidade.md
+    - Síntese: fase4/4-sintese.md
+    - Conclusão: fase4/5-conclusao.md
 
 # Configuração do tema Material
 theme:
