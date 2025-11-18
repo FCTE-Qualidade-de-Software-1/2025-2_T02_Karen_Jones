@@ -234,11 +234,11 @@ Para a elaboração deste documento, a Inteligência Artificial foi utilizada co
 | 1.0    | 08/10/2025 | Criação do Documento. | [Vinicius Castelo](https://github.com/Vini47)     | [Caio Venâncio](https://www.github.com/caio-venancio), [Pedro Everton](https://github.com/pedroeverton217) |
 | 1.1    | 12/10/2025 | Adição de tabela e questões. |[Pedro Everton](https://github.com/pedroeverton217) | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |
 | 1.2   | 13/10/2025 | Conserto de fórmulas.  |[Breno Alexandre](https://github.com/brenoalexandre0) |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) |
-| 1.3   | 20/10/2025 | Adição da introdução e metodologia |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.4   | 20/10/2025 | Correção das referências bibliográficas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.5   | 24/10/2025 | Reformulação e adição de mais perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.6   | 24/10/2025 | Reorganização das métricas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.7   | 24/10/2025 | Nova reestruturação das perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.8   | 24/10/2025 | Elaboração da conclusão e da declaração |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | |
+| 1.3   | 20/10/2025 | Adição da introdução e metodologia |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Breno Alexandre](https://github.com/brenoalexandre0) | 
+| 1.4   | 20/10/2025 | Correção das referências bibliográficas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Breno Alexandre](https://github.com/brenoalexandre0)| 
+| 1.5   | 24/10/2025 | Reformulação e adição de mais perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Breno Alexandre](https://github.com/brenoalexandre0)| 
+| 1.6   | 24/10/2025 | Reorganização das métricas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Breno Alexandre](https://github.com/brenoalexandre0) | 
+| 1.7   | 24/10/2025 | Nova reestruturação das perguntas |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Breno Alexandre](https://github.com/brenoalexandre0) | 
+| 1.8   | 24/10/2025 | Elaboração da conclusão e da declaração |  [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Breno Alexandre](https://github.com/brenoalexandre0) |
 | 1.9 | 25/10/2025 | Consertar tabela |  [Caio Venâncio](https://www.github.com/caio-venancio) |[Breno Alexandre](https://github.com/brenoalexandre0)|
 
