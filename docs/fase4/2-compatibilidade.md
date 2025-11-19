@@ -20,7 +20,6 @@ A execução foi realizada integralmente no ambiente **Linux (Ubuntu 22.04 LTS)*
 
 A **Tabela 1** registra o resultado detalhado de cada validação, classificando-a como **Sucesso** (o arquivo abriu e preservou todos os dados críticos) ou **Defeito** (houve perda de dados, *crash* ou falha na leitura).
 
-
 **Tabela 1:** Resultados do Round-Trip GIMP (OpenEXR)
 
 
@@ -48,11 +47,11 @@ Com base nos dados coletados (10 validações e 3 defeitos), calculamos a Taxa d
 
 ### 3. Análise e Julgamento
 
-A análise dos resultados confronta os valores calculados com a **Hipótese (H1)** e a **Questão (Q1)** de Interoperabilidade.
+
 
 #### Resposta à Q1 e Julgamento da Hipótese
 
-A **Hipótese (H1)** ("O módulo apresentará alta fidelidade de intercâmbio, com TSF elevada e DDT baixo") foi **REFUTADA** pela métrica TSF, mas **CONFIRMADA** pela métrica DDT.
+
 
 #### Achados e Melhorias Específicas
 
