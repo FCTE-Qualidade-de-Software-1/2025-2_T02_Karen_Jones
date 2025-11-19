@@ -89,7 +89,6 @@ O teste simula o **Round-Trip** de um arquivo entre os *softwares* do ecossistem
 1.  **Criação da Amostra (Baseline):** Utilizar o **Blender** para gerar 5 arquivos `.exr` de alta qualidade, garantindo que contenham metadados e *Multilayers* (AOVs). Salvar os 5 arquivos como *Baseline*.
 2.  **Importação no GIMP:** Abrir os 5 arquivos *Baseline* no **GIMP** 3.0.4. Registrar se a abertura é bem-sucedida.
 3.  **Modificação e Exportação (GIMP -> Terceiro):** Realizar uma alteração mínima no GIMP (ex: ajuste de níveis de cor) e, em seguida, exportar os 5 arquivos modificados.
-    * **Atenção:** **GRAVAR VÍDEO** da manipulação e exportação no GIMP.
 4.  **Validação 1 (Blender):** Tentar abrir cada um dos 5 arquivos exportados pelo GIMP de volta no **Blender**.
 5.  **Validação 2 (Krita):** Tentar abrir os mesmos 5 arquivos no **Krita**.
 6.  **Medição e Classificação:** Registrar o **Sucesso** ou **Defeito** (e.g., *crash*, perda de metadado, canal corrompido) para cada uma das 10 validações (5 arquivos x 2 *softwares*). Com isso, será possível calcular a **TSF** e o **DDT**.
@@ -101,7 +100,6 @@ O teste avalia a sobrecarga do módulo `file-exr` no sistema em relação à ini
 1.  **Preparo:** Fechar todas as aplicações desnecessárias para garantir a precisão da medição.
 2.  **Medição de Baseline (T1 e M1):** Iniciar o **GIMP** no **Sistema Operacional 1** (ex: Linux) sem abrir nenhum arquivo. Medir e registrar o **Tempo de Carregamento (T1)** e o **Pico de Consumo de RAM (M1)**. Repetir 3 vezes e calcular a média.
 3.  **Medição com Módulo Ativo (T2 e M2):** Fechar o GIMP e reiniciar a aplicação, mas desta vez **abrindo imediatamente** o arquivo `.exr` de **100MB**.
-    * **Atenção:** **GRAVAR VÍDEO** mostrando o Monitor de Recursos do SO (ex: `htop`) durante a medição.
     * Medir o **Tempo de Carregamento (T2)** (até o arquivo ser exibido).
     * Registrar o **Pico de Consumo de RAM (M2)**. Repetir 3 vezes e calcular a média.
 4.  **Validação Cruzada:** Repetir os passos 2 e 3 no **Sistema Operacional 2** (Windows 11).
