@@ -117,12 +117,23 @@ Para as questões que envolvem processos e arquitetura, a medição é documenta
 
 ## Localização dos Dados de Avaliação
 
+A definição da estrutura de pastas para os dados é um requisito obrigatório e garante a rastreabilidade do projeto.
 
+A rastreabilidade e a transparência são princípios fundamentais na engenharia de *software* e, por isso, a definição da estrutura de armazenamento dos dados coletados é essencial. O objetivo é garantir que os resultados da Fase 4 sejam auditáveis e que a execução dos testes possa ser replicada por terceiros.
+
+Dessa forma, a documentação final da avaliação será apresentada no arquivo [Fase 4 - Compatibilidade](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase4/2-compatibilidade/). O acesso a esta documentação permitirá a análise dos seguintes componentes de evidência, que foram separados de acordo com sua natureza (dados brutos, evidências visuais e relatórios de análise estática):
+
+| Conteúdo Principal | Finalidade |
+| :--- | :--- |
+| Planilhas de resultados brutos (TSF, DDT, APTC, APCM) e dados de processo (DDPL, TMR, CCM). | Armazenamento de todas as **métricas calculadas** na Fase 4. |
+| **Arquivos de vídeo** (obrigatórios) dos testes de *Round-Trip* (Q1) e Coexistência (Q2). | Prova visual da **execução dos testes** (requisitado pela professora). |
+| Os 5 arquivos `.exr` de *input* e *output* (baseline e modificados pelo GIMP). | Prova da **massa de dados** usada no teste de Interoperabilidade (Q1). |
+| Relatórios da ferramenta de análise estática (CCM) e anotações da inspeção de código para o IENC. | Prova da **análise do código-fonte** (Q4). |
 
 ### **Histórico de Versão**
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|      [Larissa Stéfane](https://github.com/SkywalkerSupreme)  |
-| 1.0    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
+| 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
 
