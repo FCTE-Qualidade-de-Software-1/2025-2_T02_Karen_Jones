@@ -2,6 +2,10 @@
 
 <!-- procedimento, medição, análise dos resultados -->
 
+## Medição da Métrica 1.1...
+
+## Análise de Resultados
+
 ### **Histórico de Versão**
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
