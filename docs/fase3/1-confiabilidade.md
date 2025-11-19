@@ -23,7 +23,7 @@ Com base no planejamento da [Fase 2](https://fcte-qualidade-de-software-1.github
 
 ### Ambiente de Teste
 - **Sistema Operacional:** Windows 10/11 (64 bits)  
-- **Aplicação Avaliada:** GIMP 2.10.x com módulo `file-exr`  
+- **Aplicação Avaliada:** GIMP 3.0.4 com módulo `file-exr`  
 - **Hardware Utilizado:**  
     - CPU: 4 núcleos  
     - Memória RAM: 8 GB  
@@ -46,7 +46,7 @@ Com base no planejamento da [Fase 2](https://fcte-qualidade-de-software-1.github
 - Scripts PowerShell para repetidas tentativas de abertura de arquivos.  
 - Logs gerados com o comando:  
   ```powershell
-  gimp-2.10.exe --verbose *> logs.txt
+  gimp-3.0.4.exe --verbose *> logs.txt
   ```
 - Contador de falhas por tentativa.
 
@@ -100,7 +100,7 @@ Organizar os arquivos em pastas:
 Iniciar GIMP em modo detalhado:
   
 ```
-gimp-2.10.exe --verbose *> logs.txt
+gimp-3.0.4.exe --verbose *> logs.txt
 ```
   
 Segundo passo: **Execução**
