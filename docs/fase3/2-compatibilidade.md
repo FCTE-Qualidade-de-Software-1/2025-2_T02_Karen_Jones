@@ -8,7 +8,7 @@ Dessa forma, o planejamento a seguir detalha o **ambiente de teste**, os **instr
 
 ## Métricas a Serem Implementadas
 
-A **Tabela 1** apresenta as quatro questões operacionais (Q) e as métricas (M) que serão implementadas, com base na [Fase2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/2-compatibilidade/). Assim, estas métricas buscam traduzir o conceito de Compatibilidade em dados quantificáveis ao fornecer *insights* acionáveis para a comunidade de desenvolvimento do GIMP.
+A **Tabela 1** apresenta as quatro questões operacionais (Q) e as métricas (M) que serão implementadas, com base na [Fase2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/2-compatibilidade/). Assim, estas métricas buscam traduzir o conceito de Compatibilidade em dados quantificáveis.
 
 **Tabela 1:** Métricas de Compatibilidade (GQM)
 
@@ -73,7 +73,7 @@ Os instrumentos de medição são responsáveis por coletar os dados brutos de f
 | **M2.1 (APTC) / M2.2 (APCM)** | **Cronômetro nativo do SO** (ou comando `time` no Linux) e **Monitor de Recursos do SO** (Gerenciador de Tarefas no Windows; `top/htop` no Linux). | Medição precisa do tempo de carregamento e pico de consumo de RAM do processo GIMP antes e durante a abertura de um `.exr` (Q2). |
 | **M3.1 (DDPL) / M3.2 (TMR)** | **Repositório GitLab do GIMP** (Seção *Issues*) e **Filtros de Busca**. | Coleta de dados de *issues* públicas para obter o número de defeitos e calcular o tempo de resolução médio (Q3). |
 | **M4.2 (CCM)** | **Ferramenta de Análise Estática** (Ex: **Lizard**). | Ferramenta utilizada para analisar o código-fonte do `file-exr` e calcular a **Complexidade Ciclomática Média** (CCM) das funções críticas (Q4). |
-| **Todos (Evidência)** | **Software de Gravação de Tela** (Ex: OBS Studio, Ferramenta Nativa do SO). | Produzir as evidências em vídeo da execução dos testes na Fase 4. |
+| **Todos (Evidência)** | **Software de Gravação de Tela** (com auxilio do TEAMS). | Produzir as evidências em vídeo da execução dos testes na Fase 4. |
 
 **Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
 
@@ -86,7 +86,7 @@ O passo a passo detalha o roteiro que será seguido na Fase 4. Sendo assim, a ex
 
 O teste simula o **Round-Trip** de um arquivo entre os *softwares* do ecossistema gráfico.
 
-1.  **Criação da Amostra (Baseline):** Utilizar o **Blender** para gerar 5 arquivos `.exr` de alta qualidade, garantindo que contenham metadados e *Multilayers* (AOVs). Salvar os 5 arquivos como *Baseline*.
+1.  **Criação da Amostra (Baseline):** Utilizar o **Blender** para gerar 5 arquivos `.exr` de alta qualidade o que garante que contenham metadados e *Multilayers* (AOVs). Salvar os 5 arquivos como *Baseline*.
 2.  **Importação no GIMP:** Abrir os 5 arquivos *Baseline* no **GIMP** 3.0.4. Registrar se a abertura é bem-sucedida.
 3.  **Modificação e Exportação (GIMP -> Terceiro):** Realizar uma alteração mínima no GIMP (ex: ajuste de níveis de cor) e, em seguida, exportar os 5 arquivos modificados.
 4.  **Validação 1 (Blender):** Tentar abrir cada um dos 5 arquivos exportados pelo GIMP de volta no **Blender**.
