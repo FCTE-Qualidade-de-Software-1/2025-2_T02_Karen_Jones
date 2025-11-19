@@ -2,13 +2,13 @@
 
 ## Introdução
 
-Nesta etapa do projeto, vamos especificar como iremos implementar e executar as métricas definidas na metodologia Goal-Question-Metric (GQM) da fase anterior para avaliar objetivamente a **Portabilidade** do módulo `file-exr` do GIMP.
+Nesta etapa do projeto, vamos especificar como iremos implementar e executar as métricas definidas na metodologia Goal-Question-Metric (GQM) da fase anterior ([Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/3-portabilidade/))para avaliar objetivamente a **Portabilidade** do módulo `file-exr` do GIMP.
 
 O processo de coleta e análise focará na capacidade do módulo de ser executado, instalado e adaptado em diferentes ambientes. Serão utilizados ambientes virtualizados e nativos (Windows e Linux) para comparar o comportamento funcional e de desempenho. Além disso, serão realizados testes de instalação/desinstalação e tentativas controladas de substituição de dependências (bibliotecas `OpenEXR`) para mensurar o esforço de adaptação.
 
 ## Métricas a Serem Implementadas
 
-Com base no planejamento da fase anterior, serão coletados dados para as seguintes métricas de Adaptabilidade, Instalabilidade e Substituibilidade:
+Com base no planejamento da fase anterior ([Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/3-portabilidade/)), serão coletados dados para as seguintes métricas de Adaptabilidade, Instalabilidade e Substituibilidade:
 
 - **Métrica 1.1:** Taxa de Sessões Livres de Falhas entre Plataformas
 - **Métrica 1.2:** Desvio de Desempenho entre diferentes plataformas
@@ -88,7 +88,7 @@ Quarto passo: **Consolidação**
     - `/logs_windows/install_logs/`
     - `/logs_linux/install_logs/`
     - `/logs_replaceability/diffs/`
-- **Relatório de Adaptação:** Documento de texto descrevendo as dificuldades encontradas na troca de versão da biblioteca.
+- **Relatório de Adaptação:** Documento de texto descrevendo as dificuldades encontradas na troca de versão da biblioteca se houver.
 
 ### **Histórico de Versão**
 
