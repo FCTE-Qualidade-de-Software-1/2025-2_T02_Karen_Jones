@@ -36,7 +36,7 @@ A **Tabela 1** registra o resultado detalhado de cada validação, classificando
 
 #### Cálculos das Métricas (M1.1 e M1.2)
 
-Com base nos dados coletados (10 validações e 3 defeitos), calculamos a Taxa de Sucesso Funcional (TSF) e a Densidade de Defeitos por Teste (DDT):
+Com base nos dados coletados, calculamos a Taxa de Sucesso Funcional (TSF) e a Densidade de Defeitos por Teste (DDT):
 
 | Métrica | Fórmula | Valor Calculado | Critério de Aceitação (H1) |
 | :--- | :--- | :--- | :--- |
