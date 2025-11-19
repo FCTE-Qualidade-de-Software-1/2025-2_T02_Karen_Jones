@@ -20,11 +20,9 @@ A execução foi realizada integralmente no ambiente **Linux (Ubuntu 22.04 LTS)*
 
 A **Tabela 1** registra o resultado detalhado de cada validação, classificando-a como **Sucesso** (o arquivo abriu e preservou todos os dados críticos) ou **Defeito** (houve perda de dados, *crash* ou falha na leitura).
 
-<p align="center">
+
 **Tabela 1:** Resultados do Round-Trip GIMP (OpenEXR)
-<br>
-**Autora:** [Nome do(a) Responsável)]
-</p>
+
 
 | ID Arquivo | GIMP -> Blender | GIMP -> Krita | Resultado da Validação | Defeito Encontrado (Se Houve) |
 | :--- | :--- | :--- | :--- | :--- |
@@ -35,6 +33,8 @@ A **Tabela 1** registra o resultado detalhado de cada validação, classificando
 | **A5** | | | | |
 | **Totais** | **X Sucessos / Y Defeitos** (10 validações) | | | |
 
+**Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
 #### Cálculos das Métricas (M1.1 e M1.2)
 
 Com base nos dados coletados (10 validações e 3 defeitos), calculamos a Taxa de Sucesso Funcional (TSF) e a Densidade de Defeitos por Teste (DDT):
@@ -43,6 +43,8 @@ Com base nos dados coletados (10 validações e 3 defeitos), calculamos a Taxa d
 | :--- | :--- | :--- | :--- |
 | **M1.1: TSF** | (Nº de Casos de Intercâmbio Sucedidos / Nº Total de Casos de Intercâmbio Testados) * 100 |  |  |
 | **M1.2: DDT** | Nº de Defeitos de Interoperabilidade / Nº Total de Casos de Teste Executados |  |  |
+
+**Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
 
 ### 3. Análise e Julgamento
 
