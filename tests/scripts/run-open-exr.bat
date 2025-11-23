@@ -3,15 +3,15 @@ setlocal ENABLEDELAYEDEXPANSION
 
 REM *** AJUSTE ESTES CAMINHOS ***
 set "GIMP_EXE=C:\Users\caiov\AppData\Local\Programs\GIMP 3\bin\gimp-console-3.0.exe"
-set "EXR_DIR=C:\Users\caiov\Downloads"
-set "CSV_OUT=C:\Users\caiov\resultados-open-exr.csv"
+set "EXR_DIR=%~dp0..\validos"
+set "CSV_OUT=%~dp0..\resultados\teste.csv"
 
 REM Cabeçalho do CSV
 echo arquivo;exit_code;datetime>"%CSV_OUT%"
 
 echo.
 echo === Iniciando testes em %EXR_DIR% ===
-echo Saída em: %CSV_OUT%
+echo Saida em: %CSV_OUT%
 echo.
 
 REM Loop por todos os .exr da pasta
