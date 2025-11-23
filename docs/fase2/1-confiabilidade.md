@@ -133,20 +133,6 @@ Esta hipótese será testada usando as seguintes métricas:
 > - **Média Recuperabilidade:** 2 - 5 minutos
 > - **Baixa Recuperabilidade (H3 Refutada):** > 5 minutos
 
-#### Métrica 3.3: Taxa de Diagnóstico (Logs)
-
-> **Fórmula:**
->
-> `(Bugs reproduzidos a partir do log / Total de bugs reportados com log) * 100`
->
-> **Referência:** [[5]](#ref-5)
->
-> **Interpretação (Critério):**
->
-> - **Alta Analisabilidade (H3 Confirmada):** > 80%
-> - **Média Analisabilidade:** 50% - 80%
-> - **Baixa Analisabilidade (H3 Refutada):** < 50%
----
 
 ## Conclusão
 

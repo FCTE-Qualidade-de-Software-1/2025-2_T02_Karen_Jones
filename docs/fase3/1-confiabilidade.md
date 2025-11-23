@@ -17,13 +17,12 @@ Com base no planejamento da [Fase 2](https://fcte-qualidade-de-software-1.github
 - Métrica 2.2: Taxa de Tratamento de Entradas Inválidas
 - Métrica 3.1: Taxa de Recuperação Automática
 - Métrica 3.2: Tempo Médio para Reparo (MTTR)
-- Métrica 3.3: Taxa de Diagnóstico (Logs)
 
 ## Ferramentas e Métodos de Coleta
 
 ### Ambiente de Teste
 - **Sistema Operacional:** Windows 10/11 (64 bits)  
-- **Aplicação Avaliada:** GIMP 3.0.4 com módulo `file-exr`  
+- **Aplicação Avaliada:** GIMP 3.0.6 com módulo `file-exr`  
 - **Hardware Utilizado:**  
     - CPU: 4 núcleos  
     - Memória RAM: 8 GB  
@@ -76,13 +75,6 @@ Com base no planejamento da [Fase 2](https://fcte-qualidade-de-software-1.github
 - Medição de latência com PowerShell:
 - Registro do tempo necessário para restaurar a operação.
 
-#### Métrica 3.3 — Taxa de Diagnóstico (Qualidade dos Logs)
-- Logs via `--verbose`.
-- Ferramentas Sysinternals:
-- Process Monitor (ProcMon)
-- Process Explorer
-- Classificação dos logs por tipo (erro, aviso, informativo).
-
 ---
 
 ### Passo a Passo de Coleta
@@ -111,7 +103,6 @@ Segundo passo: **Execução**
   - Para **Entradas Inválidas**: testar arquivos vazios, truncados e renomeados.
   - Para **Recuperação**: alternar um arquivo inválido seguido de um válido.
   - Para **MTTR**: medir tempo entre falha e operação normal.
-  - Para **Diagnóstico**: analisar detalhamento das mensagens nos logs.
 
 Terceiro passo: **Registro**
 
