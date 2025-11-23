@@ -6,6 +6,91 @@ A Fase 4 consiste na aplicação rigorosa dos roteiros definidos na [Fase 3](htt
 
 O teste de Interoperabilidade (*Round-Trip*) verifica a capacidade do GIMP de preservar as informações críticas do formato OpenEXR (como canais *Multilayer* e metadados) ao trocar arquivos com os *softwares* de referência Blender e Krita.
 
+## 1. Procedimento de Execução (Round-Trip)
+
+O teste de Interoperabilidade foi dividido em quatro etapas principais, realizadas no ambiente Linux (Ubuntu) ao utilizar **cinco arquivos de teste** (A1 a A5), o que totalizou **10 validações** (5 arquivos x Blender + 5 arquivos x Krita).
+
+### Softwares e Papéis
+
+Para esta execução, foram utilizados três *softwares* essenciais, cada um com um papel específico no teste:
+
+* **Blender (Produtor/Validador):** É um *software* de modelagem 3D, utilizado para **gerar os arquivos EXR** com as camadas secretas (Depth/Mist) e, posteriormente, para **validar** se o GIMP preservou essas camadas.
+* **GIMP (Objeto de Teste):** É o *software* sob avaliação. Sua função foi **abrir o arquivo, processá-lo** (com a edição mínima de Níveis) e **exportá-lo**.
+* **Krita (Validador):** É um *software* de pintura digital, utilizado como o **segundo validador** independente para verificar a interoperabilidade, conferindo a presença das camadas no painel *Layers*.
+
+### 1ª Etapa: Criação dos Arquivos (Blender)
+
+**Descrição:** Nesta etapa, foi utilizado o Blender para criar os cinco arquivos **Baseline** (`Baseline_A[X].exr`). Assim,  o procedimento envolveu a modelagem de formas 3D e a aplicação de cores diferentes (Azul, Vermelho, Verde, Roxo e Amarelo). Contudo, o passo mais importante foi a **ativação manual das camadas críticas Depth e Mist** nas configurações do Blender (*View Layer*), o que garantiu que os arquivos contivessem os dados que o GIMP deveria preservar.
+
+O vídeo 1 mostra a execução desta etapa:
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/4hVNQXLNN5U" title="Teste 01 - Compatibilidade: Criação dos arquivos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+
+Abaixo há as captura de tela da etapa: 
+
+<details>
+  <summary size="20"><b> Imagens da execução da etapa 1 </b></summary> 
+
+<div align="center">
+    Figura 1: Criação das formas
+    <br>
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/print01_teste01_compatibilidade.png">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+<div align="center">
+    Figura 2: Adição das camadas do EXR
+    <br>
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/print02_teste01_compatibilidade.png">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+  </details>
+
+  
+### 2ª Etapa: Edição dos Arquivos no GIMP*
+
+**Descrição:** Esta etapa teve o objtivo de simular o uso real do GIMP no *pipeline* de trabalho por um usuário que utiliza um arquivo EXR. Cada um dos cinco arquivos *Baseline* criados foi aberto no GIMP, e uma edição mínima nos **Níveis de Cor** foi aplicada para forçar o processamento, e o arquivo foi exportado com a adição de **Editada** no nome.
+
+O vídeo 2 mostra a execução desta etapa:
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/B2qLxAKBMSA" title="Teste 01 - Compatibilidade: Edição dos arquivos no GIMP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+Abaixo há as captura de tela da etapa: 
+
+<details>
+  <summary size="20"><b> Imagens da execução da etapa 2 </b></summary> 
+
+<div align="center">
+    Figura 3: 
+    <br>
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/print01_teste01_compatibilidade.png">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+
+
+
+
+
+
+### Softwares e Papéis
+
+* **Blender (Produtor/Validador):** É o *software* que gerou os arquivos EXR com as camadas secretas (**Depth/Mist**) e que serviu para a **primeira validação** do arquivo de saída.
+* **GIMP (Objeto de Teste):** Responsável por **abrir o arquivo, processá-lo** (com a edição de Níveis) e **exportá-lo**, acionando o módulo `file-exr`.
+* **Krita (Validador):** Atua como o **segundo validador**, verificando a interoperabilidade e a presença das camadas no painel *Layers*.
+
 ### 1. Procedimento Executado
 
 A execução foi realizada integralmente no ambiente **Linux (Ubuntu 22.04 LTS)**, utilizando as versões mais recentes do Blender (produtor/validador) e Krita (validador). O procedimento seguiu rigorosamente o roteiro de 6 passos detalhado na [Fase 3](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase3/2-compatibilidade/).
