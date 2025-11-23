@@ -8,7 +8,7 @@
 
 <!-- <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">  -->
 <div align="center">
-  <img src="https://www.gimp.org/images/frontpage/wilber-logo.png" alt="Logotipo oficial atual com o mascote Wilber, usado no GNOME e distribuído junto com o pacote do GIMP.">
+  <img src="https://github.com/user-attachments/assets/87664274-c458-4bcb-884b-54495b9496cc" alt="Logotipo oficial atual com o mascote Wilber, usado no GNOME e distribuído junto com o pacote do GIMP.">
   <!-- <img src="url-do-icone-qualidade" alt="ícone de Qualidade" width="200" height="200"> -->
 </div>
 
