@@ -4,11 +4,46 @@
 
 ## 1. Procedimento Executado
 
+### Software e Papéis
+
 ### Medição da Métrica 1.1
+
+**Descrição:**
+
+<div align="center">
+    Figura 1:
+    <br>
+    <img src="">
+    <br>
+     <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
+    <br>
+</div>
 
 ### Medição da Métrica 1.2
 
+**Descrição:**
+
+<div align="center">
+    Figura 2:
+    <br>
+    <img src="">
+    <br>
+     <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
+    <br>
+</div>
+
 ### Medição da Métrica 2.1
+
+**Descrição:**
+
+<div align="center">
+    Figura 3:
+    <br>
+    <img src="">
+    <br>
+     <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
+    <br>
+</div>
 
 ### Medição da Métrica 2.2
 
