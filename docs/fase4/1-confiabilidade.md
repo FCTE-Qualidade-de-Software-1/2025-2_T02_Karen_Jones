@@ -5,8 +5,16 @@
 ## 1. Procedimento Executado
 
 ### Software e Papéis
+Como descrito autoriormente na [Fase 3](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase3/1-confiabilidade/#ferramentas-e-metodos-de-coleta), as métricas 1.1, 1.2 e 2.1, que tratam de Maturidade, Disponibilidade e Tolerância a Falhas respectivamente foram medidas através de um feito em Batchfiles para Terminal de Windows, disponível na pasta `tests/scripts/run-open-exr.bat`, e depois calculadas via a fórmula descrita na [Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/1-confiabilidade/#questoes-e-metricas), com os dados resultantes disponíveis na pasta `tests/resultados`.
 
-### Medição da Métrica 1.1
+- [Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)](#medicao-da-metrica-11-taxa-de-falhas-failure-rate)
+- [Medição da Métrica 1.2 - Tempo Médio Entre Falhas (MTBF](#medicao-da-metrica-12-tempo-medio-entre-falhas-mtbf)
+- [Medição da Métrica 2.1 - Taxa de Sucesso sob Carga](#medicao-da-metrica-21-taxa-de-sucesso-sob-carga)
+
+Agora sobre as métricas 2.2, 3.1, e 3.2..
+<!-- pode preencher aqui, Arthur? -->
+
+### Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)
 
 **Descrição:**
 
@@ -19,7 +27,7 @@
     <br>
 </div>
 
-### Medição da Métrica 1.2
+### Medição da Métrica 1.2 - Tempo Médio Entre Falhas (MTBF)
 
 **Descrição:**
 
@@ -32,7 +40,7 @@
     <br>
 </div>
 
-### Medição da Métrica 2.1
+### Medição da Métrica 2.1 - Taxa de Sucesso sob Carga
 
 **Descrição:**
 
