@@ -11,15 +11,25 @@ Como descrito autoriormente na [Fase 3](https://fcte-qualidade-de-software-1.git
 - [Medição da Métrica 1.2 - Tempo Médio Entre Falhas (MTBF](#medicao-da-metrica-12-tempo-medio-entre-falhas-mtbf)
 - [Medição da Métrica 2.1 - Taxa de Sucesso sob Carga](#medicao-da-metrica-21-taxa-de-sucesso-sob-carga)
 
-Agora sobre as métricas 2.2, 3.1, e 3.2..
+Agora sobre as métricas 2.2, 3.1, e 3.2...
 <!-- pode preencher aqui, Arthur? -->
 
 ### Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)
 
-**Descrição:**
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` e se contabiliza a quantidade de falhas e quantidade total de tempo em execução, e depois segue-se a fórmula.
+> `Nº total de falhas / Tempo total de uso (em horas)`
 
 <div align="center">
-    Figura 1:
+    Figura 1: Vídeo sobre o algoritmo rodando.
+    <br>
+    <img src="">
+    <br>
+     <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
+    <br>
+</div>
+
+<div align="center">
+    Figura 2: Cálculo sobre resultados no algoritmo.
     <br>
     <img src="">
     <br>
@@ -32,7 +42,7 @@ Agora sobre as métricas 2.2, 3.1, e 3.2..
 **Descrição:**
 
 <div align="center">
-    Figura 2:
+    Figura 3: 
     <br>
     <img src="">
     <br>
@@ -45,7 +55,7 @@ Agora sobre as métricas 2.2, 3.1, e 3.2..
 **Descrição:**
 
 <div align="center">
-    Figura 3:
+    Figura 4:
     <br>
     <img src="">
     <br>
