@@ -16,7 +16,7 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
 
 ### Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)
 
-**Descrição:** Aqui se utiliza os documentos em `tests/resultados` e se contabiliza a quantidade de falhas e quantidade total de tempo em execução, e depois segue-se a fórmula.
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por pelo menos 10 horas, e se contabiliza a quantidade de falhas e quantidade total de tempo em execução, e depois segue-se a fórmula.
 > `Nº total de falhas / Tempo total de uso (em horas)`
 
 <div align="center">
@@ -27,9 +27,10 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
      <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
     <br>
 </div>
+<br>
 
 <div align="center">
-    Figura 2: Cálculo sobre resultados no algoritmo.
+    Figura 2: Cálculo de Taxa de Falhas a partir dos resultados no algoritmo automático.
     <br>
     <img src="">
     <br>
@@ -39,10 +40,11 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
 
 ### Medição da Métrica 1.2 - Tempo Médio Entre Falhas (MTBF)
 
-**Descrição:**
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por 10 horas, e se contabiliza quantidade total de tempo em execução e a quantidade de falhas em execução, e depois segue-se a fórmula.
+> `Tempo total de uso (em horas) / Nº total de falhas`
 
 <div align="center">
-    Figura 3: 
+    Figura 3: Cálculo do tempo médio entre falhas a partir dos arquivos gerados pela rotina.
     <br>
     <img src="">
     <br>
@@ -52,10 +54,11 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
 
 ### Medição da Métrica 2.1 - Taxa de Sucesso sob Carga
 
-**Descrição:**
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por 10 horas, e se contabiliza o total de operações bem sucedidas e a quantidade total de operações, e depois segue-se a fórmula.
+> `(Operações OK / Total de operações) * 100 (calculada por categoria de carga)`
 
 <div align="center">
-    Figura 4:
+    Figura 4: Cálculo do da taxa de sucesso sob carga a partir dos arquivos gerados pela rotina.
     <br>
     <img src="">
     <br>
