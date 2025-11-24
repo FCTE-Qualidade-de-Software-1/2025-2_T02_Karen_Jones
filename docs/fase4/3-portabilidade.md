@@ -1,6 +1,30 @@
 # Execução do Plano de Avaliação - Quanto à Portabilidade
 
-<!-- procedimento, medição, análise dos resultados -->
+## Introdução
+
+## 1. Procedimento Executado
+
+### Medição da Métrica 1.1
+
+### Medição da Métrica 1.2
+
+### Medição da Métrica 2.1
+
+### Medição da Métrica 2.2
+
+### Medição da Métrica 3.1
+
+### Medição da Métrica 3.2
+
+## 2. Medição (Dados Coletados)
+
+## 3. Análise e Julgamento
+
+### Discussão dos Resultados e Julgamento
+
+### Achados e Melhoria Proposta (Conexão com a Fase 1)
+
+## Referências
 
 ### **Histórico de Versão**
 
