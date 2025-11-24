@@ -121,9 +121,19 @@ Terceiro passo: **Registro**
 - `invalidos/`
 - **Capturas manuais e anotações**
 
+## Referências
+
+- https://www.gimp.org/man/gimp.html
+- https://openexr.com/en/latest/test_images/index.html
+- https://docs.gimp.org/3.0/en/gimp-fire-up.html
+- https://docs.gimp.org/3.0/en/gimp-using-script-fu-tutorial-first-script.html
+- https://testing.developer.gimp.org/resource/script-fu/programmers-reference
+- https://testing.developer.gimp.org/resource/script-fu/scriptfu-tools/
+
 ### **Histórico de Versão**
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
 | 1.1    | 18/11/2025 | Adição da versão inicial do Plano de Avaliação    |[Caio Venâncio](https://www.github.com/caio-venancio), [Arthur Evangelista](https://www.github.com/arthurevg)||
+| 1.2    | 24/11/2025 | Adicionar referências. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
