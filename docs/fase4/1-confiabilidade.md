@@ -47,9 +47,15 @@
 
 ### Medição da Métrica 2.2
 
+**Descrição:**
+
 ### Medição da Métrica 3.1
 
+**Descrição:**
+
 ### Medição da Métrica 3.2
+
+**Descrição:**
 
 ## 2. Medição (Dados Coletados)
 
@@ -67,3 +73,4 @@
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
 |1.1     | 18/11/2025 | Adição de 'esqueleto' do documento  |[Arthur Evangelista](https://www.github.com/arthurevg) |[Caio Venâncio](https://www.github.com/caio-venancio)|
+|1.2     | 24/11/2025 | Melhorar de 'esqueleto' do documento  | [Caio Venâncio](https://www.github.com/caio-venancio) |[Arthur Evangelista](https://www.github.com/arthurevg)|
