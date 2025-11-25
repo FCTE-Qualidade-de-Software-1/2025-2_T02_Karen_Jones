@@ -141,7 +141,7 @@ A **Tabela 4** apresenta os resultados dos 10 ciclos de teste extraídos do arqu
 | **MÉDIAS** | **(Base para M3.3)**     | **100% Êxito** | **3,6** | **3,0** |
 
 
-#### Cálculos das Métricas (M2.1, M2.2 e M3.3)
+#### Cálculos das Métricas (M2.1, M2.2 e M3.3)i
 
 Com base na estabilidade dos 10 ciclos, calculamos as taxas de sucesso e o Tempo Médio de Instalação (TMI).
 
