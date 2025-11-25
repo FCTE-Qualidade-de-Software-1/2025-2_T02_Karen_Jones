@@ -69,7 +69,7 @@ Primeiro passo: **Preparação dos Ambientes**
 
 Segundo passo: **Execução (Iterar nos Ambientes A e B)**
 1. **Instalação:** Rodar script de build/install 10 vezes em cada ambiente. Registrar sucessos, falhas e tempos.
-2. **Adaptabilidade:** Rodar bateria de testes com 50 imagens `.exr`. Registrar se houve crash e o tempo total da operação.
+2. **Adaptabilidade:** Rodar bateria de testes com 18 imagens `.exr`. Registrar se houve crash e o tempo total da operação.
 3. **Desinstalação:** Rodar comando de desinstalação. Verificar se o binário foi removido.
 
 Terceiro passo: **Teste de Substituibilidade (Apenas Ambiente de Desenvolvimento)**
