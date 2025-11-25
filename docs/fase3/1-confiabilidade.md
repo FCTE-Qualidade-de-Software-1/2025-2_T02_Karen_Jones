@@ -62,18 +62,17 @@ Com base no planejamento da [Fase 2](https://fcte-qualidade-de-software-1.github
 
 #### Métrica 2.2 — Taxa de Tratamento de Entradas Inválidas
 - Criação de arquivos inválidos:
-- Registro da reação do módulo `file-exr`:
-- Erro tratado
-- Travamento
-- Mensagem inadequada
+- Uso de arquivos inválidos no módulo `file-exr`
+- Análise da reação do módulo `file-exr`(erro tratado, travamento, etc):
+
 
 #### Métrica 3.1 — Taxa de Recuperação Automática
-- Scripts que alternam arquivos válidos e inválidos.
-- Verificação após falha para detectar se o GIMP continua funcional.
+- Uso de arquivos válidos e inválidos.
+- Verificação após `simulação de falha` para detectar se o GIMP continua funcional e retornouu ao estado que estava antes do crash.
 
 #### Métrica 3.2 — Tempo Médio para Reparo (MTTR)
-- Medição de latência com PowerShell:
-- Registro do tempo necessário para restaurar a operação.
+- Simulação de Falhas durante uma tarefa:
+- Registro do tempo necessário para restaurar a tarefa.
 
 ---
 
@@ -92,7 +91,7 @@ Organizar os arquivos em pastas:
 Iniciar GIMP em modo detalhado:
   
 ```
-gimp-3.0.4.exe --verbose *> logs.txt
+gimp-3.0.6.exe --verbose *> logs.txt
 ```
   
 Segundo passo: **Execução**
@@ -100,9 +99,9 @@ Segundo passo: **Execução**
   - Para **Taxa de Falhas**: abrir automaticamente dezenas de EXRs.
   - Para **MTBF**: registrar tempos entre ocorrências de falhas.
   - Para **Carga**: abrir vários EXRs simultaneamente via PowerShell.
-  - Para **Entradas Inválidas**: testar arquivos vazios, truncados e renomeados.
-  - Para **Recuperação**: alternar um arquivo inválido seguido de um válido.
-  - Para **MTTR**: medir tempo entre falha e operação normal.
+  - Para **Entradas Inválidas**: testar arquivos vazios, truncados, renomeados, etc.
+  - Para **Recuperação**: alternar arquivos válidos e inválidos.
+  - Para **MTTR**: medir tempo entre falha e a recuperação da operação.
 
 Terceiro passo: **Registro**
 
@@ -116,10 +115,10 @@ Terceiro passo: **Registro**
 ## Localização dos Dados de Avaliação
 - **planilha_resultados.csv** — registro tabulado das métricas
 - **Pastas de teste:**
-- `validos/`
-- `corrompidos/`
-- `invalidos/`
-- **Capturas manuais e anotações**
+  - `validos/`
+  - `corrompidos/`
+  - `invalidos/`
+- **Capturas manuais e anotações** - Presente no documento em forma de imagens, links para vídeos, documentos, etc.
 
 ## Referências
 
@@ -137,3 +136,4 @@ Terceiro passo: **Registro**
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
 | 1.1    | 18/11/2025 | Adição da versão inicial do Plano de Avaliação    |[Caio Venâncio](https://www.github.com/caio-venancio), [Arthur Evangelista](https://www.github.com/arthurevg)||
 | 1.2    | 24/11/2025 | Adicionar referências. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
+| 1.3    | 24/11/2025 | Correções após verificar alguns problemas na Fase 4 |[Arthur Evangelista](https://www.github.com/arthurevg) |   [Caio Venâncio](https://www.github.com/caio-venancio)     |

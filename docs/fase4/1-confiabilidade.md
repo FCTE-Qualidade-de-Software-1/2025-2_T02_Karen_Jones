@@ -118,8 +118,8 @@ Esta seção apresenta o resultado do cálculo de cada métrica, o valor final o
 
 | Métrica (Q) | Característica | Fórmula & Cálculo (Exemplo) | Critério de Aceitação (GQM) |
 | :--- | :--- | :--- | :--- |
-| **M1.1 (Q1)** Taxa de Falhas | Maturidade | x falhas / y horas = **z falhas/h** |  |
-| **M1.2 (Q1)** MTBF | Maturidade | x horas / y falhas = **z horas/falha** |  |
+| **M1.1 (Q1)** Taxa de Falhas | Maturidade e Disponibilidade | x falhas / y horas = **z falhas/h** |  |
+| **M1.2 (Q1)** MTBF | Maturidade e Disponibilidade| x horas / y falhas = **z horas/falha** |  |
 | **M2.1 (Q2)** Taxa de Sucesso sob Carga | Tol. a Falhas (Carga) | x op. OK / 100 op. total x 100 = **z** |  |
 | **M2.2 (Q2)** Taxa de Tratamento | Tol. a Falhas (Entrada) | 20 tratados / 20 testes x 100 = **100%** | > 95% (Alta Tolerância) |
 | **M3.1 (Q3)** Taxa de Recup. Automática | Recuperabilidade | 0 restaurados / 6 crashes x 100 = **0%** | 0% (Baixa Recuperabilidade) |
@@ -134,17 +134,61 @@ Esta seção apresenta o resultado do cálculo de cada métrica, o valor final o
 
 ## 3. Análise e Julgamento
 
+A análise dos resultados da execução comparou os valores obtidos com os critérios de aceitação estabelecidos na Fase 2. Com isso, foi possível identificar uma **instabilidade crítica** no módulo file-exr, falhando nas subcaracterísticas de Maturidade e Recuperabilidade.
+
+A **Tabela 2** sumariza o desempenho do módulo file-exr na Confiabilidade, comparando as métricas de produto com os limites estabelecidos.
+
+<p align="center"><strong>Tabela 2: Desempenho e Julgamento das Hipóteses</strong></p>
+
+| Métrica | Resultado Obtido | Critério de Aceitação | Julgamento |
+| :--- | :--- | :--- | :--- |
+| **M1.1: Taxa de Falhas** | **X falhas/h** | < 0.05 falhas/h | **REFUTADA** |
+| **M1.2: MTBF** | **X horas** | > 100 horas | **REFUTADA** |
+| **M2.1: Sucesso sob Carga** | **X%** | > 90% | **CONFIRMADA** |
+| **M2.2: Taxa de Tratamento de Entradas Inválidas** | **100%** | > 90% | **CONFIRMADA** |
+| **M3.1: Recup. Automática** | **0%** | > 80% | **REFUTADA** |
+| **M3.2: MTTR** | **1.6 min/falha** | < 2 min/falha | **CONFIRMADA** |
+
+---
+
 ### Discussão dos Resultados e Julgamento
+
 <!-- Falar sobre como é difícil testar no projeto gimp, falta de possibilidade de scripts automatizados requer abrir e fechar o gimp o tempo todo, não é trivial. -->
 
 <!-- Somado a falta de documentação por parte do gimp-console e do script-fu -->
 
 <!-- Falar sobre como arquivos válidos são provavelmente bem lidos pela biblioteca, mesmo multicamadas, e da necessidade de testar operações complexas -->
 
-### Achados e Melhoria Proposta (Conexão com a Fase 1)
+O teste de **Recuperação** M3 indicou uma falha direta na hipótese H3, que previa facilidade de recuperação. Além disso, embora a Métrica 3.2 tenha sido confirmada nesse caso, foi possível observar que ela é proporcional ao tamanho da tarefa, ou seja, uma tarefa de 8 horas, duraria aproximadamente 8 horas para refazer em caso de crash. Sendo assim, os resultados da execução confirmaram a necessidade de aprimoramento urgente no módulo file-exr:
+
+* **Recuperabilidade Crítica (H3 Refutada):** Nenhum arquivo foi restaurado com sucesso após um Crash. Esta falha é catastrófica, pois a perda de dados após uma falha não é mitigada. Conforme observado, um erro pode levar à **perda total de horas de trabalho** se o usuário não tiver salvado manualmente.
+* **Julgamento Final:** Concluiu-se que o módulo **file-exr não atende aos requisitos de Confiabilidade** esperados, **refutando a Hipóteses H3** e expondo um alto risco de perda de produtividade.
+
+---
+
+### Achados e Melhoria Proposta
 
 <!-- Citar como ponto forte a abertura de arquivos variados .EXR -->
 <!-- Citar como ponto fraco a API de Scripts -->
+
+A análise da natureza das falhas revelou que o problema central reside na falta de mecanismos de segurança contra a instabilidade e não na capacidade de processamento de dados do módulo.
+
+* **Ponto Forte:** **Robustez de Processamento**. O módulo lida bem com a complexidade dos arquivos EXR, conforme M2.1 e M2.2.
+* **Ponto Fraco Crítico:** **Falta de Auto-Save/Recuperação de Sessão**. A raiz dos problemas de Recuperabilidade é a ausência de um sistema de salvamento automático eficaz para arquivos EXR, o que transforma uma falha técnica em uma catástrofe de dados para o usuário.
+
+**Melhoria Proposta:**
+
+* **Melhoria Específica:** Sugere-se desenvolver um mecanismo de **Recuperação Automática de Sessão** específico para o formato EXR, que registre o estado de trabalho (metadados e camadas) em intervalos regulares (ex: a cada 5 minutos ou a cada ação crítica).
+* **Impacto Esperado:** Diminui o risco de perda de horas de trabalho, elevando a **Recuperabilidade (H3)** para o nível aceitável.
+
+
+
+### Discussão dos Resultados e Julgamento
+
+
+### Achados e Melhoria Proposta (Conexão com a Fase 1)
+
+
 
 ## Referências
 
