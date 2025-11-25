@@ -1,0 +1,98 @@
+--- Processando: ./images/AllHalfValues.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/BrightRings.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/BrightRingsNanInf.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/CrissyField.exr
+terminate called without an active exception
+/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr: fatal error: Abortado
+GIMP-Erro: Plug-in com problemas: "file-exr"
+(/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr)
+
+O plug-in pode ter comprometido o estado interno do GIMP ao morrer. Você pode querer salvar suas imagens e reiniciar o GIMP por segurança.
+
+GIMP-Erro: Erro de chamada para o procedimento 'gimp-file-load':
+O procedimento 'file-exr-load' não retornou os valores de retorno
+
+batch command experienced an execution error:
+Error: Procedure execution of gimp-file-load failed on invalid input arguments: O procedimento 'file-exr-load' não retornou os valores de retorno 
+
+--- Processando: ./images/Flowers.exr
+terminate called without an active exception
+/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr: fatal error: Abortado
+GIMP-Erro: Plug-in com problemas: "file-exr"
+(/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr)
+
+O plug-in pode ter comprometido o estado interno do GIMP ao morrer. Você pode querer salvar suas imagens e reiniciar o GIMP por segurança.
+
+GIMP-Erro: Erro de chamada para o procedimento 'gimp-file-load':
+O procedimento 'file-exr-load' não retornou os valores de retorno
+
+batch command experienced an execution error:
+Error: Procedure execution of gimp-file-load failed on invalid input arguments: O procedimento 'file-exr-load' não retornou os valores de retorno 
+
+--- Processando: ./images/GammaChart.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/Garden.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/GoldenGate.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/GrayRampsDiagonal.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/GrayRampsHorizontal.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/MtTamNorth.exr
+terminate called without an active exception
+/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr: fatal error: Abortado
+GIMP-Erro: Plug-in com problemas: "file-exr"
+(/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr)
+
+O plug-in pode ter comprometido o estado interno do GIMP ao morrer. Você pode querer salvar suas imagens e reiniciar o GIMP por segurança.
+
+GIMP-Erro: Erro de chamada para o procedimento 'gimp-file-load':
+O procedimento 'file-exr-load' não retornou os valores de retorno
+
+batch command experienced an execution error:
+Error: Procedure execution of gimp-file-load failed on invalid input arguments: O procedimento 'file-exr-load' não retornou os valores de retorno 
+
+--- Processando: ./images/Ocean.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/RgbRampsDiagonal.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/Spirals.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/SquaresSwirls.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/StarField.exr
+terminate called without an active exception
+/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr: fatal error: Abortado
+GIMP-Erro: Plug-in com problemas: "file-exr"
+(/usr/lib/gimp/2.0/plug-ins/file-exr/file-exr)
+
+O plug-in pode ter comprometido o estado interno do GIMP ao morrer. Você pode querer salvar suas imagens e reiniciar o GIMP por segurança.
+
+GIMP-Erro: Erro de chamada para o procedimento 'gimp-file-load':
+O procedimento 'file-exr-load' não retornou os valores de retorno
+
+batch command experienced an execution error:
+Error: Procedure execution of gimp-file-load failed on invalid input arguments: O procedimento 'file-exr-load' não retornou os valores de retorno 
+
+--- Processando: ./images/WideColorGamut.exr
+using gegl copy
+batch command executed successfully
+--- Processando: ./images/WideFloatRange.exr
+using gegl copy
+batch command executed successfully
