@@ -79,12 +79,21 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
 **Descrição:**
 
 ## 2. Medição (Dados Coletados)
+<!-- Só estou esperando terminar de rodar por dez horas para continuar -->
 
 ## 3. Análise e Julgamento
 
 ### Discussão dos Resultados e Julgamento
+<!-- Falar sobre como é difícil testar no projeto gimp, falta de possibilidade de scripts automatizados requer abrir e fechar o gimp o tempo todo, não é trivial. -->
+
+<!-- Somado a falta de documentação por parte do gimp-console e do script-fu -->
+
+<!-- Falar sobre como arquivos válidos são provavelmente bem lidos pela biblioteca, mesmo multicamadas, e da necessidade de testar operações complexas -->
 
 ### Achados e Melhoria Proposta (Conexão com a Fase 1)
+
+<!-- Citar como ponto forte a abertura de arquivos variados .EXR -->
+<!-- Citar como ponto fraco a API de Scripts -->
 
 ## Referências
 
@@ -95,3 +104,4 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
 |1.1     | 18/11/2025 | Adição de 'esqueleto' do documento  |[Arthur Evangelista](https://www.github.com/arthurevg) |[Caio Venâncio](https://www.github.com/caio-venancio)|
 |1.2     | 24/11/2025 | Melhorar de 'esqueleto' do documento  | [Caio Venâncio](https://www.github.com/caio-venancio) |[Arthur Evangelista](https://www.github.com/arthurevg)|
+|1.3     | 24/11/2025 | Adicionar descrições e comentários  | [Caio Venâncio](https://www.github.com/caio-venancio) |[Arthur Evangelista](https://www.github.com/arthurevg)|
