@@ -4,14 +4,14 @@
 
 ## 1. Procedimento Executado
 
-### Software e Papéis
+### Contexto e Ferramentas
 Como descrito autoriormente na [Fase 3](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase3/1-confiabilidade/#ferramentas-e-metodos-de-coleta), as métricas 1.1, 1.2 e 2.1, que tratam de Maturidade, Disponibilidade e Tolerância a Falhas respectivamente foram medidas através de um feito em Batchfiles para Terminal de Windows, disponível na pasta `tests/scripts/run-open-exr.bat`, e depois calculadas via a fórmula descrita na [Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/1-confiabilidade/#questoes-e-metricas), com os dados resultantes disponíveis na pasta `tests/resultados`.
 
 - [Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)](#medicao-da-metrica-11-taxa-de-falhas-failure-rate)
 - [Medição da Métrica 1.2 - Tempo Médio Entre Falhas (MTBF](#medicao-da-metrica-12-tempo-medio-entre-falhas-mtbf)
 - [Medição da Métrica 2.1 - Taxa de Sucesso sob Carga](#medicao-da-metrica-21-taxa-de-sucesso-sob-carga)
 
-Agora sobre as métricas 2.2, 3.1, e 3.2...
+Já as métricas 2.2, 3.1, e 3.2, foram feitas testes de forma manual, utilizando manipulação de arquivos validos e corrompidos, presentes respectivamente nas pastas `tests/validos` e `tests/corrompidos`
 <!-- pode preencher aqui, Arthur? -->
 
 ### Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)
@@ -66,19 +66,70 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
     <br>
 </div>
 
-### Medição da Métrica 2.2
+### Medição da Métrica 2.2 - Taxa de Tratamento de Entradas Inválidas
 
-**Descrição:**
+**Descrição:** Aqui utilizamos um total de 20 arquivos corrompidos, presentes na pasta `tests/corrompidos` cada um com uma particularidade diferente, e foi observado como o GIMP tratou esses arquivos. Após realizar todos os testes, foi utilizada a seguinte fórmula para verificar a Taxa de Tratamento de Entradas Inválidas:
+> `(Erros tratados sem crash / Total de arquivos corrompidos testados) * 100`
 
-### Medição da Métrica 3.1
+O vídeo relacionado a essa medição se encontra abaixo:
 
-**Descrição:**
+<div align="center">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bMoGJJA11dg?si=axz553FnZgH3qAl7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+        <b> Autor: </b> <a href="https://github.com/arthurevg">Arthur Evangelista</a>.
+    <br>
+</div>
 
-### Medição da Métrica 3.2
+### Medição da Métrica 3.1 - Taxa de Recuperação Automática
 
-**Descrição:**
+**Descrição:** Aqui, simulamos alguns crashes utilizando o 'Finalizar Tarefa' do Windows enquanto alguma tarefa estava sendo realizada no GIMP. Após isso, foi utilizada a seguinte fórmula para verificar a Taxa de Recuperação Automática:
+> `(Sessões com restauração de EXR / Total de crashes com EXR não salvo) * 100`
+
+O vídeo relacionado a essa medição se encontra abaixo:
+
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Fz_zGd75TIg?si=jtSgcJM4z6dRYCdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+        <b> Autor: </b> <a href="https://github.com/arthurevg">Arthur Evangelista</a>.
+    <br>
+</div>
+
+`` *Nota*: foram realizados mais testes, mas durante essa 'simulação de crash', foi utilizado o comnando `ALT + F4`, que fez com que o gravador parasse.``
+
+### Medição da Métrica 3.2 - Tempo Médio para Reparo (MTTR)
+
+**Descrição:** Aqui, foram utilizados os "Crashes" simulados da Métrica anterior, e cronometrado o tempo entre o Crash acontecer, e o usuário restaurar o trabalho. Após isso, utilizamos a seguinte fórmula para verificar o Tempo Médio para Reparo:
+> `(Tempo total gasto para restaurar o trabalho / Nº total de falhas) * 100`
+
+O vídeo relacionado a essa medição se encontra abaixo:
+
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Fz_zGd75TIg?si=jtSgcJM4z6dRYCdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+        <b> Autor: </b> <a href="https://github.com/arthurevg">Arthur Evangelista</a>.
+    <br>
+</div>
 
 ## 2. Medição (Dados Coletados)
+
+Esta seção apresenta o resultado do cálculo de cada métrica, o valor final obtido e o critério de aceitação GQM correspondente (para ser julgado na próxima seção).
+
+<p align="center"><strong>Tabela 1: Resultados Consolidados da Avaliação de Confiabilidade</strong></p>
+
+| Métrica (Q) | Característica | Fórmula & Cálculo (Exemplo) | Critério de Aceitação (GQM) |
+| :--- | :--- | :--- | :--- |
+| **M1.1 (Q1)** Taxa de Falhas | Maturidade | x falhas / y horas = **z falhas/h** |  |
+| **M1.2 (Q1)** MTBF | Maturidade | x horas / y falhas = **z horas/falha** |  |
+| **M2.1 (Q2)** Taxa de Sucesso sob Carga | Tol. a Falhas (Carga) | x op. OK / 100 op. total x 100 = **z** |  |
+| **M2.2 (Q2)** Taxa de Tratamento | Tol. a Falhas (Entrada) | 20 tratados / 20 testes x 100 = **100%** | > 95% (Alta Tolerância) |
+| **M3.1 (Q3)** Taxa de Recup. Automática | Recuperabilidade | 0 restaurados / 6 crashes x 100 = **0%** | 0% (Baixa Recuperabilidade) |
+| **M3.2 (Q3)** MTTR | Recuperabilidade | 9.6 min. / 6 falhas = **1.6 min/falha** | < 2 minutos/falha (Alta Recuperabilidade) |
+
+<div align="center">
+        <b> Autores: </b> <a href="https://github.com/arthurevg">Arthur Evangelista</a> e <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
+    <br>
+</div>
+
 <!-- Só estou esperando terminar de rodar por dez horas para continuar -->
 
 ## 3. Análise e Julgamento
@@ -105,3 +156,4 @@ Agora sobre as métricas 2.2, 3.1, e 3.2...
 |1.1     | 18/11/2025 | Adição de 'esqueleto' do documento  |[Arthur Evangelista](https://www.github.com/arthurevg) |[Caio Venâncio](https://www.github.com/caio-venancio)|
 |1.2     | 24/11/2025 | Melhorar de 'esqueleto' do documento  | [Caio Venâncio](https://www.github.com/caio-venancio) |[Arthur Evangelista](https://www.github.com/arthurevg)|
 |1.3     | 24/11/2025 | Adicionar descrições e comentários  | [Caio Venâncio](https://www.github.com/caio-venancio) |[Arthur Evangelista](https://www.github.com/arthurevg)|
+|1.4     | 24/11/2025 | Adição dos dados referente as Métricas 2.2, 3.1 e 3.2  |[Arthur Evangelista](https://www.github.com/arthurevg) | [Caio Venâncio](https://www.github.com/caio-venancio)|
