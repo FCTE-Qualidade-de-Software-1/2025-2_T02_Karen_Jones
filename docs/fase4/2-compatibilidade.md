@@ -672,8 +672,8 @@ As melhorias propostas devem focar na correção das falhas de produto, aproveit
 | Área da Falha | Falha Encontrada | **Melhoria Proposta (Específica)** | Impacto Esperado |
 | :--- | :--- | :--- | :--- |
 | **Interoperabilidade** | Perda de canais AOV. | Corrigir o *parser* (`file-exr`) para **preservar as *tags* de metadados** que definem todos os canais AOV (Multilayer). | Aumentar a TSF de 50% para  > 95%. |
-| **Coexistência** | Alto APCM (71.43%) e APTC (33.33%). | Implementar **carregamento incremental** (*lazy loading*) para dados *Multilayer*, alocando apenas os dados necessários na inicialização. | Reduzir APCM e APTC para $\le 10\%$. |
-| **Processo/Estabilidade** | Eficácia já alta ( > 48$). | **Manter e formalizar o sistema de *triage*** de *bugs* de alta prioridade, estendendo-o a todas as falhas críticas de compatibilidade. | Sustentar a Alta Eficácia na mitigação de riscos. |
+| **Coexistência** | Alto APCM (71.43%) e APTC (33.33%). | Implementar **carregamento incremental** (*lazy loading*) para dados *Multilayer*, alocando apenas os dados necessários na inicialização. | Reduzir APCM e APTC para  10%. |
+| **Processo/Estabilidade** | Eficácia já alta ( > 48). | **Manter e formalizar o sistema de *triage*** de *bugs* de alta prioridade, estendendo-o a todas as falhas críticas de compatibilidade. | Sustentar a Alta Eficácia na mitigação de riscos. |
 
 **Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
 
