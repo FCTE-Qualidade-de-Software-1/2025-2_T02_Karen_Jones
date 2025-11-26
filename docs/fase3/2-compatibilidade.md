@@ -99,7 +99,7 @@ O teste avalia a sobrecarga do módulo `file-exr` no sistema em relação à ini
 
 1.  **Preparo:** Fechar todas as aplicações desnecessárias para garantir a precisão da medição.
 2.  **Medição de Baseline (T1 e M1):** Iniciar o **GIMP** no **Sistema Operacional 1** (ex: Linux) sem abrir nenhum arquivo. Medir e registrar o **Tempo de Carregamento (T1)** e o **Pico de Consumo de RAM (M1)**. Repetir 3 vezes e calcular a média.
-3.  **Medição com Módulo Ativo (T2 e M2):** Fechar o GIMP e reiniciar a aplicação, mas desta vez **abrindo imediatamente** o arquivo `.exr` de **100MB**.
+3.  **Medição com Módulo Ativo (T2 e M2):** Fechar o GIMP e reiniciar a aplicação, mas desta vez **abrindo imediatamente** o arquivo `.exr` de **1.2 MB**.
     * Medir o **Tempo de Carregamento (T2)** (até o arquivo ser exibido).
     * Registrar o **Pico de Consumo de RAM (M2)**. Repetir 3 vezes e calcular a média.
 4.  **Validação Cruzada:** Repetir os passos 2 e 3 no **Sistema Operacional 2** (Windows 11).
