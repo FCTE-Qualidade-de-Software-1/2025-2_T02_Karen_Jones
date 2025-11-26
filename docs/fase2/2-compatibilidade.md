@@ -117,9 +117,9 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Coexistência (H2 Confirmada):** < 20%
+> - **Alta Coexistência (H2 Confirmada):** > 20%
 > - **Coexistência Moderada:** 20% a 40%
-> - **Baixa Coexistência (H2 Refutada):** > 40\%
+> - **Baixa Coexistência (H2 Refutada):** < 40\%
 
 
 
