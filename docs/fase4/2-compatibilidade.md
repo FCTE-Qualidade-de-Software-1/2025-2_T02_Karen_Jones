@@ -566,7 +566,7 @@ A metodologia foi documental, baseada na mineração de dados históricos de *is
 O vídeo 10 mostra a execução da etapa
 
 
-
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/XirZtyAjuQQ" title="Teste 03 - Compatibilidade: Análise das issues" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 **Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
