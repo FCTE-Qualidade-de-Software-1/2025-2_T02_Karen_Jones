@@ -79,7 +79,7 @@ Esta métrica quantifica a qualidade do módulo com base na relação entre defe
 >
 > **Interpretação (Critério):**
 >
-> - **Baixo Risco (H1 Confirmada):** < 0.5$ defeitos/caso de teste
+> - **Baixo Risco (H1 Confirmada):** < 0.5 defeitos/caso de teste
 > - **Risco Moderado:** 0.5 a 1.0 defeitos/caso de teste
 > - **Alto Risco (H1 Refutada):** > 1.0$ defeitos/caso de teste
 
@@ -102,8 +102,8 @@ Mede o impacto na experiência do usuário ao iniciar o software, isso porque um
 > **Interpretação (Critério):**
 >
 > - **Alta Coexistência (H2 Confirmada):** < 5%
-> - **Coexistência Moderada:** 5% a 15%
-> - **Baixa Coexistência (H2 Refutada): > 15\%
+> - **Coexistência Moderada:** 5% a 20%
+> - **Baixa Coexistência (H2 Refutada)**: > 20\%
 
 #### Métrica 2.2: Aumento Percentual no Consumo de Memória (APCM)
 
@@ -117,9 +117,9 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Coexistência (H2 Confirmada):** < 10%
-> - **Coexistência Moderada:** 10\% a 20%
-> - **Baixa Coexistência (H2 Refutada):** > 20\%
+> - **Alta Coexistência (H2 Confirmada):** < 20%
+> - **Coexistência Moderada:** 20% a 40%
+> - **Baixa Coexistência (H2 Refutada):** > 40\%
 
 
 
