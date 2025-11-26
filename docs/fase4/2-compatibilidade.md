@@ -382,7 +382,7 @@ A figura abaixo mostra a execução desta etapa
 <div align="center">
     Figura 19: Tempo de abertura sem arquivo
     <br>
-    <img src="">
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/teste02_01.png">
     <br>
      <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>
@@ -415,7 +415,7 @@ A figura abaixo mostra a execução desta etapa
 <div align="center">
     Figura 20: Tempo de abertura com arquivo
     <br>
-    <img src="">
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/teste02_02.png">
     <br>
      <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>
@@ -448,7 +448,7 @@ A figura abaixo mostra a execução desta etapa
 <div align="center">
     Figura 21: Verificação da Memória Sem Arquivo (M1 - Baseline)
     <br>
-    <img src="">
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/teste02_03.png">
     <br>
      <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>
@@ -481,7 +481,7 @@ A figura abaixo mostra a execução desta etapa
 <div align="center">
     Figura 22: Verificação da Memória Com Arquivo (M2 - Sob Carga)
     <br>
-    <img src="">
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/teste02_04.png">
     <br>
      <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>
