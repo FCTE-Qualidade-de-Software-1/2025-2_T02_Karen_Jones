@@ -37,7 +37,7 @@ Já as métricas 2.2, 3.1, e 3.2, foram feitas testes de forma manual, utilizand
 <div align="center">
     <!-- Figura 3: Cálculo do tempo médio entre falhas a partir dos arquivos gerados pela rotina. -->
     <br>
-    <img src="">
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/fase5/confiabilidade-img/falhasTotal.png">
     <br>
      <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
     <br>
