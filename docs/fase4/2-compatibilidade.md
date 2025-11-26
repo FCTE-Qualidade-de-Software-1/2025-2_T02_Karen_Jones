@@ -632,6 +632,52 @@ Portanto, a conclusão é que a equipe de manutenção do GIMP demonstrou capaci
 * **Melhoria Específica:** Sugere-se **manter** e **formalizar** o sistema de **triage** (triagem) de *bugs* existente para garantir que todas as *issues* continuem a ser resolvidas dentro do limite de 48 horas. Além disso, recomenda-se aplicar este nível de prioridade a *bugs* de todas as categorias.
 
 
+## DConclusão Geral e Análise Integrada (Pontos Fortes e Fracos) 
+
+A avaliação da compatibilidade do GIMP, focada no módulo `file-exr`, revelou um **desempenho altamente desequilibrado**. Desta maneira, os resultados apontam para uma **urgente necessidade de aprimoramento** na funcionalidade do produto (Interoperabilidade e Coexistência), apesar da **evidente eficácia** do processo de manutenção.
+
+
+### Resumo dos Resultados e Julgamento das Hipóteses
+
+A tabela a seguir consolida as métricas, os critérios e o julgamento das três hipóteses (H1, H2 e H3), oferecendo uma visão integrada dos achados.
+
+**Tabela 8:** Resumo Integrado da Avaliação de Compatibilidade
+
+| Característica Avaliada | Métrica Principal | Valor Obtido | Critério de Aceitação | Julgamento da Hipótese | Principal Achado |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Interoperabilidade** (Q1) | TSF (M1.1) | 50% | 95% | **Refutada (H1)** | Perda crítica de camadas (Depth/Mist) no *Round-Trip*. |
+| **Coexistência** (Q2) | APCM (M2.2) | 71.43% | 10% | **Refutada (H2)** | Alto impacto no consumo de memória (> 7 \times o limite). |
+| **Estabilidade** (Q3) | TMR (M3.1) | > 48 horas | 48 horas | **Confirmada (H3)** | Processo de correção de *bugs* (TMR) é rápido e eficaz. |
+
+**Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+### Discussão dos Pontos Fortes e Fracos
+
+Os resultados dos testes de produto (Q1 e Q2) e de processo (Q3) estabelecem um claro contraste entre a **Qualidade de Uso** (baixa) e a **Qualidade de Manutenção** (alta) do módulo `file-exr`.
+
+####  **Pontos Fracos Críticos (Produto)**
+
+1.  **Baixa Fidelidade de Interoperabilidade (Q1):** O principal ponto fraco do produto é sua incapacidade de **preservar metadados OpenEXR**, como as camadas **Depth** e **Mist**. Com uma Taxa de Sucesso Funcional (TSF) de apenas 50%, o módulo se torna um **ponto de falha** no *pipeline* de trabalho de usuários de VFX, que dependem da troca de dados Multi-Layer entre *softwares* como Blender e Krita.
+2.  **Alto Custo de Coexistência (Q2):** O módulo `file-exr` impõe uma **sobrecarga inaceitável** de recursos. O Aumento Percentual no Consumo de Memória (**APCM em 71.43%**) e no Tempo de Carregamento (**APTC em 33.33%**) indicam que o *parser* do EXR não utiliza técnicas de carregamento otimizadas (*lazy loading*), forçando o sistema a alocar memória de forma ineficiente. Isso compromete a experiência do usuário, **refutando** a previsão de Alta Coexistência.
+
+#### **Ponto Forte Sólido (Processo)**
+
+1.  **Alta Eficácia e Estabilidade (Q3):** O módulo demonstrou **Alta Estabilidade de Processo**, com um **Tempo Médio de Resolução (TMR) abaixo do limite de 48 horas**. Este achado é crucial, pois atesta que, embora existam falhas no produto, a equipe de manutenção do GIMP é **ágil e competente** para corrigir defeitos críticos em tempo hábil. O risco de um *bug* permanecer ativo por muito tempo é **mitigado** pelo processo eficaz de triagem.
+
+
+### Implicações e Melhorias Propostas Integradas
+
+As melhorias propostas devem focar na correção das falhas de produto, aproveitando a força do processo de manutenção.
+
+| Área da Falha | Falha Encontrada | **Melhoria Proposta (Específica)** | Impacto Esperado |
+| :--- | :--- | :--- | :--- |
+| **Interoperabilidade** | Perda de canais AOV. | Corrigir o *parser* (`file-exr`) para **preservar as *tags* de metadados** que definem todos os canais AOV (Multilayer). | Aumentar a TSF de 50% para  > 95%. |
+| **Coexistência** | Alto APCM (71.43%) e APTC (33.33%). | Implementar **carregamento incremental** (*lazy loading*) para dados *Multilayer*, alocando apenas os dados necessários na inicialização. | Reduzir APCM e APTC para $\le 10\%$. |
+| **Processo/Estabilidade** | Eficácia já alta ( > 48$). | **Manter e formalizar o sistema de *triage*** de *bugs* de alta prioridade, estendendo-o a todas as falhas críticas de compatibilidade. | Sustentar a Alta Eficácia na mitigação de riscos. |
+
+**Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+
 ### **Histórico de Versão**
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
@@ -639,4 +685,5 @@ Portanto, a conclusão é que a equipe de manutenção do GIMP demonstrou capaci
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|   [Larissa Stéfane](https://github.com/SkywalkerSupreme)      |
 | 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
 | 1.2    | 22/11/2025 | Complementação do teste 01 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.3    | 25/11/2025 | Complementação do teste 02 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.3    | 25/11/2025 | Complementação do teste 02 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | |
+| 1.4    | 26/11/2025 | Adição da conclusão | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
