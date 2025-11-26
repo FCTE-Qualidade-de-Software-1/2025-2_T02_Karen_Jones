@@ -63,9 +63,9 @@ Esta métrica mede a eficácia na realização de uma tarefa com base no estudo 
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Interoperabilidade (H1 Confirmada):** $\geq 95\%$
-> - **Média Interoperabilidade:** $90\% \text{ a } 95\%$
-> - **Baixa Interoperabilidade (H1 Refutada):** $< 90\%$
+> - **Alta Interoperabilidade (H1 Confirmada):** >95%
+> - **Média Interoperabilidade: de 90% a 95%
+> - **Baixa Interoperabilidade (H1 Refutada):** < 90%
 
 #### Métrica 1.2: Densidade de Defeitos por Teste (DDT)
 
@@ -79,9 +79,9 @@ Esta métrica quantifica a qualidade do módulo com base na relação entre defe
 >
 > **Interpretação (Critério):**
 >
-> - **Baixo Risco (H1 Confirmada):** $< 0.5$ defeitos/caso de teste
-> - **Risco Moderado:** $0.5 \text{ a } 1.0$ defeitos/caso de teste
-> - **Alto Risco (H1 Refutada):** $> 1.0$ defeitos/caso de teste
+> - **Baixo Risco (H1 Confirmada):** < 0.5$ defeitos/caso de teste
+> - **Risco Moderado:** 0.5 a 1.0 defeitos/caso de teste
+> - **Alto Risco (H1 Refutada):** > 1.0$ defeitos/caso de teste
 
 
 
@@ -101,9 +101,9 @@ Mede o impacto na experiência do usuário ao iniciar o software, isso porque um
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Coexistência (H2 Confirmada):** $\leq 5\%$
-> - **Coexistência Moderada:** $5\% \text{ a } 15\%$
-> - **Baixa Coexistência (H2 Refutada):** $> 15\%$
+> - **Alta Coexistência (H2 Confirmada):** < 5%
+> - **Coexistência Moderada:** 5% a 15%
+> - **Baixa Coexistência (H2 Refutada): > 15\%
 
 #### Métrica 2.2: Aumento Percentual no Consumo de Memória (APCM)
 
@@ -117,9 +117,9 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Coexistência (H2 Confirmada):** $\leq 10\%$
-> - **Coexistência Moderada:** $10\% \text{ a } 20\%$
-> - **Baixa Coexistência (H2 Refutada):** $> 20\%$
+> - **Alta Coexistência (H2 Confirmada):** < 10%
+> - **Coexistência Moderada:** 10\% a 20%
+> - **Baixa Coexistência (H2 Refutada):** > 20\%
 
 
 
@@ -127,23 +127,7 @@ Mede a eficiência com que o módulo utiliza a memória do sistema ao ser um ind
 
 **Hipótese (H3):** Espera-se que o módulo seja altamente estável (baixo DDPL) e que o processo de correção de *bugs* de compatibilidade seja rápido, indicando alta estabilidade no uso.
 
-#### Métrica 3.1: Densidade de Defeitos Pós-Lançamento (DDPL)
-
-Mede a concentração de problemas que chegam ao usuário, sendo um indicador crucial de falha na garantia da qualidade (**QA Testing & Processes**).
-
-> **Fórmula:**
->
-> $$DDPL = \frac{\text{Nº de Defeitos de Compatibilidade Reportados Pós-lançamento}}{\text{Tamanho do Módulo em KLOC}}$$
->
-> **Referência:** [[3]](#ref-3) (ELITEX - Defect Density)
->
-> **Interpretação (Critério):**
->
-> - **Alta Estabilidade (H3 Confirmada):** $< 1.0$ defeito/KLOC
-> - **Estabilidade Moderada:** $1.0 \text{ a } 3.0$ defeitos/KLOC
-> - **Baixa Estabilidade (Hipótese Refutada):** $> 3.0$ defeitos/KLOC
-
-#### Métrica 3.2: Tempo Médio de Resolução (TMR)
+#### Métrica 3.1: Tempo Médio de Resolução (TMR)
 
 Métrica de **Processo** para avaliar a eficiência da equipe de manutenção na resposta a falhas. Um TMR baixo é um indicador de **Alta Eficiência de Manutenção** para *bugs* de compatibilidade [MOLDSTUD - Resolution Timelines](https://moldstud.com/articles/p-essential-key-metrics-for-measuring-success-in-compatibility-testing-for-quality-assurance).
 
@@ -155,48 +139,10 @@ Métrica de **Processo** para avaliar a eficiência da equipe de manutenção na
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Eficiência (H3 Confirmada):** $< 48$ horas
-> - **Eficiência Moderada:** $48 \text{ a } 96$ horas
-> - **Baixa Eficiência (Hipótese Refutada):** $> 96$ horas
+> - **Alta Eficiência (H3 Confirmada):** < 48 horas
+> - **Eficiência Moderada:** 48 a  96 horas
+> - **Baixa Eficiência (Hipótese Refutada):** > 96 horas
 
-
-
-### Q4. De que forma a arquitetura do módulo File-exr pode aumentar a dificuldade e o custo de manutenção em plataformas distintas?
-
-**Hipótese (H4):** Espera-se que a arquitetura do módulo apresente baixa Complexidade Ciclomática (CCM) e baixo Índice de Esforço Não-Comum (IENC), indicando facilidade de manutenção em diversos ambientes.
-
-
-#### Métrica 4.1: Índice de Esforço Não-Comum (IENC)
-
-Métrica de **Recurso/Projeto** que indica o percentual do custo do projeto (Esforço) alocado em código que não pode ser reutilizado entre plataformas para medir a dependência de código específico de cada sistema operacional.
-
-> **Fórmula:**
->
-> IENC (%) = (Esforço em código específico da Plataforma / Esforço Total do Módulo) * 100
->
-> **Referência:** [[4]](#ref-4)
-> 
-> **Interpretação (Critério):**
->
-> - **Alta Facilidade (H4 Confirmada):** $\leq 10\%$
-> - **Dificuldade Moderada:** $10\% \text{ a } 20\%$
-> - **Alta Dificuldade (H4 Refutada):** $> 20\%$
-
-#### Métrica 4.2: Complexidade Ciclomática Média (CCM)
-
-Métrica de **Produto** que indica a complexidade lógica do código. Módulos com alta CCM são mais difíceis de testar e manter o que viola os princípios de **Design Simples** [ELITEX - Compliance with Best Design Principles](https://elitex.systems/blog/software-quality).
-
-> **Fórmula:**
->
-> $$CCM = \frac{\sum \text{Complexidade Ciclomática das Funções de Compatibilidade}}{\text{Nº Total de Funções de Compatibilidade}}$$
->
-> **Referência:** [[3]](#ref-3) (ELITEX - Compliance with Best Design Principles)
->
-> **Interpretação (Critério):**
->
-> - **Baixa Complexidade (H4 Confirmada):** $< 10$
-> - **Risco Moderado:** $10 \text{ a } 15$
-> - **Alto Risco (H4 Refutada):** $> 15$
 
 
 ## Conclusão
