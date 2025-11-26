@@ -139,9 +139,9 @@ Métrica de **Processo** para avaliar a eficiência da equipe de manutenção na
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Eficiência (H3 Confirmada):** < 48 horas
+> - **Baixa Eficiência (H3 Confirmada):** < 48 horas
 > - **Eficiência Moderada:** 48 a  96 horas
-> - **Baixa Eficiência (Hipótese Refutada):** > 96 horas
+> - **Alta Eficiência (Hipótese Refutada):** > 96 horas
 
 
 
