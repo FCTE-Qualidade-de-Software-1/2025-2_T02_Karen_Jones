@@ -57,9 +57,9 @@ Esta hipótese será testada usando as seguintes métricas:
 >
 > **Interpretação (Critério):**
 >
-> - **Alta Confiabilidade (H1 Confirmada):** > 100 horas
-> - **Média Confiabilidade:** 50 - 100 horas
-> - **Baixa Confiabilidade (H1 Refutada):** < 50 horas
+> - **Alta Confiabilidade (H1 Confirmada):** > 10 horas
+> - **Média Confiabilidade:** 5 - 10 horas
+> - **Baixa Confiabilidade (H1 Refutada):** < 5 horas
 
 ---
 
