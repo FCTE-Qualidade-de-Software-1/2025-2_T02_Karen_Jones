@@ -297,8 +297,8 @@ Com base nos dados coletados, foi calculado a Taxa de Sucesso Funcional (TSF) e 
 
 | Métrica | Fórmula | Valor Calculado | Critério de Aceitação (H1) |
 | :--- | :--- | :--- | :--- |
-| **M1.1: TSF** | (Nº Total de Sucessos / Nº Total de Casos de Intercâmbio Testados) * 100 | $(5 / 10) \times 100 = \mathbf{50\%}$ | $\ge 95\%$ (Alta Interoperabilidade) |
-| **M1.2: DDT** | Nº Total de Defeitos / Nº Total de Arquivos Testados | $5 / 5 = \mathbf{1.0}$ defeito/arquivo | $< 0.5$ (Baixo Risco) |
+| **M1.1: TSF** | (Nº Total de Sucessos / Nº Total de Casos de Intercâmbio Testados) * 100 | (5 / 10) \times 100 = 50% | 95% (Alta Interoperabilidade) |
+| **M1.2: DDT** | Nº Total de Defeitos / Nº Total de Arquivos Testados | 5 / 5 = 1.0 | < 0.5 (Baixo Risco) |
 
 **Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
 
@@ -315,8 +315,8 @@ A **Tabela 3** sumariza o desempenho do módulo `file-exr` na Interoperabilidade
 
 | Métrica | Resultado Obtido | Critério de Aceitação (H1) | Julgamento |
 | :--- | :--- | :--- | :--- |
-| **M1.1: TSF** | $\mathbf{50\%}$ | $\ge 95\%$ | **REFUTADA** |
-| **M1.2: DDT** | $\mathbf{1.0}$ defeito/arquivo | $< 0.5$ defeitos/arquivo | **REFUTADA** |
+| **M1.1: TSF** | 50% | 95% | **REFUTADA** |
+| **M1.2: DDT** | 1.0  | < 0.5  | **REFUTADA** |
 
 **Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
 
@@ -325,8 +325,8 @@ A **Tabela 3** sumariza o desempenho do módulo `file-exr` na Interoperabilidade
 
 O teste de *Round-Trip* indicou uma falha clara na **Hipótese H1**, que previa alta fidelidade de intercâmbio. Sendo assim, os resultados da execução confirmaram a necessidade de aprimoramento urgente no módulo `file-exr`:
 
-1.  **Baixa Taxa de Sucesso Funcional (TSF):** O valor calculado de $\mathbf{50\%}$ situou-se drasticamente abaixo do mínimo de $95\%$ estabelecido na Fase 2. Por conseguinte, classificou-se a Interoperabilidade do módulo como **Baixa Interoperabilidade**.
-2.  **Alto Risco (DDT):** A Densidade de Defeitos por Teste (DDT) atingiu $\mathbf{1.0}$ defeito por arquivo testado e este índice confirmou o **Alto Risco** de quebra no *pipeline* de trabalho, o que compromete o propósito de prover estabilidade ao *Designer Gráfico*.
+1.  **Baixa Taxa de Sucesso Funcional (TSF):** O valor calculado de $\mathbf50% situou-se drasticamente abaixo do mínimo de 95% estabelecido na Fase 2. Por conseguinte, classificou-se a Interoperabilidade do módulo como **Baixa Interoperabilidade**.
+2.  **Alto Risco (DDT):** A Densidade de Defeitos por Teste (DDT) atingiu 1.0 defeito por arquivo testado e este índice confirmou o **Alto Risco** de quebra no *pipeline* de trabalho, o que compromete o propósito de prover estabilidade ao *Designer Gráfico*.
 
 Concluiu-se que o módulo `file-exr` não atende aos requisitos de Interoperabilidade esperados, **refutando a Hipótese H1** em ambas as métricas.
 
@@ -342,6 +342,205 @@ A análise da natureza dos defeitos revelou a causa da baixa TSF e reforçou a c
 * **Melhoria Específica:** Sugere-se corrigir o *parser* do módulo `file-exr` para que ele **preserve as *tags* de metadados** que definem os canais AOV. Esta ação garantirá a Interoperabilidade prometida pelo *software* ao alinhar o GIMP com o padrão OpenEXR.
 
 
+
+
+
+
+## B. Execução do Teste de Coexistência (Q2)
+
+O Teste de Coexistência aborda a **Questão Q2**: *Quais são os custos de recursos (tempo e memória) que o módulo File-exr impõe ao sistema GIMP em um ambiente de usuário final?*. Dessa forma, a execução mediu o impacto do módulo `file-exr` no GIMP, em termos de **Aumento Percentual no Tempo de Carregamento (APTC)** e **Aumento Percentual no Consumo de Memória (APCM)**. O objetivo foi julgar a **Hipótese H2** de **Alta Coexistência** estabelecidos na [fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/2-compatibilidade/).
+
+Assim, a coleta de dados foi realizada em ambiente Linux (Ubuntu) utilizando o Terminal, o comando `time` para medição de tempo e a ferramenta `htop` para medição de memória. Além disso, o arquivo de carga utilizado, no formato **OpenEXR Multilayer**, possui **1.2 MB**.
+
+### 1. Procedimento de Execução (Medição de Recursos)
+
+O teste foi dividido em cinco etapas para garantir a medição precisa do *Baseline* (sem arquivo) e do cenário **Sob Carga** (com o arquivo EXR).
+
+#### 1ª Etapa: Criação do Arquivo de Carga
+
+**Descrição:** Utilizou-se o Blender para gerar um arquivo OpenEXR Multilayer de **1.2 MB**. Este arquivo serviu como a carga de teste para simular o cenário de uso real e forçar o processamento do módulo `file-exr` do GIMP.
+
+O vídeo 5 mostra a criação do arquivo
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/88PH5HmgTxo" title="Teste 02 - Compatibilidade: Criação do Arquivo elaborado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+#### 2ª Etapa: Tempo de Abertura Sem o Arquivo (T1 - Baseline)
+
+**Descrição:** Mediu-se o tempo de carregamento (*loading time*) do GIMP em estado *Baseline*, ou seja, sem a abertura de nenhum arquivo. Com isso, o comando `/usr/bin/time -f "\nTempo REAL: %e segundos" gimp` foi executado 6 vezes no Terminal para determinar a média T1.
+
+O vídeo 6 mostra a execução da etapa
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/stQFK3Au2fI" title="Teste 02 - Compatibilidade: Tempo de Abertura sem arquivo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+
+A figura abaixo mostra a execução desta etapa
+
+<div align="center">
+    Figura 19: Tempo de abertura sem arquivo
+    <br>
+    <img src="">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+
+A tabela abaixo mostra os resultados obtidos nesta fase:
+
+**Tabela 4:** Tempo de abertura do GIMP sem arquivo
+
+
+| Medições Brutas T1 (s) | Tentativa 1 | Tentativa 2 | Tentativa 3 | Tentativa 4 | Tentativa 5 | Tentativa 6 | Média T1 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Tempo REAL (s)** | 4.29 | 4.36 | 5.25 | 3.50 | 3.36 | 5.69 | 4.41 |
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+#### 3ª Etapa: Tempo de Abertura Com o Arquivo (T2 - Sob Carga)
+
+**Descrição:** Mediu-se o tempo de carregamento do GIMP forçando-o a abrir o arquivo de teste (`Teste02_Compatibilidade.exr`). Sendo assim, o comando `time` foi executado 5 vezes e foi mantido a consistência do processo de fechamento imediato para determinar a média T2.
+
+O vídeo 7 mostra a execução da etapa
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/ZjGBFUZ_QLo" title="Teste 02 - Compatibilidade: Tempo de Abertura com Arquivo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+A figura abaixo mostra a execução desta etapa
+
+<div align="center">
+    Figura 20: Tempo de abertura com arquivo
+    <br>
+    <img src="">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+A tabela abaixo mostra os resultados obtidos nesta fase:
+
+**Tabela 5:** Tempo de abertura do GIMP com arquivo
+
+| Medições Brutas T2 (s) | Tentativa 1 | Tentativa 2 | Tentativa 3 | Tentativa 4 | Tentativa 5 | Média T2 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Tempo REAL (s)** | 5.36 | 5.48 | 5.49 | 6.60 | 6.45 | 5.88 |
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+
+#### 4ª Etapa: Verificação da Memória Sem Arquivo (M1 - Baseline)
+
+**Descrição:** Utilizou-se a ferramenta `htop` no Terminal para monitorar o pico de consumo de memória (Memória Residente - **RES**) do GIMP ao iniciar sem carregar um arquivo. O processo foi repetido 6 vezes para estabelecer o dado **M1**.
+
+O vídeo 8 mostra a execução da etapa
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/AVqwNz_8BTc" title="Teste 02 - Compatibilidade: Verificação da memória utilizada nos processos ao abrir apenas o Gimp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+A figura abaixo mostra a execução desta etapa
+
+
+<div align="center">
+    Figura 21: Verificação da Memória Sem Arquivo (M1 - Baseline)
+    <br>
+    <img src="">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+
+A tabela abaixo mostra os resultados obtidos nesta fase:
+
+**Tabela 6:** TVerificação da Memória Sem Arquivo (M1 - Baseline)
+
+| Medições Brutas M1 (MB) | Tentativa 1 | Tentativa 2 | Tentativa 3 | Tentativa 4 | Tentativa 5 | Tentativa 6 | Média M1 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pico RES (MB)** | 119 | 119 | 120 | 119 | 119 | 119 | 119 |
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+
+#### 5ª Etapa: Verificação da Memória Com Arquivo (M2 - Sob Carga)
+
+**Descrição:** Monitorou-se o pico de consumo de memória do GIMP enquanto ele processava o arquivo `Teste02_Compatibilidade.exr` (Sob Carga). O processo foi repetido 6 vezes, focando no valor **RES** no `htop` durante o carregamento do arquivo, para determinar a média **M2**.
+
+O vídeo 9 mostra a execução da etapa
+
+<iframe width="1264" height="711" src="https://www.youtube.com/embed/E2RK14Qk4ms" title="Teste 02 - Compatibilidade: Memória ao abrir o Gimp com o Arquivo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+A figura abaixo mostra a execução desta etapa
+
+<div align="center">
+    Figura 22: Verificação da Memória Com Arquivo (M2 - Sob Carga)
+    <br>
+    <img src="">
+    <br>
+     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <br>
+</div>
+
+A tabela abaixo mostra os resultados obtidos nesta fase:
+
+**Tabela 7:** Verificação da Memória Com Arquivo (M2 - Sob Carga)
+
+| Medições Brutas M2 (MB) | Tentativa 1 | Tentativa 2 | Tentativa 3 | Tentativa 4 | Tentativa 5 | Tentativa 6 | Média M2 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pico RES (MB)** | 204 | 204 | 204 | 203 | 204 | 204 | 204 |
+
+**Fonte**:  [Larissa Stéfane](https://github.com/SkywalkerSupreme)
+
+## 2. Medição e Julgamento (Q2)
+
+Os dados médios coletados de tempo (T1 e T2) e memória (M1 e M2) serviram para calcular o **Aumento Percentual** do módulo `file-exr` sobre a operação *Baseline* do GIMP.
+
+### Resultados e Cálculo das Métricas (M2.1 e M2.2)
+
+Os resultados da execução demonstraram que o módulo `file-exr` impôs uma sobrecarga significativa ao sistema, refutando a Hipótese H2.
+
+<p align="center">
+**Tabela 5:** Cálculo do Aumento Percentual e Julgamento da Hipótese H2 (Coexistência)
+<br>
+**Autora:** <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>
+</p>
+
+| Métrica | Fórmula | Valor Calculado | Critério de Aceitação (H2) | Julgamento |
+| :--- | :--- | :--- | :--- | :--- |
+| **M2.1: APTC** (Tempo) | ((T_2 - T_1) / T_1) \t100 | 33.33% | 5% (Alta Coexistência) | **REFUTADA** |
+| **M2.2: APCM** (Memória) | ((M_2 - M_1) / M_1) \ 100 | 71.43% | 10% (Alta Coexistência) | **REFUTADA** |
+
+
+## 3. Análise e Julgamento Final
+
+A análise dos resultados confirmou a falha na **Hipótese H2**, que previa Alta Coexistência (Baixo Impacto de Recursos).
+
+1.  **Conflito com o Critério (M2.1 APTC):** A hipótese afirmou que o aumento do tempo de carregamento deveria ser de, no máximo, **5%**. O valor real obtido foi **33.33\%**.
+    * **Conclusão:** O custo de tempo foi mais de seis vezes maior que o limite tolerado. O módulo demonstrou um **Alto Impacto no Tempo**, o que contraria a previsão de Alta Coexistência.
+
+2.  **Alto Impacto na Memória (M2.2 APCM):** A hipótese afirmou que o aumento do consumo de memória deveria ser de, no máximo, **10%**. O valor real obtido foi **71.43\%**.
+    * **Conclusão:** O módulo exigiu mais de sete vezes o limite de memória tolerado, demonstrando um **Alto Impacto nos Recursos** do sistema.
+
+Portanto, a conclusão é que o módulo `file-exr` não conseguiu coexistir de forma eficiente com o *software* base, o que forçou o agente a **refutar** a Hipótese H2.
+
+### Discussão dos Resultados
+
+1.  **Alto Impacto na Memória (APCM 71.43%):** O consumo de memória aumentou mais de **71%** (de 119 MB para 204 MB). Este resultado foi significativamente maior do que o critério de aceitação de 10%. Isto sugere que o módulo `file-exr` não otimizou a alocação de memória para os dados *Multilayer*, forçando o sistema a carregar a imagem inteira na memória de forma não otimizada.
+2.  **Alto Impacto no Tempo (APTC 33.33%):** O tempo de carregamento do *software* aumentou em **33.33%**, superando em mais de seis vezes o limite de 5%. Para um arquivo de apenas 1.2 MB, este aumento demonstrou um custo de desempenho inaceitável para o usuário.
+
+**Conclusão:** O módulo `file-exr` do GIMP demonstrou **Baixa Coexistência**, refutando a Hipótese H2 em ambas as métricas.
+
+### Melhoria Proposta
+
+* **Melhoria Específica:** Sugere-se **otimizar** o módulo `file-exr` para carregar as informações do arquivo de forma incremental (*lazy loading*), em vez de alocar todos os *Multilayers* (AOVs) na memória de uma só vez. Com isso, esta ação deverá reduzir o **APCM** e o **APTC** para melhorar a experiência do usuário e o alinhamento com os requisitos de Coexistência.
+
+
 ### **Histórico de Versão**
 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
@@ -349,3 +548,4 @@ A análise da natureza dos defeitos revelou a causa da baixa TSF e reforçou a c
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|   [Larissa Stéfane](https://github.com/SkywalkerSupreme)      |
 | 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
 | 1.2    | 22/11/2025 | Complementação do teste 01 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.3    | 25/11/2025 | Complementação do teste 02 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
