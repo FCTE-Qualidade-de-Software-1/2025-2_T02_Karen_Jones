@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Nesta etapa do projeto, vamos especificar como iremos implementar e executar as métricas definidas na metodologia Goal-Question-Metric (GQM) da fase anterior ([Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/3-portabilidade/))para avaliar objetivamente a **Portabilidade** do módulo `file-exr` do GIMP.
+Nesta etapa do projeto, vamos especificar como iremos implementar e executar as métricas definidas na metodologia Goal-Question-Metric (GQM) da fase anterior ([Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/3-portabilidade/)) para avaliar objetivamente a **Portabilidade** do módulo `file-exr` do GIMP.
 
 O processo de coleta e análise focará na capacidade do módulo de ser executado, instalado e adaptado em diferentes ambientes. Serão utilizados ambientes virtualizados e nativos (Windows e Linux) para comparar o comportamento funcional e de desempenho. Além disso, serão realizados testes de instalação/desinstalação e tentativas controladas de substituição de dependências (bibliotecas `OpenEXR`) para mensurar o esforço de adaptação.
 
@@ -10,55 +10,40 @@ O processo de coleta e análise focará na capacidade do módulo de ser executad
 
 Com base no planejamento da fase anterior ([Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/3-portabilidade/)), serão coletados dados para as seguintes métricas de Adaptabilidade, Instalabilidade e Substituibilidade:
 
-- **Métrica 1.1:** Taxa de Sessões Livres de Falhas entre Plataformas
-- **Métrica 1.2:** Desvio de Desempenho entre diferentes plataformas
-- **Métrica 2.1:** Taxa de Sucesso na Instalação
-- **Métrica 2.2:** Taxa de Sucesso na Desinstalação
-- **Métrica 3.1:** Taxa de Sucesso de Instalação por Ambiente
-- **Métrica 3.2:** Desvio Relativo de Sucesso entre Ambientes
-- **Métrica 3.3:** Diferença no Tempo e Tipos de Falha entre Ambientes
-- **Métrica 4.1:** Taxa de Compatibilidade com Versões Alternativas
-- **Métrica 4.2:** Esforço de Adaptação para Novas Dependências
-- **Métrica 4.3:** Taxa de Sucesso em Testes após Substituição
+| ID | Métrica | Atributo de Qualidade |
+| :--- | :--- | :--- |
+| **1.1** | Taxa de Sessões Livres de Falhas entre Plataformas | Adaptabilidade |
+| **1.2** | Desvio de Desempenho entre diferentes plataformas | Adaptabilidade |
+| **2.1** | Taxa de Sucesso na Instalação | Instalabilidade |
+| **2.2** | Taxa de Sucesso na Desinstalação | Instalabilidade |
+| **3.1** | Taxa de Sucesso de Instalação por Ambiente | Instalabilidade |
+| **3.2** | Desvio Relativo de Sucesso entre Ambientes | Instalabilidade |
+| **3.3** | Diferença no Tempo e Tipos de Falha entre Ambientes | Instalabilidade |
+| **4.1** | Taxa de Compatibilidade com Versões Alternativas | Substituibilidade |
+| **4.2** | Esforço de Adaptação para Novas Dependências | Substituibilidade |
+| **4.3** | Taxa de Sucesso em Testes após Substituição | Substituibilidade |
 
 ## Ferramentas e Métodos de Coleta
 
 ### Ambiente de Teste
 
-Para garantir a análise de portabilidade, os testes serão executados em pelo menos dois ambientes distintos:
+Para garantir a análise de portabilidade, os testes serão executados em pelo menos dois ambientes distintos, conforme detalhado abaixo:
 
-**Ambiente A (Principal):**
-- **Sistema Operacional:** Windows 10/11 (64 bits)
-- **Ferramentas:** PowerShell, MSYS2/MinGW (para compilação).
-- **Hardware:** CPU 4 núcleos, 8GB RAM.
-
-**Ambiente B (Secundário):**
-- **Sistema Operacional:** Linux (Ubuntu 22.04 LTS ou Fedora via WSL/VirtualBox)
-- **Ferramentas:** Bash, GCC, Make/CMake.
-- **Hardware:** Virtualizado com recursos similares ao Ambiente A (ou nativo se disponível).
-
-**Artefatos Comuns:**
-- Código fonte do GIMP (branch estável).
-- Dependências do `OpenEXR` (versões padrão e alternativas).
-- Dataset de imagens `.exr` para validação de funcionamento.
+| Categoria | Ambiente A (Principal) | Ambiente B (Secundário) | Artefatos Comuns |
+| :--- | :--- | :--- | :--- |
+| **S.O.** | Windows 10/11 (64 bits) | Linux (Ubuntu 22.04 LTS ou Fedora via WSL/VirtualBox) | Código fonte do GIMP (branch estável) |
+| **Ferramentas** | PowerShell, MSYS2/MinGW (para compilação) | Bash, GCC, Make/CMake | Dependências do `OpenEXR` (versões padrão e alternativas) |
+| **Hardware** | CPU 4 núcleos, 8GB RAM | Virtualizado com recursos similares ao Ambiente A (ou nativo se disponível) | Dataset de imagens `.exr` para validação de funcionamento |
 
 ### Instrumentos de Medição
 
-#### Métrica 1.1 e 1.2 — Adaptabilidade (Falhas e Desempenho)
-- **Script de Execução Cruzada:** Um script (adaptado para PowerShell no Windows e Bash no Linux) que abre, edita e salva um lote de arquivos `.exr`.
-- **Instrumentação:**
-    - Contagem de *crashes* ou erros de execução em cada OS.
-    - Medição de tempo de processamento (via `Measure-Command` no Windows e `time` no Linux) para calcular o desvio de desempenho.
+O processo de medição para cada métrica será conduzido com os seguintes instrumentos e métodos de coleta de dados:
 
-#### Métrica 2.1, 2.2, 3.1, 3.2 e 3.3 — Instalabilidade
-- **Scripts de Build Automatizado:** Scripts que executam a configuração (`./configure` ou `cmake`), compilação (`make`) e instalação (`make install`) apenas do módulo `file-exr`.
-- **Coleta de Logs:** Redirecionamento da saída padrão e de erro (`stderr`, `stdout`) para arquivos de texto.
-- **Cronometragem:** Registro do tempo exato desde o início até o fim do processo de instalação em cada ambiente para cálculo da *Diferença de Tempo*.
-
-#### Métrica 4.1, 4.2 e 4.3 — Substituibilidade (Dependências)
-- **Controle de Versão (Git):** Utilização do `git diff --stat` para contar linhas de código modificadas (**Métrica 4.2**) ao tentar compilar o módulo com uma versão diferente da biblioteca `libopenexr` (ex: migrar da v2.x para v3.x).
-- **Registro de Tempo Humano:** Anotação manual das horas gastas pela equipe para adaptar o código.
-- **Suite de Testes de Regressão:** Execução do script de teste funcional após a troca da biblioteca para verificar a *Taxa de Sucesso* (**Métrica 4.3**).
+| Métrica(s) | Atributo | Instrumento/Método | Dados Coletados |
+| :--- | :--- | :--- | :--- |
+| **1.1 e 1.2** | Adaptabilidade (Falhas e Desempenho) | Script de Execução Cruzada (PowerShell/Bash) | Contagem de *crashes*/erros de execução; Medição de tempo de processamento (`time`, `Measure-Command`). |
+| **2.1, 2.2, 3.1, 3.2, 3.3** | Instalabilidade | Scripts de Build Automatizado (`./configure`, `make`), Coleta de Logs, Cronometragem. | Logs de saída (`stderr`, `stdout`); Tempo exato de instalação/desinstalação; Status de Sucesso/Falha. |
+| **4.1, 4.2 e 4.3** | Substituibilidade (Dependências) | Controle de Versão (Git), Registro de Tempo Humano, Suite de Testes de Regressão. | Linhas de código modificadas (`git diff --stat`); Horas gastas pela equipe na adaptação; Taxa de Sucesso dos testes funcionais. |
 
 ### Passo a Passo de Coleta
 
@@ -83,16 +68,18 @@ Quarto passo: **Consolidação**
 
 ## Localização dos Dados de Avaliação
 
-- **planilha_portabilidade.csv** — Tabela comparativa entre OSs e registros de tempos.
-- **Pastas de Logs:**
-    - `/logs_windows/install_logs/`
-    - `/logs_linux/install_logs/`
-    - `/logs_replaceability/diffs/`
-- **Relatório de Adaptação:** Documento de texto descrevendo as dificuldades encontradas na troca de versão da biblioteca se houver.
+| Artefato | Conteúdo | Finalidade |
+| :--- | :--- | :--- |
+| **planilha_portabilidade.csv** | Tabela comparativa de resultados, incluindo tempos e status. | Consolidação dos resultados das métricas 1.2, 2.1, 2.2, 3.x. |
+| **Pastas de Logs** | Saídas de `stderr` e `stdout` dos processos de build. | Análise das **Diferenças no Tempo e Tipos de Falha** (Métrica 3.3). |
+| `/logs_windows/install_logs/` | Logs de instalação no Ambiente A. | |
+| `/logs_linux/install_logs/` | Logs de instalação no Ambiente B. | |
+| `/logs_replaceability/diffs/` | Saída de `git diff --stat`. | Mensurar o **Esforço de Adaptação** (Métrica 4.2). |
+| **Relatório de Adaptação** | Documento de texto. | Descreve as dificuldades encontradas na troca de versão da biblioteca (Métrica 4.2). |
 
 ### **Histórico de Versão**
 
-| Versão | Data       | Descrição                                         | Autor                                          | Revisor                                        |
-| :----- | :--------- | :------------------------------------------------ | :--------------------------------------------- | :--------------------------------------------- |
-| 1.0    | 13/11/2025 | Criação do Documento.                             | [Caio Venâncio](https://www.github.com/caio-venancio) | [Vinicius Castelo](https://github.com/Vini47)  |
-| 2.0    | 19/11/2025 | Adicionado informações ao Documento (Portabilidade). | [Vinicius Castelo](https://github.com/Vini47)  | [Caio Venâncio](https://www.github.com/caio-venancio) |
+| Versão | Data | Descrição | Autor | Revisor |
+| :--- | :--- | :--- | :--- | :--- |
+| 1.0 | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio) | [Vinicius Castelo](https://github.com/Vini47) |
+| 2.0 | 19/11/2025 | Adicionado informações ao Documento | [Vinicius Castelo](https://github.com/Vini47) | [Caio Venâncio](https://www.github.com/caio-venancio) |
