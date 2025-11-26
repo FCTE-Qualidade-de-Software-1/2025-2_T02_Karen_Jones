@@ -16,8 +16,8 @@ A **Tabela 1** apresenta as quatro questões operacionais (Q) e as métricas (M)
 | :--- | :--- | :--- |
 | **Q1**. Qual o grau de fidelidade e confiança do GIMP na troca de dados com o ecossistema externo? | Interoperabilidade | M1.1: Taxa de Sucesso Funcional (TSF) e M1.2: Densidade de Defeitos por Teste (DDT). |
 | **Q2**. Quais são os custos de recursos (tempo e memória) que o módulo File-exr impõe? | Coexistência | M2.1: Aumento Percentual no Tempo de Carregamento (APTC) e M2.2: Aumento Percentual no Consumo de Memória (APCM). |
-| **Q3**. O quanto estável e robusto é o módulo File-exr em produção? | Estabilidade em Produção (Processo) | M3.1: Densidade de Defeitos Pós-Lançamento (DDPL) e M3.2: Tempo Médio de Resolução (TMR). |
-| **Q4**. De que forma a arquitetura do módulo File-exr aumenta a dificuldade e o custo de manutenção? | Arquitetura/Manutenção (Produto/Processo) | M4.1: Índice de Esforço Não-Comum (IENC) e M4.2: Complexidade Ciclomática Média (CCM). |
+| **Q3**. O quanto estável e robusto é o módulo File-exr em produção? | Estabilidade em Produção (Processo) | M3.1: Tempo Médio de Resolução (TMR). |
+
 
 
 **Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
@@ -36,8 +36,8 @@ Com isso, a **Tabela 2** sintetiza o fluxo entre as métricas, suas respectivas 
 | :--- | :--- | :--- |
 | **M1.1 (TSF), M1.2 (DDT)** | Execução do Round-Trip (GIMP ↔ Blender/Krita) | Planilha de Testes, Logs de Erro, Observação Manual. |
 | **M2.1 (APTC), M2.2 (APCM)** | Processo GIMP em tempo de execução | `time` (Linux), Gerenciador de Tarefas (Windows), Cronômetro. |
-| **M3.1 (DDPL), M3.2 (TMR)** | Dados históricos do Repositório (Issues) | GitLab Filters, Planilha de Coleta, Busca Documental. |
-| **M4.1 (IENC), M4.2 (CCM)** | Código-fonte do `file-exr` | Ferramenta de Análise Estática (Lizard), Inspeção Manual. |
+| **M3.1 (TMR)** | Dados históricos do Repositório (Issues) | GitLab Filters, Planilha de Coleta, Busca Documental. |
+
 
 **Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
 
@@ -72,7 +72,6 @@ Os instrumentos de medição são responsáveis por coletar os dados brutos de f
 | **M1.1 (TSF) / M1.2 (DDT)** | **Planilha de Testes**, **Observação Manual** e **Logs de Erro**. | Registro de sucesso, falha e tipo de defeito encontrado em cada uma das 10 validações do *round-trip* (Q1). |
 | **M2.1 (APTC) / M2.2 (APCM)** | **Cronômetro nativo do SO** (ou comando `time` no Linux) e **Monitor de Recursos do SO** (Gerenciador de Tarefas no Windows; `top/htop` no Linux). | Medição precisa do tempo de carregamento e pico de consumo de RAM do processo GIMP antes e durante a abertura de um `.exr` (Q2). |
 | **M3.1 (DDPL) / M3.2 (TMR)** | **Repositório GitLab do GIMP** (Seção *Issues*) e **Filtros de Busca**. | Coleta de dados de *issues* públicas para obter o número de defeitos e calcular o tempo de resolução médio (Q3). |
-| **M4.2 (CCM)** | **Ferramenta de Análise Estática** (Ex: **Lizard**). | Ferramenta utilizada para analisar o código-fonte do `file-exr` e calcular a **Complexidade Ciclomática Média** (CCM) das funções críticas (Q4). |
 | **Todos (Evidência)** | **Software de Gravação de Tela** (com auxilio do TEAMS). | Produzir as evidências em vídeo da execução dos testes na Fase 4. |
 
 **Autora:** [Larissa Stéfane](https://github.com/SkywalkerSupreme)
@@ -105,13 +104,15 @@ O teste avalia a sobrecarga do módulo `file-exr` no sistema em relação à ini
 4.  **Validação Cruzada:** Repetir os passos 2 e 3 no **Sistema Operacional 2** (Windows 11).
 5.  **Cálculo:** Aplicar as fórmulas **APTC** e **APCM** com os valores médios registrados para determinar a sobrecarga.
 
-#### C. Roteiro de Coleta de Dados de Processo e Arquitetura (Q3 e Q4)
+#### C. Roteiro de Teste de Eficácia do Processo (Q3: TMR)
 
-Para as questões que envolvem processos e arquitetura, a medição é documental e estática.
+O teste avalia a **eficácia do processo de garantia de qualidade** e de manutenção, focando na **Métrica 3.1: Tempo Médio de Resolução (TMR)**, conforme definido na [Fase 2](https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase2/2-compatibilidade/). O objetivo é julgar se a correção de *bugs* de compatibilidade é rápida (TMR < 48 horas) ou lenta (TMR > 96 horas).
 
-1.  **Coleta de DDPL e TMR (Q3):** Acessar o repositório **GitLab do GIMP**. Filtrar as *issues* por `search: exr` e `label: bug`. Contar o **Nº de Defeitos Pós-Lançamento** (DDPL) e calcular o **Tempo Médio de Resolução (TMR)** para os bugs já fechados (Q3).
-2.  **Cálculo de CCM (Q4):** Utilizar a ferramenta **Lizard** para calcular a **Complexidade Ciclomática** das funções críticas do `file-exr`.
-3.  **Cálculo de IENC (Q4):** Inspecionar o código-fonte do `file-exr` e estimar o percentual de código que depende de APIs específicas de um SO (Windows/Linux/macOS), comparando com o total de código do módulo.
+1.  **Preparo:** Fechar todas as aplicações desnecessárias para iniciar a mineração de dados históricos.
+2.  **Medição de Issues Fechadas (TMR):** A medição será realizada no **GitLab do GIMP** ao focar no repositório do projeto.
+3.  **Registro de Issues Abertas (Contexto):** Registrar o número total de *issues* **Abertas** relacionadas a `exr` para fornecer contexto sobre a carga de trabalho atual da equipe.
+4.  **Julgamento:** Comparar o **TMR Calculado** com o critério de **48 horas** para determinar se a Hipótese H3 foi confirmada (Alta Eficiência) ou refutada (Baixa Eficiência).
+
 
 ## Localização dos Dados de Avaliação
 
@@ -126,7 +127,6 @@ Dessa forma, a documentação final da avaliação será apresentada no arquivo 
 | Planilhas de resultados brutos (TSF, DDT, APTC, APCM) e dados de processo (DDPL, TMR, CCM). | Armazenamento de todas as **métricas calculadas** na Fase 4. |
 | **Arquivos de vídeo** (obrigatórios) dos testes de *Round-Trip* (Q1) e Coexistência (Q2). | Prova visual da **execução dos testes** (requisitado pela professora). |
 | Os 5 arquivos `.exr` de *input* e *output* (baseline e modificados pelo GIMP). | Prova da **massa de dados** usada no teste de Interoperabilidade (Q1). |
-| Relatórios da ferramenta de análise estática (CCM) e anotações da inspeção de código para o IENC. | Prova da **análise do código-fonte** (Q4). |
 
 ### **Histórico de Versão**
 
@@ -134,4 +134,4 @@ Dessa forma, a documentação final da avaliação será apresentada no arquivo 
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|      [Larissa Stéfane](https://github.com/SkywalkerSupreme)  |
 | 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
-
+| 1.2    | 25/11/2025 | Reestruturação | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
