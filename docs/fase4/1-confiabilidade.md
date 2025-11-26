@@ -12,39 +12,30 @@ Como descrito autoriormente na [Fase 3](https://fcte-qualidade-de-software-1.git
 - [Medição da Métrica 2.1 - Taxa de Sucesso sob Carga](#medicao-da-metrica-21-taxa-de-sucesso-sob-carga)
 
 Já as métricas 2.2, 3.1, e 3.2, foram feitas testes de forma manual, utilizando manipulação de arquivos validos e corrompidos, presentes respectivamente nas pastas `tests/validos` e `tests/corrompidos`
-<!-- pode preencher aqui, Arthur? -->
 
 ### Medição da Métrica 1.1 - Taxa de Falhas (Failure Rate)
 
-**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por pelo menos 10 horas, e se contabiliza a quantidade de falhas e quantidade total de tempo em execução, e depois segue-se a fórmula.
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por aproximadamente 10 horas, e se contabiliza a quantidade de falhas e quantidade total de tempo em execução, e depois segue-se a fórmula.
 > `Nº total de falhas / Tempo total de uso (em horas)`
 
 <div align="center">
     Figura 1: Vídeo sobre o algoritmo rodando.
     <br>
-    <img src="">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kwgDWN2eY1A?si=axz553FnZgH3qAl7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <br>
      <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
     <br>
 </div>
 <br>
 
-<div align="center">
-    Figura 2: Cálculo de Taxa de Falhas a partir dos resultados no algoritmo automático.
-    <br>
-    <img src="">
-    <br>
-     <b> Autor: </b> <a href="https://github.com/caio-venancio">Caio Venâncio</a>.
-    <br>
-</div>
 
 ### Medição da Métrica 1.2 - Tempo Médio Entre Falhas (MTBF)
 
-**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por 10 horas, e se contabiliza quantidade total de tempo em execução e a quantidade de falhas em execução, e depois segue-se a fórmula.
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por aproximadamente 10 horas, e se contabiliza quantidade total de tempo em execução e a quantidade de falhas em execução, e depois segue-se a fórmula.
 > `Tempo total de uso (em horas) / Nº total de falhas`
 
 <div align="center">
-    Figura 3: Cálculo do tempo médio entre falhas a partir dos arquivos gerados pela rotina.
+    <!-- Figura 3: Cálculo do tempo médio entre falhas a partir dos arquivos gerados pela rotina. -->
     <br>
     <img src="">
     <br>
@@ -54,7 +45,7 @@ Já as métricas 2.2, 3.1, e 3.2, foram feitas testes de forma manual, utilizand
 
 ### Medição da Métrica 2.1 - Taxa de Sucesso sob Carga
 
-**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por 10 horas, e se contabiliza o total de operações bem sucedidas e a quantidade total de operações, e depois segue-se a fórmula.
+**Descrição:** Aqui se utiliza os documentos em `tests/resultados` depois de se ter executado por aproximadamente 10 horas, e se contabiliza o total de operações bem sucedidas e a quantidade total de operações, e depois segue-se a fórmula.
 > `(Operações OK / Total de operações) * 100 (calculada por categoria de carga)`
 
 <div align="center">
@@ -130,7 +121,6 @@ Esta seção apresenta o resultado do cálculo de cada métrica, o valor final o
     <br>
 </div>
 
-<!-- Só estou esperando terminar de rodar por dez horas para continuar -->
 
 ## 3. Análise e Julgamento
 
@@ -180,15 +170,6 @@ A análise da natureza das falhas revelou que o problema central reside na falta
 
 * **Melhoria Específica:** Sugere-se desenvolver um mecanismo de **Recuperação Automática de Sessão** específico para o formato EXR, que registre o estado de trabalho (metadados e camadas) em intervalos regulares (ex: a cada 5 minutos ou a cada ação crítica).
 * **Impacto Esperado:** Diminui o risco de perda de horas de trabalho, elevando a **Recuperabilidade (H3)** para o nível aceitável.
-
-
-
-### Discussão dos Resultados e Julgamento
-
-
-### Achados e Melhoria Proposta (Conexão com a Fase 1)
-
-
 
 ## Referências
 
