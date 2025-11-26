@@ -6,7 +6,7 @@ O objetivo desta página é fornecer uma visão do software em avaliação e o s
 
 - **Nome do produto**: GIMP (GNU Image Manipulation Program).
 - **Nome do módulo foco**: `file-exr` (I/O de formato OpenEXR).
-- **Versão do produto**: 3.0.4 (Última release estável).
+- **Versão do produto**: 3.0.6 (Última release estável).
 - **Data da Release da Versão**: 18 de Maio de 2025.
 - **Aplicação do produto**: Editor de imagens multiplataforma.
 - **Aplicação do módulo**: Responsável pela leitura e escrita de arquivos no formato OpenEXR.

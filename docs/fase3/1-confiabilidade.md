@@ -29,39 +29,32 @@ Com base no planejamento da [Fase 2](https://fcte-qualidade-de-software-1.github
     - Armazenamento: SSD  
 - **Arquivos de Teste:**  
     - Conjunto de imagens EXR válidas (diferentes resoluções e tamanhos)  
-    - Arquivos EXR corrompidos ou truncados  
-    - Arquivos inválidos renomeados com extensão `.exr`  
-    - EXRs de grande porte (>50 MB) para simular carga  
+    - Arquivos EXR corrompidos ou truncados   
 - **Pré-requisitos:**  
-    - PowerShell 5.1 ou PowerShell 7+  
-    - Acesso ao executável do GIMP  
-    - Ferramentas Sysinternals (opcional para diagnóstico avançado)
+    - cmd.exe com versão a partir do Windows 7
+    - Acesso ao executável do GIMP com gimp-console-3.0.exe disponível
 
 ---
 
 ### Instrumentos de Medição
 
 #### Métrica 1.1 — Taxa de Falhas (Failure Rate)
-- Scripts PowerShell para repetidas tentativas de abertura de arquivos.  
-- Logs gerados com o comando:  
-  ```powershell
-  gimp-3.0.4.exe --verbose *> logs.txt
-  ```
-- Contador de falhas por tentativa.
+- Criação de arquivos válidos a partir de site oficial de arquivos variados do OpenEXR [[2]](#REF2).
+- Execução de script `tests/scripts/run-open-exr3.bat` por 10 horas ou mais para satisfazer métrica.
+- Contabilização de arquivos `.csv` e `.log`.
 
 #### Métrica 1.2 — Tempo Médio Entre Falhas (MTBF)
-- Scripts PowerShell com registro de timestamps.
-- Arquivo de coleta contendo tentativas, tempos e erros.
+- Criação de arquivos válidos a partir de site oficial de arquivos variados do OpenEXR [[2]](#REF2).
+- Execução de script `tests/scripts/run-open-exr3.bat` por 10 horas ou mais para satisfazer métrica.
+- Contabilização de arquivos `.csv` e `.log`.
 
 #### Métrica 2.1 — Taxa de Sucesso sob Carga
-- Execução paralela via PowerShell 7+ com:
-- Múltiplas instâncias via `Start-Process`.
-- Monitoramento com:
-- Resource Monitor (resmon.exe)
-- Performance Monitor (perfmon.exe)
+- Criação de arquivos válidos a partir de site oficial de arquivos variados do OpenEXR [[2]](#REF2).
+- Execução de script `tests/scripts/run-open-exr3.bat` por 10 horas ou mais para satisfazer métrica.
+- Contabilização de arquivos `.csv` e `.log`.
 
 #### Métrica 2.2 — Taxa de Tratamento de Entradas Inválidas
-- Criação de arquivos inválidos:
+- Criação de arquivos inválidos atravéis de script disponível em `tests/scripts/run-corrompido2.bat`
 - Uso de arquivos inválidos no módulo `file-exr`
 - Análise da reação do módulo `file-exr`(erro tratado, travamento, etc):
 
@@ -85,49 +78,64 @@ Organizar os arquivos em pastas:
   - `/validos/`
   
   - `/corrompidos/`
-  
-  - `/invalidos/`
 
-Iniciar GIMP em modo detalhado:
+Iniciar scripts a partir da pasta `tests` no terminal do Windows:
   
 ```
-gimp-3.0.6.exe --verbose *> logs.txt
+.\scripts\run-open-exr3.bat *> .\logs\run.log
 ```
   
 Segundo passo: **Execução**
 
+Executar via script:
+
   - Para **Taxa de Falhas**: abrir automaticamente dezenas de EXRs.
   - Para **MTBF**: registrar tempos entre ocorrências de falhas.
-  - Para **Carga**: abrir vários EXRs simultaneamente via PowerShell.
+  - Para **Carga**: abrir vários EXRs simultaneamente via terminal.
+
+  Executar manualmente:
+
   - Para **Entradas Inválidas**: testar arquivos vazios, truncados, renomeados, etc.
   - Para **Recuperação**: alternar arquivos válidos e inválidos.
   - Para **MTTR**: medir tempo entre falha e a recuperação da operação.
 
 Terceiro passo: **Registro**
 
- - Consolidar resultados em arquivo CSV contendo:
-   - Tipo de teste
-   - Resultado (sucesso/falha)
+Contabilizar resultados de arquivo CSV e LOG contendo:
+
+   - Quantidade de operações
+   - Quantidade de falhas
    - Tempo medido
 
 ---
 
 ## Localização dos Dados de Avaliação
-- **planilha_resultados.csv** — registro tabulado das métricas
-- **Pastas de teste:**
-  - `validos/`
-  - `corrompidos/`
-  - `invalidos/`
-- **Capturas manuais e anotações** - Presente no documento em forma de imagens, links para vídeos, documentos, etc.
+- **Pastas de resultados:** <br>`tests/resultados` e `tests/logs`— registro tabulado das execuções em `.csv` e saída do terminal em `.log`
+- **Pastas de arquivos teste:** <br>
+  `tests/validos/`, `tests/corrompidos/` — pasta contendo arquivos da extensão `.exr`
+- **Pastas de scripts:**
+  `tests/scripts/` — responsável pelos arquivos `.bat` para execução e criação de arquivos corrompidos.
+- **Capturas manuais e anotações** <br> - Presente no documento em forma de imagens, links para vídeos, documentos, etc.
 
 ## Referências
 
-- https://www.gimp.org/man/gimp.html
-- https://openexr.com/en/latest/test_images/index.html
-- https://docs.gimp.org/3.0/en/gimp-fire-up.html
-- https://docs.gimp.org/3.0/en/gimp-using-script-fu-tutorial-first-script.html
-- https://testing.developer.gimp.org/resource/script-fu/programmers-reference
-- https://testing.developer.gimp.org/resource/script-fu/scriptfu-tools/
+<a id="REF1">1.</a> GIMP. GIMP — Manual da Ferramenta em Linha de Comando (gimp man page). Disponível em: https://www.gimp.org/man/gimp.html
+. Acesso em: 25 nov. 2025.
+
+<a id="REF2">2.</a> OPENEXR. OpenEXR Test Images — Official Test Suite. Disponível em: https://openexr.com/en/latest/test_images/index.html
+. Acesso em: 25 nov. 2025.
+
+<a id="REF3">3.</a> GIMP DOCUMENTATION TEAM. Starting GIMP — Launching the Application. GIMP Documentation 3.0. Disponível em: https://docs.gimp.org/3.0/en/gimp-fire-up.html
+. Acesso em: 25 nov. 2025.
+
+<a id="REF4">4.</a> GIMP DOCUMENTATION TEAM. Script-Fu Tutorial: Writing Your First Script. GIMP Documentation 3.0. Disponível em: https://docs.gimp.org/3.0/en/gimp-using-script-fu-tutorial-first-script.html
+. Acesso em: 25 nov. 2025.
+
+<a id="REF5">5.</a> GIMP DEVELOPER DOCUMENTATION. Script-Fu Programmer’s Reference. Disponível em: https://testing.developer.gimp.org/resource/script-fu/programmers-reference
+. Acesso em: 25 nov. 2025.
+
+<a id="REF6">6.</a> GIMP DEVELOPER DOCUMENTATION. Script-Fu Tools and Resources. Disponível em: https://testing.developer.gimp.org/resource/script-fu/scriptfu-tools/
+. Acesso em: 25 nov. 2025.
 
 ### **Histórico de Versão**
 
@@ -137,3 +145,4 @@ Terceiro passo: **Registro**
 | 1.1    | 18/11/2025 | Adição da versão inicial do Plano de Avaliação    |[Caio Venâncio](https://www.github.com/caio-venancio), [Arthur Evangelista](https://www.github.com/arthurevg)||
 | 1.2    | 24/11/2025 | Adicionar referências. | [Caio Venâncio](https://www.github.com/caio-venancio)|     [Arthur Evangelista](https://www.github.com/arthurevg)   |
 | 1.3    | 24/11/2025 | Correções após verificar alguns problemas na Fase 4 |[Arthur Evangelista](https://www.github.com/arthurevg) |   [Caio Venâncio](https://www.github.com/caio-venancio)     |
+| 1.4  | 24/11/2025 | Novas Correções após verificar alguns problemas na Fase 4 |[Caio Venâncio](https://www.github.com/caio-venancio) | [Arthur Evangelista](https://www.github.com/arthurevg) |
