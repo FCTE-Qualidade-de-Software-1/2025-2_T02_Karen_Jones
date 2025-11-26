@@ -577,7 +577,7 @@ A figura 23 mostra a análise das issues:
 <div align="center">
     Figura 23: Execução do Teste de Eficácia do Processo (Q3: TMR)
     <br>
-    <img src="">
+    <img src="https://raw.githubusercontent.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones/refs/heads/main/docs/printCompatibilidade/teste03.png">
     <br>
      <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>
