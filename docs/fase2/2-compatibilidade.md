@@ -64,7 +64,7 @@ Esta métrica mede a eficácia na realização de uma tarefa com base no estudo 
 > **Interpretação (Critério):**
 >
 > - **Alta Interoperabilidade (H1 Confirmada):** >95%
-> - **Média Interoperabilidade: de 45% a 95%
+> - **Média Interoperabilidade**: de 45% a 95%
 > - **Baixa Interoperabilidade (H1 Refutada):** < 45%
 
 #### Métrica 1.2: Densidade de Defeitos por Teste (DDT)
