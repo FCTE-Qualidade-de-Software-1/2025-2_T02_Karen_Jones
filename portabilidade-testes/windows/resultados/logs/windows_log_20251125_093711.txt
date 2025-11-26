@@ -1,0 +1,36 @@
+--- Processando: C:\Users\PC - U\Desktop\testes\images\AllHalfValues.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\AllHalfValues.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\BrightRings.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\BrightRings.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\BrightRingsNanInf.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\BrightRingsNanInf.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\CrissyField.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\CrissyField.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\Flowers.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\Flowers.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\GammaChart.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\GammaChart.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\Garden.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\Garden.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\GoldenGate.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\GoldenGate.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\GrayRampsDiagonal.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\GrayRampsDiagonal.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\GrayRampsHorizontal.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\GrayRampsHorizontal.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\MtTamNorth.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\MtTamNorth.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\Ocean.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\Ocean.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\RgbRampsDiagonal.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\RgbRampsDiagonal.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\Spirals.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\Spirals.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\SquaresSwirls.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\SquaresSwirls.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\StarField.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\StarField.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\WideColorGamut.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\WideColorGamut.exr
+--- Processando: C:\Users\PC - U\Desktop\testes\images\WideFloatRange.exr
+🚨 FALHA (CRASH ou Exit Code: ) para C:\Users\PC - U\Desktop\testes\images\WideFloatRange.exr
