@@ -147,11 +147,9 @@ A **Tabela 2** sumariza o desempenho do módulo file-exr na Confiabilidade, comp
 
 ### Discussão dos Resultados e Julgamento
 
-<!-- Falar sobre como é difícil testar no projeto gimp, falta de possibilidade de scripts automatizados requer abrir e fechar o gimp o tempo todo, não é trivial. -->
+O teste de **Maturidade** (métricas 1.1 e 1.2) indicou falha na direta na hipótese H1, sobre estabilidade do módulo. Antes, acreditava-se que o módulo fosse estável para uso diário e que apresentasse poucas falhas ou não travasse por longos períodos e agora é possível constatar, pelas medições 1.1 e 1.2 que isso não é verdade.
 
-<!-- Somado a falta de documentação por parte do gimp-console e do script-fu -->
-
-<!-- Falar sobre como arquivos válidos são provavelmente bem lidos pela biblioteca, mesmo multicamadas, e da necessidade de testar operações complexas -->
+Já a hipótese H2 é confirmada nesta medição, já que as medições 2.1 e 2.2 tiveram bons resultados de acordo com nosso critério, confirmando a expectativa do módulo se manter operacional mesmo com arquivos grandes ou corrompidos.
 
 O teste de **Recuperação** M3 indicou uma falha direta na hipótese H3, que previa facilidade de recuperação. Além disso, embora a Métrica 3.2 tenha sido confirmada nesse caso, foi possível observar que ela é proporcional ao tamanho da tarefa, ou seja, uma tarefa de 8 horas, duraria aproximadamente 8 horas para refazer em caso de crash. Sendo assim, os resultados da execução confirmaram a necessidade de aprimoramento urgente no módulo file-exr:
 
@@ -161,9 +159,6 @@ O teste de **Recuperação** M3 indicou uma falha direta na hipótese H3, que pr
 ---
 
 ### Achados e Melhoria Proposta
-
-<!-- Citar como ponto forte a abertura de arquivos variados .EXR -->
-<!-- Citar como ponto fraco a API de Scripts -->
 
 A análise da natureza das falhas revelou que o problema central reside na falta de mecanismos de segurança contra a instabilidade e não na capacidade de processamento de dados do módulo.
 
@@ -175,8 +170,6 @@ A análise da natureza das falhas revelou que o problema central reside na falta
 
 * **Melhoria Específica:** Sugere-se desenvolver um mecanismo de **Recuperação Automática de Sessão** específico para o formato EXR, que registre o estado de trabalho (metadados e camadas) em intervalos regulares (ex: a cada 5 minutos ou a cada ação crítica).
 * **Impacto Esperado:** Diminui o risco de perda de horas de trabalho, elevando a **Recuperabilidade (H3)** para o nível aceitável.
-
-## Referências
 
 ### **Histórico de Versão**
 
