@@ -1,0 +1,2201 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Trabalho de Qualidade de Software para avaliação do GIMP">
+      
+      
+      
+      
+        <link rel="prev" href="../2-compatibilidade/">
+      
+      
+        <link rel="next" href="../5-conclusao/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Portabilidade - Projeto GIMP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#execucao-do-plano-de-avaliacao-quanto-a-portabilidade" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Projeto GIMP" class="md-header__button md-logo" aria-label="Projeto GIMP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Projeto GIMP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Portabilidade
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="deep-orange"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sobre o projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../karenjones/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quem é Karen Jones
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase1/fase1/" class="md-tabs__link">
+          
+  
+  
+  Fase 1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase2/fase2/" class="md-tabs__link">
+          
+  
+  
+  Fase 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase3/fase3/" class="md-tabs__link">
+          
+  
+  
+  Fase 3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../fase4/" class="md-tabs__link">
+          
+  
+  
+  Fase 4
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Projeto GIMP" class="md-nav__button md-logo" aria-label="Projeto GIMP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Projeto GIMP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sobre o projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../karenjones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quem é Karen Jones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/fase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/1-proposito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propósito da Avaliação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/2-requistantes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitantes e Partes Interessadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/3-descricao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descrição do Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/4-justificativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Justificativas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/5-modelo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Qualidade e Escopo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/6-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/fase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/1-confiabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confiabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/2-compatibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/3-portabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/4-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/fase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/1-confiabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confiabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/2-compatibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/3-portabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/5-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fase4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-confiabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confiabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-compatibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-execucao-do-teste-de-adaptabilidade-q1-ambientes-linux-e-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Execução do Teste de Adaptabilidade (Q1) - Ambientes Linux e Windows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-execucao-do-teste-de-instalabilidade-q2-e-q3-ambiente-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Execução do Teste de Instalabilidade (Q2 e Q3) - Ambiente Linux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-execucao-do-teste-de-substituibilidade-metricas-41-42-e-43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Execução do Teste de Substituibilidade (Métricas 4.1, 4.2 e 4.3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dificuldades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dificuldades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-conclusao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-execucao-do-teste-de-adaptabilidade-q1-ambientes-linux-e-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Execução do Teste de Adaptabilidade (Q1) - Ambientes Linux e Windows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-execucao-do-teste-de-instalabilidade-q2-e-q3-ambiente-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Execução do Teste de Instalabilidade (Q2 e Q3) - Ambiente Linux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-execucao-do-teste-de-substituibilidade-metricas-41-42-e-43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Execução do Teste de Substituibilidade (Métricas 4.1, 4.2 e 4.3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dificuldades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dificuldades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="execucao-do-plano-de-avaliacao-quanto-a-portabilidade">Execução do Plano de Avaliação - Quanto à Portabilidade<a class="headerlink" href="#execucao-do-plano-de-avaliacao-quanto-a-portabilidade" title="Permanent link">&para;</a></h1>
+<p>A Fase 4 consiste na aplicação rigorosa dos roteiros definidos na <a href="https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase3/3-portabilidade/">Fase 3</a>, transformando as métricas planejadas em dados quantitativos e evidências concretas. Com isso, é possível validar ou refutar as hipóteses levantadas para as subcaracterísticas de Adaptabilidade e Instalabilidade do módulo <code>file-exr</code> no ambiente <strong>Linux</strong> e <strong>Windows 11</strong>.</p>
+<h2 id="a-execucao-do-teste-de-adaptabilidade-q1-ambientes-linux-e-windows">A. Execução do Teste de Adaptabilidade (Q1) - Ambientes Linux e Windows<a class="headerlink" href="#a-execucao-do-teste-de-adaptabilidade-q1-ambientes-linux-e-windows" title="Permanent link">&para;</a></h2>
+<p>O teste de Adaptabilidade verifica a capacidade do módulo <code>file-exr</code> de apresentar comportamento funcional estável e desempenho mensurável ao ser executado nos ambientes operacionais Linux (Ubuntu) e Windows 11, sendo o Linux o <em>baseline</em> para comparação futura.</p>
+<h3 id="1-procedimento-de-execucao-linux">1. Procedimento de Execução - Linux<a class="headerlink" href="#1-procedimento-de-execucao-linux" title="Permanent link">&para;</a></h3>
+<p>A execução foi realizada no ambiente <strong>Linux (Ubuntu 22.04 LTS)</strong>, utilizando o GIMP instalado via gerenciador de pacotes padrão. O procedimento seguiu o roteiro de automação via <em>script shell</em> detalhado na <a href="https://fcte-qualidade-de-software-1.github.io/2025-2_T02_Karen_Jones/fase3/3-portabilidade/">Fase 3</a>.</p>
+<p><strong>Dessa forma, as seguintes ações foram concluídas:</strong></p>
+<p><strong>Dataset:</strong> Foi processado um conjunto de <strong>18 arquivos EXR</strong> no total, conforme o plano de teste.</p>
+<p><strong>Imagem 1:</strong> Demonstração</p>
+<p><img alt="img1" src="../portabilidade-Linux-img/resultado%20testes.png" /></p>
+<p><strong>Automação (Script):</strong> Utilizou-se o script <code>teste_adaptabilidade_ubuntu.sh</code> para invocar o GIMP em modo <em>headless</em> (sem interface gráfica), forçando a abertura, uma edição simples (níveis automáticos) e o salvamento de cada arquivo.</p>
+<p><strong>Coleta de Logs:</strong> O script capturou o tempo de execução em milissegundos e o código de saída (<em>exit code</em>) de cada operação, registrando as falhas.</p>
+<h3 id="2-medicao-dados-coletados-linux">2. Medição (Dados Coletados) - Linux<a class="headerlink" href="#2-medicao-dados-coletados-linux" title="Permanent link">&para;</a></h3>
+<p>A <strong>Tabela 1</strong> sumariza os resultados das 18 execuções, evidenciando as falhas inesperadas de estabilidade que ocorreram durante o processamento.</p>
+<p align="center">
+<strong>Tabela 1:</strong> Resultados de Adaptabilidade no Linux (Ubuntu)
+<br>
+</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">ID Arquivo</th>
+<th style="text-align: left;">Operação</th>
+<th style="text-align: left;">Tempo (ms)</th>
+<th style="text-align: left;">Resultado</th>
+<th style="text-align: left;">Defeito Encontrado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>A1.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1441</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1531</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A3.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1518</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A4.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1015</td>
+<td style="text-align: left;"><strong>FALHA</strong></td>
+<td style="text-align: left;">terminate called without an active exception / GIMP Abortado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A5.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1024</td>
+<td style="text-align: left;"><strong>FALHA</strong></td>
+<td style="text-align: left;">terminate called without an active exception / GIMP Abortado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A6.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1465</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A7.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1417</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A8.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1772</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A9.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1433</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A10.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1438</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A11.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1021</td>
+<td style="text-align: left;"><strong>FALHA</strong></td>
+<td style="text-align: left;">terminate called without an active exception / GIMP Abortado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A12.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1829</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A13.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1476</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A14.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1894</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A15.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1574</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A16.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1022</td>
+<td style="text-align: left;"><strong>FALHA</strong></td>
+<td style="text-align: left;">terminate called without an active exception / GIMP Abortado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A17.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1498</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A18.exr</strong></td>
+<td style="text-align: left;">Open/Edit/Save</td>
+<td style="text-align: left;">1388</td>
+<td style="text-align: left;">SUCESSO</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TOTAIS</strong></td>
+<td style="text-align: left;"><strong>18 Arquivos</strong></td>
+<td style="text-align: left;"><strong>Total: 26.796ms</strong></td>
+<td style="text-align: left;"><strong>14 Sucessos / 4 Falhas</strong></td>
+<td style="text-align: left;"><strong>4 Crashes</strong></td>
+</tr>
+</tbody>
+</table>
+<p>A falha observada em todos os casos de insucesso é a ocorrência de “terminate called without an active exception”, mensagem típica da biblioteca padrão do C++ que sinaliza um erro grave e não tratado como uma exceção não capturada ou uma asserção falha dentro do plug-in file-exr. Esse erro força o sistema a interromper a execução (fatal error: abortado), provocando o crash imediato do GIMP e impedindo a finalização da operação. O conjunto desses indícios aponta para um claro problema de estabilidade funcional (M1.1) no módulo, possivelmente relacionado ao manejo inadequado de determinados dados ou metadados presentes nos arquivos EXR defeituosos.</p>
+<p>As imagens utilizadas foram obtidas nos seguintes repositórios oficiais do OpenEXR:</p>
+<ul>
+<li><strong>OpenEXR Images Repository (GitHub):</strong> https://github.com/AcademySoftwareFoundation/openexr-images</li>
+<li><strong>Documentação Oficial do OpenEXR:</strong> https://openexr.com/en/latest/</li>
+</ul>
+<h3 id="3-execucao-e-dificuldades-no-ambiente-windows-11">3. Execução e Dificuldades no Ambiente Windows 11<a class="headerlink" href="#3-execucao-e-dificuldades-no-ambiente-windows-11" title="Permanent link">&para;</a></h3>
+<p>A execução do teste de Adaptabilidade no ambiente <strong>Windows 11</strong> apresentou desafios significativos, especialmente na adaptação do <em>script</em> de automação e na estabilidade do GIMP em modo <em>batch</em>.</p>
+<h4 id="dificuldades-de-automacao-e-shell">Dificuldades de Automação e Shell<a class="headerlink" href="#dificuldades-de-automacao-e-shell" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Adaptação do Shell:</strong> Foi necessário migrar do <em>shell</em> nativo Bash (Linux) para o <strong>PowerShell</strong> (Windows), exigindo a reescrita completa do <em>script</em> de automação. A sintaxe de <em>strings</em>, tratamento de <em>paths</em> (com barras invertidas) e captura correta do código de saída do GIMP (<code>$LASTEXITCODE</code>) no PowerShell demonstraram complexidade inesperada.</li>
+<li><strong>Problemas de Escopo de Variáveis:</strong> O <em>script</em> em PowerShell inicialmente falhou devido a erros de escopo (<code>DriveNotFoundException</code> ao tentar usar <code>$GLOBALS:FALHAS</code> em vez de <code>$global:FALHAS</code>), indicando que o ambiente Windows requer atenção redobrada à sintaxe específica do shell.</li>
+</ol>
+<h4 id="problemas-de-estabilidade-e-processamento">Problemas de Estabilidade e Processamento<a class="headerlink" href="#problemas-de-estabilidade-e-processamento" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Instâncias Múltiplas e <em>Crashes</em></strong>: Durante as tentativas de execução, o comando GIMP em modo <em>batch</em> no Windows frequentemente abria <strong>várias janelas de console e instâncias do GIMP</strong> simultaneamente, o que não ocorreu no Linux. Além disso, as operações resultaram em <strong>crashes imediatos</strong> para <strong>todos os 18 arquivos EXR</strong> testados, indicando uma falha de adaptação ou funcionalidade no ambiente Windows.</li>
+</ol>
+<p><strong>GIF 1:</strong> Demonstração</p>
+<p><img alt="Execulção do teste 1" src="../portabilidade-Win-img/1.gif" /></p>
+<ol>
+<li><strong>Captura de Resultados Inconsistente:</strong> A consolidação final do <em>script</em> PowerShell, em uma tentativa, chegou a reportar 0 falhas e 100% de sucesso, <strong>apesar dos logs e dados brutos indicarem 100% de falha</strong>. Essa discrepância ressaltou a dificuldade de garantir a correta captura do <em>exit code</em> de um processo em <em>crash</em> (M1.1) no ambiente Windows/PowerShell, comprometendo a confiança no resultado sumarizado.</li>
+</ol>
+<h4 id="barreira-do-ambiente-de-desenvolvimento">Barreira do Ambiente de Desenvolvimento<a class="headerlink" href="#barreira-do-ambiente-de-desenvolvimento" title="Permanent link">&para;</a></h4>
+<p>Além das dificuldades de execução, a intenção de estender a avaliação para o teste de <strong>Substituibilidade (Seção C)</strong> confirmou que a complexidade de configurar o ambiente de desenvolvimento (via MSYS2) para o GIMP no Windows (manuseio de permissões, vinculação e substituição de bibliotecas) é significativamente maior do que no Linux. A documentação sobre a execução do GIMP em modo <em>batch</em> para automação e sobre a compilação modular de <em>plugins</em> específicos é <strong>escassa ou inexiste</strong>, aumentando a dependência do <em>toolchain</em> oficial e dificultando testes fora do fluxo padrão.</p>
+<h3 id="4-medicao-dados-coletados-windows">4. Medição (Dados Coletados) - Windows<a class="headerlink" href="#4-medicao-dados-coletados-windows" title="Permanent link">&para;</a></h3>
+<p>A <strong>Tabela 3</strong> sumariza os resultados das 18 execuções no ambiente Windows 11.</p>
+<p align="center">
+<strong>Tabela 3:</strong> Resultados de Adaptabilidade no Windows 11
+<br>
+</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Valor Obtido</th>
+<th style="text-align: left;">Resultado</th>
+<th style="text-align: left;">Defeito Encontrado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Arquivos Processados</strong></td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;"><strong>18 Falhas</strong></td>
+<td style="text-align: left;"><em>Crash</em> Imediato em todas as sessões</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Taxa de Sucesso (M1.1)</strong></td>
+<td style="text-align: left;">$\mathbf{0.00\%}$</td>
+<td style="text-align: left;"><strong>FALHA CRÍTICA</strong></td>
+<td style="text-align: left;">Todas as sessões falharam na abertura/processamento</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tempo Total (M1.2)</strong></td>
+<td style="text-align: left;">$\mathbf{289 \text{ ms}}$</td>
+<td style="text-align: left;"><em>Fast Fail</em></td>
+<td style="text-align: left;">O tempo baixíssimo confirma o <em>crash</em> imediato para todos os arquivos</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="calculos-das-metricas-m11-e-m12">Cálculos das Métricas (M1.1 e M1.2)<a class="headerlink" href="#calculos-das-metricas-m11-e-m12" title="Permanent link">&para;</a></h4>
+<p>Com base nos dados corrigidos, recalculamos a Taxa de Sessões Livres de Falhas (TSLF) e estabelecemos a linha de base de desempenho (<em>baseline</em>) para o Linux.</p>
+<p><strong>Tabela 4:</strong> Resultado do Cálculo das Métricas de Adaptabilidade (Linux)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Fórmula</th>
+<th style="text-align: left;">Valor Calculado</th>
+<th style="text-align: left;">Critério de Aceitação (Hipótese Q1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>M1.1: TSLF</strong></td>
+<td style="text-align: left;">(Nº de Sessões sem Crash / Nº Total de Sessões) * 100</td>
+<td style="text-align: left;">$(14 / 18) \times 100 \approx \mathbf{77.78\%}$</td>
+<td style="text-align: left;">$\ge 99,9\%$ (Alta Estabilidade)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M1.2: Desempenho (Baseline)</strong></td>
+<td style="text-align: left;">$\sum \text{Tempo}_{\text{Linux}}$</td>
+<td style="text-align: left;">$\mathbf{26.796 \text{ ms}}$ (26,80s)</td>
+<td style="text-align: left;">Referência para comparação com Windows</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-analise-e-julgamento">5. Análise e Julgamento<a class="headerlink" href="#5-analise-e-julgamento" title="Permanent link">&para;</a></h3>
+<p>A análise dos resultados no ambiente Linux confronta os valores obtidos com a <strong>Hipótese (Q1)</strong>, que sugere que o módulo é estável em todos os sistemas operacionais.</p>
+<h4 id="julgamento-da-hipotese-de-estabilidade-e-problemas-de-portabilidade">Julgamento da Hipótese de Estabilidade e Problemas de Portabilidade<a class="headerlink" href="#julgamento-da-hipotese-de-estabilidade-e-problemas-de-portabilidade" title="Permanent link">&para;</a></h4>
+<p>O teste revelou uma falha de estabilidade <strong>inesperada</strong> que se manifestou de formas distintas nos dois ambientes:</p>
+<ol>
+<li><strong>Instabilidade Intrínseca (Linux):</strong> O valor calculado da Taxa de Sessões Livres de Falhas (<strong>TSLF - M1.1</strong>) no Linux foi de $\mathbf{77.78\%}$, situando-se abaixo do mínimo de 99,9% estabelecido. Esta baixa TSLF indica que o módulo <code>file-exr</code> não é totalmente estável, <strong>refutando parcialmente a Hipótese Q1</strong> quanto à estabilidade. O log de execução confirmou que as falhas decorrem de um <em>crash</em> no próprio <em>plug-in</em> (<code>terminate called without an active exception</code>), um erro crítico que indica uma falha interna no módulo.</li>
+<li><strong>Falha Crítica de Portabilidade (Windows):</strong> No ambiente Windows 11, o TSLF (M1.1) atingiu $\mathbf{0.00\%}$, evidenciando uma <strong>falha crítica de portabilidade</strong> para o cenário de automação. Este insucesso total está diretamente ligado aos <strong>problemas de estabilidade e execução</strong> no Windows 11, conforme detalhado na seção 3:<ul>
+<li><strong>Crashes Imediatos:</strong> As operações resultaram em <em>crashes</em> imediatos para <strong>todos os 18 arquivos EXR</strong> testados, e o tempo total de execução de $\mathbf{289 \text{ ms}}$ confirma um <em>Fast Fail</em>.</li>
+<li><strong>Dificuldade de Automação:</strong> Foi necessária a complexa migração do <em>shell</em> nativo Bash para <strong>PowerShell</strong>, enfrentando desafios como a correta adaptação da sintaxe, tratamento de <em>paths</em> e a <strong>captura inconsistente de exit codes</strong> em casos de <em>crash</em>.</li>
+<li><strong>Execução Inesperada:</strong> O GIMP em modo <em>batch</em> no Windows frequentemente abriu <strong>múltiplas instâncias</strong> e janelas de console simultaneamente, um comportamento que não ocorreu no Linux e que contribuiu para a instabilidade total.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Tabela 5:</strong> Resumo de Desempenho e Estabilidade (Ambientes Linux e Windows)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Resultado Obtido (Linux)</th>
+<th style="text-align: left;">Resultado Obtido (Windows)</th>
+<th style="text-align: left;">Critério de Aceitação (Q1)</th>
+<th style="text-align: left;">Julgamento Parcial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>M1.1: TSLF</strong></td>
+<td style="text-align: left;">$\mathbf{77.78\%}$</td>
+<td style="text-align: left;">$\mathbf{0.00\%}$</td>
+<td style="text-align: left;">$\ge 99,9\%$</td>
+<td style="text-align: left;"><strong>REFUTADA</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M1.2: Tempo Total</strong></td>
+<td style="text-align: left;">$\mathbf{26.796 \text{ ms}}$</td>
+<td style="text-align: left;">$\mathbf{289 \text{ ms}}$</td>
+<td style="text-align: left;">ℹ️ Informativo</td>
+<td style="text-align: left;">Windows é um <em>Fast Fail</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão da Adaptabilidade:</strong> O <strong>Plano de Avaliação de Portabilidade</strong> revelou que o módulo <code>file-exr</code> do GIMP refutou a hipótese de estabilidade (Q1) em ambos os ambientes, com uma <strong>Taxa de Sessões Livres de Falhas (TSLF)</strong> de <strong>77.78%</strong> no Linux, indicando uma falha intrínseca do plug-in (erro fatal de C++: <em>terminate called without an active exception</em>). Contudo, o ambiente <strong>Windows 11</strong> foi identificado como o ponto mais crítico de portabilidade, registrando um <strong>TSLF de 0.00% (Fast Fail)</strong> devido a <em>crashes</em> imediatos em 100% dos testes e a significativas dificuldades de automação — como a complexa migração para PowerShell com problemas de sintaxe de <em>paths</em> e captura inconsistente do código de saída em caso de <em>crash</em> — além da barreira de desenvolvimento imposta pela escassez de documentação para a execução em modo <em>batch</em> e compilação modular.</p>
+<hr />
+<h2 id="b-execucao-do-teste-de-instalabilidade-q2-e-q3-ambiente-linux">B. Execução do Teste de Instalabilidade (Q2 e Q3) - Ambiente Linux<a class="headerlink" href="#b-execucao-do-teste-de-instalabilidade-q2-e-q3-ambiente-linux" title="Permanent link">&para;</a></h2>
+<p>O teste de Instalabilidade avalia a facilidade e a eficiência com que o módulo <code>file-exr</code> pode ser instalado e desinstalado no ambiente operacional. Devido à arquitetura monolítica do GIMP, esta etapa exigiu uma abordagem adaptada para isolar o desempenho do sistema de arquivos.</p>
+<h3 id="1-procedimento-de-execucao-e-restricoes-tecnicas">1. Procedimento de Execução e Restrições Técnicas<a class="headerlink" href="#1-procedimento-de-execucao-e-restricoes-tecnicas" title="Permanent link">&para;</a></h3>
+<p>A execução foi planejada para medir o tempo e o sucesso das operações de instalação (registro do binário) e desinstalação (remoção do binário). No entanto, durante a fase de preparação, identificou-se uma barreira técnica significativa.</p>
+<h4 id="restricao-do-ambiente-de-desenvolvimento">Restrição do Ambiente de Desenvolvimento<a class="headerlink" href="#restricao-do-ambiente-de-desenvolvimento" title="Permanent link">&para;</a></h4>
+<p>O módulo <code>file-exr</code> não possui um sistema de <em>build</em> autônomo. Ele depende da configuração global do GIMP (<code>autogen.sh</code> e <code>configure</code> na raiz do repositório). Como a avaliação partiu de uma instalação pré-existente do GIMP (via pacote <code>.deb</code>) e não de um ambiente de compilação completo (<em>build environment</em>), tornou-se inviável executar os comandos nativos <code>make install</code> isoladamente sem reconstruir toda a árvore de dependências do GIMP.</p>
+<h4 id="solucao-simulacao-controlada-de-io">Solução: Simulação Controlada de I/O<a class="headerlink" href="#solucao-simulacao-controlada-de-io" title="Permanent link">&para;</a></h4>
+<p>Para contornar essa limitação e ainda assim obter métricas válidas de <strong>tempo de operação do sistema</strong> (M3.3) e <strong>confiabilidade</strong> (M2.1/M2.2), optou-se por um <em>script de simulação</em>. Este script reproduziu as operações exatas de I/O (Entrada/Saída) que o instalador faria (cópia do binário para o diretório de destino e remoção).</p>
+<p><strong>Ações Concluídas:</strong></p>
+<p><strong>Automação:</strong> Execução do script <code>teste_instalabilidade_simulacao.sh</code> que realizou <strong>10 ciclos ininterruptos</strong> de instalação e desinstalação.</p>
+<p><strong>Cronometragem:</strong> Medição precisa (em milissegundos) do tempo que o <em>kernel</em> do Linux leva para processar a alocação e remoção do arquivo.</p>
+<p><strong>Imagem 2:</strong> Demonstração</p>
+<p><img alt="img2" src="../portabilidade-Linux-img/Captura%20de%20tela%20de%202025-11-23%2021-45-34.png" /></p>
+<h3 id="2-medicao-dados-coletados">2. Medição (Dados Coletados)<a class="headerlink" href="#2-medicao-dados-coletados" title="Permanent link">&para;</a></h3>
+<p>A <strong>Tabela 6</strong> apresenta os resultados dos 10 ciclos de teste extraídos do arquivo <code>dados_instalabilidade_ubuntu_20251123_214457.csv</code>.</p>
+<p align="center">
+<strong>Tabela 6:</strong> Resultados de Instalabilidade (Simulada) no Linux
+<br>
+</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Ciclo</th>
+<th style="text-align: left;">Operação</th>
+<th style="text-align: center;">Status</th>
+<th style="text-align: center;">Instalação (ms)</th>
+<th style="text-align: center;">Desinstalação (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">Instalação / Desinstalação</td>
+<td style="text-align: center;">SUCESSO</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>MÉDIAS</strong></td>
+<td style="text-align: left;"><strong>(Base para M3.3)</strong></td>
+<td style="text-align: center;"><strong>100% Êxito</strong></td>
+<td style="text-align: center;"><strong>3,6</strong></td>
+<td style="text-align: center;"><strong>3,0</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculos-das-metricas-m21-m22-e-m33i">Cálculos das Métricas (M2.1, M2.2 e M3.3)i<a class="headerlink" href="#calculos-das-metricas-m21-m22-e-m33i" title="Permanent link">&para;</a></h4>
+<p>Com base na estabilidade dos 10 ciclos, calculamos as taxas de sucesso e o Tempo Médio de Instalação (TMI).</p>
+<p><strong>Tabela 7:</strong> Resultado das Métricas de Instalabilidade (Linux)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Fórmula</th>
+<th style="text-align: left;">Valor Calculado</th>
+<th style="text-align: left;">Critério (Hipótese Q2/Q3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>M2.1: Sucesso Instalação</strong></td>
+<td style="text-align: left;">(Sucessos / Total Ciclos) * 100</td>
+<td style="text-align: left;">$(10 / 10) \times 100 = \mathbf{100\%}$</td>
+<td style="text-align: left;">$\ge 90\%$ (Alta Confiabilidade)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M2.2: Sucesso Desinstalação</strong></td>
+<td style="text-align: left;">(Sucessos / Total Ciclos) * 100</td>
+<td style="text-align: left;">$(10 / 10) \times 100 = \mathbf{100\%}$</td>
+<td style="text-align: left;">$\ge 90\%$ (Alta Confiabilidade)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M3.3: TMI (Linux)</strong></td>
+<td style="text-align: left;">$\frac{\sum \text{Tempo Instal}}{10}$</td>
+<td style="text-align: left;">$\mathbf{3,6 \text{ ms}}$</td>
+<td style="text-align: left;">Referência para M3.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-analise-e-julgamento">3. Análise e Julgamento<a class="headerlink" href="#3-analise-e-julgamento" title="Permanent link">&para;</a></h3>
+<p>A análise no ambiente Linux valida a capacidade do sistema de gerenciar os arquivos do módulo sem impedimentos.</p>
+<h4 id="julgamento-das-hipoteses-q2-e-q3">Julgamento das Hipóteses Q2 e Q3<a class="headerlink" href="#julgamento-das-hipoteses-q2-e-q3" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Viabilidade Técnica (Q2):</strong> A simulação confirmou que, isolando o binário, as operações de instalação e remoção são triviais e bem-sucedidas em <strong>100%</strong> dos casos.</li>
+<li><strong>Consistência (Q3):</strong> O desvio padrão entre os tempos é baixíssimo. O ambiente Linux demonstrou altíssima consistência e rapidez nas operações de I/O, com um Tempo Médio de Instalação (TMI) de apenas $\mathbf{3,6 \text{ ms}}$.</li>
+</ol>
+<p><strong>Tabela 8:</strong> Resumo de Instalabilidade (Ambiente Linux)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Resultado</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Julgamento Parcial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>M2.1 / M2.2</strong></td>
+<td style="text-align: left;">$\mathbf{100\%}$</td>
+<td style="text-align: left;">Aprovado</td>
+<td style="text-align: left;"><strong>EXCELENTE</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M3.3 (Tempo)</strong></td>
+<td style="text-align: left;">$\mathbf{3,6 \text{ ms}}$</td>
+<td style="text-align: left;">ℹ Informativo</td>
+<td style="text-align: left;"><em>Baseline</em> definida (Muito Rápido)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-execucao-e-impedimentos-no-ambiente-windows-11">4. Execução e Impedimentos no Ambiente Windows 11<a class="headerlink" href="#4-execucao-e-impedimentos-no-ambiente-windows-11" title="Permanent link">&para;</a></h3>
+<p>A execução dos testes de Instalabilidade (M2.1, M2.2, M3.2) no ambiente <strong>Windows 11</strong> foi <strong>impedida</strong> devido a barreiras técnicas críticas que inviabilizaram a criação de um ambiente de <em>build</em> e teste isolado, mesmo para a simulação de I/O utilizada no Linux. O principal obstáculo reside na arquitetura de dependências do GIMP no Windows, que exige o ambiente <strong>MSYS2</strong>.</p>
+<ul>
+<li><strong>Problema de Resolução de Bibliotecas:</strong> A tentativa de configurar o <em>toolchain</em> de compilação via MSYS2 para isolar a instalação do <code>file-exr</code> resultou em falhas imediatas de compilação, pois o ambiente <strong>não encontrava todas as bibliotecas necessárias para rodar</strong> o módulo, forçando <em>crashes</em> na própria <em>shell</em> de compilação e impedindo a medição da métrica.</li>
+<li><strong>Dificuldades de Permissão:</strong> O gerenciamento de permissões do Windows 11/MSYS2 introduziu complexidades adicionais. A escrita e remoção de arquivos em diretórios protegidos (<code>C:\Program Files</code>) ou a vinculação de novas bibliotecas frequentemente disparou <strong>erros de acesso negado</strong> que não puderam ser contornados de forma programática ou consistente, o que invalida qualquer medição de tempo (M3.2).</li>
+<li><strong>Conclusão:</strong> Devido a esses impedimentos técnicos, não foi possível obter dados para as métricas de Instalabilidade (M2.1, M2.2 e M3.2) no ambiente Windows, o que já indica um severo problema de Portabilidade (Instalabilidade) para a plataforma.</li>
+</ul>
+<hr />
+<h2 id="c-execucao-do-teste-de-substituibilidade-metricas-41-42-e-43">C. Execução do Teste de Substituibilidade (Métricas 4.1, 4.2 e 4.3)<a class="headerlink" href="#c-execucao-do-teste-de-substituibilidade-metricas-41-42-e-43" title="Permanent link">&para;</a></h2>
+<p>Esta etapa da avaliação tem como objetivo mensurar o esforço técnico e humano necessário para atualizar uma dependência crítica do módulo <code>file-exr</code> (especificamente a biblioteca <code>libopenexr</code>).</p>
+<h3 id="1-contexto-e-dificuldades-tecnicas-relatorio-de-impedimento">1. Contexto e Dificuldades Técnicas (Relatório de Impedimento)<a class="headerlink" href="#1-contexto-e-dificuldades-tecnicas-relatorio-de-impedimento" title="Permanent link">&para;</a></h3>
+<p><strong>IMPOSSIBILIDADE DE EXECUÇÃO:</strong> Devido à <strong>elevada barreira de entrada</strong> e à complexidade inerente de gerenciar dependências de <em>build</em> em software com arquitetura monolítica, esta etapa de avaliação <strong>não foi executada em nenhum dos ambientes</strong> (Linux e Windows 11). A inviabilidade decorre da <strong>ausência de documentação oficial clara</strong> para desenvolvedores sobre a compilação modular de <em>plugins</em> do GIMP fora do <em>toolchain</em> principal, impedindo uma tentativa controlada de substituição da biblioteca <code>libopenexr</code>. A descrição a seguir é mantida, portanto, como um <strong>procedimento padrão ideal</strong> para fins estritamente didáticos e acadêmicos, detalhando como o teste de substituição seria conduzido se o ambiente de desenvolvimento fosse viável.</p>
+<ul>
+<li><strong>Ausência de Documentação Clara:</strong> Não existe um tutorial oficial unificado ou atualizado que guie desenvolvedores na compilação de <em>plugins</em> isolados do GIMP contra versões específicas (e não padrão) de bibliotecas externas. A documentação existente foca na compilação do GIMP inteiro com as dependências padrão do sistema.</li>
+<li><strong>Complexidade do Ambiente de Desenvolvimento:</strong> Configurar um ambiente que permita a troca "limpa" de uma biblioteca base (como migrar da <code>OpenEXR v2</code> para <code>v3</code>) exige conhecimento avançado de ferramentas de <em>build</em> (<code>autotools</code>, <code>meson</code>, <code>pkg-config</code>) e gerenciamento de variáveis de ambiente (<code>LD_LIBRARY_PATH</code>, <code>PKG_CONFIG_PATH</code>).</li>
+<li><strong>Risco de "Dependency Hell":</strong> No Windows (via MSYS2), forçar uma versão de biblioteca diferente daquela fornecida pelo gerenciador de pacotes (<code>pacman</code>) pode quebrar não apenas o módulo <code>file-exr</code>, mas todo o GIMP e outras ferramentas instaladas, exigindo a compilação manual de toda a cadeia de dependências.</li>
+</ul>
+<hr />
+<h3 id="2-procedimento-no-ambiente-linux-ubuntu">2. Procedimento no Ambiente Linux (Ubuntu)<a class="headerlink" href="#2-procedimento-no-ambiente-linux-ubuntu" title="Permanent link">&para;</a></h3>
+<p>No Linux, o controle sobre as bibliotecas é mais transparente, facilitando a simulação da troca de dependência.</p>
+<h4 id="passo-1-preparacao-e-sabotagem-controlada">Passo 1: Preparação e "Sabotagem" Controlada<a class="headerlink" href="#passo-1-preparacao-e-sabotagem-controlada" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Identificar Versão Atual:</strong> Verifique a versão instalada (<code>pkg-config --modversion OpenEXR</code>).</li>
+<li><strong>Simular a Troca (Cenário de Teste):</strong><ul>
+<li>O avaliador deve tentar compilar o módulo utilizando uma versão mais recente da biblioteca (ex: compilando a <code>OpenEXR v3.1</code> manualmente em <code>/opt/openexr-v3</code> e apontando o GIMP para ela) OU alterando o código fonte do módulo para usar uma função que foi depreciada/alterada na nova versão, forçando a necessidade de refatoração.</li>
+</ul>
+</li>
+</ol>
+<h4 id="passo-2-medicao-do-esforco-m41-e-m42">Passo 2: Medição do Esforço (M4.1 e M4.2)<a class="headerlink" href="#passo-2-medicao-do-esforco-m41-e-m42" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Cronometragem (M4.1):</strong> Inicie o cronômetro assim que começar a editar os arquivos <code>.c</code> ou <code>configure.ac</code> para adaptá-los à nova biblioteca.</li>
+<li><strong>Adaptação:</strong> Edite o código até que o comando <code>make</code> execute sem erros.</li>
+<li><strong>Registro:</strong> Pare o cronômetro (Tempo Humano Gasto).</li>
+<li><strong>Complexidade (M4.2):</strong> Execute o comando abaixo na pasta do plugin para contar as linhas alteradas:
+    <code>bash
+    git diff --stat</code></li>
+</ol>
+<h4 id="passo-3-teste-de-regressao-m43">Passo 3: Teste de Regressão (M4.3)<a class="headerlink" href="#passo-3-teste-de-regressao-m43" title="Permanent link">&para;</a></h4>
+<p>Após compilar com sucesso, instale o módulo (<code>sudo make install</code>) e execute o script de regressão para garantir que a "atualização" não quebrou funcionalidades existentes.</p>
+<ul>
+<li><strong>Script:</strong> <code>./teste_regressao_substituibilidade.sh</code> (baseado no script de adaptabilidade, mas focado em detectar falhas de I/O).</li>
+</ul>
+<hr />
+<h3 id="3-procedimento-no-ambiente-windows-11-msys2">3. Procedimento no Ambiente Windows 11 (MSYS2)<a class="headerlink" href="#3-procedimento-no-ambiente-windows-11-msys2" title="Permanent link">&para;</a></h3>
+<p>No Windows, a dependência do ambiente MSYS2 torna a substituição de bibliotecas extremamente complexa, pois o sistema <code>pacman</code> gerencia versões pré-compiladas.</p>
+<h4 id="passo-1-preparacao-do-ambiente">Passo 1: Preparação do Ambiente<a class="headerlink" href="#passo-1-preparacao-do-ambiente" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Abra o terminal <strong>MSYS2 MinGW 64-bit</strong>.</li>
+<li>Assegure-se de ter o <em>toolchain</em> completo:
+    <code>bash
+    pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gimp</code></li>
+</ol>
+<h4 id="passo-2-o-desafio-da-substituicao">Passo 2: O Desafio da Substituição<a class="headerlink" href="#passo-2-o-desafio-da-substituicao" title="Permanent link">&para;</a></h4>
+<p>Diferente do Linux, você não pode simplesmente instalar uma versão "dev" diferente via <code>apt</code>.
+1.  <strong>Manual Build:</strong> Você deve baixar o código fonte da <code>OpenEXR</code> (nova versão), compilá-lo manualmente dentro do MSYS2 e instalá-lo em um prefixo customizado (<code>/usr/local</code> ou <code>/opt</code>).
+2.  <strong>Configuração:</strong> Alterar as variáveis de ambiente <code>PKG_CONFIG_PATH</code> para priorizar essa nova instalação manual em vez da versão do sistema (<code>/mingw64</code>).</p>
+<h4 id="passo-3-medicao-e-regressao">Passo 3: Medição e Regressão<a class="headerlink" href="#passo-3-medicao-e-regressao" title="Permanent link">&para;</a></h4>
+<p>O processo de medição segue a mesma lógica do Linux, mas executado dentro do terminal MSYS2.</p>
+<ol>
+<li><strong>Adaptação e Build:</strong>
+    <code>bash
+    # Dentro da pasta do plugin no MSYS2
+    make clean
+    # Força recompilação contra a nova lib
+    make</code></li>
+<li><strong>Métricas M4.1 e M4.2:</strong> Registre o tempo gasto lidando com erros de <em>linker</em> (comuns no Windows) e use <code>git diff --stat</code> para medir as alterações no código.</li>
+<li><strong>Métrica M4.3:</strong> Execute o script de teste adaptado para o shell do MSYS2 ou PowerShell para verificar se os arquivos EXR ainda abrem corretamente.</li>
+</ol>
+<hr />
+<h3 id="4-tabela-de-coleta-de-dados-template">4. Tabela de Coleta de Dados (Template)<a class="headerlink" href="#4-tabela-de-coleta-de-dados-template" title="Permanent link">&para;</a></h3>
+<p>Os dados obtidos devem ser registrados conforme o modelo abaixo para compor o relatório final.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Descrição</th>
+<th style="text-align: left;">Valor Obtido (Exemplo)</th>
+<th style="text-align: left;">Critério de Sucesso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>M4.1</strong></td>
+<td style="text-align: left;"><strong>Esforço de Adaptação (Tempo)</strong></td>
+<td style="text-align: left;"><em>ex: 4 horas e 30 min</em></td>
+<td style="text-align: left;">$\le 8$ horas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M4.2</strong></td>
+<td style="text-align: left;"><strong>Complexidade (Linhas de Código)</strong></td>
+<td style="text-align: left;"><em>ex: 145 linhas (inserções/deleções)</em></td>
+<td style="text-align: left;">$\le 5\%$ do total de linhas do módulo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>M4.3</strong></td>
+<td style="text-align: left;"><strong>Sucesso Funcional (Regressão)</strong></td>
+<td style="text-align: left;"><em>ex: 90% (27/30 testes passaram)</em></td>
+<td style="text-align: left;">$\ge 95\%$ (Sem regressão crítica)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="conclusao-parcial-da-substituibilidade">Conclusão Parcial da Substituibilidade<a class="headerlink" href="#conclusao-parcial-da-substituibilidade" title="Permanent link">&para;</a></h3>
+<p>Devido à impossibilidade de execução, limitamo-nos a concluir que a <strong>falta de documentação oficial para <em>builds</em> modulares</strong> e a complexidade de gerenciar dependências C++ manualmente no Windows (via MSYS2) tornam o esforço (M4.1) de substituição de dependências impraticável, impactando negativamente a avaliação de Portabilidade neste quesito.</p>
+<hr />
+<h2 id="dificuldades">Dificuldades<a class="headerlink" href="#dificuldades" title="Permanent link">&para;</a></h2>
+<p>Ao longo da execução do plano de avaliação, diversas dificuldades técnicas foram identificadas. A principal delas foi a <strong>impossibilidade de reproduzir integralmente o ambiente de desenvolvimento do GIMP</strong>, já que o módulo <code>file-exr</code> não possui um sistema de <em>build</em> independente e depende da árvore completa de compilação do projeto. Isso impediu a execução direta dos procedimentos de instalação (Q2/Q3) no Linux, exigindo a adoção de uma simulação de I/O, e <strong>inviabilizou completamente</strong> os testes no ambiente <strong>Windows 11</strong> devido a problemas críticos de <strong>compilação, pois o ambiente não encontrava todas as bibliotecas necessárias para rodar</strong>, <em>crashes</em> na <em>shell</em> de compilação e <strong>dificuldades de permissão</strong> em diretórios protegidos. Além disso, a <strong>ausência de documentação oficial clara</strong> sobre a recompilação modular e a complexidade de gerenciar dependências C++ manualmente no Windows representaram barreiras intransponíveis que levaram ao <strong>impedimento total da execução dos testes de Substituibilidade (Q4)</strong> em ambos os sistemas operacionais. Essas limitações demandaram adaptações metodológicas e reforçaram o alto desafio de portabilidade para o módulo.</p>
+<hr />
+<h2 id="conclusao">Conclusão<a class="headerlink" href="#conclusao" title="Permanent link">&para;</a></h2>
+<p>O Plano de Avaliação de Portabilidade revelou que o módulo <code>file-exr</code> do GIMP <strong>refutou a hipótese de estabilidade (Q1)</strong> em ambos os ambientes, com uma Taxa de Sessões Livres de Falhas (TSLF) de <strong>77.78%</strong> no Linux, indicando uma falha intrínseca do <em>plug-in</em> (erro fatal de C++). O ambiente <strong>Windows 11</strong>, contudo, foi o ponto mais crítico da avaliação de Adaptabilidade, registrando TSLF de <strong>0.00%</strong> (<em>Fast Fail</em>) devido a <em>crashes</em> imediatos em 100% dos testes e a significativas dificuldades de automação (migração complexa para PowerShell e captura inconsistente de <em>exit codes</em>).</p>
+<p>A execução dos testes de <strong>Instalabilidade (Q2/Q3)</strong> foi marcada por barreiras técnicas. Embora o Linux tenha permitido uma simulação controlada de I/O que estabeleceu um <em>baseline</em> de instalação rápida ($\mathbf{3,6 \text{ ms}}$), o Windows 11 <strong>inviabilizou a coleta de dados</strong> devido a falhas de <strong>compilação por não encontrar todas as bibliotecas necessárias para rodar</strong>, <em>crashes</em> na <em>shell</em> de compilação e complexidades de <strong>permissão</strong> ao tentar configurar o ambiente de <em>build</em> MSYS2.</p>
+<p>Por fim, a etapa de <strong>Substituibilidade (Q4)</strong> não pôde ser executada em nenhum dos ambientes devido à <strong>ausência de documentação oficial clara</strong> sobre a compilação modular do GIMP. Essa limitação, combinada com a complexidade inerente de gerenciar dependências C++ manualmente, confirmou a elevada barreira técnica para o desenvolvimento e manutenção do módulo fora do fluxo padrão, impactando negativamente a Portabilidade geral do componente.</p>
+<h3 id="historico-de-versao"><strong>Histórico de Versão</strong><a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Versão</th>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Descrição</th>
+<th style="text-align: left;">Autor</th>
+<th style="text-align: left;">Revisor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">13/11/2025</td>
+<td style="text-align: left;">Criação do Documento.</td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+<td style="text-align: left;"><a href="https://github.com/Vini47">Vinicius Castelo</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">2.0</td>
+<td style="text-align: left;">19/11/2025</td>
+<td style="text-align: left;">Adicionado informações ao Documento</td>
+<td style="text-align: left;"><a href="https://github.com/Vini47">Vinicius Castelo</a></td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.sections", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

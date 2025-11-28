@@ -1,0 +1,1883 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Trabalho de Qualidade de Software para avaliação do GIMP">
+      
+      
+      
+      
+        <link rel="prev" href="../2-compatibilidade/">
+      
+      
+        <link rel="next" href="../4-tabela%20de%20contribui%C3%A7%C3%A3o/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Portabilidade - Projeto GIMP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#portabilidade" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Projeto GIMP" class="md-header__button md-logo" aria-label="Projeto GIMP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Projeto GIMP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Portabilidade
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="deep-orange"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sobre o projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../karenjones/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quem é Karen Jones
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase1/fase1/" class="md-tabs__link">
+          
+  
+  
+  Fase 1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../fase2/" class="md-tabs__link">
+          
+  
+  
+  Fase 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase3/fase3/" class="md-tabs__link">
+          
+  
+  
+  Fase 3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase4/fase4/" class="md-tabs__link">
+          
+  
+  
+  Fase 4
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Projeto GIMP" class="md-nav__button md-logo" aria-label="Projeto GIMP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Projeto GIMP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FCTE-Qualidade-de-Software-1/2025-2_T02_Karen_Jones" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sobre o projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../karenjones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quem é Karen Jones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/fase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/1-proposito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propósito da Avaliação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/2-requistantes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitantes e Partes Interessadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/3-descricao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descrição do Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/4-justificativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Justificativas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/5-modelo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Qualidade e Escopo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/6-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-confiabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confiabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-compatibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodologia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descricao-do-objetivo-de-medicao-de-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descrição do Objetivo de Medição de Portabilidade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questoes-e-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questões e Métricas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusões
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-o-uso-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sobre o uso de IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências Bibliográficas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/fase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/1-confiabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confiabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/2-compatibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/3-portabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/5-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase4/fase4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase4/1-confiabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confiabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase4/2-compatibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase4/3-portabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase4/5-conclusao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase4/6-tabela%20de%20contribui%C3%A7%C3%A3o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabela de Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodologia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descricao-do-objetivo-de-medicao-de-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descrição do Objetivo de Medição de Portabilidade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questoes-e-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questões e Métricas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusões
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-o-uso-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sobre o uso de IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências Bibliográficas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="portabilidade">Portabilidade<a class="headerlink" href="#portabilidade" title="Permanent link">&para;</a></h1>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>Este artefato tem como objetivo aplicar o método GQM (Goal-Question-Metric) para entender o módulo file-exr do GIMP sob o critério de portabilidade. A proposta é definir metas, perguntas e métricas que permitam analisar a capacidade do módulo de ser transferido, adaptado e executado em diferentes ambientes, identificando possíveis limitações e oportunidades de melhoria. Dessa forma, o artefato servirá como base para a coleta e análise de dados que apoiem a tomada de decisões voltadas à qualidade e à manutenção do módulo.</p>
+<h2 id="metodologia">Metodologia<a class="headerlink" href="#metodologia" title="Permanent link">&para;</a></h2>
+<p>A metodologia adotada neste artefato baseia-se no método GQM, que orienta a avaliação da qualidade de software de forma estruturada e orientada a objetivos. Inicialmente, é definido o objetivo de análise, neste caso, entender a portabilidade do módulo file-exr do GIMP. Em seguida, são formuladas perguntas que permitam investigar aspectos específicos relacionados a esse critério, como a ocorrência de erros em diferentes ambientes ou a facilidade de adaptação do módulo. Por fim, são estabelecidas métricas que quantifiquem os resultados observados, possibilitando uma avaliação objetiva e comparável. Essa abordagem garante coerência entre os dados coletados e o propósito de avaliação, promovendo uma análise consistente e orientada à melhoria contínua da qualidade do módulo.</p>
+<h2 id="descricao-do-objetivo-de-medicao-de-portabilidade">Descrição do Objetivo de Medição de Portabilidade<a class="headerlink" href="#descricao-do-objetivo-de-medicao-de-portabilidade" title="Permanent link">&para;</a></h2>
+<p align="center"><strong>Tabela 3: Descrição do Objetivo de Medição de Qualidade</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analisar</td>
+<td>GIMP (Módulo File-exr)</td>
+</tr>
+<tr>
+<td>Para o propósito de</td>
+<td>Entender</td>
+</tr>
+<tr>
+<td>Com respeito a</td>
+<td>Portabilidade</td>
+</tr>
+<tr>
+<td>Da perspectiva do</td>
+<td>Designer Gráfico</td>
+</tr>
+<tr>
+<td>No contexto de</td>
+<td>Disciplina de Qualidade de software</td>
+</tr>
+</tbody>
+</table>
+<p><font size="3"><p style="text-align: center">Fonte: Autores. (2025)</p></font></p>
+<h2 id="questoes-e-metricas">Questões e Métricas<a class="headerlink" href="#questoes-e-metricas" title="Permanent link">&para;</a></h2>
+<h3 id="q1-quanto-a-adaptabilidade-o-modulo-se-comporta-de-formas-diferentes-em-diferentes-sistemas-operacionais">Q1. Quanto a Adaptabilidade, o módulo se comporta de formas diferentes em diferentes sistemas operacionais?<a class="headerlink" href="#q1-quanto-a-adaptabilidade-o-modulo-se-comporta-de-formas-diferentes-em-diferentes-sistemas-operacionais" title="Permanent link">&para;</a></h3>
+<h4 id="hipotese-o-modulo-se-comporta-exatamente-da-mesma-forma-em-qualquer-sistema-operacional-limitando-se-a-diferenca-de-desempenho">Hipótese: O módulo se comporta exatamente da mesma forma em qualquer sistema operacional, limitando-se a diferença de desempenho.<a class="headerlink" href="#hipotese-o-modulo-se-comporta-exatamente-da-mesma-forma-em-qualquer-sistema-operacional-limitando-se-a-diferenca-de-desempenho" title="Permanent link">&para;</a></h4>
+<h4 id="metrica-11-taxa-de-sessoes-livres-de-falhas-entre-plataformas">Métrica 1.1: Taxa de Sessões Livres de Falhas entre Plataformas<a class="headerlink" href="#metrica-11-taxa-de-sessoes-livres-de-falhas-entre-plataformas" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Fórmula:</strong></p>
+<p><code>Taxa de Sessões Livres de Falhas = 1 - Sessões com Falha/Total de Sessões</code></p>
+<p><code>Execuções bem-sucedidas em diferentes sistemas operacionais / Total de execuções em diferentes sistemas operacionais</code></p>
+<p><strong>Referência:</strong> <a href="#ref-2">[2]</a></p>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><strong>Alta semelhança de execução (Hipótese Confirmada):</strong> ≥ 99,9% de execuções bem-sucedidas em todas as plataformas</li>
+<li><strong>Alta semelhança de execução (Hipótese Refutada):</strong> &lt; 99,9% de execuções bem-sucedidas em todas as plataformas  </li>
+</ul>
+<p>Esta métrica avalia o quão adaptado é o módulo para diferentes sistemas operacionais. Quanto maior a taxa de execuções bem-sucedidas, melhor a adaptabilidade do módulo entre plataformas. A referência <a href="#ref-2">[2]</a> do Google Firebase sobre Crash em sessões e em usuários menciona como as falhas devem ser extremamente improváveis e uma única falha gera perda de credibilidade do usuário, e no nosso caso, na adaptabilidade do sistema.</p>
+</blockquote>
+<h4 id="metrica-12-desvio-de-desempenho-entre-diferentes-plataformas">Métrica 1.2: Desvio de Desempenho entre diferentes plataformas<a class="headerlink" href="#metrica-12-desvio-de-desempenho-entre-diferentes-plataformas" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Fórmula:</strong></p>
+<p><code>|Desempenho no Sistema A - Desempenho no Sistema B| / Desempenho médio</code></p>
+<p><code>com Desempenho sendo carga de Load Testing, Stress Testing e Volume Testing</code></p>
+<p><strong>Referência:</strong> <a href="#ref-3">[3]</a>, <a href="#ref-4">[4]</a>, <a href="#ref-5">[5]</a></p>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><strong>Desvio Médio de Desempenho:</strong> ≤ 5% de variação entre plataformas</li>
+<li><strong>Alto Desvio de Desempenho (Hipótese Refutada):</strong> &gt; 5% de variação entre plataformas  </li>
+</ul>
+<p>O desvio de desempenho mede <strong>a diferença no tempo de execução</strong> do módulo entre diferentes plataformas. Um baixo desvio indica que o módulo mantém uma performance consistente em diferentes sistemas, enquanto um alto desvio pode indicar problemas de adaptação.</p>
+</blockquote>
+<h3 id="q2-quanto-a-instalabilidade-e-possivel-instalar-e-desinstalar-somente-o-modulo-file-exr">Q2. Quanto a Instalabilidade, é possível instalar e desinstalar somente o módulo file-exr?<a class="headerlink" href="#q2-quanto-a-instalabilidade-e-possivel-instalar-e-desinstalar-somente-o-modulo-file-exr" title="Permanent link">&para;</a></h3>
+<h4 id="hipotese-nao-e-possivel-instalar-e-desinstalar-somente-o-modulo-file-exr-uma-vez-que-ao-retira-lo-o-gimp-nao-funciona-adequadamente-ou-gera-builds-inconsistentes">Hipótese: Não é possível instalar e desinstalar somente o módulo file-exr, uma vez que ao retirá-lo o gimp não funciona adequadamente ou gera builds inconsistentes.<a class="headerlink" href="#hipotese-nao-e-possivel-instalar-e-desinstalar-somente-o-modulo-file-exr-uma-vez-que-ao-retira-lo-o-gimp-nao-funciona-adequadamente-ou-gera-builds-inconsistentes" title="Permanent link">&para;</a></h4>
+<h4 id="metrica-21-taxa-de-sucesso-na-instalacao-installation-success-rate">Métrica 2.1: Taxa de Sucesso na Instalação (Installation Success Rate)<a class="headerlink" href="#metrica-21-taxa-de-sucesso-na-instalacao-installation-success-rate" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Fórmula:</strong></p>
+<p><code>Instalações bem-sucedidas / Total de tentativas de instalação</code></p>
+<p><strong>Referência:</strong> <a href="#ref-6">[6]</a>, <a href="#ref-8">[8]</a></p>
+<p><strong>Interpretação:</strong>
+- <strong>Alta taxa de sucesso (Hipótese Confirmada):</strong> ≥ 90% de tentativas bem-sucedidas
+- <strong>Baixa taxa de sucesso (Hipótese Refutada):</strong> &lt; 90% de tentativas bem-sucedidas</p>
+<p>Esta métrica avalia a <strong>facilidade</strong> do processo de instalação, sem complicações ou erros que possam ocorrer durante a tentativa de adicionar o módulo ao GIMP.</p>
+</blockquote>
+<h4 id="metrica-22-taxa-de-sucesso-na-desinstalacao-uninstallation-success-rate">Métrica 2.2: Taxa de Sucesso na Desinstalação (Uninstallation Success Rate)<a class="headerlink" href="#metrica-22-taxa-de-sucesso-na-desinstalacao-uninstallation-success-rate" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Fórmula:</strong></p>
+<p><code>Desinstalações bem-sucedidas / Total de tentativas de desinstalação</code></p>
+<p><strong>Referência:</strong> <a href="#ref-6">[6]</a>, <a href="#ref-7">[7]</a>, <a href="#ref-8">[8]</a></p>
+<p><strong>Interpretação:</strong>
+- <strong>Alta taxa de sucesso (Hipótese Confirmada):</strong> ≥ 90% de tentativas de desinstalação bem-sucedidas
+- <strong>Baixa taxa de sucesso (Hipótese Refutada):</strong> &lt; 90% de tentativas de desinstalação bem-sucedidas</p>
+<p>Avalia a <strong>eficiência do processo de desinstalação</strong>, garantindo que o módulo seja removido sem deixar resíduos ou causar falhas no GIMP.</p>
+</blockquote>
+<h3 id="q3-quanto-a-instalabilidade-o-processo-de-instalacao-do-modulo-costuma-apresentar-erros-ou-inconsistencias-em-diferentes-ambientes">Q3. Quanto a Instalabilidade, o processo de instalação do módulo costuma apresentar erros ou inconsistências em diferentes ambientes?<a class="headerlink" href="#q3-quanto-a-instalabilidade-o-processo-de-instalacao-do-modulo-costuma-apresentar-erros-ou-inconsistencias-em-diferentes-ambientes" title="Permanent link">&para;</a></h3>
+<h4 id="hipotese-o-processo-de-instalacao-do-modulo-e-consistente-entre-ambientes-distintos-distros-versoes-de-so-arquiteturas-apresentando-apenas-variacao-de-desempenho-e-sem-falhas-especificas-por-ambiente">Hipótese: O processo de instalação do módulo é consistente entre ambientes distintos (distros, versões de SO, arquiteturas), apresentando apenas variação de desempenho e sem falhas específicas por ambiente.<a class="headerlink" href="#hipotese-o-processo-de-instalacao-do-modulo-e-consistente-entre-ambientes-distintos-distros-versoes-de-so-arquiteturas-apresentando-apenas-variacao-de-desempenho-e-sem-falhas-especificas-por-ambiente" title="Permanent link">&para;</a></h4>
+<h4 id="metrica-31-taxa-de-sucesso-de-instalacao-por-ambiente">Métrica 3.1: Taxa de Sucesso de Instalação por Ambiente<a class="headerlink" href="#metrica-31-taxa-de-sucesso-de-instalacao-por-ambiente" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Fórmula:</p>
+<p><code>Taxa de Sucesso (ambiente X) = Instalações bem‑sucedidas em X / Total de tentativas em X</code></p>
+<p><strong>Referência:</strong> <a href="#ref-6">[6]</a>, <a href="#ref-8">[8]</a></p>
+<p><strong>Interpretação:</strong>
+- <strong>Hipótese Confirmada:</strong> ≥ 95% de sucesso em cada ambiente testado
+- <strong>Hipótese Refutada:</strong> &lt; 95% em algum ambiente</p>
+<p>Avalia se a instalação funciona de forma confiável em cada ambiente isoladamente.</p>
+</blockquote>
+<h4 id="metrica-32-desvio-relativo-de-sucesso-entre-ambientes">Métrica 3.2: Desvio Relativo de Sucesso entre Ambientes<a class="headerlink" href="#metrica-32-desvio-relativo-de-sucesso-entre-ambientes" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Fórmula:</p>
+<p><code>Desvio Relativo = |TaxaX - TaxaY| / Taxa_média_entre_ambientes
+(avaliar pares ou calcular desvio padrão relativo entre todas as taxas)</code></p>
+<p><strong>Referência:</strong> <a href="#ref-3">[3]</a>, <a href="#ref-4">[4]</a></p>
+<p>Interpretação:
+- <strong>Consistência Alta (Hipótese Confirmada):</strong> Desvio Relativo ≤ 5%
+- <strong>Inconsistência Significativa (Hipótese Refutada):</strong> Desvio Relativo &gt; 5%</p>
+<p>Mede quão uniforme é o sucesso de instalação entre ambientes.</p>
+</blockquote>
+<h4 id="metrica-33-diferenca-no-tempo-e-tipos-de-falha-entre-ambientes">Métrica 3.3: Diferença no Tempo e Tipos de Falha entre Ambientes<a class="headerlink" href="#metrica-33-diferenca-no-tempo-e-tipos-de-falha-entre-ambientes" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Fórmula:</p>
+<p><code>Diferença de Tempo = |Tempo médio instalação em A - Tempo médio em B| / Tempo médio geral
+Taxa de Falhas Específicas = Ocorrências de erro tipo T em ambiente X / Total de tentativas em X</code></p>
+<p><strong>Referência:</strong> <a href="#ref-5">[5]</a>, <a href="#ref-7">[7]</a></p>
+<p>Interpretação:
+- <strong>Hipótese Confirmada:</strong> Variação de tempo ≤ 10% e nenhuma falha tipo específica com taxa &gt; 1% por ambiente
+- <strong>Hipótese Refutada:</strong> Variação de tempo &gt; 10% ou existência de falhas específicas &gt; 1%</p>
+<p>Detecta diferenças práticas (tempo) e presença de erros direcionados a ambientes (dependências ausentes, permissões, toolchain).</p>
+</blockquote>
+<h3 id="q4-quanto-a-substituibilidade-e-facil-substituir-dependencias-dos-modulo-file-exr-por-outras-bibliotecas-ou-versoes">Q4. Quanto a Substituibilidade, é fácil substituir dependências dos módulo File-exr por outras bibliotecas ou versões?<a class="headerlink" href="#q4-quanto-a-substituibilidade-e-facil-substituir-dependencias-dos-modulo-file-exr-por-outras-bibliotecas-ou-versoes" title="Permanent link">&para;</a></h3>
+<h4 id="hipotese-a-substituicao-de-dependencias-do-modulo-file-exr-e-um-processo-complexo-que-exige-modificacoes-significativas-no-codigo-e-pode-comprometer-a-funcionalidade">Hipótese: A substituição de dependências do módulo File-exr é um processo complexo que exige modificações significativas no código e pode comprometer a funcionalidade.<a class="headerlink" href="#hipotese-a-substituicao-de-dependencias-do-modulo-file-exr-e-um-processo-complexo-que-exige-modificacoes-significativas-no-codigo-e-pode-comprometer-a-funcionalidade" title="Permanent link">&para;</a></h4>
+<h4 id="metrica-41-taxa-de-compatibilidade-com-versoes-alternativas">Métrica 4.1: Taxa de Compatibilidade com Versões Alternativas<a class="headerlink" href="#metrica-41-taxa-de-compatibilidade-com-versoes-alternativas" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Fórmula:</p>
+<p><code>Número de versões alternativas compatíveis / Total de versões testadas</code></p>
+<p><strong>Referência:</strong> <a href="#ref-1">[1]</a>, <a href="#ref-7">[7]</a></p>
+<p>Interpretação:
+- <strong>Alta Compatibilidade (Hipótese Refutada):</strong> ≥ 80% das versões são compatíveis
+- <strong>Baixa Compatibilidade (Hipótese Confirmada):</strong> &lt; 80% das versões são compatíveis</p>
+<p>Avalia a flexibilidade do módulo em trabalhar com diferentes versões de suas dependências principais.</p>
+</blockquote>
+<h4 id="metrica-42-esforco-de-adaptacao-para-novas-dependencias">Métrica 4.2: Esforço de Adaptação para Novas Dependências<a class="headerlink" href="#metrica-42-esforco-de-adaptacao-para-novas-dependencias" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Fórmula:</p>
+<p><code>Linhas de código modificadas / Total de linhas do módulo</code></p>
+<p><code>Tempo médio (em horas) para adaptar uma nova dependência</code></p>
+<p><strong>Referência:</strong> <a href="#ref-1">[1]</a>, <a href="#ref-8">[8]</a></p>
+<p>Interpretação:
+- <strong>Baixo Esforço (Hipótese Refutada):</strong> ≤ 5% de modificações no código e ≤ 8 horas de adaptação
+- <strong>Alto Esforço (Hipótese Confirmada):</strong> &gt; 5% de modificações ou &gt; 8 horas de adaptação</p>
+<p>Quantifica o trabalho necessário para substituir uma dependência existente por uma alternativa.</p>
+</blockquote>
+<h4 id="metrica-43-taxa-de-sucesso-em-testes-apos-substituicao">Métrica 4.3: Taxa de Sucesso em Testes após Substituição<a class="headerlink" href="#metrica-43-taxa-de-sucesso-em-testes-apos-substituicao" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Fórmula:</p>
+<p><code>Número de testes bem-sucedidos após substituição / Total de testes existentes</code></p>
+<p><strong>Referência:</strong> <a href="#ref-7">[7]</a></p>
+<p>Interpretação:
+- <strong>Alta Confiabilidade (Hipótese Refutada):</strong> ≥ 95% dos testes passam após substituição
+- <strong>Baixa Confiabilidade (Hipótese Confirmada):</strong> &lt; 95% dos testes passam após substituição</p>
+<p>Mede o impacto da substituição de dependências na estabilidade do módulo através da execução da suite de testes existente.</p>
+</blockquote>
+<h2 id="conclusoes">Conclusões<a class="headerlink" href="#conclusoes" title="Permanent link">&para;</a></h2>
+<p>Com a aplicação do método GQM, foi possível compreender de forma mais clara como o módulo file-exr do GIMP se comporta em relação à portabilidade, analisando aspectos como adaptabilidade, instalabilidade e substituibilidade. As métricas definidas ajudaram a observar como o módulo reage em diferentes sistemas operacionais, quanto tempo leva e quão consistente é o processo de instalação, além de verificar o quão simples é substituir suas dependências. Essa análise trouxe uma visão prática sobre os pontos fortes e as possíveis melhorias do módulo, contribuindo para torná-lo mais flexível e fácil de manter em diversos ambientes.</p>
+<blockquote>
+<p><em>OBS: Modelos de Linguagem de Grande Escala foram utilizados para realizar-se o brainstorm entre possíveis perguntas e possíveis métricas. Também foi utilizado para auxiliar na escrita em Markdown.</em></p>
+</blockquote>
+<h2 id="sobre-o-uso-de-ia">Sobre o uso de IA<a class="headerlink" href="#sobre-o-uso-de-ia" title="Permanent link">&para;</a></h2>
+<p>Para a elaboração deste documento, a Inteligência Artificial foi utilizada como ferramenta de apoio. Desta maneira, o seu uso concentrou-se, principalmente, em auxiliar a <strong>compreensão e o esclarecimento dos termos técnicos</strong> presentes nas normas (ISO/IEC 25010) e nos artigos e corporativos consultados. Adicionalmente, a IA foi empregada para a <strong>estruturação e organização das ideias</strong> na aplicação da metodologia GQM.</p>
+<h2 id="referencias-bibliograficas">Referências Bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Permanent link">&para;</a></h2>
+<p><a id="ref-1"></a>[1] FENTON, Norman; BIEMAN, James. Software Metrics: A Rigorous and Practical Approach. 3. ed. Boca Raton: CRC Press, 2015.</p>
+<p><a id="ref-2"></a>[2]  GOOGLE. Firebase Crashlytics: Métricas de crash-free. Disponível em: https://firebase.google.com/docs/crashlytics/crash-free-metrics?hl=pt-br
+. Acesso em: 24 out. 2025.</p>
+<p><a id="ref-3"></a>[3] HEADSPIN. Gain Insight Into Cross-Platform Performance Metrics. HeadSpin Blog, 2023. Disponível em: https://www.headspin.io/blog/gain-insight-into-cross-platform-performance-metrics
+. Acesso em: 24 out. 2025.</p>
+<p><a id="ref-4"></a>[4] B. BUMGARDNER. Benchmarking: When can I stop making measurements? Stack Overflow, 2009. Disponível em: https://stackoverflow.com/questions/1390047/benchmarking-when-can-i-stop-making-measurements
+. Acesso em: 24 out. 2025.</p>
+<p><a id="ref-5"></a>[5] LINKEDIN ENGINEERING. How We Identify and Stop Slow Latency Leaks at LinkedIn. 2017. Disponível em: https://www.linkedin.com/blog/engineering/optimization/fixing-the-plumbing-how-we-identify-and-stop-slow-latency-leaks
+. Acesso em: 24 out. 2025.</p>
+<p><a id="ref-6"></a>[6] ADJUST. How to track app uninstalls: Everything you need to know. Disponível em: https://www.adjust.com/blog/how-to-track-app-installs-and-uninstalls/
+. Acesso em: 24 out. 2025.</p>
+<p><a id="ref-7"></a>[7] INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. ISO/IEC 25036:2011 – Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality in use measures. Geneva: ISO, 2011.</p>
+<p><a id="ref-8"></a>[8] REPLICATED. Instance Insights: Install Success Rate. 2023. Disponível em: https://replicated.com/blog/instance-insights-install-success-rate
+. Acesso em: 24 out. 2025.</p>
+<h3 id="historico-de-versao"><strong>Histórico de Versão</strong><a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Versão</th>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Descrição</th>
+<th style="text-align: left;">Autor</th>
+<th style="text-align: left;">Revisor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">08/10/2025</td>
+<td style="text-align: left;">Criação do Documento.</td>
+<td style="text-align: left;"><a href="https://github.com/Vini47">Vinicius Castelo</a></td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a>, <a href="https://github.com/pedroeverton217">Pedro Everton</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">12/10/2025</td>
+<td style="text-align: left;">Adição de tabela e questões.</td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a>, <a href="https://github.com/pedroeverton217">Pedro Everton</a></td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">13/10/2025</td>
+<td style="text-align: left;">Conserta fórmulas.</td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a></td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.3</td>
+<td style="text-align: left;">19/10/2025</td>
+<td style="text-align: left;">Conserta perguntas.</td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.4</td>
+<td style="text-align: left;">21/10/2025</td>
+<td style="text-align: left;">Refatora os artefatos.</td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a>, <a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+<td style="text-align: left;"><a href="https://github.com/arthurevg">Arthur Evangelista</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">24/10/2025</td>
+<td style="text-align: left;">Adição da declaração de uso de IA.</td>
+<td style="text-align: left;"><a href="https://github.com/arthurevg">Arthur Evangelista</a></td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">25/10/2025</td>
+<td style="text-align: left;">Consertar tabela</td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">1.7</td>
+<td style="text-align: left;">25/10/2025</td>
+<td style="text-align: left;">Responder Q3 e Q4.</td>
+<td style="text-align: left;"><a href="https://github.com/brenoalexandre0">Breno Alexandre</a></td>
+<td style="text-align: left;"><a href="https://www.github.com/caio-venancio">Caio Venâncio</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.sections", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
