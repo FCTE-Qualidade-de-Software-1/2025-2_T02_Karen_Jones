@@ -683,7 +683,7 @@ As melhorias propostas devem focar na correção das falhas de produto, aproveit
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|   [Larissa Stéfane](https://github.com/SkywalkerSupreme)      |
-| 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
-| 1.2    | 22/11/2025 | Complementação do teste 01 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
-| 1.3    | 25/11/2025 | Complementação do teste 02 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | |
-| 1.4    | 26/11/2025 | Adição da conclusão | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | | 
+| 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |    [Caio Venâncio](https://www.github.com/caio-venancio)   |
+| 1.2    | 22/11/2025 | Complementação do teste 01 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) | [Arthur Evangelista](https://www.github.com/arthurevg)  | 
+| 1.3    | 25/11/2025 | Complementação do teste 02 | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |[Caio Venâncio](https://www.github.com/caio-venancio) |
+| 1.4    | 26/11/2025 | Adição da conclusão | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |  [Arthur Evangelista](https://www.github.com/arthurevg) | 

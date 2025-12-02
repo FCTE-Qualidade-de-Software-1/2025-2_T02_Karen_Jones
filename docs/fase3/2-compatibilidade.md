@@ -133,5 +133,5 @@ Dessa forma, a documentação final da avaliação será apresentada no arquivo 
 | Versão | Data       | Descrição                                         | Autor          | Revisor          |
 | :----- | :--------- | :------------------------------------------------ | :------------- | :--------------- |
 | 1.0    | 13/11/2025 | Criação do Documento. | [Caio Venâncio](https://www.github.com/caio-venancio)|      [Larissa Stéfane](https://github.com/SkywalkerSupreme)  |
-| 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
-| 1.2    | 25/11/2025 | Reestruturação | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |       |
+| 1.1    | 17/11/2025 | Adição das tabelas e textos | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |   [Caio Venâncio](https://www.github.com/caio-venancio)    |
+| 1.2    | 25/11/2025 | Reestruturação | [Larissa Stéfane](https://github.com/SkywalkerSupreme) |   [Arthur Evangelista](https://www.github.com/arthurevg)    |
