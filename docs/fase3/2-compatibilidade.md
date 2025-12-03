@@ -35,7 +35,7 @@ Com isso, a **Tabela 2** sintetiza o fluxo entre as métricas, suas respectivas 
 | Métrica | Fonte de Dados | Instrumento de Medição (Ferramenta) |
 | :--- | :--- | :--- |
 | **M1.1 (TSF), M1.2 (DDT)** | Execução do Round-Trip (GIMP ↔ Blender/Krita) | Planilha de Testes, Logs de Erro, Observação Manual. |
-| **M2.1 (APTC), M2.2 (APCM)** | Processo GIMP em tempo de execução | `time` (Linux), Gerenciador de Tarefas (Windows), Cronômetro. |
+| **M2.1 (APTC), M2.2 (APCM)** | Processo GIMP em tempo de execução | `time` (Linux), Gerenciador de memória, Cronômetro. |
 | **M3.1 (TMR)** | Dados históricos do Repositório (Issues) | GitLab Filters, Planilha de Coleta, Busca Documental. |
 
 
@@ -52,7 +52,6 @@ Para simular o fluxo de trabalho de um Designer Gráfico ou Artista VFX, o ambie
 | Recurso | Detalhe | Justificativa e Finalidade |
 | :--- | :--- | :--- |
 | **Sistema Operacional 1** | Distribuição Linux (Ex: **Ubuntu 22.04 LTS**). | Base principal para os testes de Coexistência (Q2) e Interoperabilidade (Q1). A escolha do Linux facilita a utilização de comandos de medição precisos, como `time` e `htop`, essenciais para métricas de desempenho. |
-| **Sistema Operacional 2** | Microsoft **Windows 11**. | Base de comparação essencial para Coexistência (Q2), pois atua como validador cruzado do *round-trip* em um ambiente diferente, detectando possíveis falhas específicas de API. |
 | **Software em Avaliação** | **GIMP 3.0.4** e seu módulo `file-exr`. | O objeto principal de medição. |
 | **Software de Referência 1** | **Blender** (Versão 3.x ou superior). | Atua como produtor e consumidor de arquivos `.exr` de alta qualidade (HDR, Multilayer) para testar o **Round-Trip** (Q1), simulando o cenário de um *pipeline* de renderização 3D. |
 | **Software de Referência 2** | **Krita** (Versão 5.x ou superior). | Atua como segundo validador independente para garantir a fidelidade do arquivo gerado pelo GIMP, aumentando a confiabilidade dos resultados de Interoperabilidade (Q1). |
@@ -70,7 +69,7 @@ Os instrumentos de medição são responsáveis por coletar os dados brutos de f
 | Métrica(s) | Instrumento de Medição (Ferramenta) | Onde Encontrar / Uso |
 | :--- | :--- | :--- |
 | **M1.1 (TSF) / M1.2 (DDT)** | **Planilha de Testes**, **Observação Manual** e **Logs de Erro**. | Registro de sucesso, falha e tipo de defeito encontrado em cada uma das 10 validações do *round-trip* (Q1). |
-| **M2.1 (APTC) / M2.2 (APCM)** | **Cronômetro nativo do SO** (ou comando `time` no Linux) e **Monitor de Recursos do SO** (Gerenciador de Tarefas no Windows; `top/htop` no Linux). | Medição precisa do tempo de carregamento e pico de consumo de RAM do processo GIMP antes e durante a abertura de um `.exr` (Q2). |
+| **M2.1 (APTC) / M2.2 (APCM)** | **Cronômetro nativo do SO** (ou comando `time` no Linux) e **Monitor de Recursos do SO** (Gerenciador de Tarefas `top/htop` no Linux). | Medição precisa do tempo de carregamento e pico de consumo de RAM do processo GIMP antes e durante a abertura de um `.exr` (Q2). |
 | **M3.1 (DDPL) / M3.2 (TMR)** | **Repositório GitLab do GIMP** (Seção *Issues*) e **Filtros de Busca**. | Coleta de dados de *issues* públicas para obter o número de defeitos e calcular o tempo de resolução médio (Q3). |
 | **Todos (Evidência)** | **Software de Gravação de Tela** (com auxilio do TEAMS). | Produzir as evidências em vídeo da execução dos testes na Fase 4. |
 
@@ -101,8 +100,7 @@ O teste avalia a sobrecarga do módulo `file-exr` no sistema em relação à ini
 3.  **Medição com Módulo Ativo (T2 e M2):** Fechar o GIMP e reiniciar a aplicação, mas desta vez **abrindo imediatamente** o arquivo `.exr` de **1.2 MB**.
     * Medir o **Tempo de Carregamento (T2)** (até o arquivo ser exibido).
     * Registrar o **Pico de Consumo de RAM (M2)**. Repetir 3 vezes e calcular a média.
-4.  **Validação Cruzada:** Repetir os passos 2 e 3 no **Sistema Operacional 2** (Windows 11).
-5.  **Cálculo:** Aplicar as fórmulas **APTC** e **APCM** com os valores médios registrados para determinar a sobrecarga.
+4.  **Cálculo:** Aplicar as fórmulas **APTC** e **APCM** com os valores médios registrados para determinar a sobrecarga.
 
 #### C. Roteiro de Teste de Eficácia do Processo (Q3: TMR)
 
